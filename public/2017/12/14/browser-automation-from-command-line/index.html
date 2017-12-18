@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Browser Automation from CommandLine using Curl and ChromeDriver  &middot; My blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="Chrome browser can be automated and controlled from the command line or terminal using Curl and ChromeDriver. This Article will describe how to use curl with ChromeDriver." />
+
+<meta name="keywords" content="Selenium,WebDriver,ChromeDriver,Testing,Curl,CommandLine,Terminal, ">
+
+<link rel="author" href="http://plus.google.com/+Myprofile">
+
+
+<meta property="og:title" content="Browser Automation from CommandLine using Curl and ChromeDriver  &middot; My blog ">
+<meta property="og:site_name" content="My blog"/>
+<meta property="og:url" content="/2017/12/14/browser-automation-from-command-line/" />
+<meta property="og:locale" content="en">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Chrome browser can be automated and controlled from the command line or terminal using Curl and ChromeDriver. This Article will describe how to use curl with ChromeDriver."/>
+<meta property="og:article:published_time" content="2017-12-14T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-14T00:00:00Z" />
+
+  
+    
+<meta property="og:article:tag" content="Selenium,WebDriver,ChromeDriver,Testing,Curl,CommandLine,Terminal">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Myprofile" />
+<meta name="twitter:creator" content="@Myprofile" />
+<meta name="twitter:title" content="Browser Automation from CommandLine using Curl and ChromeDriver" />
+<meta name="twitter:description" content="Chrome browser can be automated and controlled from the command line or terminal using Curl and ChromeDriver. This Article will describe how to use curl with ChromeDriver." />
+<meta name="twitter:url" content="/2017/12/14/browser-automation-from-command-line/" />
+<meta name="twitter:domain" content="/">
+  
+
+  
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Browser Automation from CommandLine using Curl and ChromeDriver",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+Myprofile?rel=author"
+    },
+    "datePublished": "2017-12-14",
+    "description": "Chrome browser can be automated and controlled from the command line or terminal using Curl and ChromeDriver. This Article will describe how to use curl with ChromeDriver.",
+    "wordCount": 592
+  }
+</script>
+  
+
+
+
+<link rel="canonical" href="/2017/12/14/browser-automation-from-command-line/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png">
+<meta name="generator" content="Hugo 0.31" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+    <header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="My awsome blog" src="http://blog.appernetic.io/images/apperneticlogo.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/#/about" >
+                <i class='fa fa-road'></i>
+                About
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/" >
+                
+                Dashboard
+              </a>
+            </li>
+            
+            
+              
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Browser Automation from CommandLine using Curl and ChromeDriver
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-12-14">14 Dec, 2017</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 3 min
+  &middot; (592 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver&amp;url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f&amp;title=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver&amp;body=Check out this site %2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="/tags/json-wire-protocol" class="label label-primary">JSON Wire Protocol</a>
+  
+  <a href="/tags/selenium-webdriver" class="label label-primary">Selenium WebDriver</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p>Browser automation from <a href="https://en.wikipedia.org/wiki/Command-line_interface">command-line</a> is possible after the release of HTTP servers like <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/chrome/ChromeDriver.html">ChromeDriver</a>, <a href="https://github.com/mozilla/geckodriver/releases">GeckoDriver</a> which are implementing the <a href="https://w3c.github.io/webdriver/webdriver-spec.html">W3C WebDriver standard</a> and follow all the standards of a normal server-client architecture in HTTP.</p>
+
+<p>In my other posts, I have <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">described what is JSONWire Protocol</a> and how it became a standard for the browser automation. I also described <a href="https://www.pawangaria.com/post/automation/browser-automation-using-chromedriver-and-postman/">how we can perform browser automation using postman tool</a>. Now in this article, I will show you how we can use simple curl HTTP commands to drive Chrome Browser.</p>
+
+<h4 id="start-chromedriver-server">Start ChromeDriver Server:</h4>
+
+<p>First, <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">download</a> the ChromeDriver and unzip the ChromeDriver to a particular directory. Now we need to first start the ChromeDriver Server like :</p>
+
+<p><strong>On Linux or Mac machines:</strong></p>
+
+<pre><code>./chromedriver &amp;
+</code></pre>
+
+<p><strong>On Windows machine:</strong></p>
+
+<pre><code>chromedriver.exe
+</code></pre>
+
+<p>After the successful start of the server you will see the following message on the terminal:</p>
+
+<pre><code>Starting ChromeDriver 2.33.506106 (8a06c39c4582fbfbab6966dbb1c38a9173bfb1a2) on port 9515
+Only local connections are allowed.
+</code></pre>
+
+<h4 id="check-curl-on-your-machine">Check Curl on your machine:</h4>
+
+<p>We will be using the <a href="https://curl.haxx.se/">Curl</a> tool for the request and response, So the curl should be installed on your machine.
+<strong>What is Curl</strong>
+Curl is a command line tool to transfer data. Curl support many of the data transfer protocols like DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS etc. Curl is free and open source project so there is no need for license or purchase. Anyone can install and start using curl.You can read more about Curl in the Following <a href="https://www.gitbook.com/book/bagder/everything-curl/details">Git Book everything-curl.</a> and <a href="https://curl.haxx.se/docs/manpage.html">Curl documentation page</a>.<br />
+Curl can be downloaded from their <a href="https://curl.haxx.se/download.html">website.</a>. Windows Users can follow instructions from the following <a href="https://stackoverflow.com/questions/9507353/how-do-i-install-set-up-and-use-curl-on-windows">link</a></p>
+
+<p><strong>How to Check Curl on your machine</strong><br />
+Open Command Line/Terminal on your machine and type following command:</p>
+
+<pre><code>$ curl -V
+
+curl 7.43.0 (x86_64-apple-darwin15.0) libcurl/7.43.0 SecureTransport zlib/1.2.5
+Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+Features: AsynchDNS IPv6 Largefile GSS-API Kerberos SPNEGO NTLM NTLM_WB SSL libz UnixSockets
+
+</code></pre>
+
+<p>This command will print the Curl version installed on your machine.</p>
+
+<p>Now after running ChromeDriver and installing Curl successfully on our machine, we can start the steps for browser automation.</p>
+
+<h4 id="step-1-create-session-and-open-chrome-browser">Step 1: Create Session and Open Chrome Browser:</h4>
+
+<p>First step is to create a session and you will see the browser is opened after this curl command.</p>
+
+<pre><code>curl  -d '{ &quot;desiredCapabilities&quot;: { &quot;caps&quot;: { &quot;nativeEvents&quot;: false, &quot;browserName&quot;: &quot;chrome&quot;, &quot;version&quot;: &quot;&quot;, &quot;platform&quot;: &quot;ANY&quot; } } }'  http://localhost:9515/session
+</code></pre>
+
+<pre><code>{&quot;sessionId&quot;:&quot;27f4262ab044392b05138540055a8fd6&quot;,&quot;status&quot;:0}
+</code></pre>
+
+<p><em>Note down the SessionID from the response as we need the session Id for future requests</em></p>
+
+<h4 id="step-2-open-google-com-url">Step 2: Open Google.com URL:</h4>
+
+<p>Now after getting the session we will open the website url www.Google.com</p>
+
+<pre><code>curl -d '{&quot;url&quot;:&quot;https://www.google.com&quot;}'http://localhost:9515/session/27f4262ab044392b05138540055a8fd6/url
+</code></pre>
+
+<pre><code>{&quot;sessionId&quot;:&quot;27f4262ab044392b05138540055a8fd6&quot;,&quot;status&quot;:0,&quot;value&quot;:null}
+</code></pre>
+
+<h4 id="step-3-find-the-search-textbox-webelement">Step 3: Find the Search TextBox WebElement:</h4>
+
+<p>As we have opened the URL and now we need to find the Search text box WebElement.</p>
+
+<pre><code>curl -d '{&quot;using&quot;:&quot;name&quot;,&quot;value&quot;:&quot;q&quot;}' http://localhost:9515/session/27f4262ab044392b05138540055a8fd6/element
+</code></pre>
+
+<pre><code>{&quot;sessionId&quot;:&quot;27f4262ab044392b05138540055a8fd6&quot;,&quot;status&quot;:0,&quot;value&quot;:{&quot;ELEMENT&quot;:&quot;0.676163294199567-1&quot;}}
+</code></pre>
+
+<p><em>Note down the ELEMENT Value from the response as this ElementID is representing the Element</em></p>
+
+<h4 id="step-4-enter-text-in-searchbox-webelement">Step 4: Enter Text in SearchBox WebElement:</h4>
+
+<p>Now we have the ElementID in which we want to send some text, So below Curl request will enter the text.</p>
+
+<pre><code>curl -d '{&quot;value&quot;:[&quot;chrome&quot;]}' http://localhost:9515/session/27f4262ab044392b05138540055a8fd6/element/0.676163294199567-1/value
+</code></pre>
+
+<pre><code>{&quot;sessionId&quot;:&quot;27f4262ab044392b05138540055a8fd6&quot;,&quot;status&quot;:0,&quot;value&quot;:null}
+</code></pre>
+
+<h4 id="step-4-quit-the-browser">Step 4: Quit the Browser:</h4>
+
+<p>After Running the Steps We need to close the browser using the below curl command.</p>
+
+<pre><code>curl -X DELETE http://localhost:9515/session/27f4262ab044392b05138540055a8fd6
+</code></pre>
+
+<pre><code>{&quot;sessionId&quot;:&quot;27f4262ab044392b05138540055a8fd6&quot;,&quot;status&quot;:0,&quot;value&quot;:null}}
+</code></pre>
+
+<p>I have described and used very basic actions on the browser in this article but with the knowledge of <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol">WebDiver Json Wire Protocol</a>, we can perform any action which can be done by Selenium WebDriver. Below is the small GIF for all the steps and action which we have discussed in this article.</p>
+
+<p><img src="/img/webdriver/chromeDriverAndCurlupdated.gif" alt="chromedriver-and-curl-to-automate-browser" /></p>
+
+<p>Thanks for Reading!</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver&amp;url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f&amp;title=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Browser%20Automation%20from%20CommandLine%20using%20Curl%20and%20ChromeDriver&amp;body=Check out this site %2f2017%2f12%2f14%2fbrowser-automation-from-command-line%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/2017/12/11/how-chromedriver-works-in-background/" title="How ChromeDriver works in the background?">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="/2017/12/15/what-is-testng/" title="What is TestNG?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//shortname.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+      <header><div class="title"><b>Latest Posts</b></div></header>
+      <div class="content">
+        <ul>
+        
+          <li>
+          <a href="/2017/12/17/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/16/what-are-testng-annotations/">What are TestNG Annotations?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/15/what-is-testng/">What is TestNG?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/14/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/11/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/08/browser-automation-using-chromedriver-and-postman/">Browser automation using ChromeDriver and Postman</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/05/how-to-use-chromedriver-with-selenium-webdriver/">How to use ChromeDriver with Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/">What is RemoteWebDriver in Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/03/how-selenium-webdriver-api-commands-work/">How Selenium-WebDriver API commands work?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/11/30/selenium-webdriver-architecture-using-json-wire-protocol/">Understanding the Architecture of Selenium WebDriver</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>tag</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/tags/test-automation">test-automation</a></li><li><a href="/tags/selenium-webdriver">selenium-webdriver</a></li><li><a href="/tags/testng">testng</a></li><li><a href="/tags/json-wire-protocol">json-wire-protocol</a></li><li><a href="/tags/google-firebase">google-firebase</a></li><li><a href="/tags/web-hosting">web-hosting</a></li><li><a href="/tags/annotations">annotations</a></li><li><a href="/tags/chrome">chrome</a></li><li><a href="/tags/gas-mask">gas-mask</a></li><li><a href="/tags/hostfile">hostfile</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+    
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+<a href="/disclaimer/">Disclaimer</a> <i>&middot;</i>
+
+<a href="/terms/">Terms</a> 
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+<div class="container copyright">
+    <small>
+  &copy; 2016 Copyright my blog
+
+  </small>
+</div>
+
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/angular.min.js"></script>
+<script src="/js/popover/angular-storage.min.js"></script>
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','Your Google Analytics tracking code'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  true , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+<script src="/js/popover/angular-modal-service.min.js"></script>
+<script src="/js/angular-ismobile.min.js"></script>
+<script src="/js/popover/popover.min.js"></script>
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG  &middot; My blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="Integrating your Automated Usecases in java with Gurock Test Rail API&#39;s and pushing test results to Testrail UI." />
+
+<meta name="keywords" content="TestRail,Testing,Automation,Reporting,TestCaseManagement, ">
+
+<link rel="author" href="http://plus.google.com/+Myprofile">
+
+
+<meta property="og:title" content="Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG  &middot; My blog ">
+<meta property="og:site_name" content="My blog"/>
+<meta property="og:url" content="/2017/11/23/testrail-integration-with-java-testng/" />
+<meta property="og:locale" content="en">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Integrating your Automated Usecases in java with Gurock Test Rail API&#39;s and pushing test results to Testrail UI."/>
+<meta property="og:article:published_time" content="2017-11-23T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-11-23T00:00:00Z" />
+
+  
+    
+<meta property="og:article:tag" content="TestRail,Testing,Automation,Reporting,TestCaseManagement">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Myprofile" />
+<meta name="twitter:creator" content="@Myprofile" />
+<meta name="twitter:title" content="Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG" />
+<meta name="twitter:description" content="Integrating your Automated Usecases in java with Gurock Test Rail API&#39;s and pushing test results to Testrail UI." />
+<meta name="twitter:url" content="/2017/11/23/testrail-integration-with-java-testng/" />
+<meta name="twitter:domain" content="/">
+  
+
+  
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+Myprofile?rel=author"
+    },
+    "datePublished": "2017-11-23",
+    "description": "Integrating your Automated Usecases in java with Gurock Test Rail API&#39;s and pushing test results to Testrail UI.",
+    "wordCount": 467
+  }
+</script>
+  
+
+
+
+<link rel="canonical" href="/2017/11/23/testrail-integration-with-java-testng/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png">
+<meta name="generator" content="Hugo 0.31" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+    <header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="My awsome blog" src="http://blog.appernetic.io/images/apperneticlogo.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/#/about" >
+                <i class='fa fa-road'></i>
+                About
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/" >
+                
+                Dashboard
+              </a>
+            </li>
+            
+            
+              
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-11-23">23 Nov, 2017</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 3 min
+  &middot; (467 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG&amp;url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f&amp;title=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG&amp;body=Check out this site %2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/java" class="label label-primary">Java</a>
+  
+  <a href="/tags/testng" class="label label-primary">testNG</a>
+  
+  <a href="/tags/testrail" class="label label-primary">TestRail</a>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<h4 id="what-is-testrail">What is TestRail?</h4>
+
+<p><a href="http://www.gurock.com/testrail/">Gurock TestRail</a> is a modern and very nice tool for the Test Case Management by Quality Assurance and Development Team.
+TestManagement tools are very helpful for managing the test cases and TestRail is pack with very useful features like web-based application, Rest API integration etc.</p>
+
+<p><img src="/img/testRail/TestRail-report-test-management.png" alt="TestRail-test-management-report-web" /></p>
+
+<h4 id="why-to-use-testmanagement-tool-with-automation">Why to use TestManagement Tool with Automation?</h4>
+
+<p>While making Regression or any kind of Test Automation suit there is a need of maintaining Use cases and maintain the repository which anyone can access and see what use cases are been automated and what is left. It is very helpful for the continues Integration Pipeline that we can generate and see the reports in one place for Automated Test results.</p>
+
+<p><img src="/img/testRail/TestRail-testcase-result-status-update.png" alt="TestRail-testcase-result-status-update" /></p>
+
+<p>There is a need for Integrating Test Management Tool like TestRail with the Java and TestNG based Automated Test Framework to mark every test run results in the common web-based platform.
+In this blog, I am going to use TestRail as Test Management tool and will explain the steps to integrate your framework using Rest API&rsquo;s.</p>
+
+<h4 id="how-to-integrate-automated-test-with-testrail">How to integrate Automated Test with TestRail?</h4>
+
+<p>I am explaining the steps to write your logic in Java and you can also follow the steps to make integration work for your framework</p>
+
+<p>STEP 1: First create one new <em>Annotation Class</em></p>
+
+<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface UseAsTestRailId
+{
+int testRailId() default 0;
+String[] tags() default &quot;&quot;;
+}
+</code></pre>
+
+<p>STEP 2: Use the above annotation in TestNg class file with other test.</p>
+
+<p>Every <em>@Test</em> here is mapped with the use case in TestRail, So we got the TestRail unique Id for every test.</p>
+
+<pre><code class="language-java">@Test
+@UseAsTestRailId(testRailId=&lt;TestRail Id for this Usecase&gt;)
+public void yourTestNumberSomething()
+{
+  // Do your testing steps here which are mapped to TestRail usecase.
+}
+</code></pre>
+
+<p>STEP 3: You can use TestNG for every test, so that you can execute the TestRail API after the test execution.</p>
+
+<pre><code class="language-java">@Listeners(com.gurock.testrail.Listener.class)
+public class TestClass {
+    // All the Test will be here ...
+}
+</code></pre>
+
+<p>STEP 4: You need to call the TestRail from Listener Class. Like I am calling the API in the <em>onTestSuccess</em> Method.</p>
+
+<pre><code class="language-java">public void onTestSuccess(ITestResult result) {
+String TestID=null;
+IClass obj = result.getTestClass();
+Class newobj = obj.getRealClass();
+Method testMethod = newobj.getMethod(result.getName());
+if (testMethod.isAnnotationPresent(UseAsTestRailId.class))
+{
+UseAsTestRailId useAsTestName = testMethod.getAnnotation(UseAsTestRailId.class);
+// Get the TestCase ID for TestRail
+TestID = Integer.toString(useAsTestName.testRailId());
+System.out.println(&quot;Test Rail ID = &quot; + TestID);
+}
+// Now you can call the TestRail post API call to update the result in TestRail database based on the TestRun Id and TestCase Id.
+
+JSONObject r = (JSONObject) client.sendPost(&quot;add_result_for_case/TestCaseID/TestRunID&quot;, data);
+}
+</code></pre>
+
+<h4 id="final-result-and-reporting">Final Result and Reporting</h4>
+
+<p>Now integrating TestRail UseCases Id with automated test, We will have the test run result history for the particular UseCases.</p>
+
+<p><img src="/img/testRail/TestRail-usecase-report-automation.png" alt="testRail-usecase-updated-back-in-automation" /></p>
+
+<p>You can change and improve the code and logic based on your requirements and send me feedback about your experience with the integration.</p>
+
+<p>Thanks for reading!</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG&amp;url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f&amp;title=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Integrate%20Gurock%20TestRail%20with%20Automated%20TestCases%20in%20Java%2bTestNG&amp;body=Check out this site %2f2017%2f11%2f23%2ftestrail-integration-with-java-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/2016/04/24/what-is-hugo/" title="What is Hugo?">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="/2017/11/24/capture-fullpage-screenshot-chrome/" title="Capture Full page Screenshots using Chrome Browser">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//shortname.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+      <header><div class="title"><b>Latest Posts</b></div></header>
+      <div class="content">
+        <ul>
+        
+          <li>
+          <a href="/2017/12/17/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/16/what-are-testng-annotations/">What are TestNG Annotations?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/15/what-is-testng/">What is TestNG?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/14/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/11/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/08/browser-automation-using-chromedriver-and-postman/">Browser automation using ChromeDriver and Postman</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/05/how-to-use-chromedriver-with-selenium-webdriver/">How to use ChromeDriver with Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/">What is RemoteWebDriver in Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/03/how-selenium-webdriver-api-commands-work/">How Selenium-WebDriver API commands work?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/11/30/selenium-webdriver-architecture-using-json-wire-protocol/">Understanding the Architecture of Selenium WebDriver</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>tag</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/tags/test-automation">test-automation</a></li><li><a href="/tags/selenium-webdriver">selenium-webdriver</a></li><li><a href="/tags/testng">testng</a></li><li><a href="/tags/json-wire-protocol">json-wire-protocol</a></li><li><a href="/tags/google-firebase">google-firebase</a></li><li><a href="/tags/web-hosting">web-hosting</a></li><li><a href="/tags/annotations">annotations</a></li><li><a href="/tags/chrome">chrome</a></li><li><a href="/tags/gas-mask">gas-mask</a></li><li><a href="/tags/hostfile">hostfile</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+    
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+<a href="/disclaimer/">Disclaimer</a> <i>&middot;</i>
+
+<a href="/terms/">Terms</a> 
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+<div class="container copyright">
+    <small>
+  &copy; 2016 Copyright my blog
+
+  </small>
+</div>
+
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/angular.min.js"></script>
+<script src="/js/popover/angular-storage.min.js"></script>
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','Your Google Analytics tracking code'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  true , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+<script src="/js/popover/angular-modal-service.min.js"></script>
+<script src="/js/angular-ismobile.min.js"></script>
+<script src="/js/popover/popover.min.js"></script>
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

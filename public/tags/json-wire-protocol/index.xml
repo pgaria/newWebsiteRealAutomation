@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Json Wire Protocol on My blog</title>
+    <link>/tags/json-wire-protocol/</link>
+    <description>Recent content in Json Wire Protocol on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>yourname@example.com (yourname)</managingEditor>
+    <webMaster>yourname@example.com (yourname)</webMaster>
+    <copyright>(c) 2016 Copyright my blog</copyright>
+    <lastBuildDate>Thu, 14 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/json-wire-protocol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Browser Automation from CommandLine using Curl and ChromeDriver</title>
+      <link>/2017/12/14/browser-automation-from-command-line/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/12/14/browser-automation-from-command-line/</guid>
+      <description>Browser automation from command-line is possible after the release of HTTP servers like ChromeDriver, GeckoDriver which are implementing the W3C WebDriver standard and follow all the standards of a normal server-client architecture in HTTP.
+In my other posts, I have described what is JSONWire Protocol and how it became a standard for the browser automation. I also described how we can perform browser automation using postman tool. Now in this article, I will show you how we can use simple curl HTTP commands to drive Chrome Browser.</description>
+    </item>
+    
+    <item>
+      <title>Browser automation using ChromeDriver and Postman</title>
+      <link>/2017/12/08/browser-automation-using-chromedriver-and-postman/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/12/08/browser-automation-using-chromedriver-and-postman/</guid>
+      <description>If you are using WebDriver or learning how to use Selenium for test automation, you must be using some programming language like Java or PHP, etc. for automation and performing actions on browsers like Chrome. But in this article we are not going to use WebDriver Client Like Java or PHP, etc. and we will perform actions like open URL, Click Button or Enter Text using ChromeDriver and PostMan tool.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the Architecture of Selenium WebDriver</title>
+      <link>/2017/11/30/selenium-webdriver-architecture-using-json-wire-protocol/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/11/30/selenium-webdriver-architecture-using-json-wire-protocol/</guid>
+      <description>Selenium WebDriver provides a programming interface for driving the browser for automation testing. You can find the introduction of WebDriver in my other article. This article is more about the architecture and understanding how selenium WebDriver uses JSON Wire Protocol.
+JSON Wire Protocol is an abstract specification of how automation behavior like clicking or typing or whatever you actually want to do with your automation script is mapped to selenium or appium or HTTP requests and response.</description>
+    </item>
+    
+  </channel>
+</rss>

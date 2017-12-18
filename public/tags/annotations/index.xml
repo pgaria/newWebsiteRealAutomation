@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Annotations on My blog</title>
+    <link>/tags/annotations/</link>
+    <description>Recent content in Annotations on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>yourname@example.com (yourname)</managingEditor>
+    <webMaster>yourname@example.com (yourname)</webMaster>
+    <copyright>(c) 2016 Copyright my blog</copyright>
+    <lastBuildDate>Sat, 16 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/annotations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What are TestNG Annotations?</title>
+      <link>/2017/12/16/what-are-testng-annotations/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/12/16/what-are-testng-annotations/</guid>
+      <description>Before talking about annotations we should talk a little bit about why TestNG is required and what is the need for using any test management frameworks in our test.
+All the tests are designed to allow you to quickly verify your application using a very large and diverse set of different data inputs. So test management tools are responsible for managing our test and provide many functionalities or you can say methods we can directly use in Test and no need to write the logic again like comparing two objects, pre-setup for Test, passing a different set of data and many more.</description>
+    </item>
+    
+  </channel>
+</rss>

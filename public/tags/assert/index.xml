@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assert on My blog</title>
+    <link>/tags/assert/</link>
+    <description>Recent content in Assert on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>yourname@example.com (yourname)</managingEditor>
+    <webMaster>yourname@example.com (yourname)</webMaster>
+    <copyright>(c) 2016 Copyright my blog</copyright>
+    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/assert/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TestNG Results: Success, Failure and Assert</title>
+      <link>/2017/12/15/testng-test-results/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/12/15/testng-test-results/</guid>
+      <description>In testing Test is considered successful if it completed without throwing an exception or test successfully validated expected results. Sometimes @test threw an exception that was expected and we mark test as success. TestNG can not just decide what should be the results of the Test by himself, So we need to provide the expected data and expected conditions.
+TestNG use the concept of Assert from Java and can be used for adding validation and conditions in your test cases.</description>
+    </item>
+    
+  </channel>
+</rss>

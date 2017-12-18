@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hostfile on My blog</title>
+    <link>/tags/hostfile/</link>
+    <description>Recent content in Hostfile on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>yourname@example.com (yourname)</managingEditor>
+    <webMaster>yourname@example.com (yourname)</webMaster>
+    <copyright>(c) 2016 Copyright my blog</copyright>
+    <lastBuildDate>Mon, 27 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hostfile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Editing Host file using GasMask on Mac OS X</title>
+      <link>/2017/11/27/host-file-editing-gasmask/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      <author>yourname@example.com (yourname)</author>
+      <guid>/2017/11/27/host-file-editing-gasmask/</guid>
+      <description>R u using MAC OS X and tired of editing host file entries then Gas Mask is a very good solution for you.
+Gas Mask is an open source project which can be used as host file manager and it allows switching between the host files. Gas Mask is only available for MAC OS X operating systems.
+As per the documentation of Gas mask you can run it on the following versions :</description>
+    </item>
+    
+  </channel>
+</rss>

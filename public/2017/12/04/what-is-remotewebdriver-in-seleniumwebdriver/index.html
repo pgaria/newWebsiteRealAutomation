@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>What is RemoteWebDriver in Selenium WebDriver?  &middot; My blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="What is RemoteWebDriver in Selenium WebDriver and when where and how to use RemoteWebDriver in our test design?" />
+
+<meta name="keywords" content="SeleniumWebDriver,RemoteWebDriver,Testing,Automation, ">
+
+<link rel="author" href="http://plus.google.com/+Myprofile">
+
+
+<meta property="og:title" content="What is RemoteWebDriver in Selenium WebDriver?  &middot; My blog ">
+<meta property="og:site_name" content="My blog"/>
+<meta property="og:url" content="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/" />
+<meta property="og:locale" content="en">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="What is RemoteWebDriver in Selenium WebDriver and when where and how to use RemoteWebDriver in our test design?"/>
+<meta property="og:article:published_time" content="2017-12-04T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-04T00:00:00Z" />
+
+  
+    
+<meta property="og:article:tag" content="SeleniumWebDriver,RemoteWebDriver,Testing,Automation">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Myprofile" />
+<meta name="twitter:creator" content="@Myprofile" />
+<meta name="twitter:title" content="What is RemoteWebDriver in Selenium WebDriver?" />
+<meta name="twitter:description" content="What is RemoteWebDriver in Selenium WebDriver and when where and how to use RemoteWebDriver in our test design?" />
+<meta name="twitter:url" content="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/" />
+<meta name="twitter:domain" content="/">
+  
+
+  
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "What is RemoteWebDriver in Selenium WebDriver?",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+Myprofile?rel=author"
+    },
+    "datePublished": "2017-12-04",
+    "description": "What is RemoteWebDriver in Selenium WebDriver and when where and how to use RemoteWebDriver in our test design?",
+    "wordCount": 503
+  }
+</script>
+  
+
+
+
+<link rel="canonical" href="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png">
+<meta name="generator" content="Hugo 0.31" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+    <header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="My awsome blog" src="http://blog.appernetic.io/images/apperneticlogo.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/#/about" >
+                <i class='fa fa-road'></i>
+                About
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://appernetic.io/app/" >
+                
+                Dashboard
+              </a>
+            </li>
+            
+            
+              
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>What is RemoteWebDriver in Selenium WebDriver?
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-12-04">4 Dec, 2017</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 3 min
+  &middot; (503 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f&amp;url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f&amp;title=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f&amp;body=Check out this site %2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="/tags/selenium-webdriver" class="label label-primary">Selenium WebDriver</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<h4 id="what-is-remotewebdriver">What is RemoteWebDriver?</h4>
+
+<p><a href="https://github.com/SeleniumHQ/selenium/wiki/RemoteWebDriver">RemoteWebDriver</a> in <a href="http://www.seleniumhq.org/projects/webdriver/">Selenium Webdriver</a> implements each of the <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSONWireProtocol commands</a> and maps them into an action that can be performed on a remote machine.</p>
+
+<p>RemoteWebDriver is a <a href="http://guyhaas.com/bfoit/itp/JavaClass.html">Class</a> in the <code>package org.openqa.selenium.remote</code> inside the Client Project of WebDiver.
+ <code>RemoteWebDriver.class</code> implements multiple interface like WebDriver(<em>Yes WebDriver is an Interface not a Class as I have seen many people confused about this information</em>), FindsById, FindsByClassName, FindsByLinkText etc.</p>
+
+<pre><code class="language-java">package org.openqa.selenium.remote;
+public class RemoteWebDriver implements WebDriver, JavascriptExecutor,
+      FindsById, FindsByClassName, FindsByLinkText, FindsByName,
+      FindsByCssSelector, FindsByTagName, FindsByXPath,
+      HasInputDevices, HasCapabilities, Interactive, TakesScreenshot
+</code></pre>
+
+<p><a href="https://en.wikipedia.org/wiki/Javadoc">JavaDoc</a> for the RemoteWebdriver explains all the details about the Class and its Methods,SubClasses and Interface implement in <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html">gitHub Url</a>.</p>
+
+<p><strong>Now the question is who use this RemoteWebdriver.class?</strong></p>
+
+<p>All the Browser Driver Class are the child class of RemoteDriver means they are extending the RemoteWebDriver.Class. Few examples of the drivers are below..</p>
+
+<pre><code class="language-java">public class ChromeDriver extends RemoteWebDriver
+    implements LocationContext, WebStorage, HasTouchScreen, NetworkConnection {
+</code></pre>
+
+<pre><code class="language-java">public class FirefoxDriver extends RemoteWebDriver {
+</code></pre>
+
+<pre><code class="language-java">public class InternetExplorerDriver extends RemoteWebDriver {
+</code></pre>
+
+<p>So whenever in our test class we create a Driver instance by using the line
+  <code>WebDriver driver = new ChromeDriver();</code> we are always creating an instance of the RemoteDriver Class automatically.</p>
+
+<h4 id="can-we-use-the-remotewebdriver-class-directly-in-our-test">Can we use the RemoteWebDriver class directly in our Test?</h4>
+
+<p>Yes we can directly create an instance of the RemoteWebDriver Class as well because drivers are local  implementation that controls a browser running on the local machine, If we want to Run our Test Cases not only in our local browsers but on the distributed systems like cloud application <a href="https://saucelabs.com/enterprise#automated-testing-platform">Sauce Lab</a> or <a href="https://www.browserstack.com/automate">BrowserStack</a> or <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a>. We must use RemoteWebDriver class instance and pass the proper DesiredCapabilities like:</p>
+
+<pre><code class="language-java">public void createChromeDriverForRemote(){
+ WebDriver driver = new RemoteWebDriver(remoteUrl,
+          DesiredCapabilities.chrome());
+    }
+</code></pre>
+
+<p><img src="/img/webdriver/remote-webdriver-in-cloud.png" alt="remote-webdriver-in-cloud" /></p>
+
+<h4 id="how-remotewebdriver-works">How RemoteWebDriver Works?</h4>
+
+<p>Let&rsquo;s understand what are the methods involved and class RemoteWebDriver use to perform any action from our test programme.  I am going to use <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> here for the explanation and will be trying to explain step by step.</p>
+
+<pre><code class="language-java">System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);
+DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+WebDriver driver = new RemoteWebDriver(new URL(url), desiredCapabilities);
+driver.get(&quot;http://www.google.com&quot;);
+</code></pre>
+
+<p>When we create an instance of the RemoteWebDriver by passing the URL and <a href="https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities">DesiredCapabilities</a> object using the following line<br />
+<code>WebDriver driver = new RemoteWebDriver(new URL(url), desiredCapabilities);</code></p>
+
+<p>Constructor method of RemoteWebDriver class is invoked and create a session for your test scripts. There are multiple methods call inside and you receive the sessionId for you Test. RemoteWebDriver Class use two another important class: <code>DriverCommandExecutor.class</code> and <code>HttpCommandExecutor.class</code></p>
+
+<p>HttpCommandExecutor.class has a very important method as <em>execute</em> which is used to execute all the WebDriver commands and initializing the <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/HttpClient.html">HttpClient</a> which is used to send and receive the HTTP requests between server and client.</p>
+
+<pre><code class="language-java">public Response execute(Command command) throws IOException {
+    ...........
+}
+</code></pre>
+
+<p><img src="/img/webdriver/execute-command-in-HttpCommandExecuter.png" alt="execute-command-in-HttpCommandExecuter" /></p>
+
+<p>So every command like Get or findElement goes through this execute method and send to the server and return the Response Class object. All the details about the methods and class details are explained in the <a href="https://seleniumhq.github.io/selenium/docs/api/java/overview-summary.html">selenium API javaDocs</a>. I recommend everyone to <a href="https://github.com/SeleniumHQ/selenium/wiki/Building-WebDriver">build webdriver</a> on there local machines and try to look into the classes and methods.</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f&amp;url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f&amp;title=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=What%20is%20RemoteWebDriver%20in%20Selenium%20WebDriver%3f&amp;body=Check out this site %2f2017%2f12%2f04%2fwhat-is-remotewebdriver-in-seleniumwebdriver%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/2017/12/03/how-selenium-webdriver-api-commands-work/" title="How Selenium-WebDriver API commands work?">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="/2017/12/05/how-to-use-chromedriver-with-selenium-webdriver/" title="How to use ChromeDriver with Selenium WebDriver?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//shortname.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+      <header><div class="title"><b>Latest Posts</b></div></header>
+      <div class="content">
+        <ul>
+        
+          <li>
+          <a href="/2017/12/17/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/16/what-are-testng-annotations/">What are TestNG Annotations?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/15/what-is-testng/">What is TestNG?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/14/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/11/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/08/browser-automation-using-chromedriver-and-postman/">Browser automation using ChromeDriver and Postman</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/05/how-to-use-chromedriver-with-selenium-webdriver/">How to use ChromeDriver with Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/04/what-is-remotewebdriver-in-seleniumwebdriver/">What is RemoteWebDriver in Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/12/03/how-selenium-webdriver-api-commands-work/">How Selenium-WebDriver API commands work?</a>
+          </li>
+        
+          <li>
+          <a href="/2017/11/30/selenium-webdriver-architecture-using-json-wire-protocol/">Understanding the Architecture of Selenium WebDriver</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>tag</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/tags/test-automation">test-automation</a></li><li><a href="/tags/selenium-webdriver">selenium-webdriver</a></li><li><a href="/tags/testng">testng</a></li><li><a href="/tags/json-wire-protocol">json-wire-protocol</a></li><li><a href="/tags/google-firebase">google-firebase</a></li><li><a href="/tags/web-hosting">web-hosting</a></li><li><a href="/tags/annotations">annotations</a></li><li><a href="/tags/chrome">chrome</a></li><li><a href="/tags/gas-mask">gas-mask</a></li><li><a href="/tags/hostfile">hostfile</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+    
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+<a href="/disclaimer/">Disclaimer</a> <i>&middot;</i>
+
+<a href="/terms/">Terms</a> 
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+<div class="container copyright">
+    <small>
+  &copy; 2016 Copyright my blog
+
+  </small>
+</div>
+
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/angular.min.js"></script>
+<script src="/js/popover/angular-storage.min.js"></script>
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','Your Google Analytics tracking code'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  true , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+<script src="/js/popover/angular-modal-service.min.js"></script>
+<script src="/js/angular-ismobile.min.js"></script>
+<script src="/js/popover/popover.min.js"></script>
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+
