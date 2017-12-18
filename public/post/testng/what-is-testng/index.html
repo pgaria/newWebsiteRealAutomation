@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>What is TestNG?  &middot; Testing, Automation, Programming and Latest Technology Articles</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use." />
+
+<meta name="keywords" content="TestNG,Java,Eclipse,testing,unittesting">
+
+
+<meta property="og:title" content="What is TestNG?  &middot; Testing, Automation, Programming and Latest Technology Articles ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="/post/testng/what-is-testng/" />
+<meta property="og:locale" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use."/>
+<meta property="og:article:published_time" content="2017-12-15T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-15T00:00:00Z" />
+
+  
+    
+<meta property="og:article:tag" content="TestNG,Java,Eclipse,testing,unittesting">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="What is TestNG?" />
+<meta name="twitter:description" content="TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use." />
+<meta name="twitter:url" content="/post/testng/what-is-testng/" />
+<meta name="twitter:domain" content="/">
+  
+
+  
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "What is TestNG?",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2017-12-15",
+    "description": "TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use.",
+    "wordCount": 425
+  }
+</script>
+  
+
+
+
+<link rel="canonical" href="/post/testng/what-is-testng/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png">
+<meta name="generator" content="Hugo 0.31" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+    <header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="PawanGaria.com" src="/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/categories/" >
+                
+                SELECT A CATEGORY
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>What is TestNG?
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-12-15">15 Dec, 2017</time>
+</small>
+
+
+  <small>
+    &middot; by Pawan Garia
+  
+  &middot; Read in about 2 min
+  &middot; (425 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=What%20is%20TestNG%3f&amp;url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftestng%2fwhat-is-testng%2f&amp;title=What%20is%20TestNG%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=What%20is%20TestNG%3f&amp;body=Check out this site %2fpost%2ftestng%2fwhat-is-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="/tags/testng" class="label label-primary">TestNG</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p><a href="http://testng.org/doc/">TestNG</a> is a test management framework inspired from <a href="http://junit.org/junit5/">JUnit</a> and <a href="http://nunit.org/">NUnit</a> frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust <em>NG</em> stands for <em>next generation</em>.</p>
+
+<p>TestNG can be used in all the phases of testing like Unit testing, integration testing or system testing. TestNG provides better support compare to Junit and other frameworks as the new release and bug fixes are very frequent compared to Junit. TestNG is supported by a variety of tools and plug-ins like (Eclipse, IntelliJ IDEA, Maven, Ant etc.</p>
+
+<h3 id="how-to-use-testng">How to use TestNG?</h3>
+
+<p>TestNG can be used as the <a href="https://maven.apache.org/">maven</a> dependency in our project or TestNg can be placed in the build path as the jar file.In this article, we will be using maven as dependency management tool.</p>
+
+<p><strong>Tools we will use:</strong></p>
+
+<ul>
+<li>TestNG</li>
+<li>Maven</li>
+<li>Eclipse</li>
+</ul>
+
+<h3 id="testng-maven-dependency">TestNG maven Dependency</h3>
+
+<p>We need to add TestNG dependency in to our <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">Pom.xml</a> file.
+Pom is an XML file that contains information about the project and configuration details used by Maven to build the project.</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.testng&lt;/groupId&gt;
+  &lt;artifactId&gt;testng&lt;/artifactId&gt;
+  &lt;version&gt;6.11&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>You can get the latest version and dependency detail from the <a href="https://mvnrepository.com/artifact/org.testng/testng">maven central repository</a>.</p>
+
+<h3 id="how-to-use-testng-in-my-test-class">How to use TestNG in My Test Class?</h3>
+
+<p><strong>Create an Addition class for adding two integer values:</strong></p>
+
+<pre><code class="language-Java">package com.tutorial.testng;
+
+public class Addition {
+
+    public int addValues(int a, int b) {
+        return a + b;
+    }
+}
+</code></pre>
+
+<p><strong>Now we are going to create Test Class:</strong></p>
+
+<pre><code class="language-Java">package com.tutorial.testng;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import com.tutorial.testng.Addition;
+
+public class TestngIntroductionTest {
+
+    @Test
+    public void verifyAdditionOfIntegers() {
+
+        Addition obj = new Addition();
+        int additionResult = obj.addValues(5, 4);
+
+        Assert.assertNotNull(additionResult);
+        Assert.assertEquals(additionResult, 9);
+    }
+}
+</code></pre>
+
+<p>This is a simple class where <em>@Test</em> is defined as Test method. So every method annoted by <em>@Test</em> in our class will be considered as Test method or test case sometime.</p>
+
+<h3 id="how-to-run-my-test-class">How to run my Test Class?</h3>
+
+<p>Now the next step is running our Test and for that, we will use Eclipse TestNG plugin which is an IDE.</p>
+
+<p><strong>Install TestNG Eclipse plugin:</strong><br />
+To run and use TestNg in eclipse IDE we need to install the TestNG plugin in our Eclipse application. If you don&rsquo;t have TestNG installed already, you can follow the steps mentioned in the <a href="http://testng.org/doc/download.html">TestNg official download</a> or <a href="http://testng.org/doc/eclipse.html">eclipse guide</a>.</p>
+
+<p>Now to Run our test <em>Right Click</em> on the Test Class and click <em>Run As -&gt; TestNG Test</em>.</p>
+
+<p><img src="/img/testng/right-click-on-test-class-testng-run.png" alt="testng-eclipse-test-run" /></p>
+
+<p>After successfully running the Test, You will see the test results in two places:<br />
+<strong>Eclipse TestNG plugin View:</strong>
+<img src="/img/testng/testng-plugin-test-result.png" alt="testng-plugin-test-result" /></p>
+
+<p><strong>Eclipse Console View:</strong>
+<img src="/img/testng/console-test-result.png" alt="console-test-result" /></p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=What%20is%20TestNG%3f&amp;url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2ftestng%2fwhat-is-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftestng%2fwhat-is-testng%2f&amp;title=What%20is%20TestNG%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=What%20is%20TestNG%3f&amp;body=Check out this site %2fpost%2ftestng%2fwhat-is-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/post/automation/browser-automation-from-command-line/" title="Browser Automation from CommandLine using Curl and ChromeDriver">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="/post/testng/what-are-testng-annotations/" title="What are TestNG Annotations?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+      <header><div class="title"><b>Latest Posts</b></div></header>
+      <div class="content">
+        <ul>
+        
+          <li>
+          <a href="/post/testng/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+          </li>
+        
+          <li>
+          <a href="/post/testng/what-are-testng-annotations/">What are TestNG Annotations?</a>
+          </li>
+        
+          <li>
+          <a href="/post/testng/what-is-testng/">What is TestNG?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/browser-automation-using-chromedriver-and-postman/">Browser automation using ChromeDriver and Postman</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-to-use-chromedriver-with-selenium-webdriver/">How to use ChromeDriver with Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">What is RemoteWebDriver in Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-selenium-webdriver-api-commands-work/">How Selenium-WebDriver API commands work?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">Understanding the Architecture of Selenium WebDriver</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>category</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/categories/automation-testing">automation-testing</a></li><li><a href="/categories/selenium-webdriver">selenium-webdriver</a></li><li><a href="/categories/resources-and-guides">resources-and-guides</a></li><li><a href="/categories/tutorials">tutorials</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>tag</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/tags/test-automation">test-automation</a></li><li><a href="/tags/selenium-webdriver">selenium-webdriver</a></li><li><a href="/tags/testng">testng</a></li><li><a href="/tags/json-wire-protocol">json-wire-protocol</a></li><li><a href="/tags/google-firebase">google-firebase</a></li><li><a href="/tags/web-hosting">web-hosting</a></li><li><a href="/tags/annotations">annotations</a></li><li><a href="/tags/chrome">chrome</a></li><li><a href="/tags/gas-mask">gas-mask</a></li><li><a href="/tags/hostfile">hostfile</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+    
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+<a href="/disclaimer/">Disclaimer</a> <i>&middot;</i>
+
+<a href="/terms/">Terms</a> 
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','Your Google Analytics tracking code'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

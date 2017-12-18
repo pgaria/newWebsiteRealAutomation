@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/page/</link>
+    <description>Recent content in Pages on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    
+	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About - Pawan Garia</title>
+      <link>/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/page/about/</guid>
+      <description>My name is Pawan Garia and these days I am living in Germany with my wife in a beautiful city of Bamberg. I am working as QA Automation Engineer and I have lots of experience in Framework Design and Development. In my free time I like watching movies, traveling to new places and adventure sports.
+Please feel free to contact me on my Email: pawangaria@gmail.com</description>
+    </item>
+    
+  </channel>
+</rss>

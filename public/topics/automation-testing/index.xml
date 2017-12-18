@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation Testing on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/topics/automation-testing/</link>
+    <description>Recent content in Automation Testing on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <copyright>(c) 2016 Copyright my blog</copyright>
+    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/topics/automation-testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is TestNG?</title>
+      <link>/post/testng/what-is-testng/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-is-testng/</guid>
+      <description>TestNG is a test management framework inspired from JUnit and NUnit frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust NG stands for next generation.
+TestNG can be used in all the phases of testing like Unit testing, integration testing or system testing. TestNG provides better support compare to Junit and other frameworks as the new release and bug fixes are very frequent compared to Junit.</description>
+    </item>
+    
+  </channel>
+</rss>

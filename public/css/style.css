@@ -29,6 +29,12 @@ padding: 20px;
 vertical-align: baseline;;
 }
 
+.navbar a{
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
 .navbar-brand-img {
     padding: 0px;
 }
@@ -49,6 +55,12 @@ img {
   height: auto;
 }
 
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border:1px solid black
+}
 .nopadding {
   padding: 0 !important;
   margin: 0 !important;
@@ -86,7 +98,7 @@ iframe {
 }
 #Email.fieldInvalid {
   border: 1px solid #ff0000;
-}  
+}
 code.has-jax {
   font: inherit;
   font-size: 100%;

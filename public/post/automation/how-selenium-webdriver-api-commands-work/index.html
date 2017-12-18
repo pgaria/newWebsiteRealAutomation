@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>How Selenium-WebDriver API commands work?  &middot; Testing, Automation, Programming and Latest Technology Articles</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="description" content="How Selenium WebDriver API commands work in background and understanding what happens on code level when we run our test." />
+
+<meta name="keywords" content="Selenium,WebDriver,Commands,Testing">
+
+
+<meta property="og:title" content="How Selenium-WebDriver API commands work?  &middot; Testing, Automation, Programming and Latest Technology Articles ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="/post/automation/how-selenium-webdriver-api-commands-work/" />
+<meta property="og:locale" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="How Selenium WebDriver API commands work in background and understanding what happens on code level when we run our test."/>
+<meta property="og:article:published_time" content="2017-12-03T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-03T00:00:00Z" />
+
+  
+    
+<meta property="og:article:tag" content="Selenium,WebDriver,Commands,Testing">
+    
+  
+
+  
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="How Selenium-WebDriver API commands work?" />
+<meta name="twitter:description" content="How Selenium WebDriver API commands work in background and understanding what happens on code level when we run our test." />
+<meta name="twitter:url" content="/post/automation/how-selenium-webdriver-api-commands-work/" />
+<meta name="twitter:domain" content="/">
+  
+
+  
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "How Selenium-WebDriver API commands work?",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2017-12-03",
+    "description": "How Selenium WebDriver API commands work in background and understanding what happens on code level when we run our test.",
+    "wordCount": 410
+  }
+</script>
+  
+
+
+
+<link rel="canonical" href="/post/automation/how-selenium-webdriver-api-commands-work/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png">
+<meta name="generator" content="Hugo 0.31" />
+
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+    <header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="PawanGaria.com" src="/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/categories/" >
+                
+                SELECT A CATEGORY
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>How Selenium-WebDriver API commands work?
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-12-03">3 Dec, 2017</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 2 min
+  &middot; (410 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20Selenium-WebDriver%20API%20commands%20work%3f&amp;url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f&amp;title=How%20Selenium-WebDriver%20API%20commands%20work%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20Selenium-WebDriver%20API%20commands%20work%3f&amp;body=Check out this site %2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="/tags/selenium-webdriver" class="label label-primary">Selenium WebDriver</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> provides cool interface API&rsquo;s to perform many actions on the browser and simulate the user behaviors like the click or enter Text in the TextBoxes. There are many good articles about the WebDriver on the internet but the purpose of this article is to understand what happens in the background when we use actions like <strong><a href="https://saucelabs.com/resources/articles/the-selenium-click-command">click</a>, finding an element or getting title</strong> etc. I will be using <a href="https://java.com/en/download/">Java</a> as a programming language in this article.</p>
+
+<p>Let&rsquo;s have a look at one of the <a href="http://junit.sourceforge.net/javadoc/org/junit/Test.html">@Test</a> code which is performing steps like Opening <a href="https://www.google.com">Google.com</a>, Finding Search Button, Click SearchButton, Get Page Title and then Quit Driver instance.</p>
+
+<pre><code class="language-java">  @Test
+  public void clickGoogleSearchAndGetTitle() throws Exception{
+    System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);
+    // Create new ChromeDriver
+    WebDriver driver = new ChromeDriver();
+    // Get Google Home Page
+    driver.get(&quot;https://www.google.de/&quot;);
+    // Find Search Button webElement
+    WebElement element = driver.findElement(By.name(&quot;btnK&quot;));
+    // Click on the webElement
+    element.click();
+    // Get Title of the Page
+    driver.getTitle();
+    // Quit Driver
+    driver.quit();
+  }
+</code></pre>
+
+<p>So how WebDriver managed to perform all the user actions on browser in above @Test ? Answer is by using proper <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSON Wire Protocol used in background</a>.</p>
+
+<p>To understand the exact behavior of commands we must take each step separately from the example @test and I will try to describe each step at Request &amp; Response level.</p>
+
+<h4 id="create-session">Create Session</h4>
+
+<p>The first step is to create a session with the respective driver like <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> or <a href="https://github.com/mozilla/geckodriver/">FirefoxDriver</a> and use the same session Id to communicate between client and server.<br />
+<code>WebDriver driver = new ChromeDriver();</code></p>
+
+<p><img src="/img/webdriver/create-session-webdriver-command.png" alt="create-session-webdriver-command" /></p>
+
+<p>Session command above created <em>SessionID:92cda1072b127d44da8d5651e570664d</em> with Server and now every request must pass the same sessionId in all the next requests.</p>
+
+<h4 id="opening-the-test-url">Opening the Test URL</h4>
+
+<p>Now after creating a successful session with the driver, next step is to open URL
+<code>driver.get(&quot;https://www.google.de/&quot;);</code></p>
+
+<p><img src="/img/webdriver/open-url-webdriver-command.png" alt="open-url-webdriver-command" /></p>
+
+<h4 id="find-element">Find Element</h4>
+
+<p>Now the Test URL is opened in the browser, next step is to find the Element on webpage
+<code>WebElement element = driver.findElement(By.name(&quot;btnK&quot;));</code></p>
+
+<p><img src="/img/webdriver/findElement-webdriver-command.png" alt="findElement-webdriver-command" /></p>
+
+<h4 id="click-element">Click Element</h4>
+
+<p>Now we have found the Element and received the ID assigned by the server in the response. Now we will send the click command with the same ElementID. Click request contains the session and Element Id.<br />
+<code>element.click();</code></p>
+
+<p><img src="/img/webdriver/click-element-webdriver-command.png" alt="click-element-webdriver-command" /></p>
+
+<h4 id="get-page-title">Get Page Title</h4>
+
+<p>Our Next Step in Test code is to Get the Title from the WebPage and WebDriver use the getTitle command without any of the request Body.<br />
+<code>driver.getTitle();</code></p>
+
+<p><img src="/img/webdriver/getPage-title-webdriver-command.png" alt="getPage-title-webdriver-command" /></p>
+
+<h4 id="quit-driver">Quit Driver</h4>
+
+<p>After every Test finished you should quit the driver, Quit call close the browser and clean the session. WebDriver use the quit command now<br />
+<code>driver.quit();</code></p>
+
+<p><img src="/img/webdriver/quit-webdriver-command.png" alt="quit-webdriver-command" /></p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20Selenium-WebDriver%20API%20commands%20work%3f&amp;url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f&amp;title=How%20Selenium-WebDriver%20API%20commands%20work%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20Selenium-WebDriver%20API%20commands%20work%3f&amp;body=Check out this site %2fpost%2fautomation%2fhow-selenium-webdriver-api-commands-work%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/" title="Understanding the Architecture of Selenium WebDriver">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/" title="What is RemoteWebDriver in Selenium WebDriver?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+      <header><div class="title"><b>Latest Posts</b></div></header>
+      <div class="content">
+        <ul>
+        
+          <li>
+          <a href="/post/testng/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+          </li>
+        
+          <li>
+          <a href="/post/testng/what-are-testng-annotations/">What are TestNG Annotations?</a>
+          </li>
+        
+          <li>
+          <a href="/post/testng/what-is-testng/">What is TestNG?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/browser-automation-using-chromedriver-and-postman/">Browser automation using ChromeDriver and Postman</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-to-use-chromedriver-with-selenium-webdriver/">How to use ChromeDriver with Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">What is RemoteWebDriver in Selenium WebDriver?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/how-selenium-webdriver-api-commands-work/">How Selenium-WebDriver API commands work?</a>
+          </li>
+        
+          <li>
+          <a href="/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">Understanding the Architecture of Selenium WebDriver</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>category</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/categories/automation-testing">automation-testing</a></li><li><a href="/categories/selenium-webdriver">selenium-webdriver</a></li><li><a href="/categories/resources-and-guides">resources-and-guides</a></li><li><a href="/categories/tutorials">tutorials</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+      <div class="section taxonomies">
+        <header><div class="title"><b>tag</b></div></header>
+
+        <div class="content">
+          <ul>
+            <li><a href="/tags/test-automation">test-automation</a></li><li><a href="/tags/selenium-webdriver">selenium-webdriver</a></li><li><a href="/tags/testng">testng</a></li><li><a href="/tags/json-wire-protocol">json-wire-protocol</a></li><li><a href="/tags/google-firebase">google-firebase</a></li><li><a href="/tags/web-hosting">web-hosting</a></li><li><a href="/tags/annotations">annotations</a></li><li><a href="/tags/chrome">chrome</a></li><li><a href="/tags/gas-mask">gas-mask</a></li><li><a href="/tags/hostfile">hostfile</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    
+      
+      
+    
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+<a href="/disclaimer/">Disclaimer</a> <i>&middot;</i>
+
+<a href="/terms/">Terms</a> 
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','Your Google Analytics tracking code'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

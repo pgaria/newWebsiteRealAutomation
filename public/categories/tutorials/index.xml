@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/categories/tutorials/</link>
+    <description>Recent content in Tutorials on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is the TestNG.xml file?</title>
+      <link>/post/testng/what-is-testng-xml-file/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-is-testng-xml-file/</guid>
+      <description>TestNG.xml file is an XML file which contains all the Test configuration and this XML file can be used to run and organize our test. TestNG eclipse plugin can be used to automatically generate testng.xml file so no need to write from scratch. In this article, we are going to learn about what is testng.xml and how to use testng.xml file to run our test.
+Create Class with multiple @test methods: First, we need to create a simple class which contains multiple @test methods.</description>
+    </item>
+    
+    <item>
+      <title>What are TestNG Annotations?</title>
+      <link>/post/testng/what-are-testng-annotations/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-are-testng-annotations/</guid>
+      <description>Before talking about annotations we should talk a little bit about why TestNG is required and what is the need for using any test management frameworks in our test.
+All the tests are designed to allow you to quickly verify your application using a very large and diverse set of different data inputs. So test management tools are responsible for managing our test and provide many functionalities or you can say methods we can directly use in Test and no need to write the logic again like comparing two objects, pre-setup for Test, passing a different set of data and many more.</description>
+    </item>
+    
+    <item>
+      <title>What is TestNG?</title>
+      <link>/post/testng/what-is-testng/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-is-testng/</guid>
+      <description>TestNG is a test management framework inspired from JUnit and NUnit frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust NG stands for next generation.
+TestNG can be used in all the phases of testing like Unit testing, integration testing or system testing. TestNG provides better support compare to Junit and other frameworks as the new release and bug fixes are very frequent compared to Junit.</description>
+    </item>
+    
+  </channel>
+</rss>

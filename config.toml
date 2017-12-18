@@ -28,20 +28,21 @@ paginate = 10
 paginatePath = "page"
 
 # Enable Disqus integration
-disqusShortname = "shortname"
+disqusShortname = "www-pawangaria-com"
 
 
 [permalinks]
-post = "/:year/:month/:day/:filename/"
-code = "/:filename/"
+#post = "/:year/:month/:day/:filename/"
+#code = "/:filename/"
 
 [taxonomies]
 tag = "tags"
 topic = "topics"
+categories = "categories"
 
 [author]
-name = "yourname"
-email = "yourname@example.com"
+name = "Pawan Garia"
+email = "pawangaria@gmail.com"
 
 #
 # All parameters below here are optional and can be mixed and matched.
@@ -52,7 +53,7 @@ name = "paper"
 
 [params.popover]
 # This is a highly configurable popover form.
-enablepopover = true #enable or disable popover: true/false.
+enablepopover = false #enable or disable popover: true/false.
 posturl = "https://zapier.com/hooks/catch/1227563/" # Your zapier post hook.
 headerimage = "//placehold.it/1000x600"
 expirecookie = 5 #show it again after number of days to visitors that has not subscribed.
@@ -73,10 +74,13 @@ optin = true #opt-in: true/false
 # menu for changing language. This changes languages with js and stores the choice with the help of JavaScript in a Cookie. Then the path is rewritten with pathnamereplace.js. The name of the md files needs to have the same name for each language abbreviation to work correctly. Example: showcase.en.md and showcase.sv.md. It only works if DefaultContentLanguageInSubdir = true
 switchlang = false
 # You can use markdown here.
-BrandImage = "http://blog.appernetic.io/images/apperneticlogo.png" #top header brand image.
-brand = "My awsome blog" # brand image alt text.
+BrandImage = "/img/pawangaria.png" #top header brand image.
+brand = "PawanGaria.com" # brand image alt text.
 topline = "few words about your site"
 footline = "code with <i class='fa fa-heart'></i>"
+title = "Testing, Automation, Programming and Latest Technology Articles" # Site title
+description = "Resources for Java and Automation testing developers - Provides article about WebDriver, Automation Testing, Framework Design and Java."
+keywords = "Selenium,WebDriver,ChromeDriver,Automation Testing,Java,TestNG,TestRail,Quality Assurance,HTTP,JSON,Automation testing tutorials"
 
 customJS = []
 customCSS = ["/css/style_custom.css"]
@@ -99,14 +103,11 @@ highlight = "default"
 googleAnalytics = "Your Google Analytics tracking code"
 
 # Sidebar social links.
-github = "Myprofile" # Your Github profile ID
-bitbucket = "" # Your Bitbucket profile ID
-linkedin = "" # Your LinkedIn profile ID (from public URL)
-googleplus = "Myprofile" # Your Google+ profile ID
-facebook = "Myprofile" # Your Facebook profile ID
-twitter = "Myprofile" # Your Twitter profile ID
-youtube = ""  # Your Youtube channel ID
-flattr = ""  # populate with your flattr uid
+name = "Pawan garia"
+website = "www.pawangaria.com"
+email = "pawangaria@gmail.com"
+facebook = "pawan.garia"
+linkedin = "pawan-garia-a947a24a"
 
 [blackfriday]
 angledQuotes = true
@@ -132,74 +133,56 @@ extensionmask = []
 #  weight = 4
 #  url = "en"
 
-
-[Languages]
-[Languages.en]
-languageCode = "en"
-weight = 1
-copyright = "(c) 2016 Copyright my blog"
-title = "My blog" # Site title
-
-[[Languages.en.menu.main]]
+[[menu.main]]
 name = "Blog"
 pre = ""
-weight = 2
+weight = 1
 identifier = "post"
 url = "/post/"
 
-[[Languages.en.menu.main]]
+[[menu.main]]
 name = "About"
-weight = 1
-identifier = ""
-url = "https://appernetic.io/app/#/about"
-pre = "<i class='fa fa-road'></i>"
-
-[[Languages.en.menu.main]]
-name = "Dashboard"
-identifier = ""
 weight = 3
-url = "https://appernetic.io/app/"
+identifier = "about"
+url = "page/about/"
 
-[[Languages.en.menu.footer]] # add  links to the bottom right corner.
+[[menu.main]]
+    identifier = "category"
+    name = "SELECT A CATEGORY"
+    weight = 2
+    hasChildren = true
+    url = "categories/"
+
+[[menu.main]]
+        parent = "category"
+        name = "Automation Testing"
+        url = "categories/automation-testing/"
+        weight = 1
+[[menu.main]]
+        parent = "category"
+        name = "Selenium WebDriver"
+        url = "categories/selenium-webdriver/"
+        weight = 2
+[[menu.main]]
+        parent = "category"
+        name = "Resources And Guides"
+        url = "categories/resources-and-guides/"
+        weight = 3
+[[menu.main]]
+        parent = "category"
+        name = "Tutorials"
+        url = "categories/tutorials/"
+        weight = 4
+
+[[menu.footer]] # add  links to the bottom right corner.
 name = "Disclaimer"
 pre = "<i>&middot;</i>"
 identifier = "disclaimer"
 weight = 1
 url = "/disclaimer/"
 
-[[Languages.en.menu.footer]]
+[[menu.footer]]
 name = "Terms"
 identifier = "terms"
 weight = 2
 url = "/terms/"
-
-[Languages.sv]
-languageCode = "sv"
-weight = 2
-title = "Min blog" # Site title
-copyright = "(c) 2016 Alla rättigheter"
-
-[[Languages.sv.menu.main]]
-name = "Bloggen"
-pre = ""
-weight = 2
-identifier = "post"
-url = "/sv/post/"
-
-[[Languages.sv.menu.footer]] # add  links to the bottom right corner.
-name = "Ansvarsfriskrivning"
-pre = "<i>&middot;</i>"
-identifier = "friskrivning"
-weight = 1
-url = "/sv/friskrivning/"
-
-[[Languages.sv.menu.footer]]
-name = "Vilkor"
-identifier = "vilkor"
-weight = 2
-url = "/sv/vilkor/"
-
-[Languages.sv.taxonomies]
-tag = "Taggar"
-topic = "Ämne"
-

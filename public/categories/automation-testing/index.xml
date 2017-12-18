@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation Testing on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/categories/automation-testing/</link>
+    <description>Recent content in Automation Testing on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/automation-testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is the TestNG.xml file?</title>
+      <link>/post/testng/what-is-testng-xml-file/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-is-testng-xml-file/</guid>
+      <description>TestNG.xml file is an XML file which contains all the Test configuration and this XML file can be used to run and organize our test. TestNG eclipse plugin can be used to automatically generate testng.xml file so no need to write from scratch. In this article, we are going to learn about what is testng.xml and how to use testng.xml file to run our test.
+Create Class with multiple @test methods: First, we need to create a simple class which contains multiple @test methods.</description>
+    </item>
+    
+    <item>
+      <title>What are TestNG Annotations?</title>
+      <link>/post/testng/what-are-testng-annotations/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-are-testng-annotations/</guid>
+      <description>Before talking about annotations we should talk a little bit about why TestNG is required and what is the need for using any test management frameworks in our test.
+All the tests are designed to allow you to quickly verify your application using a very large and diverse set of different data inputs. So test management tools are responsible for managing our test and provide many functionalities or you can say methods we can directly use in Test and no need to write the logic again like comparing two objects, pre-setup for Test, passing a different set of data and many more.</description>
+    </item>
+    
+    <item>
+      <title>What is TestNG?</title>
+      <link>/post/testng/what-is-testng/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/what-is-testng/</guid>
+      <description>TestNG is a test management framework inspired from JUnit and NUnit frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust NG stands for next generation.
+TestNG can be used in all the phases of testing like Unit testing, integration testing or system testing. TestNG provides better support compare to Junit and other frameworks as the new release and bug fixes are very frequent compared to Junit.</description>
+    </item>
+    
+    <item>
+      <title>Browser Automation from CommandLine using Curl and ChromeDriver</title>
+      <link>/post/automation/browser-automation-from-command-line/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/browser-automation-from-command-line/</guid>
+      <description>Browser automation from command-line is possible after the release of HTTP servers like ChromeDriver, GeckoDriver which are implementing the W3C WebDriver standard and follow all the standards of a normal server-client architecture in HTTP.
+In my other posts, I have described what is JSONWire Protocol and how it became a standard for the browser automation. I also described how we can perform browser automation using postman tool. Now in this article, I will show you how we can use simple curl HTTP commands to drive Chrome Browser.</description>
+    </item>
+    
+    <item>
+      <title>How ChromeDriver works in the background?</title>
+      <link>/post/automation/how-chromedriver-works-in-background/</link>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/how-chromedriver-works-in-background/</guid>
+      <description>ChromeDriver is a Chromium project and ChromeDriver code is inside the Chromium repository. Chromium is an open source project started by Google to provide source code for Chrome browser. Chromium projects are divided into mainly two projects Chromium browser and Chromium OS which is an open source project for OS based browsers, you can watch What is Chrome OS Video for more information.
+Chromium dev teams are now responsible for the maintenance of the ChromeDriver code and updates which we use with Selenium WebDriver for automating Chrome.</description>
+    </item>
+    
+    <item>
+      <title>Browser automation using ChromeDriver and Postman</title>
+      <link>/post/automation/browser-automation-using-chromedriver-and-postman/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/browser-automation-using-chromedriver-and-postman/</guid>
+      <description>If you are using WebDriver or learning how to use Selenium for test automation, you must be using some programming language like Java or PHP, etc. for automation and performing actions on browsers like Chrome. But in this article we are not going to use WebDriver Client Like Java or PHP, etc. and we will perform actions like open URL, Click Button or Enter Text using ChromeDriver and PostMan tool.</description>
+    </item>
+    
+    <item>
+      <title>How to use ChromeDriver with Selenium WebDriver?</title>
+      <link>/post/automation/how-to-use-chromedriver-with-selenium-webdriver/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/how-to-use-chromedriver-with-selenium-webdriver/</guid>
+      <description>ChromeDriver is a separate executable which can be used by all the Client libraries to Automate and control Chrome Browser. ChromeDriver implements all the standard for the WebDriver which is JSON WireProtocol and communicates based on those protocols. It receives HTTP request and provides HTTP response to the Client. ChromeDriver is not client dependent and separate from the clients like Java, Python, PHP etc. You can use the same ChromeDriver with any of the programming languages as the client.</description>
+    </item>
+    
+    <item>
+      <title>What is RemoteWebDriver in Selenium WebDriver?</title>
+      <link>/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/</guid>
+      <description>What is RemoteWebDriver? RemoteWebDriver in Selenium Webdriver implements each of the JSONWireProtocol commands and maps them into an action that can be performed on a remote machine.
+RemoteWebDriver is a Class in the package org.openqa.selenium.remote inside the Client Project of WebDiver. RemoteWebDriver.class implements multiple interface like WebDriver(Yes WebDriver is an Interface not a Class as I have seen many people confused about this information), FindsById, FindsByClassName, FindsByLinkText etc.
+package org.</description>
+    </item>
+    
+    <item>
+      <title>How Selenium-WebDriver API commands work?</title>
+      <link>/post/automation/how-selenium-webdriver-api-commands-work/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/how-selenium-webdriver-api-commands-work/</guid>
+      <description>Selenium WebDriver provides cool interface API&amp;rsquo;s to perform many actions on the browser and simulate the user behaviors like the click or enter Text in the TextBoxes. There are many good articles about the WebDriver on the internet but the purpose of this article is to understand what happens in the background when we use actions like click, finding an element or getting title etc. I will be using Java as a programming language in this article.</description>
+    </item>
+    
+    <item>
+      <title>Understanding the Architecture of Selenium WebDriver</title>
+      <link>/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/</guid>
+      <description>Selenium WebDriver provides a programming interface for driving the browser for automation testing. You can find the introduction of WebDriver in my other article. This article is more about the architecture and understanding how selenium WebDriver uses JSON Wire Protocol.
+JSON Wire Protocol is an abstract specification of how automation behavior like clicking or typing or whatever you actually want to do with your automation script is mapped to selenium or appium or HTTP requests and response.</description>
+    </item>
+    
+    <item>
+      <title>What is Selenium WebDriver?</title>
+      <link>/post/automation/what-is-selenium-webdriver/</link>
+      <pubDate>Tue, 28 Nov 2017 12:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/what-is-selenium-webdriver/</guid>
+      <description>Selenium WebDriver is an open source application for driving browsers for automation testing. Using WebDriver libraries you can drive the browser and perform actions like Click, Open URL, Enter Text, Clear Text, Take Screenshot of browser and many more actions. WebDriver works on a very simple principle of Client Server architecture. The communication between the server and client is through HTTP request and response.
+WebDriver uses JSON wire protocol works on RESTful Web Services over HTTP.</description>
+    </item>
+    
+    <item>
+      <title>Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG</title>
+      <link>/post/automation/testrail-integration-with-java-testng/</link>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/automation/testrail-integration-with-java-testng/</guid>
+      <description>What is TestRail? Gurock TestRail is a modern and very nice tool for the Test Case Management by Quality Assurance and Development Team. TestManagement tools are very helpful for managing the test cases and TestRail is pack with very useful features like web-based application, Rest API integration etc.
+Why to use TestManagement Tool with Automation? While making Regression or any kind of Test Automation suit there is a need of maintaining Use cases and maintain the repository which anyone can access and see what use cases are been automated and what is left.</description>
+    </item>
+    
+  </channel>
+</rss>
