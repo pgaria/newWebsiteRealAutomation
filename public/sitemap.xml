@@ -5,224 +5,284 @@
   <url>
     <loc>/post/testng/what-is-testng-xml-file/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/testng/what-are-testng-annotations/</loc>
     <lastmod>2017-12-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/testng/what-is-testng/</loc>
     <lastmod>2017-12-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/browser-automation-from-command-line/</loc>
     <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/how-chromedriver-works-in-background/</loc>
     <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/browser-automation-using-chromedriver-and-postman/</loc>
     <lastmod>2017-12-08T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/how-to-use-chromedriver-with-selenium-webdriver/</loc>
     <lastmod>2017-12-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/</loc>
     <lastmod>2017-12-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/how-selenium-webdriver-api-commands-work/</loc>
     <lastmod>2017-12-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/</loc>
     <lastmod>2017-11-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/what-is-selenium-webdriver/</loc>
     <lastmod>2017-11-28T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/map-custom-domain-with-godaddy-firebase/</loc>
     <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/host-file-editing-gasmask/</loc>
     <lastmod>2017-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/deploy-website-on-google-firebase/</loc>
     <lastmod>2017-11-26T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/capture-fullpage-screenshot-chrome/</loc>
     <lastmod>2017-11-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/automation/testrail-integration-with-java-testng/</loc>
     <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/what-is-hugo/</loc>
     <lastmod>2016-04-24T02:50:28+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/post/introduction/</loc>
     <lastmod>2016-04-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/page/about/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>/tags/annotations/</loc>
     <lastmod>2017-12-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/automation-testing/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/chrome/</loc>
     <lastmod>2017-11-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/gas-mask/</loc>
     <lastmod>2017-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/google-firebase/</loc>
     <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/hostfile/</loc>
     <lastmod>2017-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/java/</loc>
     <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/json-wire-protocol/</loc>
     <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/page/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/resources-and-guides/</loc>
     <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/selenium-webdriver/</loc>
     <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/selenium-webdriver/</loc>
     <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
     <lastmod>2017-12-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/test-automation/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/testng/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/testrail/</loc>
     <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/topics/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/tutorials/</loc>
     <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/web-hosting/</loc>
     <lastmod>2017-11-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

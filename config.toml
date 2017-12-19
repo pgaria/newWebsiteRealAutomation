@@ -29,7 +29,11 @@ paginatePath = "page"
 
 # Enable Disqus integration
 disqusShortname = "www-pawangaria-com"
-
+enableRobotsTXT= true
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.9
+  filename = "sitemap.xml"
 
 [permalinks]
 #post = "/:year/:month/:day/:filename/"
