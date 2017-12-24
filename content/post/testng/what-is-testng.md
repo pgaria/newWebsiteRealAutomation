@@ -2,7 +2,6 @@
 title: "What is TestNG?"
 date: 2017-12-15
 draft: false
-author: "Pawan Garia"
 description: "TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,Eclipse,testing,unittesting"

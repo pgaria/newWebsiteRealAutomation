@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enabled on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/tags/enabled/</link>
+    <description>Recent content in Enabled on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Fri, 22 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/enabled/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Enable and Disable @Test in TestNG</title>
+      <link>/post/testng/enable-and-disable-test-in-testng/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/enable-and-disable-test-in-testng/</guid>
+      <description>TestNG provides an attribute for enabling and disable our @Test. There are many times when you don&amp;rsquo;t want to run particular @Test and it&amp;rsquo;s not a better way to remove the whole Test method from the class and then add again if you want to run the @Test again.
+ By default all the TestNG @Test methods are Enabled
+ How to Enable and Disable @Test: To enable and disable @test, There is an attribute enabled which accepts Boolean type value as True or False.</description>
+    </item>
+    
+  </channel>
+</rss>

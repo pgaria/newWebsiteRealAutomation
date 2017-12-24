@@ -73,7 +73,7 @@ After the last and final Step you will be able to see a **testng.xml** file gene
 </suite>
 ```
 ### Run TestNG.xml file:
-**Right Click** on the testng.xml file and the select **Run As --> TestNG Suit**
+**Right Click** on the testng.xml file and the select **Run As --> TestNG Suite**
 ![right-click-run-as-testng-suit](/img/testng/right-click-run-as-testng-suit.png)
 
 When you run your **testng.xml** file, it will start running your *@test* methods from the class mentioned in the XML and generate the report. You can see our all the *@test* methods ran successfully.

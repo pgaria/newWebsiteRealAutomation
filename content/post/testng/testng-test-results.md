@@ -1,10 +1,10 @@
 ---
 title: "TestNG Results: Success, Failure and Assert"
-date: 2017-12-15
-draft: true
+date: 2017-12-18
+draft: false
 description: "How TestNG decides what test are failures and what tests are the success. How to use Assert and what are asserts in TestNG."
 categories: [ "Automation Testing","Tutorials"]
-keywords: "TestNG,Java,Assert,success,failure,Eclipse,testing,unittesting"
+keywords: "TestNG,Java,Assert,success,failure,results,testing,unittesting"
 image: "/img/testng/assert-success-failure-thumb.png"
 logothumb: "/img/logothumb/testng_logo.png"
 tags: [

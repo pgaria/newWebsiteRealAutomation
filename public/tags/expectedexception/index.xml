@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Expectedexception on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>/tags/expectedexception/</link>
+    <description>Recent content in Expectedexception on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Tue, 19 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/expectedexception/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Expected Exceptions in TestNG</title>
+      <link>/post/testng/expected-exception-in-testng/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/expected-exception-in-testng/</guid>
+      <description>All exceptions are not bad in our product, means we have to test and verify the exceptions in our product. The ExpectedException is a way of verifying that your code throws a specific exception.
+ Verifying that code completes normally is important, but making sure the logic behaves as expected in failure and unexpected situations are also important.
+ In TestNG, we have an attribute as expectedExceptions which needs to be added to our test where we have to verify the Exception as expected.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,10 +7,62 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to run multiple Test Classes in TestNG?</title>
+      <link>/post/testng/how-to-run-multiple-class-in-testng/</link>
+      <pubDate>Sat, 23 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/how-to-run-multiple-class-in-testng/</guid>
+      <description>In TestNG, we can divide our test cases into multiple classes. Every class can have multiple @test methods.Sometimes Class represents a particular feature and all the test cases are inside the class. So in this article, we are going to learn how we can run multiple tests having multiple classes in TestNG.
+Lets make few example test Classes: We will first make few Test Class with multiple @Test. To run all the Classes we should create a testng.</description>
+    </item>
+    
+    <item>
+      <title>How to Enable and Disable @Test in TestNG</title>
+      <link>/post/testng/enable-and-disable-test-in-testng/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/enable-and-disable-test-in-testng/</guid>
+      <description>TestNG provides an attribute for enabling and disable our @Test. There are many times when you don&amp;rsquo;t want to run particular @Test and it&amp;rsquo;s not a better way to remove the whole Test method from the class and then add again if you want to run the @Test again.
+ By default all the TestNG @Test methods are Enabled
+ How to Enable and Disable @Test: To enable and disable @test, There is an attribute enabled which accepts Boolean type value as True or False.</description>
+    </item>
+    
+    <item>
+      <title>How to Skip @Test in TestNG</title>
+      <link>/post/testng/how-to-skip-test-in-testng/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/how-to-skip-test-in-testng/</guid>
+      <description>Skipping test is also an important concept in TestNG. You can skip the test from running as you don&amp;rsquo;t want to Run the @test and mark the @test as Skip in reports.
+To Skip the test we need to use org.testng.SkipException an Exception Class from TestNG. We have to throw an exception to the first line and code will come out from the test. You can have a look at Java document to read more about exception throwing.</description>
+    </item>
+    
+    <item>
+      <title>Expected Exceptions in TestNG</title>
+      <link>/post/testng/expected-exception-in-testng/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/expected-exception-in-testng/</guid>
+      <description>All exceptions are not bad in our product, means we have to test and verify the exceptions in our product. The ExpectedException is a way of verifying that your code throws a specific exception.
+ Verifying that code completes normally is important, but making sure the logic behaves as expected in failure and unexpected situations are also important.
+ In TestNG, we have an attribute as expectedExceptions which needs to be added to our test where we have to verify the Exception as expected.</description>
+    </item>
+    
+    <item>
+      <title>TestNG Results: Success, Failure and Assert</title>
+      <link>/post/testng/testng-test-results/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/post/testng/testng-test-results/</guid>
+      <description>In testing Test is considered successful if it completed without throwing an exception or test successfully validated expected results. Sometimes @test threw an exception that was expected and we mark test as success. TestNG can not just decide what should be the results of the Test by himself, So we need to provide the expected data and expected conditions.
+TestNG use the concept of Assert from Java and can be used for adding validation and conditions in your test cases.</description>
+    </item>
     
     <item>
       <title>What is the TestNG.xml file?</title>

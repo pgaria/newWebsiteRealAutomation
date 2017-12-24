@@ -1,15 +1,15 @@
 ---
 title: "How to Skip @Test in TestNG"
-date: 2017-12-17
-draft: true
-description: "How to skip a Test in TestNG and marking a test as Skip should be present in Test Report as Skip."
+date: 2017-12-20
+draft: false
+description: "How to skip a Test in TestNG and marking a test as Skip should be present in Test Report as Skiped testcase."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,skip,test,unit,SkipException"
 image: "/img/testng/skip-testng-test-thumb.png"
 logothumb: "/img/logothumb/testng_logo.png"
 tags: [
     "Test Automation",
-    "TestNG","skipTest"
+    "TestNG"
 ]
 ---
 Skipping test is also an important concept in [TestNG](http://testng.org/doc/). You can skip the test from running as you don't want to Run the @test and mark the @test as Skip in reports.

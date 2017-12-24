@@ -1,7 +1,7 @@
 ---
 title: "How to Enable and Disable @Test in TestNG"
-date: 2017-12-17
-draft: true
+date: 2017-12-22
+draft: false
 description: "How to Enable and Disable particular Test in our TestNG Test Class. TestNG can decide which Test should be included in the run or ignored."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,enabled,disable,test,unit"

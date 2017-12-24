@@ -22,11 +22,38 @@
     </item>
     
     <item>
+      <title>Assert</title>
+      <link>/tags/assert/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/tags/assert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Chrome</title>
       <link>/tags/chrome/</link>
       <pubDate>Fri, 24 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Enabled</title>
+      <link>/tags/enabled/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/tags/enabled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expectedexception</title>
+      <link>/tags/expectedexception/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>/tags/expectedexception/</guid>
       <description></description>
     </item>
     
@@ -87,7 +114,7 @@
     <item>
       <title>Test Automation</title>
       <link>/tags/test-automation/</link>
-      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>/tags/test-automation/</guid>
       <description></description>
@@ -96,7 +123,7 @@
     <item>
       <title>Testng</title>
       <link>/tags/testng/</link>
-      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>/tags/testng/</guid>
       <description></description>

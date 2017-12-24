@@ -1,10 +1,10 @@
 ---
 title: "Expected Exceptions in TestNG"
-date: 2017-12-17
-draft: true
-description: "How do you verify that code throws exceptions as expected? How to use an expectedException attribute in TestNG."
+date: 2017-12-19
+draft: false
+description: "How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?"
 categories: [ "Automation Testing","Tutorials"]
-keywords: "TestNG,Java,test,unit,ExpectedException"
+keywords: "TestNG,Java,test,unit,Expected,Exception"
 image: "/img/testng/expected-exception-testng-thumb.png"
 logothumb: "/img/logothumb/testng_logo.png"
 tags: [

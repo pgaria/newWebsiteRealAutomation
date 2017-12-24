@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>How to run multiple Test Classes in TestNG?  &middot; Testing, Automation, Programming and Latest Technology Articles</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="How to run multiple TestNG test classes together as a suite." />
+
+<meta name="keywords" content="TestNG,Java,class,suite,test,unit">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="How to run multiple Test Classes in TestNG?  &middot; Testing, Automation, Programming and Latest Technology Articles ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="/post/testng/how-to-run-multiple-class-in-testng/" />
+<meta property="og:locale" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="How to run multiple TestNG test classes together as a suite."/>
+<meta property="og:article:published_time" content="2017-12-23T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-23T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="TestNG,Java,class,suite,test,unit">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="How to run multiple Test Classes in TestNG?" />
+<meta name="twitter:description" content="How to run multiple TestNG test classes together as a suite." />
+<meta name="twitter:url" content="/post/testng/how-to-run-multiple-class-in-testng/" />
+<meta name="twitter:domain" content="/">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "How to run multiple Test Classes in TestNG?",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2017-12-23",
+    "description": "How to run multiple TestNG test classes together as a suite.",
+    "wordCount": 274
+  }
+</script>
+
+
+
+<link rel="canonical" href="/post/testng/how-to-run-multiple-class-in-testng/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+<link rel="icon" href="/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.31" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link rel="stylesheet" href="/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="/">
+            <img alt="PawanGaria.com" src="/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>How to run multiple Test Classes in TestNG?
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2017-12-23">23 Dec, 2017</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 2 min
+  &middot; (274 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f&amp;url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f&amp;title=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f&amp;body=Check out this site %2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="/tags/testng" class="label label-primary">TestNG</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p>In TestNG, we can divide our test cases into multiple classes. Every class can have multiple @test methods.Sometimes Class represents a particular feature and all the test cases are inside the class. So in this article, we are going to learn how we can run multiple tests having multiple classes in TestNG.</p>
+
+<h3 id="lets-make-few-example-test-classes">Lets make few example test Classes:</h3>
+
+<p>We will first make few Test Class with multiple @Test. To run all the Classes we should create a testng.xml file.</p>
+
+<h3 id="1st-test-class">1st Test Class</h3>
+
+<pre><code class="language-Java">package com.tutorial.testng.suitetest;
+
+import org.testng.annotations.Test;
+
+public class TestClassOne {
+    @Test()
+    public void firstTestMethod() {
+        System.out.println(&quot;First test method from class 1&quot;);
+    }
+
+    @Test()
+    public void secondTestMethod() {
+        System.out.println(&quot;Second test method from class 1&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="2nd-test-class">2nd Test Class</h3>
+
+<pre><code class="language-Java">package com.tutorial.testng.suitetest;
+
+import org.testng.annotations.Test;
+
+public class TestClassTwo {
+    @Test()
+    public void firstTestMethod() {
+        System.out.println(&quot;First test method from class 2&quot;);
+    }
+
+    @Test()
+    public void secondTestMethod() {
+        System.out.println(&quot;Second test method from class 2&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="3rd-test-class">3rd Test Class</h3>
+
+<pre><code class="language-Java">package com.tutorial.testng.suitetest;
+
+import org.testng.annotations.Test;
+
+public class TestClassThree {
+    @Test()
+    public void firstTestMethod() {
+        System.out.println(&quot;First test method from class 3&quot;);
+    }
+
+    @Test()
+    public void secondTestMethod() {
+        System.out.println(&quot;Second test method from class 3&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="testng-xml-file">TestNg.xml file:</h3>
+
+<p>Lets create a testng.xml file which has two test tags and contains multiple test classes.</p>
+
+<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;test name=&quot;First Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassOne&quot;/&gt;
+      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassTwo&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+  &lt;test name=&quot;Second Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassThree&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre>
+
+<h3 id="when-you-run-the-testng-xml-file">When you Run the testng.xml file:</h3>
+
+<p>When You run the above testng.xml and you can see two Test Run with multiple test in a Suite. If you are new and want to read more about testng xml files check our <a href="https://www.pawangaria.com/post/testng/what-is-testng-xml-file/">previous articles</a>.
+<img src="/img/testng/multiple-test-run-testng-result.png" alt="multiple-test-run-testng-result" /></p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f&amp;url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f&amp;title=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20to%20run%20multiple%20Test%20Classes%20in%20TestNG%3f&amp;body=Check out this site %2fpost%2ftestng%2fhow-to-run-multiple-class-in-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="/post/testng/enable-and-disable-test-in-testng/" title="How to Enable and Disable @Test in TestNG">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="/post/testng/how-to-run-multiple-class-in-testng/">How to run multiple Test Classes in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/enable-and-disable-test-in-testng/">How to Enable and Disable @Test in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/how-to-skip-test-in-testng/">How to Skip @Test in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/expected-exception-in-testng/">Expected Exceptions in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/testng-test-results/">TestNG Results: Success, Failure and Assert</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/what-is-testng-xml-file/">What is the TestNG.xml file?</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/what-are-testng-annotations/">What are TestNG Annotations?</a>
+              </li>
+            
+              <li>
+              <a href="/post/testng/what-is-testng/">What is TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="/post/automation/browser-automation-from-command-line/">Browser Automation from CommandLine using Curl and ChromeDriver</a>
+              </li>
+            
+              <li>
+              <a href="/post/automation/how-chromedriver-works-in-background/">How ChromeDriver works in the background?</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="/categories/automation-testing">automation-testing</a><strong> (17)</strong></li>
+      
+        <li><a href="/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="/categories/selenium-webdriver">selenium-webdriver</a><strong> (9)</strong></li>
+      
+        <li><a href="/categories/tutorials">tutorials</a><strong> (8)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

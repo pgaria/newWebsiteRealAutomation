@@ -80,7 +80,7 @@ switchlang = false
 # You can use markdown here.
 BrandImage = "/img/pawangaria.png" #top header brand image.
 brand = "PawanGaria.com" # brand image alt text.
-topline = "few words about your site"
+topline = "Testing, Automation, Programming and Latest Technology Articles"
 footline = "code with <i class='fa fa-heart'></i>"
 title = "Testing, Automation, Programming and Latest Technology Articles" # Site title
 description = "Resources for Java and Automation testing developers - Provides article about WebDriver, Automation Testing, Framework Design and Java."
@@ -104,8 +104,8 @@ showRightSidebar = true
 highlight = "default"
 
 # Google Analytics.
-googleAnalytics = "Your Google Analytics tracking code"
-
+googleAnalytics = "UA-110208829-1"
+googleads = true
 # Sidebar social links.
 name = "Pawan garia"
 website = "www.pawangaria.com"
@@ -152,7 +152,7 @@ url = "page/about/"
 
 [[menu.main]]
     identifier = "category"
-    name = "SELECT A CATEGORY"
+    name = "Categories"
     weight = 2
     hasChildren = true
     url = "categories/"
@@ -177,16 +177,3 @@ url = "page/about/"
         name = "Tutorials"
         url = "categories/tutorials/"
         weight = 4
-
-[[menu.footer]] # add  links to the bottom right corner.
-name = "Disclaimer"
-pre = "<i>&middot;</i>"
-identifier = "disclaimer"
-weight = 1
-url = "/disclaimer/"
-
-[[menu.footer]]
-name = "Terms"
-identifier = "terms"
-weight = 2
-url = "/terms/"
