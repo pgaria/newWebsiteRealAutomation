@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Testrail on Testing, Automation, Programming and Latest Technology Articles</title>
-    <link>/tags/testrail/</link>
+    <link>https://www.pawangaria.com/tags/testrail/</link>
     <description>Recent content in Testrail on Testing, Automation, Programming and Latest Technology Articles</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
     <lastBuildDate>Thu, 23 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/testrail/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.pawangaria.com/tags/testrail/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG</title>
-      <link>/post/automation/testrail-integration-with-java-testng/</link>
+      <link>https://www.pawangaria.com/post/automation/testrail-integration-with-java-testng/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/automation/testrail-integration-with-java-testng/</guid>
+      <guid>https://www.pawangaria.com/post/automation/testrail-integration-with-java-testng/</guid>
       <description>What is TestRail? Gurock TestRail is a modern and very nice tool for the Test Case Management by Quality Assurance and Development Team. TestManagement tools are very helpful for managing the test cases and TestRail is pack with very useful features like web-based application, Rest API integration etc.
 Why to use TestManagement Tool with Automation? While making Regression or any kind of Test Automation suit there is a need of maintaining Use cases and maintain the repository which anyone can access and see what use cases are been automated and what is left.</description>
     </item>

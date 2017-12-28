@@ -1,8 +1,8 @@
 ---
 title: "How to use Dependencies in TestNG?"
-date: 2017-12-20
-draft: true
-description: "How to use the attributes dependsOnMethods or dependsOnGroups, found on the @Test annotation for the dependencies."
+date: 2017-12-27
+draft: false
+description: "How to use the dependsOnMethods and dependsOnGroups attributes @Test annotation for the dependencies and how to use alwaysRun attribute with dependencies."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,dependsOnMethods,dependsOnGroups,test,alwaysRun"
 image: "/img/testng/dependsOnGroup-method-testng-thumb.png"

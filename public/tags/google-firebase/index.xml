@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Google Firebase on Testing, Automation, Programming and Latest Technology Articles</title>
-    <link>/tags/google-firebase/</link>
+    <link>https://www.pawangaria.com/tags/google-firebase/</link>
     <description>Recent content in Google Firebase on Testing, Automation, Programming and Latest Technology Articles</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
     <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/google-firebase/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.pawangaria.com/tags/google-firebase/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Firebase custom domain mapping with GoDaddy</title>
-      <link>/post/map-custom-domain-with-godaddy-firebase/</link>
+      <link>https://www.pawangaria.com/post/map-custom-domain-with-godaddy-firebase/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/map-custom-domain-with-godaddy-firebase/</guid>
+      <guid>https://www.pawangaria.com/post/map-custom-domain-with-godaddy-firebase/</guid>
       <description>In my post about how to deploy your website on firebase, I explained about hosting our website on Google Firebase and we are able to access the website using the firebase Url. Now in this article, we are going to talk and learn about adding our website with custom domain like your own domains purchased on the domain providing websites like GoDaddy and NameCheap. I this article we are going to integrate our domain in GoDaddy with Firebase hosted website.</description>
     </item>
     
     <item>
       <title>Deploy and host your website on Google Firebase</title>
-      <link>/post/deploy-website-on-google-firebase/</link>
+      <link>https://www.pawangaria.com/post/deploy-website-on-google-firebase/</link>
       <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/deploy-website-on-google-firebase/</guid>
+      <guid>https://www.pawangaria.com/post/deploy-website-on-google-firebase/</guid>
       <description>After finishing the first draft of my new website I wanted to host my website on firebase because I found Firebaseas hosting server very useful, easy to use and free of cost for limited hosting.
 So I decided to write down my knowdledge and experience of hosting website with firebase here and if you are also looking for hosting your website in firebase please follow thesteps below.
 Create account or Login on Firebase Console To deploy your website on firebase first you need to create an account on Google Firebase.</description>

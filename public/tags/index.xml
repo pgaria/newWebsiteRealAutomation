@@ -2,148 +2,166 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Testing, Automation, Programming and Latest Technology Articles</title>
-    <link>/tags/</link>
+    <link>https://www.pawangaria.com/tags/</link>
     <description>Recent content in Tags on Testing, Automation, Programming and Latest Technology Articles</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
     <lastBuildDate>Sat, 16 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.pawangaria.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Annotations</title>
-      <link>/tags/annotations/</link>
+      <link>https://www.pawangaria.com/tags/annotations/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/annotations/</guid>
+      <guid>https://www.pawangaria.com/tags/annotations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Assert</title>
-      <link>/tags/assert/</link>
+      <link>https://www.pawangaria.com/tags/assert/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/assert/</guid>
+      <guid>https://www.pawangaria.com/tags/assert/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chrome</title>
-      <link>/tags/chrome/</link>
+      <link>https://www.pawangaria.com/tags/chrome/</link>
       <pubDate>Fri, 24 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/chrome/</guid>
+      <guid>https://www.pawangaria.com/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dataprovider</title>
+      <link>https://www.pawangaria.com/tags/dataprovider/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/dataprovider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dependencies</title>
+      <link>https://www.pawangaria.com/tags/dependencies/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/dependencies/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Enabled</title>
-      <link>/tags/enabled/</link>
+      <link>https://www.pawangaria.com/tags/enabled/</link>
       <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/enabled/</guid>
+      <guid>https://www.pawangaria.com/tags/enabled/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Expectedexception</title>
-      <link>/tags/expectedexception/</link>
+      <link>https://www.pawangaria.com/tags/expectedexception/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/expectedexception/</guid>
+      <guid>https://www.pawangaria.com/tags/expectedexception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gas Mask</title>
-      <link>/tags/gas-mask/</link>
+      <link>https://www.pawangaria.com/tags/gas-mask/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/gas-mask/</guid>
+      <guid>https://www.pawangaria.com/tags/gas-mask/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Google Firebase</title>
-      <link>/tags/google-firebase/</link>
+      <link>https://www.pawangaria.com/tags/google-firebase/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/google-firebase/</guid>
+      <guid>https://www.pawangaria.com/tags/google-firebase/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hostfile</title>
-      <link>/tags/hostfile/</link>
+      <link>https://www.pawangaria.com/tags/hostfile/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/hostfile/</guid>
+      <guid>https://www.pawangaria.com/tags/hostfile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>/tags/java/</link>
+      <link>https://www.pawangaria.com/tags/java/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/java/</guid>
+      <guid>https://www.pawangaria.com/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Json Wire Protocol</title>
-      <link>/tags/json-wire-protocol/</link>
+      <link>https://www.pawangaria.com/tags/json-wire-protocol/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/json-wire-protocol/</guid>
+      <guid>https://www.pawangaria.com/tags/json-wire-protocol/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Selenium Webdriver</title>
-      <link>/tags/selenium-webdriver/</link>
+      <link>https://www.pawangaria.com/tags/selenium-webdriver/</link>
       <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/selenium-webdriver/</guid>
+      <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test Automation</title>
-      <link>/tags/test-automation/</link>
-      <pubDate>Sat, 23 Dec 2017 00:00:00 +0000</pubDate>
+      <link>https://www.pawangaria.com/tags/test-automation/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/test-automation/</guid>
+      <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Testng</title>
-      <link>/tags/testng/</link>
-      <pubDate>Sat, 23 Dec 2017 00:00:00 +0000</pubDate>
+      <link>https://www.pawangaria.com/tags/testng/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/testng/</guid>
+      <guid>https://www.pawangaria.com/tags/testng/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Testrail</title>
-      <link>/tags/testrail/</link>
+      <link>https://www.pawangaria.com/tags/testrail/</link>
       <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/testrail/</guid>
+      <guid>https://www.pawangaria.com/tags/testrail/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Hosting</title>
-      <link>/tags/web-hosting/</link>
+      <link>https://www.pawangaria.com/tags/web-hosting/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/tags/web-hosting/</guid>
+      <guid>https://www.pawangaria.com/tags/web-hosting/</guid>
       <description></description>
     </item>
     

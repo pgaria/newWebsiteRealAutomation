@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dependencies on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/tags/dependencies/</link>
+    <description>Recent content in Dependencies on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Wed, 27 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/tags/dependencies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to use Dependencies in TestNG?</title>
+      <link>https://www.pawangaria.com/post/testng/how-to-use-dependencies-in-testng/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/how-to-use-dependencies-in-testng/</guid>
+      <description>Sometimes we have steps or tests which are depended on each other and can not be performed alone. For example: To update Facebook account details, User should be logged in already.I personally do not recommend making test cases dependent upon each other and should be independent.
+To make dependencies between test, TestNG provides dependsOnMethods or dependsOnGroups attributes which can be used in the @Test. As per the TestNg documentation, there are two types of dependencies:</description>
+    </item>
+    
+  </channel>
+</rss>

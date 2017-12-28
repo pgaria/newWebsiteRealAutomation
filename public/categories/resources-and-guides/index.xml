@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Resources and Guides on Testing, Automation, Programming and Latest Technology Articles</title>
-    <link>/categories/resources-and-guides/</link>
+    <link>https://www.pawangaria.com/categories/resources-and-guides/</link>
     <description>Recent content in Resources and Guides on Testing, Automation, Programming and Latest Technology Articles</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
     <lastBuildDate>Tue, 28 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/resources-and-guides/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.pawangaria.com/categories/resources-and-guides/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Firebase custom domain mapping with GoDaddy</title>
-      <link>/post/map-custom-domain-with-godaddy-firebase/</link>
+      <link>https://www.pawangaria.com/post/map-custom-domain-with-godaddy-firebase/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/map-custom-domain-with-godaddy-firebase/</guid>
+      <guid>https://www.pawangaria.com/post/map-custom-domain-with-godaddy-firebase/</guid>
       <description>In my post about how to deploy your website on firebase, I explained about hosting our website on Google Firebase and we are able to access the website using the firebase Url. Now in this article, we are going to talk and learn about adding our website with custom domain like your own domains purchased on the domain providing websites like GoDaddy and NameCheap. I this article we are going to integrate our domain in GoDaddy with Firebase hosted website.</description>
     </item>
     
     <item>
       <title>Editing Host file using GasMask on Mac OS X</title>
-      <link>/post/host-file-editing-gasmask/</link>
+      <link>https://www.pawangaria.com/post/host-file-editing-gasmask/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/host-file-editing-gasmask/</guid>
+      <guid>https://www.pawangaria.com/post/host-file-editing-gasmask/</guid>
       <description>R u using MAC OS X and tired of editing host file entries then Gas Mask is a very good solution for you.
 Gas Mask is an open source project which can be used as host file manager and it allows switching between the host files. Gas Mask is only available for MAC OS X operating systems.
 As per the documentation of Gas mask you can run it on the following versions :</description>
@@ -34,10 +34,10 @@ As per the documentation of Gas mask you can run it on the following versions :<
     
     <item>
       <title>Deploy and host your website on Google Firebase</title>
-      <link>/post/deploy-website-on-google-firebase/</link>
+      <link>https://www.pawangaria.com/post/deploy-website-on-google-firebase/</link>
       <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/deploy-website-on-google-firebase/</guid>
+      <guid>https://www.pawangaria.com/post/deploy-website-on-google-firebase/</guid>
       <description>After finishing the first draft of my new website I wanted to host my website on firebase because I found Firebaseas hosting server very useful, easy to use and free of cost for limited hosting.
 So I decided to write down my knowdledge and experience of hosting website with firebase here and if you are also looking for hosting your website in firebase please follow thesteps below.
 Create account or Login on Firebase Console To deploy your website on firebase first you need to create an account on Google Firebase.</description>
@@ -45,10 +45,10 @@ Create account or Login on Firebase Console To deploy your website on firebase f
     
     <item>
       <title>Capture Full page Screenshots using Chrome Browser</title>
-      <link>/post/capture-fullpage-screenshot-chrome/</link>
+      <link>https://www.pawangaria.com/post/capture-fullpage-screenshot-chrome/</link>
       <pubDate>Fri, 24 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>/post/capture-fullpage-screenshot-chrome/</guid>
+      <guid>https://www.pawangaria.com/post/capture-fullpage-screenshot-chrome/</guid>
       <description>While working everyone feels the need of taking full-page screenshots but Its always hard to take the full page screenshot as normal screenshot works on the page area which is in the frame. Like on Mac we use Command + Shift + 4 and select the area and take the screenshot but in this method, we can not scroll down and take the part hidden in the screenshot. Like I took a screenshot of BBC.</description>
     </item>
     
