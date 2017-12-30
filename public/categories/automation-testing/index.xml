@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Thu, 28 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/categories/automation-testing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to use TestNG Listeners?</title>
+      <link>https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/</link>
+      <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/</guid>
+      <description>Listeners listen to the event defined in the Test Scripts and behave accordingly. The main purpose of using listeners is to create logs for debugging but we can also manage Listeners for Test Framework Design.
+What are TestNG Listeners? In Simple words, they are basically Java classes, which implement some TestNG Interfaces. So that when TestNG raises certain events like Test starting, Test Failure etc. TestNG will look for all Classes which are basically looking for such events and call the respective event handlers.</description>
+    </item>
     
     <item>
       <title>How to use DataProvider in TestNG?</title>

@@ -104,8 +104,8 @@ showRightSidebar = true
 highlight = "default"
 
 # Google Analytics.
-googleAnalytics = "UA-110208829-1"
-googleads = true
+#googleAnalytics = "UA-110208829-1"
+googleads = false
 # Sidebar social links.
 name = "Pawan garia"
 website = "www.pawangaria.com"

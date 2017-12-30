@@ -5,38 +5,38 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Expected Exceptions in TestNG </title>
+<title>How to use TestNG Listeners? </title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?" />
+<meta name="description" content="TestNG Listeners listen to the event defined in the TestCase scripts and take action accordingly." />
 
-<meta name="keywords" content="TestNG,Java,test,unit,Expected,Exception">
+<meta name="keywords" content="TestNG,Java,test,Listeners">
 
 <meta name="author" content="Pawan Garia"/>
-<meta property="og:title" content="Expected Exceptions in TestNG ">
+<meta property="og:title" content="How to use TestNG Listeners? ">
 <meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
-<meta property="og:url" content="https://www.pawangaria.com/post/testng/expected-exception-in-testng/" />
+<meta property="og:url" content="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/" />
 <meta property="og:locale" content="">
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?"/>
-<meta property="og:article:published_time" content="2017-12-19T00:00:00Z" />
-<meta property="og:article:modified_time" content="2017-12-19T00:00:00Z" />
+<meta property="og:description" content="TestNG Listeners listen to the event defined in the TestCase scripts and take action accordingly."/>
+<meta property="og:article:published_time" content="2017-12-30T00:00:00Z" />
+<meta property="og:article:modified_time" content="2017-12-30T00:00:00Z" />
 
 
-<meta property="og:article:tag" content="TestNG,Java,test,unit,Expected,Exception">
+<meta property="og:article:tag" content="TestNG,Java,test,Listeners">
 
 
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@" />
-<meta name="twitter:title" content="Expected Exceptions in TestNG" />
-<meta name="twitter:description" content="How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?" />
-<meta name="twitter:url" content="https://www.pawangaria.com/post/testng/expected-exception-in-testng/" />
+<meta name="twitter:title" content="How to use TestNG Listeners?" />
+<meta name="twitter:description" content="TestNG Listeners listen to the event defined in the TestCase scripts and take action accordingly." />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/" />
 <meta name="twitter:domain" content="https://www.pawangaria.com/">
 
 
@@ -44,20 +44,20 @@
   {
     "@context": "http://schema.org",
     "@type": "Article",
-    "headline": "Expected Exceptions in TestNG",
+    "headline": "How to use TestNG Listeners?",
     "author": {
       "@type": "Person",
       "name": "http://profiles.google.com/+?rel=author"
     },
-    "datePublished": "2017-12-19",
-    "description": "How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?",
-    "wordCount": 212
+    "datePublished": "2017-12-30",
+    "description": "TestNG Listeners listen to the event defined in the TestCase scripts and take action accordingly.",
+    "wordCount": 722
   }
 </script>
 
 
 
-<link rel="canonical" href="https://www.pawangaria.com/post/testng/expected-exception-in-testng/" />
+<link rel="canonical" href="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
 <link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -152,37 +152,37 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="text-center">
 
-    <h1>Expected Exceptions in TestNG
+    <h1>How to use TestNG Listeners?
 </h1>
 
     <div class="metas">
 <small>
   <i class="fa fa-calendar"></i>
-  <time datetime="2017-12-19">19 Dec, 2017</time>
+  <time datetime="2017-12-30">30 Dec, 2017</time>
 </small>
 
 
   <small>
-  &middot; Read in about 1 min
-  &middot; (212 words)
+  &middot; Read in about 4 min
+  &middot; (722 words)
   &middot; 
 <span class="share-box">Share this on:
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
 
-    <a href="https://twitter.com/intent/tweet?text=Expected%20Exceptions%20in%20TestNG&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20use%20TestNG%20Listeners%3f&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
 
-    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
 
-    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f&amp;title=Expected%20Exceptions%20in%20TestNG" onclick="window.open(this.href, 'mywin',
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f&amp;title=How%20to%20use%20TestNG%20Listeners%3f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
 
-    <a href="mailto:?subject=Expected%20Exceptions%20in%20TestNG&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+    <a href="mailto:?subject=How%20to%20use%20TestNG%20Listeners%3f&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
   </span>
 
   </small>
@@ -194,7 +194,7 @@
   
   <a href="https://www.pawangaria.com/tags/testng" class="label label-primary">TestNG</a>
   
-  <a href="https://www.pawangaria.com/tags/expectedexception" class="label label-primary">expectedException</a>
+  <a href="https://www.pawangaria.com/tags/listeners" class="label label-primary">Listeners</a>
   
 
 
@@ -209,56 +209,192 @@
       <div class="content">
   
 
-<p>All exceptions are not bad in our product, means we have to test and verify the exceptions in our product. The <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/annotations/ExpectedExceptions.html">ExpectedException</a> is a way of verifying that your code throws a specific exception.</p>
+<p>Listeners listen to the event defined in the Test Scripts and behave accordingly. The main purpose of using listeners is to create logs for debugging but we can also manage Listeners for Test Framework Design.</p>
 
-<blockquote>
-<p>Verifying that code completes normally is important, but making sure the logic behaves as expected in failure and unexpected situations are also important.</p>
-</blockquote>
+<h3 id="what-are-testng-listeners">What are TestNG Listeners?</h3>
 
-<p>In <a href="http://testng.org/doc/documentation-main.html">TestNG</a>, we have an attribute as <strong>expectedExceptions</strong> which needs to be added to our test where we have to verify the Exception as expected. This doesn&rsquo;t affect your existing tests steps as it&rsquo;s in the attribute.</p>
+<p>In Simple words, they are basically Java classes, which implement some TestNG Interfaces. So that when TestNG raises certain events like Test starting, Test Failure etc. TestNG will look for all Classes which are basically looking for such events and call the respective event handlers.</p>
 
-<h3 id="how-to-test-exceptions">How to Test exceptions:</h3>
+<p>Let&rsquo;s understand the Listener concept using the <strong>ISuiteListener Interface</strong> for test suites.</p>
 
-<p>Below example throw <code>java.lang.NullPointerException</code> Exception and It&rsquo;s an expected exception but our test is marked as failures means we are not handling the exception as expected.</p>
+<p>Create a Class <code>TestNgListenersTest</code> which implements ISuiteListener and add unimplemented methods.</p>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<pre><code class="language-Java">import org.testng.ISuite;
+import org.testng.ISuiteListener;
 
+public class TestNgListenersTest implements ISuiteListener {
+
+    public void onStart(ISuite suite) {
+        System.out.println(&quot;on Before Suite Start&quot;);
+    }
+
+    public void onFinish(ISuite suite) {
+        System.out.println(&quot;on After Suite Finish&quot;);
+    }
+}
+</code></pre>
+
+<p>Now we will use the above <code>TestNgListenersTest</code> class as a Listener in out Test Class.</p>
+
+<pre><code class="language-Java">import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class ExpectedExceptionTest {
-
+@Listeners(TestNgListenersTest.class)
+public class ListenerTestExample {
     @Test()
-    public void expectedExceptionTest() {
-        String ptr = null;
-        // This line of code throws NullPointerException
-        ptr.equals(&quot;testng&quot;);
+    public void firstTestMethod() {
+        System.out.println(&quot;First test method&quot;);
     }
 }
 </code></pre>
 
-<p><img src="https://www.pawangaria.com/img/testng/exception-throwing-in-testng.png" alt="exception-throwing-in-testng" /></p>
+<p>If you Run the above Test Class you can see the Listener class methods invoked indirectly.</p>
 
-<h3 id="with-expectedexceptions-attribute">With ExpectedExceptions attribute:</h3>
+<pre><code class="language-text">on Before Suite Start
+First test method
+on After Suite Finish
+</code></pre>
 
-<p>Now let&rsquo;s fix our above test and mark our test as pass by handling an expected exception. We will add the new attribute to our test<br />
-<code>@Test(expectedExceptions = java.lang.NullPointerException.class)</code></p>
+<h3 id="lets-understand-our-listener-example">Lets Understand Our Listener Example:</h3>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<p>Whenever a Test Class implements the Listener, TestNG guarantees in execution that it will invoke the methods onStart() and onFinish() before and after running a TestNG Suite. So before TestNG picks up your Test Suite for execution, it first makes a call to <code>onStart()</code> method and runs the Steps mentioned in the method and then Execute the @Test method. In a similar way, it again makes a call to <code>onFinish()</code> method after a Test Suite has been finished running.</p>
 
+<h3 id="what-listeners-are-available-in-testng">What Listeners are available in TestNG:</h3>
+
+<p>TestNG provides following listener types:</p>
+
+<ul>
+<li>IExecutionListener</li>
+<li>IAnnotationTransformer</li>
+<li>ISuiteListener</li>
+<li>ITestListener</li>
+<li>IConfigurationListener</li>
+<li>IMethodInterceptor</li>
+<li>IInvokedMethodListener</li>
+<li>IHookable</li>
+<li>IReporter</li>
+</ul>
+
+<h3 id="ways-of-using-listeners-in-testng">Ways of Using Listeners in TestNG:</h3>
+
+<p>We will focus on most common ways listeners been used in our Test Suite and defined in our Test. Example uses the <code>TestNgListenersTest.class</code> Listener in both the ways.</p>
+
+<h4 id="1-listeners-testng-as-annotation-in-class">1. @Listeners TestNG as annotation in Class</h4>
+
+<pre><code class="language-Java">import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class ExpectedExceptionTest {
-
-    @Test(expectedExceptions = java.lang.NullPointerException.class)
-    public void expectedExceptionTest() {
-        String ptr = null;
-        // This line of code throws NullPointerException
-        ptr.equals(&quot;testng&quot;);
+@Listeners(TestNgListenersTest.class)
+public class ListenerTestExample {
+    @Test()
+    public void firstTestMethod() {
+        System.out.println(&quot;First test method&quot;);
     }
 }
 </code></pre>
 
-<p><img src="https://www.pawangaria.com/img/testng/expected-exception-test-in-testng.png" alt="expected-exception-test-in-testng" /></p>
+<h4 id="2-listeners-tag-in-your-testng-xml">2. Listeners Tag in your TestNG.xml</h4>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.tutorial.testng.listeners.TestNgListenersTest&quot; /&gt;
+  &lt;/listeners&gt;
+
+  &lt;test name=&quot;Test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.tutorial.testng.listeners.ListenerTestExample&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre>
+
+<h3 id="example-with-multiple-listeners">Example with Multiple Listeners:</h3>
+
+<p>In this example we will implement major Listeners like ISuiteListener, ITestListener and IInvokedMethodListener in this class. This example can handle multiple events like test start, pass,finish,fail,skips or passes etc.</p>
+
+<pre><code class="language-Java">import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class TestNGListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
+
+    // ISuiteListener and will execute before the Suite start
+    public void onStart(ISuite suite) {
+        System.out.println(&quot;Begin executing Suite:&quot; + suite.getName());
+    }
+
+    // ISuiteListener and will execute, once the Suite is finished
+    public void onFinish(ISuite suite) {
+        System.out.println(&quot;After executing Suite:&quot; + suite.getName());
+    }
+
+    // ITestListener and will execute before starting of Test set
+    public void onStart(ITestContext arg0) {
+        System.out.println(&quot;Begin executing Test:&quot; + arg0.getName());
+    }
+
+    // ITestListener and will execute, once the Test set is finished
+    public void onFinish(ITestContext arg0) {
+        System.out.println(&quot;Completed executing test:&quot; + arg0.getName());
+    }
+
+    // ITestListener and will execute only when the test is pass
+    public void onTestSuccess(ITestResult arg0) {
+        System.out.println(&quot;Completed executing test:&quot; + arg0.getName());
+    }
+
+    // ITestListener and will execute only on the event of fail test
+    public void onTestFailure(ITestResult arg0) {
+        System.out.println(&quot;Test Status::&quot; + arg0.getName());
+    }
+
+    // ITestListener and will execute before the main test start (@Test)
+    public void onTestStart(ITestResult arg0) {
+        System.out.println(&quot;Test Status:&quot; + arg0.getName());
+    }
+
+    // ITestListener and will execute only if any of the main test(@Test) get skipped
+    public void onTestSkipped(ITestResult arg0) {
+        System.out.println(&quot;Test Status::&quot; + arg0.getName());
+    }
+
+    // IInvokedMethodListener and will execute before every method including
+    // @Before @After @Test
+    public void beforeInvocation(IInvokedMethod arg0, ITestResult arg1) {
+        System.out.println(&quot;Before Invocation of method:&quot; + arg0.getTestMethod().getMethodName());
+    }
+
+    // IInvokedMethodListener and will execute after every method including
+    // @Before @After @Test
+    public void afterInvocation(IInvokedMethod arg0, ITestResult arg1) {
+        System.out.println(&quot;After Invocation of method:&quot; + arg0.getTestMethod().getMethodName());
+    }
+
+    // ITestListener method and Success Percentage
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        System.out.println(&quot;onTestFailedButWithinSuccessPercentage:&quot; + result.getTestName());
+    }
+}
+</code></pre>
+
+<h3 id="output">Output:</h3>
+
+<pre><code class="language-text">Begin executing Suite:Default suite
+Begin executing Test:Default test
+Test Status:testMethod
+Before Invocation of method:testMethod
+First test method
+After Invocation of method:testMethod
+Completed executing test:testMethod
+Completed executing test:Default test
+After executing Suite:Default suite
+</code></pre>
 
 </div>
 
@@ -266,22 +402,22 @@ public class ExpectedExceptionTest {
       <footer>
   
 <span class="share-box">Share this on:
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
 
-    <a href="https://twitter.com/intent/tweet?text=Expected%20Exceptions%20in%20TestNG&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20use%20TestNG%20Listeners%3f&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
 
-    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
 
-    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" onclick="window.open(this.href, 'mywin',
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f&amp;title=Expected%20Exceptions%20in%20TestNG" onclick="window.open(this.href, 'mywin',
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f&amp;title=How%20to%20use%20TestNG%20Listeners%3f" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
 
-    <a href="mailto:?subject=Expected%20Exceptions%20in%20TestNG&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fexpected-exception-in-testng%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+    <a href="mailto:?subject=How%20to%20use%20TestNG%20Listeners%3f&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-to-use-testng-listeners%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
   </span>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -312,18 +448,12 @@ public class ExpectedExceptionTest {
     <nav><ul class="pager">
     
         <li class="previous">
-          <a href="https://www.pawangaria.com/post/testng/testng-test-results/" title="TestNG Results: Success, Failure and Assert">
+          <a href="https://www.pawangaria.com/post/testng/how-to-use-dataprovider-in-testng/" title="How to use DataProvider in TestNG?">
             <span aria-hidden="true">&larr;</span>Previous
           </a>
         </li>
     
 
-    
-      <li class="next">
-        <a href="https://www.pawangaria.com/post/testng/how-to-skip-test-in-testng/" title="How to Skip @Test in TestNG">
-            Next <span aria-hidden="true">&rarr;</span>
-        </a>
-      </li>
     
     </ul> </nav>
   
