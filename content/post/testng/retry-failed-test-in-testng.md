@@ -1,7 +1,7 @@
 ---
 title: "How to Retry failed tests in TestNG?"
-date: 2017-12-28
-draft: true
+date: 2018-01-04
+draft: false
 description: "Retry or ReRun failed Test cases multiple times by using IRetryAnalyzer Interface. The article explains ways to rerun the TestNG tests when they are failed."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,retry,ReRun,test,FailedTest,IRetryAnalyzer,Listener"

@@ -7,10 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Retry failed tests in TestNG?</title>
+      <link>https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/</guid>
+      <description>In automation Test Suits or running test cases in a bulk suite, we face unexpected Test failure or flaky test caused by network glitch, time-out or some other problem. There is a need for running the failed test cases so that we can get the proper result for the flaky TestCase.
+ TestNG provides IRetryAnalyzer interface which can be used to run and configure your retry related logic.
+ How to use IRetryAnalyzer: First of all, we should create a class which implements the IRetryAnalyzer interface which has one method public boolean retry(ITestResult result); which needs to be implemented.</description>
+    </item>
+    
+    <item>
+      <title>How to pass parameters from testng.xml file in TestNG</title>
+      <link>https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/</link>
+      <pubDate>Wed, 03 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/</guid>
+      <description>TestNG lets you pass parameters directly to your test methods from the testng.xml file. Passing parameters from the XML file is important when you want to pass configurations like browser name, version,test-URL etc. directly into your Test. Passing these configurations is important because the values are changing and should be always dynamic.
+ Passing Dynamic configuration values from testng.xml is important when you want to change parameters like browser or version or operatingSystem etc.</description>
+    </item>
+    
+    <item>
+      <title>Executing Parallel Tests in TestNG</title>
+      <link>https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/</guid>
+      <description>TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.TestNG use the concept of multi-threading from Java. In the configuration file, the parallel attribute on the  tag us been used for the parallel execution using the testng.xml file. Example:
+&amp;lt;suite name=&amp;quot;Suite&amp;quot; parallel=&amp;quot;methods&amp;quot; thread-count=&amp;quot;2&amp;quot; configfailurepolicy=&amp;quot;continue&amp;quot;&amp;gt;  Parallel attribute take multiple values, Below are the valid values:
+ parallel= methods : Run all your test methods in separate threads.</description>
+    </item>
     
     <item>
       <title>How to use TestNG Listeners?</title>
@@ -258,8 +290,18 @@ Why to use TestManagement Tool with Automation? While making Regression or any k
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/page/about/</guid>
-      <description>My name is Pawan Garia and these days I am living in Germany with my wife in a beautiful city of Bamberg. I am working as QA Automation Engineer and I have lots of experience in Framework Design and Development. In my free time I like watching movies, traveling to new places and adventure sports.
-Please feel free to contact me on my Email: pawangaria@gmail.com</description>
+      <description>With nearly 8 years of programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.I have lots of experience in Framework Design and Development.
+I am living in Germany with my wife in a beautiful city of Bamberg.</description>
+    </item>
+    
+    <item>
+      <title>In-Depth Training and Course in Automation</title>
+      <link>https://www.pawangaria.com/page/training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/page/training/</guid>
+      <description>I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, AutoIT, Selenium Grid, Appium, and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
+The Automation Testing training program kicks off with a detailed overview of Core Java 8 concepts and trains you on automating web applications in Selenium 3.</description>
     </item>
     
   </channel>

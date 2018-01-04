@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>How to pass parameters from testng.xml file in TestNG </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="TestNG lets you pass parameters directly to your test methods from the testng.xml file. You can also mark some parameters as optional." />
+
+<meta name="keywords" content="TestNG,Java,test,parameters,testng.xml,optional">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="How to pass parameters from testng.xml file in TestNG ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/" />
+<meta property="og:locale" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="TestNG lets you pass parameters directly to your test methods from the testng.xml file. You can also mark some parameters as optional."/>
+<meta property="og:article:published_time" content="2018-01-03T00:00:00Z" />
+<meta property="og:article:modified_time" content="2018-01-03T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="TestNG,Java,test,parameters,testng.xml,optional">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="How to pass parameters from testng.xml file in TestNG" />
+<meta name="twitter:description" content="TestNG lets you pass parameters directly to your test methods from the testng.xml file. You can also mark some parameters as optional." />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "How to pass parameters from testng.xml file in TestNG",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-01-03",
+    "description": "TestNG lets you pass parameters directly to your test methods from the testng.xml file. You can also mark some parameters as optional.",
+    "wordCount": 447
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.31" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>How to pass parameters from testng.xml file in TestNG
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2018-01-03">3 Jan, 2018</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 3 min
+  &middot; (447 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f&amp;title=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="https://www.pawangaria.com/tags/testng" class="label label-primary">TestNG</a>
+  
+  <a href="https://www.pawangaria.com/tags/parameters" class="label label-primary">parameters</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p>TestNG lets you pass parameters directly to your test methods from the testng.xml file. Passing parameters from the XML file is important when you want to pass configurations like browser name, version,test-URL etc. directly into your Test. Passing these configurations is important because the values are changing and should be always dynamic.</p>
+
+<blockquote>
+<p>Passing Dynamic configuration values from testng.xml is important when you want to change parameters like browser or version or operatingSystem etc.</p>
+</blockquote>
+
+<p>Let&rsquo;s create an example where we define the simple parameters in the testng.xml file and then use those parameters in the Java files.</p>
+
+<h3 id="create-test-class-with-parameters">Create Test Class with parameters:</h3>
+
+<p>Create a Test Class in which we will use annotation <strong>@Parameters(&laquo;parameter&raquo;)</strong> in the Test method. Here we will accept 3 parameters like <strong>browser, version and operatingSystem</strong>. We will print the values passed from the XML file.</p>
+
+<blockquote>
+<p>Parameters can be used in @BeforeClass, @BeforeTest, @BeforeMethod, @Test and other TestNG annotations.</p>
+</blockquote>
+
+<pre><code class="language-java">import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class PassParametersFromxml {
+
+    @Parameters({&quot;browser&quot;,&quot;version&quot;,&quot;operatingSystem&quot;})
+    @Test()
+    public void firstTestMethod(String browser,String version,String operatingSystem) {
+
+        System.out.println(&quot;Parameter browser:&quot;+browser);
+        System.out.println(&quot;Parameter version:&quot;+version);
+        System.out.println(&quot;Parameter operatingSystem:&quot;+operatingSystem);
+    }
+}
+</code></pre>
+
+<h3 id="create-testng-xml-file-and-pass-parameters">Create testng.xml file and pass parameters:</h3>
+
+<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;test name=&quot;Test&quot;&gt;
+  &lt;parameter name = &quot;browser&quot; value=&quot;Firefox&quot;/&gt;
+  &lt;parameter name = &quot;version&quot; value=&quot;61.12&quot;/&gt;
+  &lt;parameter name = &quot;operatingSystem&quot; value=&quot;Windows&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.tutorial.testng.testngfileparameters.PassParametersFromxml&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre>
+
+<h3 id="output">Output:</h3>
+
+<pre><code class="language-text">Parameter browser: Firefox
+Parameter version: 61.12
+Parameter operatingSystem: Windows
+
+===============================================
+Suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+</code></pre>
+
+<blockquote>
+<p>It is important to pass all the values which are expected as parameters in @Test or else you will get the Exception : org.testng.TestNGException: Parameter &lsquo;operatingSystem&rsquo; is required by @Test on method and your Testcases will not Run.</p>
+</blockquote>
+
+<h3 id="how-to-use-optional-parameters">How to use @optional Parameters:</h3>
+
+<p>Now If we want all the parameters to be present in the @Test but don&rsquo;t want to pass from the testng.xml file, we can mark those variable as <strong>@optional</strong> and TestNG will not throw the Exception regarding parameters missing.</p>
+
+<p>Below example shows us how to use our same class @test with optional Parameters.</p>
+
+<p><strong>Marking the &laquo;operatingSystem&raquo; parameter as @optional in this example Class</strong></p>
+
+<pre><code class="language-java">import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class PassParametersFromxmlOptional {
+
+    @Parameters({&quot;browser&quot;,&quot;version&quot;,&quot;operatingSystem&quot;})
+    @Test()
+    public void firstTestMethod(String browser,String version,@Optional String operatingSystem) {
+
+        System.out.println(&quot;Parameter browser:&quot;+browser);
+        System.out.println(&quot;Parameter version:&quot;+version);
+        System.out.println(&quot;Parameter operatingSystem:&quot;+operatingSystem);
+    }
+}
+</code></pre>
+
+<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Suite&quot;&gt;
+  &lt;test name=&quot;Test&quot;&gt;
+  &lt;parameter name = &quot;browser&quot; value=&quot;Firefox&quot;/&gt;
+  &lt;parameter name = &quot;version&quot; value=&quot;61.12&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.tutorial.testng.testngfileparameters.PassParametersFromxmlOptional&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre>
+
+<h3 id="output-1">Output:</h3>
+
+<p>If we run the testng.xml file now with out the value of operatingSystem, TestNG will consider that value as optional and continue with other parameters and print the value as NULL.</p>
+
+<pre><code class="language-text">Parameter browser: Firefox
+Parameter version: 61.12
+Parameter operatingSystem: null
+
+===============================================
+Suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+</code></pre>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f&amp;title=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=How%20to%20pass%20parameters%20from%20testng.xml%20file%20in%20TestNG&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2fhow-pass-parameters-from-testng-xml%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/" title="Executing Parallel Tests in TestNG">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/" title="How to Retry failed tests in TestNG?">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/">How to Retry failed tests in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/">How to pass parameters from testng.xml file in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/">Executing Parallel Tests in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/">How to use TestNG Listeners?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-use-dataprovider-in-testng/">How to use DataProvider in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-use-dependencies-in-testng/">How to use Dependencies in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-run-multiple-class-in-testng/">How to run multiple Test Classes in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/enable-and-disable-test-in-testng/">How to Enable and Disable @Test in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-skip-test-in-testng/">How to Skip @Test in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/expected-exception-in-testng/">Expected Exceptions in TestNG</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (23)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (9)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (14)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+</div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+              
+    
+<div class="container footline">
+    <small>
+  code with <i class='fa fa-heart'></i>
+
+</small>
+</div>
+
+
+    
+
+
+        </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+

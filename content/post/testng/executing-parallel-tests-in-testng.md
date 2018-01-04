@@ -1,7 +1,7 @@
 ---
 title: "Executing Parallel Tests in TestNG"
-date: 2017-12-28
-draft: true
+date: 2018-01-01
+draft: false
 description: "TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,test,parallel,execution"

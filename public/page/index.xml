@@ -17,8 +17,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/page/about/</guid>
-      <description>My name is Pawan Garia and these days I am living in Germany with my wife in a beautiful city of Bamberg. I am working as QA Automation Engineer and I have lots of experience in Framework Design and Development. In my free time I like watching movies, traveling to new places and adventure sports.
-Please feel free to contact me on my Email: pawangaria@gmail.com</description>
+      <description>With nearly 8 years of programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.I have lots of experience in Framework Design and Development.
+I am living in Germany with my wife in a beautiful city of Bamberg.</description>
+    </item>
+    
+    <item>
+      <title>In-Depth Training and Course in Automation</title>
+      <link>https://www.pawangaria.com/page/training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/page/training/</guid>
+      <description>I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, AutoIT, Selenium Grid, Appium, and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
+The Automation Testing training program kicks off with a detailed overview of Core Java 8 concepts and trains you on automating web applications in Selenium 3.</description>
     </item>
     
   </channel>

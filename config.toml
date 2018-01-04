@@ -146,14 +146,20 @@ url = "/post/"
 
 [[menu.main]]
 name = "About"
-weight = 3
+weight = 4
 identifier = "about"
 url = "page/about/"
 
 [[menu.main]]
+name = "Training"
+weight = 2
+identifier = "training"
+url = "page/training/"
+
+[[menu.main]]
     identifier = "category"
     name = "Categories"
-    weight = 2
+    weight = 3
     hasChildren = true
     url = "categories/"
 
