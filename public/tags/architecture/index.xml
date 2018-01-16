@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/tags/architecture/</link>
+    <description>Recent content in Architecture on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Sat, 06 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How TestNG works in the Background?</title>
+      <link>https://www.pawangaria.com/post/testng/how-testng-works-in-background/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/how-testng-works-in-background/</guid>
+      <description>TestNG is widely used Test Management Framework these days mostly used with Selenium WebDriver and Unit Testing. This article will try to Run the testNG from simple Java program and try to figure out the architecture of TestNG. We will see what happens in the background when you run your Test.
+Running TestNG from Java program: This example creates a TestNG object and runs the @test class TestClass then we will try to add some TestListener int he same Java code.</description>
+    </item>
+    
+  </channel>
+</rss>

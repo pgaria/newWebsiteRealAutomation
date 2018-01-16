@@ -9,7 +9,7 @@ image: "/img/testng/dependsOnGroup-method-testng-thumb.png"
 logothumb: "/img/logothumb/testng_logo.png"
 tags: [
     "Test Automation",
-    "TestNG","retry-test",Listeners"
+    "TestNG","retry-test","Listeners"
 ]
 ---
 In automation Test Suits or running test cases in a bulk suite, we face unexpected Test failure or flaky test caused by network glitch, time-out or some other problem. There is a need for running the failed test cases so that we can get the proper result for the flaky TestCase.

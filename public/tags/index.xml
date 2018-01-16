@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Architecture</title>
+      <link>https://www.pawangaria.com/tags/architecture/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Assert</title>
       <link>https://www.pawangaria.com/tags/assert/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
@@ -54,6 +63,15 @@
       <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/dependencies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://www.pawangaria.com/tags/docker/</link>
+      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -159,7 +177,7 @@
     <item>
       <title>Selenium Webdriver</title>
       <link>https://www.pawangaria.com/tags/selenium-webdriver/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
       <description></description>
@@ -168,7 +186,7 @@
     <item>
       <title>Test Automation</title>
       <link>https://www.pawangaria.com/tags/test-automation/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>
@@ -177,7 +195,7 @@
     <item>
       <title>Testng</title>
       <link>https://www.pawangaria.com/tags/testng/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/testng/</guid>
       <description></description>

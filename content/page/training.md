@@ -6,7 +6,7 @@ draft: false
 comments: false
 ---
 
-I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, AutoIT, Selenium Grid, Appium, and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
+I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, Java, Selenium Grid, Appium, Performance Testing with Jmeter and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
 
 The Automation Testing training program kicks off with a detailed overview of Core Java 8 concepts and trains you on automating web applications in Selenium 3.0. You will also receive instruction on Docker to run your tests efficiently across various platforms and achieve parallelism in your testing environment and production with our Automation Testing training course.
 

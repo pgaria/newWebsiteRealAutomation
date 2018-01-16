@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/categories/docker/</link>
+    <description>Recent content in Docker on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Tue, 16 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setup Selenium WebDriver Grid with Docker</title>
+      <link>https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/</link>
+      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/</guid>
+      <description>Integration tests are an integral part of any modern web application,you&amp;rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&amp;rsquo;re stuck with two bad options like SaaS provider like SauceLabs and BrowserStack etc. or running your own Selenium Grid and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</description>
+    </item>
+    
+    <item>
+      <title>Debugging Docker Container with RealVNC Viewer</title>
+      <link>https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/</guid>
+      <description>In our last article, we talked about basics of running automation Test on Docker. Now, this article is more about debugging the Test running on the containers. It&amp;rsquo;s helpful when you want to see what is happening inside the docker container. In the event you wish to visually see what the browser is doing you will want to run the debug variant of the node or standalone images. A VNC server will run on particular port inside the container with Selenium WebDriver.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started - Docker with Selenium WebDriver</title>
+      <link>https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/</guid>
+      <description>What is Docker? Docker containers allow you to package up an application with all the basic parts to run, such as libraries and other dependencies, and ship it out as one package.
+Developers use Docker to eliminate “works on my machine” problems when collaborating on code with co-workers. Companies use Docker to build agile software delivery pipelines to ship new features faster, more securely and with confidence for both Linux and Windows Server.</description>
+    </item>
+    
+  </channel>
+</rss>

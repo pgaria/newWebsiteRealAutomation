@@ -3,6 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/</loc>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/</loc>
+    <lastmod>2018-01-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/</loc>
+    <lastmod>2018-01-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/post/testng/how-testng-works-in-background/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
     <loc>https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/</loc>
     <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -205,6 +233,13 @@
   </url>
   
   <url>
+    <loc>https://www.pawangaria.com/tags/architecture/</loc>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://www.pawangaria.com/tags/assert/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -213,14 +248,14 @@
   
   <url>
     <loc>https://www.pawangaria.com/categories/automation-testing/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/categories/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -242,6 +277,20 @@
   <url>
     <loc>https://www.pawangaria.com/tags/dependencies/</loc>
     <lastmod>2017-12-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/tags/docker/</loc>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/categories/docker/</loc>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -330,7 +379,7 @@
   
   <url>
     <loc>https://www.pawangaria.com/post/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -350,14 +399,14 @@
   </url>
   
   <url>
-    <loc>https://www.pawangaria.com/categories/selenium-webdriver/</loc>
-    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <loc>https://www.pawangaria.com/tags/selenium-webdriver/</loc>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.pawangaria.com/tags/selenium-webdriver/</loc>
+    <loc>https://www.pawangaria.com/categories/selenium-webdriver/</loc>
     <lastmod>2017-12-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -372,21 +421,21 @@
   
   <url>
     <loc>https://www.pawangaria.com/tags/test-automation/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/tags/testng/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -400,7 +449,7 @@
   
   <url>
     <loc>https://www.pawangaria.com/categories/tutorials/</loc>
-    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

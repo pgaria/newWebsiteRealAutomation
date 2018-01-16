@@ -183,3 +183,8 @@ url = "page/training/"
         name = "Tutorials"
         url = "categories/tutorials/"
         weight = 4
+[[menu.main]]
+        parent = "category"
+        name = "Docker"
+        url = "categories/docker/"
+        weight = 5

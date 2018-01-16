@@ -1,7 +1,7 @@
 ---
 title: "How TestNG works in the Background?"
-date: 2018-01-02
-draft: true
+date: 2018-01-06
+draft: false
 description: "In this article, we explain how TestNG works in the background and what is TestNG architecture. We will see examples creating the TestNG object and run the test class from code, It also adds a TestListener."
 categories: [ "Automation Testing","Tutorials"]
 keywords: "TestNG,Java,TestListener,object,test,background,architecture"
@@ -9,7 +9,7 @@ image: "/img/testng/multiple-class-testng-thumb.png"
 logothumb: "/img/logothumb/testng_logo.png"
 tags: [
     "Test Automation",
-    "TestNG","testng architecture"
+    "TestNG","architecture"
 ]
 ---
 TestNG is widely used Test Management Framework these days mostly used with Selenium WebDriver and Unit Testing. This article will try to Run the testNG from simple Java program and try to figure out the architecture of TestNG. We will see what happens in the background when you run your Test.
