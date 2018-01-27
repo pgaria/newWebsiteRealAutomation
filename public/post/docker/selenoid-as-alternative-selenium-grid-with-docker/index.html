@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Scalable Selenoid Grid as an alternative for Selenium Grid </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="This article is about using Selenoid with Docker as an alternative for the Selenium Grid. Selenoid is a powerful implementation of Selenium hub using Docker containers to launch browsers." />
+
+<meta name="keywords" content="TestNG,Java,Docker,grid,selenoid,container,run,test,webdriver">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="Scalable Selenoid Grid as an alternative for Selenium Grid ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/" />
+<meta property="og:locale" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="This article is about using Selenoid with Docker as an alternative for the Selenium Grid. Selenoid is a powerful implementation of Selenium hub using Docker containers to launch browsers."/>
+<meta property="og:article:published_time" content="2018-01-27T00:00:00Z" />
+<meta property="og:article:modified_time" content="2018-01-27T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="TestNG,Java,Docker,grid,selenoid,container,run,test,webdriver">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Scalable Selenoid Grid as an alternative for Selenium Grid" />
+<meta name="twitter:description" content="This article is about using Selenoid with Docker as an alternative for the Selenium Grid. Selenoid is a powerful implementation of Selenium hub using Docker containers to launch browsers." />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Scalable Selenoid Grid as an alternative for Selenium Grid",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-01-27",
+    "description": "This article is about using Selenoid with Docker as an alternative for the Selenium Grid. Selenoid is a powerful implementation of Selenium hub using Docker containers to launch browsers.",
+    "wordCount": 935
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.31" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blog
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Scalable Selenoid Grid as an alternative for Selenium Grid
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2018-01-27">27 Jan, 2018</time>
+</small>
+
+
+  <small>
+  &middot; Read in about 5 min
+  &middot; (935 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f&amp;title=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="https://www.pawangaria.com/tags/docker" class="label label-primary">Docker</a>
+  
+  <a href="https://www.pawangaria.com/tags/selenium-webdriver" class="label label-primary">Selenium WebDriver</a>
+  
+  <a href="https://www.pawangaria.com/tags/selenoid" class="label label-primary">Selenoid</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p><a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">In past articles</a>, we learned about a simple approach to building scalable <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> cluster using Docker and selenium images in the virtual machines. But this article is more about building an improved and very easy scalable selenium Grid using an open source project named <a href="http://aerokube.com/selenoid/latest/">Selenoid</a> with Docker.</p>
+
+<h3 id="how-selenoid-is-different-from-selenium-grid">How Selenoid is different from Selenium Grid:</h3>
+
+<p>The main idea behind Selenoid is to start short-lived container for each Selenium session with a requested browser and stop it immediately when the session is closed from the Test. Such approach automatically resolves all issues related to session caches and sharing browser settings among sessions. Using Selenoid we don&rsquo;t need to maintain the nodes running and taking the machine resources.</p>
+
+<p>The theory behind <a href="https://github.com/aerokube/selenoid">Selenoid</a> is one Hub running and managing requests for every container consists of specific browser version requested from the test. Using this approach we can save a lot of resources and the containers provide enough level of isolation between browser processes and Tests. This allows you to use an unlimited number of different browser versions in parallel.</p>
+
+<p><img src="https://www.pawangaria.com/img/docker/test-selenoid-docker-selenium-flow.png" alt="test-selenoid-docker-selenium-flow" /></p>
+
+<h3 id="how-to-use-selenoid-grid">How to use Selenoid Grid</h3>
+
+<p>Selenoid should be used with two components:</p>
+
+<ul>
+<li><a href="https://github.com/aerokube/selenoid">Selenoid</a> : Selenium Hub successor running browsers within containers. scalable, immutable, self hosted Selenium-Grid on any platform with single binary.</li>
+<li><a href="https://github.com/aerokube/selenoid-ui">Selenoid-ui</a> : Graphical user interface for Selenoid project and check run time browsers and logs.</li>
+</ul>
+
+<p>Now let&rsquo;s create a simple Grid by using Selenoid Images with Docker on the local machine and you can run Test cases.</p>
+
+<h4 id="prerequisite">Prerequisite:</h4>
+
+<p>Docker should be installed on your machine where you want to run this Selenium Grid.</p>
+
+<h4 id="create-a-dockercompose-file">Create a DockerCompose File.</h4>
+
+<p>docker-compose file is a configuration file for docker, By using the compose files its easy to create and stop Containers. We are creating 2 services Selenoid and Selenoid-ui in docker-compose.yml file, which will run as 2 containers.You can read <a href="https://docs.docker.com/compose/overview/#compose-documentation">official documentation of docker compose file</a>.</p>
+
+<p>Let&rsquo;s create a docker-compose.yml file in you local system.(You can copy paste.)</p>
+
+<h3 id="docker-compose-yml">docker-compose.yml</h3>
+
+<pre><code>version: '1'
+services:
+  selenoid:
+    image: &quot;aerokube/selenoid&quot;
+    command: -listen :4444 -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m
+    network_mode: bridge
+    ports:
+      - &quot;4444:4444&quot;
+    volumes:
+      - &quot;$PWD:/etc/selenoid/&quot; # assumed current dir contains browsers.json
+      - &quot;/var/run/docker.sock:/var/run/docker.sock&quot;
+  selenoid-ui:
+    image: &quot;aerokube/selenoid-ui&quot;
+    network_mode: bridge
+    links:
+      - selenoid
+    ports:
+      - &quot;8080:8080&quot;
+    command: [&quot;--selenoid-uri&quot;, &quot;http://selenoid:4444&quot;]
+</code></pre>
+
+<h3 id="browsers-json">browsers.json</h3>
+
+<p>Using the docker-compose file we have to pass the browsers using a Json file. browsers.json file contains all the browsers and their version we want to run in the Selenoid grid. In our JSON file we are defining Chrome Version as 61.0 and we are going to use chrome browser in the Selenoid instance.</p>
+
+<p>Let&rsquo;s create a browsers.json file in the current directory where docker-compose.yml file is present.</p>
+
+<pre><code>{
+&quot;firefox&quot;: {
+&quot;default&quot;: &quot;latest&quot;,
+&quot;versions&quot;: {
+&quot;latest&quot;: {
+&quot;image&quot;: &quot;selenoid/firefox&quot;,
+&quot;port&quot;: &quot;4444&quot;,
+&quot;path&quot;: &quot;/wd/hub&quot;,
+&quot;tmpfs&quot;: {&quot;/tmp&quot;:&quot;size=512m&quot;}
+			}
+		}
+	},
+&quot;chrome&quot;: {
+&quot;default&quot;: &quot;61.0&quot;,
+&quot;versions&quot;: {
+&quot;61.0&quot;: {
+&quot;image&quot;: &quot;selenoid/vnc:chrome_61.0&quot;,
+&quot;port&quot;: &quot;4444&quot;,
+&quot;tmpfs&quot;: {&quot;/tmp&quot;:&quot;size=512m&quot;}
+		 }	 
+		}
+	}
+}
+
+</code></pre>
+
+<h3 id="what-is-selenoid-ui">What is Selenoid UI :</h3>
+
+<p><a href="http://aerokube.com/selenoid-ui/latest/">Selenoid UI</a> is also a very cool feature in the Selenoid project where We can see the Live Test Running on multiple containers. If you look closely in to the composer file above the selenoid-ui service is running on port No : 8080 and linked with the selenoid service.</p>
+
+<p>So if we run the docker compose file above the docker container will start both the service by default. We can access the UI using the URL: <code>localhost:8080</code>
+<img src="https://www.pawangaria.com/img/docker/selenoid-ui-url-status.png" alt="selenoid-ui-url-status" /></p>
+
+<h3 id="start-the-selenoid-grid">Start the Selenoid Grid:</h3>
+
+<p>Starting the Selenoid Grid is very easy and simple by using the docker-compose file we have made in above steps. Let&rsquo;s run the following command from where our docker-compose.yml file is present:</p>
+
+<pre><code>docker-compose up -d
+</code></pre>
+
+<p><img src="https://www.pawangaria.com/img/docker/docker-compose-up-status.png" alt="docker-compose-up-status" /></p>
+
+<p>After running the docker compose command, Docker will automatically download the proper images of selenoid before starting the container. We can see the 2 containers running using command: <code>docker ps</code>
+. Please check the Port Numbers and IMAGES to understand more about what containers are running.</p>
+
+<blockquote>
+<p>Selenoid resolves the problem of creating containers with the proper browser and browser versions. As Selenoid Hub which is running on 4444 port will receive the request and create a container with the browser asked from Test script and will kill the container after the Test.</p>
+</blockquote>
+
+<h3 id="vnc-and-logs">VNC and LOGS:</h3>
+
+<p>To see and initialize the VNC and display the Running browsers from the container, We need to set the browser capability in our Test with <strong>enableVNC=true</strong> capability. After Implementing this we will be able to see the Browsers and logs in the VNC Url. Below is the Example Class which can run Test on Chrome Browser with enableVNC.</p>
+
+<h3 id="example-java-code-to-run-test">Example Java Code to Run Test</h3>
+
+<pre><code class="language-Java">import java.net.URL;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+
+public class RunningTestOnSelenoidGrid {
+
+	@Test
+	public void runTestOnDocker() throws Exception {
+		DesiredCapabilities dcap = DesiredCapabilities.chrome();
+		ChromeOptions options = new ChromeOptions();
+		dcap.setCapability(ChromeOptions.CAPABILITY, options);
+		dcap.setCapability(&quot;enableVNC&quot;, true);
+		dcap.setBrowserName(&quot;chrome&quot;);
+		dcap.setVersion(&quot;61.0&quot;);
+
+		String driverPath = &lt;chromedriver path on your machine&gt;;
+		System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
+
+		URL url = new URL(&quot;http://localhost:4444/wd/hub&quot;);
+		WebDriver driver = new RemoteWebDriver(url, dcap);
+
+		// Get URL
+		driver.get(&quot;https://www.google.com/&quot;);
+		// Print Title
+		System.out.println(driver.getTitle());
+	}
+}
+</code></pre>
+
+<h4 id="stats">Stats:</h4>
+
+<p>Statistics about the Test cases at run time like what browsers are running. You can open the VNC Url by opening : <code>http://localhost:8080</code> as our selenoid-ui is running at port no : 8080(You can configure port in docker-compose file.)
+<img src="https://www.pawangaria.com/img/docker/stats-url-selenoid-test-run.png" alt="stats-url-selenoid-test-run" /></p>
+
+<h4 id="session-list">Session List:</h4>
+
+<p>List of all the Sessions where you can open any of the session from the list to see the browser running live our Test case.
+<img src="https://www.pawangaria.com/img/docker/session-selenoid-list-test.png" alt="session-selenoid-list-test" /></p>
+
+<h4 id="session">Session:</h4>
+
+<p>VNC allows to see and interact with browser at real time and you can check the logs from the container which is showing all the actions:
+<img src="https://www.pawangaria.com/img/docker/session-test-selenoid.png" alt="session-test-selenoid" /></p>
+
+<p>Please feel free to Write me and give suggestions about Selenoid in the comments.<br />
+Thanks for reading!</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f&amp;title=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Scalable%20Selenoid%20Grid%20as%20an%20alternative%20for%20Selenium%20Grid&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenoid-as-alternative-selenium-grid-with-docker%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/" title="Selenium Grid setup using Docker-compose.yml">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Selenium Grid setup using Docker-compose.yml</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">Setup Selenium WebDriver Grid with Docker</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/">Debugging Docker Container with RealVNC Viewer</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/">Getting Started - Docker with Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">How TestNG works in the Background?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/">How to Retry failed tests in TestNG?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-pass-parameters-from-testng-xml/">How to pass parameters from testng.xml file in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/">Executing Parallel Tests in TestNG</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/">How to use TestNG Listeners?</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (29)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (5)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (9)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (15)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/architecture">architecture</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           <div class="pull-left">
+  <a class="toplink" href="javascript:" id="return-to-top">back to top</a>
+</div>
+<div class="pull-right">
+
+</div>
+
+        </div>
+        
+        <div>
+        
+        <link href="https://www.pawangaria.com/css/style.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+         
+        </style>
+        <div id="mc_embed_signup">
+        <form action="https://pawangaria.us17.list-manage.com/subscribe/post?u=ba2af3a020a67d858742b01be&amp;id=0d977b8600" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for More Interesting Articles</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba2af3a020a67d858742b01be_0d977b8600" tabindex="-1" value=""></div>
+          <div class="clear">    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+        </div>
+      </div>
+        
+
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
+

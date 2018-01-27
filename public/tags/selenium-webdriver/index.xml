@@ -7,18 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Tue, 16 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/selenium-webdriver/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Scalable Selenoid Grid as an alternative for Selenium Grid</title>
+      <link>https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/</guid>
+      <description>In past articles, we learned about a simple approach to building scalable Selenium Grid cluster using Docker and selenium images in the virtual machines. But this article is more about building an improved and very easy scalable selenium Grid using an open source project named Selenoid with Docker.
+How Selenoid is different from Selenium Grid: The main idea behind Selenoid is to start short-lived container for each Selenium session with a requested browser and stop it immediately when the session is closed from the Test.</description>
+    </item>
+    
+    <item>
+      <title>Selenium Grid setup using Docker-compose.yml</title>
+      <link>https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/</guid>
+      <description>In our last Article, we learned steps to create Selenium Grid using Docker. In our article, we used all the steps from the command line. Now there is a better way to setup Grid using docker-compose file. Using the Docker compose file It&amp;rsquo;s very easy to up and down and scale our grid by just running the File.
+#What is Docker-Compose File? Compose is a tool for defining and running multi-container Docker applications.</description>
+    </item>
+    
+    <item>
       <title>Setup Selenium WebDriver Grid with Docker</title>
       <link>https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/</link>
-      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/</guid>
-      <description>Integration tests are an integral part of any modern web application,you&amp;rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&amp;rsquo;re stuck with two bad options like SaaS provider like SauceLabs and BrowserStack etc. or running your own Selenium Grid and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</description>
+      <description>Integration tests are an integral part of any modern web application, you&amp;rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&amp;rsquo;re stuck with two options like SaaS provider like SauceLabs and BrowserStack etc. or running your own Selenium Grid on multiple machines and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</description>
     </item>
     
     <item>

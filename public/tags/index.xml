@@ -69,9 +69,18 @@
     <item>
       <title>Docker</title>
       <link>https://www.pawangaria.com/tags/docker/</link>
-      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker Compose</title>
+      <link>https://www.pawangaria.com/tags/docker-compose/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/docker-compose/</guid>
       <description></description>
     </item>
     
@@ -177,16 +186,25 @@
     <item>
       <title>Selenium Webdriver</title>
       <link>https://www.pawangaria.com/tags/selenium-webdriver/</link>
-      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Selenoid</title>
+      <link>https://www.pawangaria.com/tags/selenoid/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/selenoid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Test Automation</title>
       <link>https://www.pawangaria.com/tags/test-automation/</link>
-      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>

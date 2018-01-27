@@ -1,6 +1,6 @@
 ---
 title: "Setup Selenium WebDriver Grid with Docker"
-date: 2018-01-16
+date: 2018-01-18
 draft: false
 description: "Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test."
 categories: [ "Automation Testing","Docker"]
@@ -12,7 +12,7 @@ tags: [
     "Docker","Selenium WebDriver"
 ]
 ---
-Integration tests are an integral part of any modern web application, you'll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you're stuck with two bad options like SaaS provider like SauceLabs and BrowserStack etc. or running your own [Selenium Grid](http://www.seleniumhq.org/docs/07_selenium_grid.jsp) and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.  
+Integration tests are an integral part of any modern web application, you'll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you're stuck with two options like SaaS provider like SauceLabs and BrowserStack etc. or running your own [Selenium Grid](http://www.seleniumhq.org/docs/07_selenium_grid.jsp) on multiple machines and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.  
 
 In this article, you'll see how easy it is to set up a [Selenium Grid]((http://www.seleniumhq.org/docs/07_selenium_grid.jsp)) with [Docker](https://www.docker.com/), how easy it is to maintain, and how to extend and grow your Selenium grid to satisfy your team's needs.
 
@@ -108,6 +108,6 @@ Google
 ```
 As we are using the Chrome Browser and running a simple Test which is to open Google.com and print the website title. You can also create a simple Test in Firefox and run the both Test parallel.
 
-You can use the **selenium/node-chrome-debug** as a debug image because It is bundled with realVNC and you can see the Browser and test at run time. [You can read articles about debugging container Images with realVNC here](https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/). 
+You can use the **selenium/node-chrome-debug** as a debug image because It is bundled with realVNC and you can see the Browser and test at run time. [You can read articles about debugging container Images with realVNC here](https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/).
 ### What Next:
-In coming articlesI will try to explain the use of [docker-compose.yml](https://docs.docker.com/compose/overview/ ) file  which is a docker configuration file and How to scale our docker Selenium Hub by simple one command.
+In coming articles I will try to explain the use of [docker-compose.yml](https://docs.docker.com/compose/overview/ ) file  which is a docker configuration file and How to scale our docker Selenium Hub by simple one command. [Next: How to Setup Selenium grid using docker-compose file.](https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/)

@@ -11,7 +11,7 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the Test Grid using Docker on the same machine, no need of different virtual machines to run parallel test." />
+<meta name="description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test." />
 
 <meta name="keywords" content="TestNG,Java,Docker,grid,container,run,test,webdriver">
 
@@ -22,9 +22,9 @@
 <meta property="og:locale" content="">
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the Test Grid using Docker on the same machine, no need of different virtual machines to run parallel test."/>
-<meta property="og:article:published_time" content="2018-01-16T00:00:00Z" />
-<meta property="og:article:modified_time" content="2018-01-16T00:00:00Z" />
+<meta property="og:description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test."/>
+<meta property="og:article:published_time" content="2018-01-18T00:00:00Z" />
+<meta property="og:article:modified_time" content="2018-01-18T00:00:00Z" />
 
 
 <meta property="og:article:tag" content="TestNG,Java,Docker,grid,container,run,test,webdriver">
@@ -35,7 +35,7 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@" />
 <meta name="twitter:title" content="Setup Selenium WebDriver Grid with Docker" />
-<meta name="twitter:description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the Test Grid using Docker on the same machine, no need of different virtual machines to run parallel test." />
+<meta name="twitter:description" content="Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test." />
 <meta name="twitter:url" content="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/" />
 <meta name="twitter:domain" content="https://www.pawangaria.com/">
 
@@ -49,9 +49,9 @@
       "@type": "Person",
       "name": "http://profiles.google.com/+?rel=author"
     },
-    "datePublished": "2018-01-16",
-    "description": "Learn about Selenium WebDriver Grid using Docker.This article is about setting up the Test Grid using Docker on the same machine, no need of different virtual machines to run parallel test.",
-    "wordCount": 286
+    "datePublished": "2018-01-18",
+    "description": "Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test.",
+    "wordCount": 688
   }
 </script>
 
@@ -59,7 +59,13 @@
 
 <link rel="canonical" href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
-<link rel="icon" href="https://www.pawangaria.com/favicon.png"><meta name="generator" content="Hugo 0.31" />
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.31" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -160,13 +166,13 @@
     <div class="metas">
 <small>
   <i class="fa fa-calendar"></i>
-  <time datetime="2018-01-16">16 Jan, 2018</time>
+  <time datetime="2018-01-18">18 Jan, 2018</time>
 </small>
 
 
   <small>
-  &middot; Read in about 2 min
-  &middot; (286 words)
+  &middot; Read in about 4 min
+  &middot; (688 words)
   &middot; 
 <span class="share-box">Share this on:
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fselenium-webdriver-grid-with-docker%2f" onclick="window.open(this.href, 'mywin',
@@ -211,13 +217,13 @@
       <div class="content">
   
 
-<p>Integration tests are an integral part of any modern web application,you&rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&rsquo;re stuck with two bad options like SaaS provider like SauceLabs and BrowserStack etc. or running your own <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</p>
+<p>Integration tests are an integral part of any modern web application, you&rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&rsquo;re stuck with two options like SaaS provider like SauceLabs and BrowserStack etc. or running your own <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> on multiple machines and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</p>
 
-<p>In this article you&rsquo;ll see how easy it is to setup a <a href="(http://www.seleniumhq.org/docs/07_selenium_grid.jsp)">Selenium Grid</a> with <a href="https://www.docker.com/">Docker</a>, how easy it is to maintain, and how to extend and grow your Selenium grid to satisfy your team&rsquo;s needs.</p>
+<p>In this article, you&rsquo;ll see how easy it is to set up a <a href="(http://www.seleniumhq.org/docs/07_selenium_grid.jsp)">Selenium Grid</a> with <a href="https://www.docker.com/">Docker</a>, how easy it is to maintain, and how to extend and grow your Selenium grid to satisfy your team&rsquo;s needs.</p>
 
 <h3 id="challenges">Challenges :</h3>
 
-<p>If you use Selenium Grid for running you test, You must have to install so many configurations and tools on the each machine which your test are depend on like Java, Selenium WebDriver, Test Browsers, VNC etc. Maintaining machines in grid are sometimes costly and time consuming to maintain.</p>
+<p>If you use Selenium Grid for running you test, You must have to install so many configurations and tools on each machine which your test depends on like Java, Selenium WebDriver, Test Browsers, VNC etc. Maintaining machines in grid are sometimes costly and time consuming to maintain.</p>
 
 <h3 id="why-docker">Why Docker :</h3>
 
@@ -225,30 +231,119 @@
 
 <h3 id="selenium-grid-hub-and-nodes-in-docker">Selenium Grid Hub and Nodes in Docker :</h3>
 
-<p>To set up Selenium WebDriver Grid we need to download couple of Selenium Images step by step:</p>
+<p>To set up Selenium WebDriver Grid we need to download a couple of Selenium Images step by step:</p>
 
-<h4 id="step-1-selenium-hub">Step 1: Selenium/hub</h4>
+<h4 id="step-1-download-selenium-hub">#Step 1: Download Selenium/hub</h4>
 
 <p>Use docker pull command to download the Selenium/hub</p>
 
-<pre><code>docker pull Selenium/hub
+<pre><code>docker pull selenium/hub
 </code></pre>
 
 <p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-hub.png" alt="docker-pull-selenium-hub" /></p>
 
-<h4 id="step-2-selenium-node-chrome">Step 2: Selenium/node-chrome</h4>
+<h4 id="step-2-download-selenium-node-chrome">#Step 2: Download Selenium/node-chrome</h4>
 
 <p>Use docker pull command to download the Selenium/node-chrome, Chrome browser image.</p>
 
-<pre><code>docker pull Selenium/node-chrome
+<pre><code>docker pull selenium/node-chrome
 </code></pre>
 
-<h4 id="step-3-selenium-node-firefox">Step 3: Selenium/node-firefox</h4>
+<p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-chrome-node.png" alt="docker-pull-selenium-chrome-node" /></p>
 
-<p>Use docker pull command to download the Selenium/node-firefox, Firefox browser image.</p>
+<h4 id="step-3-download-selenium-node-firefox">#Step 3: Download Selenium/node-firefox</h4>
 
-<pre><code>docker pull Selenium/node-firefox
+<p>Same like above use docker pull command to download the Selenium/node-firefox, Firefox browser image.</p>
+
+<pre><code>docker pull selenium/node-firefox
 </code></pre>
+
+<h4 id="step-4-check-docker-image-after-download">#Step 4: Check Docker Image after Download</h4>
+
+<p>After downloading the images we can check the downloaded Images using the docker command and see all the images on the list.</p>
+
+<pre><code>docker images
+</code></pre>
+
+<p><img src="https://www.pawangaria.com/img/docker/docker-images-command-list-selenium.png" alt="docker-images-command-list-selenium" /></p>
+
+<h4 id="step-5-start-selenium-hub">#Step 5: Start Selenium Hub</h4>
+
+<p>As we have downloaded the images and we can now start the Selenium Hub. So the process is generally starting Hub first and then joining other nodes to the Hub.</p>
+
+<pre><code>docker run -d -p 4444:4444 -P --name selenium-hub selenium/hub
+</code></pre>
+
+<p>Run <code>docker ps</code> to check the container details
+<img src="https://www.pawangaria.com/img/docker/dcoker-ps-selenium-hub-start.png" alt="dcoker-ps-selenium-hub-start" /></p>
+
+<p>After that we can verify that selenium grid is running or not by navigating to the URL:<br />
+<code>http://localhost:4444/grid/console</code></p>
+
+<p><img src="https://www.pawangaria.com/img/docker/grid-console-browser-selenium-hub.png" alt="grid-console-browser-selenium-hub" /></p>
+
+<h4 id="step-5-start-selenium-node">#Step 5: Start Selenium Node</h4>
+
+<p>As the Hub is started and listening on <code>Port No:4444</code> we are ready to start nodes and connect with Selenium Hub.</p>
+
+<h6 id="run-chrome-node-and-link-it-to-hub">Run Chrome Node and Link it to Hub:</h6>
+
+<pre><code>docker run -d --link selenium-hub:hub -P --name chrome selenium/node-chrome
+</code></pre>
+
+<h6 id="run-firefox-node-and-link-it-to-hub">Run Firefox Node and Link it to Hub:</h6>
+
+<pre><code>docker run -d --link selenium-hub:hub -P --name firefox selenium/node-firefox
+</code></pre>
+
+<h6 id="verify-nodes-in-browser-console">Verify Nodes in Browser Console:</h6>
+
+<p><code>http://localhost:4444/grid/console</code>
+<img src="https://www.pawangaria.com/img/docker/docker-node-selenium-console-browser.png" alt="docker-node-selenium-console-browser" /></p>
+
+<h4 id="step-6-run-test-on-chrome">#Step 6: Run Test on Chrome:</h4>
+
+<p>All our Test should be pointing to the URL: <code>http://localhost:4444/wd/hub</code></p>
+
+<p>As the Hub is running on <strong>port:4444</strong>, so we will direct all the test on this port and Hub will work as load balancing and redirecting the request to proper browser and node.</p>
+
+<pre><code class="language-java">import java.net.URL;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+
+public class RunningTestOnDocker {
+
+    @Test
+    public void runTestOnDocker() throws Exception {
+        DesiredCapabilities dcap = DesiredCapabilities.chrome();
+        String driverPath = System.getProperty(&quot;user.dir&quot;) + &quot;/exe/chromedriver&quot;;
+        System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
+
+        // Hub Port at 4444
+        URL gamelan = new URL(&quot;http://localhost:4444/wd/hub&quot;);
+        WebDriver driver = new RemoteWebDriver(gamelan, dcap);
+        // Get URL
+        driver.get(&quot;https://www.google.com/&quot;);
+        // Print Title
+        System.out.println(driver.getTitle());
+    }
+}
+</code></pre>
+
+<h3 id="output">Output:</h3>
+
+<pre><code>Google
+</code></pre>
+
+<p>As we are using the Chrome Browser and running a simple Test which is to open Google.com and print the website title. You can also create a simple Test in Firefox and run the both Test parallel.</p>
+
+<p>You can use the <strong>selenium/node-chrome-debug</strong> as a debug image because It is bundled with realVNC and you can see the Browser and test at run time. <a href="https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/">You can read articles about debugging container Images with realVNC here</a>.</p>
+
+<h3 id="what-next">What Next:</h3>
+
+<p>In coming articles I will try to explain the use of <a href="https://docs.docker.com/compose/overview/">docker-compose.yml</a> file  which is a docker configuration file and How to scale our docker Selenium Hub by simple one command. <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Next: How to Setup Selenium grid using docker-compose file.</a></p>
 
 </div>
 
@@ -291,6 +386,12 @@
   <li>
   <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
   How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
  </ul>
 
 
@@ -308,6 +409,12 @@
         </li>
     
 
+    
+      <li class="next">
+        <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/" title="Selenium Grid setup using Docker-compose.yml">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
     
     </ul> </nav>
   
@@ -349,6 +456,14 @@
             <ul>
             
               <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Selenium Grid setup using Docker-compose.yml</a>
+              </li>
+            
+              <li>
               <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">Setup Selenium WebDriver Grid with Docker</a>
               </li>
             
@@ -380,14 +495,6 @@
               <a href="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/">How to use TestNG Listeners?</a>
               </li>
             
-              <li>
-              <a href="https://www.pawangaria.com/post/testng/how-to-use-dataprovider-in-testng/">How to use DataProvider in TestNG?</a>
-              </li>
-            
-              <li>
-              <a href="https://www.pawangaria.com/post/testng/how-to-use-dependencies-in-testng/">How to use Dependencies in TestNG?</a>
-              </li>
-            
             </ul>
           </div>
         </div>
@@ -400,9 +507,9 @@
       <div class="content">
       <ul>
       
-        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (27)</strong></li>
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (29)</strong></li>
       
-        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (3)</strong></li>
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (5)</strong></li>
       
         <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
       
@@ -447,6 +554,10 @@
       
 
           <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
 
       
 
@@ -495,6 +606,10 @@
       
 
           <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
 
       
 
@@ -572,6 +687,13 @@
 <script src="https://www.pawangaria.com/js/site.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
 <script>
 var ENABLE_POPOVER =  false , 
