@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Report on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/tags/report/</link>
+    <description>Recent content in Report on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Mon, 12 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/tags/report/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Remove Retried Failed Test from TestNG Report!</title>
+      <link>https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/</guid>
+      <description>Sometimes back I wrote an article about running the failed test again using IRetryAnalyzer in TestNG. You can read about How to Retry failed tests in TestNG ?. Retrying the failed Test again creates the problem of having duplicate entries for retried tests in TestNG reports. So when a failed test is being retired and is ends as successful or failed after multiple retry, there are multiple entries in the report with all the retried @Test&amp;rsquo;s considered as Skipped Test and then the final result will looks like the below report.</description>
+    </item>
+    
+  </channel>
+</rss>

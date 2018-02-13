@@ -17,8 +17,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/page/about/</guid>
-      <description>With nearly 8 years of programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.I have lots of experience in Framework Design and Development.
-I am living in Germany with my wife in a beautiful city of Bamberg.</description>
+      <description>With nearly 8 years of Programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.
+I use this website to document and share everything I learn. My goal is to create concise, easy-to-follow guides for beginner/intermediate automation testing professionals.</description>
     </item>
     
     <item>
@@ -29,6 +29,15 @@ I am living in Germany with my wife in a beautiful city of Bamberg.</description
       <guid>https://www.pawangaria.com/page/training/</guid>
       <description>I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, Java, Selenium Grid, Appium, Performance Testing with Jmeter and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
 The Automation Testing training program kicks off with a detailed overview of Core Java 8 concepts and trains you on automating web applications in Selenium 3.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy - pawangaria.com</title>
+      <link>https://www.pawangaria.com/page/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/page/privacy-policy/</guid>
+      <description>Disclaimer The contents of this report are based on information generally available to the public from sources believed to be reliable. No representation is made that it is timely, accurate or complete. pawangaria.com has taken due care and caution in compilation of data as this has been obtained from various sources including which it considers reliable and first hand. However, pawangaria.com does not guarantee the accuracy, adequacy or completeness of any information and it is not responsible for any errors or omissions or for the results obtained from the use of such information and especially states that it has no financial liability whatsoever to the subscribers / users of this report.</description>
     </item>
     
   </channel>

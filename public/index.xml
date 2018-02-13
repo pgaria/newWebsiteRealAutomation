@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sat, 27 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remove Retried Failed Test from TestNG Report!</title>
+      <link>https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/</guid>
+      <description>Sometimes back I wrote an article about running the failed test again using IRetryAnalyzer in TestNG. You can read about How to Retry failed tests in TestNG ?. Retrying the failed Test again creates the problem of having duplicate entries for retried tests in TestNG reports. So when a failed test is being retired and is ends as successful or failed after multiple retry, there are multiple entries in the report with all the retried @Test&amp;rsquo;s considered as Skipped Test and then the final result will looks like the below report.</description>
+    </item>
+    
+    <item>
+      <title>What is Docker Container ?</title>
+      <link>https://www.pawangaria.com/post/docker/what-is-docker-container/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/docker/what-is-docker-container/</guid>
+      <description>Containers allow you to package your application software and all its dependencies together into one process package. Containers can be managed by different versions which allows teams for easy replication of your same application instance across developers/testers or in your cluster.
+A container image includes everything needed to run it: code, runtime, system tools, system libraries, settings etc. Containers are lightweight, can work stand-alone and available for both Linux and Windows based apps.</description>
+    </item>
     
     <item>
       <title>Scalable Selenoid Grid as an alternative for Selenium Grid</title>
@@ -348,8 +367,8 @@ Why to use TestManagement Tool with Automation? While making Regression or any k
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/page/about/</guid>
-      <description>With nearly 8 years of programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.I have lots of experience in Framework Design and Development.
-I am living in Germany with my wife in a beautiful city of Bamberg.</description>
+      <description>With nearly 8 years of Programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.
+I use this website to document and share everything I learn. My goal is to create concise, easy-to-follow guides for beginner/intermediate automation testing professionals.</description>
     </item>
     
     <item>
@@ -360,6 +379,15 @@ I am living in Germany with my wife in a beautiful city of Bamberg.</description
       <guid>https://www.pawangaria.com/page/training/</guid>
       <description>I am planning to provide training for testing professionals with complete knowledge of software testing technologies such as Selenium Web Driver, TestNG, Maven, Java, Selenium Grid, Appium, Performance Testing with Jmeter and Docker. With this automation testing course, you will become adept in test automation and successfully employ the technical knowledge you learn to build a robust testing framework using Page Object Design Pattern and Data-Driven Approach.
 The Automation Testing training program kicks off with a detailed overview of Core Java 8 concepts and trains you on automating web applications in Selenium 3.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy - pawangaria.com</title>
+      <link>https://www.pawangaria.com/page/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/page/privacy-policy/</guid>
+      <description>Disclaimer The contents of this report are based on information generally available to the public from sources believed to be reliable. No representation is made that it is timely, accurate or complete. pawangaria.com has taken due care and caution in compilation of data as this has been obtained from various sources including which it considers reliable and first hand. However, pawangaria.com does not guarantee the accuracy, adequacy or completeness of any information and it is not responsible for any errors or omissions or for the results obtained from the use of such information and especially states that it has no financial liability whatsoever to the subscribers / users of this report.</description>
     </item>
     
   </channel>

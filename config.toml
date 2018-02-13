@@ -26,6 +26,8 @@ theme = "hugo-bootstrap-premium"
 # Pagination
 paginate = 10
 paginatePath = "page"
+# Base title
+title = "Testing, Automation, Programming and Latest Technology Articles"
 
 # Enable Disqus integration
 disqusShortname = "www-pawangaria-com"
@@ -82,10 +84,9 @@ BrandImage = "/img/pawangaria.png" #top header brand image.
 brand = "PawanGaria.com" # brand image alt text.
 topline = "Testing, Automation, Programming and Latest Technology Articles"
 footline = "code with <i class='fa fa-heart'></i>"
-title = "Testing, Automation, Programming and Latest Technology Articles" # Site title
+title = "Testing, Automation, Programming and Latest Technology Articles"
 description = "Resources for Java and Automation testing developers - Provides article about WebDriver, Automation Testing, Framework Design and Java."
 keywords = "Selenium,WebDriver,ChromeDriver,Automation Testing,Java,TestNG,TestRail,Quality Assurance,HTTP,JSON,Automation testing tutorials"
-
 customJS = []
 customCSS = ["/css/style_custom.css"]
 
@@ -138,7 +139,7 @@ extensionmask = []
 #  url = "en"
 
 [[menu.main]]
-name = "Blog"
+name = "Blogs"
 pre = ""
 weight = 1
 identifier = "post"
@@ -188,3 +189,20 @@ url = "page/training/"
         name = "Docker"
         url = "categories/docker/"
         weight = 5
+
+        [[menu.footer]] # add  links to the bottom right corner.
+        name = "Privacy-Policy"
+        identifier = "privacy-policy"
+        weight = 1
+        url = "/page/privacy-policy/"
+
+        [[menu.terms]]
+        name = "© 2018 ·PawanGaria.com. All rights reserved | Don't copy content!"
+        identifier = "terms"
+        weight = 2
+
+        [[menu.footer]]
+        languageCode = "sv"
+        weight = 2
+        title = "Min blog" # Site title
+        copyright = "(c) 2016 Alla rättigheter"

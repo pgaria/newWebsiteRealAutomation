@@ -1,7 +1,7 @@
 ---
-title: "What is Docker Container"
-date: 2018-01-25
-draft: true
+title: "What is Docker Container ?"
+date: 2018-02-01
+draft: false
 description: "Learn about Docker container, What exactly happens when container runs in you machine. "
 categories: [ "Automation Testing","Docker"]
 keywords: "Docker,container"
@@ -57,10 +57,7 @@ Below image describes the process and commands used for creating a running conta
 ![docker-file-image-container-flow](/img/docker/docker-file-image-container-flow.png)
 
 ### Docker Engine
-Docker Engine is a client-server application which contains components like A server which is a type of long-running program called a daemon, REST API interface to talk to daemon and instruct it what to do and Client which is nothing but command line interface.
-
-### Docker Daemon
-The background service running on the host that manages building, running and distributing Docker containers.
+Docker Engine is a client-server application which contains components like A server which is a type of long-running program called a daemon, REST API interface to talk to daemon and instruct it what to do and Client which is nothing but command line interface. The background service running on the host that manages building, running and distributing Docker containers.
 
 ### Docker Client
 Docker client is a command line tool that allows the user to interact with the Docker daemon in client server manner using API's.
@@ -71,5 +68,13 @@ Docker Registry or store is a place to store Docker images it can be Docker Hub 
 ### How Containers are made:
 So there are many components are running in background to run a container. Docker uses a client-server architecture where the Docker client talks to the Docker daemon, which is the responsible person for downloading image, creating, running, and scaling your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over a network interface. Below in the images I have taken from Docker Website for showing the architecture:
 ![docker-client-server-architecture](/img/docker/docker-client-server-architecture.png)
+
+### Behind the scenes, When You Start Docker Container
+There are lots of steps performed while creating container when you call `docker run` command.
+
+1. Docker client contacts to the Docker daemon process.
+2. The Docker daemon checks local store if the Docker Image of the application is available locally, and if not, downloads the image from Docker Hub. ( If you have pulled the image already, the download step will be skipped)
+3. The Docker daemon creates the container and then runs all commands in that container.
+4. The Docker daemon send back the output of the command to the Docker client for the user.
 
 So it's an overview of what are containers and how docker works inside and Build Container, you can read more about docker in depth in [official Documentation](https://docs.docker.com/engine/docker-overview/#next-steps).
