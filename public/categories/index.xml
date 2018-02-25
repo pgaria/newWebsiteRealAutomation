@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Mon, 12 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Automation Testing</title>
       <link>https://www.pawangaria.com/categories/automation-testing/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/categories/automation-testing/</guid>
       <description></description>
@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Java</title>
+      <link>https://www.pawangaria.com/categories/java/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Resources and Guides</title>
       <link>https://www.pawangaria.com/categories/resources-and-guides/</link>
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
@@ -42,7 +51,7 @@
     <item>
       <title>Selenium Webdriver</title>
       <link>https://www.pawangaria.com/categories/selenium-webdriver/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/categories/selenium-webdriver/</guid>
       <description></description>
@@ -51,7 +60,7 @@
     <item>
       <title>Tutorials</title>
       <link>https://www.pawangaria.com/categories/tutorials/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/categories/tutorials/</guid>
       <description></description>

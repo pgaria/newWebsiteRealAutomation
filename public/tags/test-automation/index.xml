@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Mon, 12 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/test-automation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Page Object Model- With Selenium WebDriver</title>
+      <link>https://www.pawangaria.com/post/automation/page-object-model-with-selenium/</link>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/automation/page-object-model-with-selenium/</guid>
+      <description>This post will elaborate more about the simple idea behind page abstraction while using page object model in test automation frameworks.
+Abstraction is a technique used in software design that aims to simplify logical entities code representation and allows the software developer to “hide” complex implementations. The goal is to create an abstract (simple) layers which will only expose the most relevant properties and capabilities for the specific entity.</description>
+    </item>
     
     <item>
       <title>Remove Retried Failed Test from TestNG Report!</title>

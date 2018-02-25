@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Page Object Model- With Selenium WebDriver </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Page Object Model and Abstraction techniques can be combined to hide the complexity of logic and establish desired actions on top of the page we are trying to Test." />
+
+<meta name="keywords" content="Selenium,WebDriver,Page, Object, model,Abstraction,framework">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="Page Object Model- With Selenium WebDriver ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/" />
+<meta property="og:locale" content="">
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Page Object Model and Abstraction techniques can be combined to hide the complexity of logic and establish desired actions on top of the page we are trying to Test."/>
+<meta property="og:article:published_time" content="2018-02-24T00:00:00Z" />
+<meta property="og:article:modified_time" content="2018-02-24T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="Selenium,WebDriver,Page">
+
+<meta property="og:article:tag" content="Object">
+
+<meta property="og:article:tag" content="model,Abstraction,framework">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Page Object Model- With Selenium WebDriver" />
+<meta name="twitter:description" content="Page Object Model and Abstraction techniques can be combined to hide the complexity of logic and establish desired actions on top of the page we are trying to Test." />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Page Object Model- With Selenium WebDriver",
+    "author": {
+      "@type": "Person",
+      "name": "http://profiles.google.com/+?rel=author"
+    },
+    "datePublished": "2018-02-24",
+    "description": "Page Object Model and Abstraction techniques can be combined to hide the complexity of logic and establish desired actions on top of the page we are trying to Test.",
+    "wordCount": 866
+  }
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.35" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blogs
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Page Object Model- With Selenium WebDriver
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2018-02-24">24 Feb, 2018</time>
+</small>
+
+
+  <small>
+    &middot; by Pawan Garia
+  
+  &middot; Read in about 5 min
+  &middot; (866 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Page%20Object%20Model-%20With%20Selenium%20WebDriver&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f&amp;title=Page%20Object%20Model-%20With%20Selenium%20WebDriver" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Page%20Object%20Model-%20With%20Selenium%20WebDriver&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="https://www.pawangaria.com/tags/selenium-webdriver" class="label label-primary">Selenium WebDriver</a>
+  
+  <a href="https://www.pawangaria.com/tags/page-object-model" class="label label-primary">Page Object model</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p>This post will elaborate more about the simple idea behind page abstraction while using page object model in test automation frameworks.</p>
+
+<p><a href="https://www.tutorialspoint.com/java/java_abstraction.htm">Abstraction</a> is a technique used in software design that aims to simplify logical entities code representation and allows the software developer to “hide” complex implementations. The goal is to create an abstract (simple) layers which will only expose the most relevant properties and capabilities for the specific entity.</p>
+
+<p>The Abstraction technique comes handy also when writing a test automation project; We can use it to hide complexity and establish desired actions on top of the page we are working on. In a matter of fact, we can define the project as a multilayer structure, this structure will help to implement the logic of functional testing with minimum effort and exposure to the complexity of the infrastructure.</p>
+
+<h3 id="page-object-model-in-selenium">Page Object Model in Selenium</h3>
+
+<p>Page Object model is an object design pattern in User Interface Testing, It can be Website, M-Site or Mobile Apps, where web pages are represented as simple classes, and the various elements on the page are defined as variables and used in methods as a single entity. Selenium WebDrive or Appium is best example which is utilizing the page object model in automation industry and All possible user actions and interactions can then be implemented as methods on the class:</p>
+
+<pre><code>setUserName(String username);
+setPassword(String password);
+clickForgotPassword();
+</code></pre>
+
+<p>We can see from the example above the well-named methods in classes are very easy to read, this works as an elegant way to implement test routines that are both readable and easier to maintain or update in the future. Anyone can open the class and update methods mean our class is the so-called document for our Test.</p>
+
+<p>A page object simply models these as objects within the test code. For each web page of your application, you can create the corresponding class which encapsulates the mechanics required to perform some action on that page.</p>
+
+<p>So every web page representing a class or Page Objects containing all the web elements need to be initialized before the web elements can be used in our Test Class. This can be done simply through the use of the new keyword in Java.</p>
+
+<pre><code class="language-Java">LoginPage page = new LoginPage(WebDriverInstance);
+</code></pre>
+
+<p>Assume that in our application we have a login page which offers regular log in functionality. We can create a page object for login page that will represent all login methods as actions, Web page looks like below where the constructor is accepting the WebDriver instance.</p>
+
+<pre><code class="language-Java">import org.openqa.selenium.WebDriver;
+
+public class LoginPage {
+    private WebDriver driver;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+}
+</code></pre>
+
+<p>Now after making our basic Page model for login and initializing the constructor which is accepting the WebDriver instance and we can start adding our methods which will serve as functionalities our login page offers. Our login page contains a login method which returns us the Home Page after login.
+###LoginPage</p>
+
+<pre><code class="language-Java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LoginPage {
+
+    private WebDriver driver;
+
+    private static final String LOGIN_PAGE_URL = &quot;https://www.facebook.com/&quot;;
+    private static final By USERNAME_INPUT = By.name(&quot;email&quot;);
+    private static final By PASSWORD_INPUT = By.name(&quot;pass&quot;);
+    private static final By LOG_IN_BUTTON = By.id(&quot;loginbutton&quot;);
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public LoginPage open() {
+        driver.get(LOGIN_PAGE_URL);
+        return this;
+    }
+
+    public HomePage loginAs(String username, String password) {
+        driver.findElement(USERNAME_INPUT).sendKeys(username);
+        driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        driver.findElement(LOG_IN_BUTTON).click();
+
+        return new HomePage(driver);
+    }
+}
+</code></pre>
+
+<p>###HomePage</p>
+
+<pre><code class="language-Java">import org.openqa.selenium.WebDriver;
+
+public class HomePage {
+    private WebDriver driver;
+
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+    }
+}
+</code></pre>
+
+<h3 id="why-should-we-use-page-objects">Why should we use page objects?</h3>
+
+<p>They reduce the amount of duplicated code. If there is some change in the website or mobile User interface, in the perfect situation we need to apply the fix in only one place. Page objects increase code readable because they make the test easier to understand. They hide the details of the UI structure from the tests so we can clearly see the logic and the intention of the test. So, The public methods represent the services that the page offers
+and Page objects shouldn’t expose the internals of the page.</p>
+
+<h3 id="how-to-use-page-object-class-in-test">How to Use Page Object Class in Test</h3>
+
+<p>With Page Object our test are able to log in without worrying how the steps and functionality is implemented because it shouldn’t matter to the test. So lets create a simple implementation of our Login Page in our Test.</p>
+
+<pre><code class="language-Java">import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class LoginTest {
+
+    private WebDriver driver;
+    private HomePage homePage;
+
+    @BeforeClass(alwaysRun = true)
+    public void setUp() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @Test(description = &quot;Open Facebook Page and Login with username and password&quot;)
+    public void loginFacebookTest() {
+
+        LoginPage loginPage = new LoginPage(driver);
+        homePage = loginPage.open().loginAs(&quot;username&quot;, &quot;password&quot;);
+    }
+}
+</code></pre>
+
+<p>This is a very simple example for understanding the concept of the Page object and data abstraction concept in our Test Automation. You can follow the approach used in this post and start extending the page objects and create more Classes.That’s all in this part. I hope that I gave you a brief idea of what Page Object Pattern is. You have learned what page objects are and what benefits they bring to your tests. You have seen how to use page objects on a real example.</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Page%20Object%20Model-%20With%20Selenium%20WebDriver&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f&amp;title=Page%20Object%20Model-%20With%20Selenium%20WebDriver" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Page%20Object%20Model-%20With%20Selenium%20WebDriver&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fautomation%2fpage-object-model-with-selenium%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/" title="Remove Retried Failed Test from TestNG Report!">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/" title="Object Oriented Programming Principles and Concepts Explained">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/">Object Oriented Programming Principles and Concepts Explained</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/">Page Object Model- With Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/">Remove Retried Failed Test from TestNG Report!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/what-is-docker-container/">What is Docker Container ?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Selenium Grid setup using Docker-compose.yml</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">Setup Selenium WebDriver Grid with Docker</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/">Debugging Docker Container with RealVNC Viewer</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/">Getting Started - Docker with Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">How TestNG works in the Background?</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (32)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (6)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (1)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (10)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (17)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/architecture">architecture</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/container">container</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/object-oriented">object-oriented</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/page-object-model">page-object-model</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/programming">programming</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/report">report</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        
+        <div>
+        
+        <link href="https://www.pawangaria.com/css/style.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+         
+        </style>
+        <div id="mc_embed_signup">
+        <form action="https://pawangaria.us17.list-manage.com/subscribe/post?u=ba2af3a020a67d858742b01be&amp;id=0d977b8600" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for More Interesting Articles</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba2af3a020a67d858742b01be_0d977b8600" tabindex="-1" value=""></div>
+          <div class="clear">    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+        </div>
+      </div>
+        
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           
+<div>
+<div class="pull-right">
+<div>
+  <div>© 2018 PawanGaria.com - All rights reserved|<a href="https://www.pawangaria.com/page/privacy-policy/">Privacy-Policy</a></div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
+

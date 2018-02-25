@@ -141,7 +141,7 @@
     <item>
       <title>Java</title>
       <link>https://www.pawangaria.com/tags/java/</link>
-      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/java/</guid>
       <description></description>
@@ -166,6 +166,24 @@
     </item>
     
     <item>
+      <title>Object Oriented</title>
+      <link>https://www.pawangaria.com/tags/object-oriented/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/object-oriented/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Page Object Model</title>
+      <link>https://www.pawangaria.com/tags/page-object-model/</link>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/page-object-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Parallelexecution</title>
       <link>https://www.pawangaria.com/tags/parallelexecution/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
@@ -180,6 +198,15 @@
       <pubDate>Wed, 03 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/parameters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://www.pawangaria.com/tags/programming/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/programming/</guid>
       <description></description>
     </item>
     
@@ -204,7 +231,7 @@
     <item>
       <title>Selenium Webdriver</title>
       <link>https://www.pawangaria.com/tags/selenium-webdriver/</link>
-      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
       <description></description>
@@ -222,7 +249,7 @@
     <item>
       <title>Test Automation</title>
       <link>https://www.pawangaria.com/tags/test-automation/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>

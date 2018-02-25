@@ -3,6 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</loc>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/post/automation/page-object-model-with-selenium/</loc>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
     <loc>https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/</loc>
     <lastmod>2018-02-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -276,14 +290,14 @@
   
   <url>
     <loc>https://www.pawangaria.com/categories/automation-testing/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/categories/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -380,7 +394,14 @@
   
   <url>
     <loc>https://www.pawangaria.com/tags/java/</loc>
-    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/categories/java/</loc>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -395,6 +416,20 @@
   <url>
     <loc>https://www.pawangaria.com/tags/listeners/</loc>
     <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/tags/object-oriented/</loc>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/tags/page-object-model/</loc>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -421,7 +456,7 @@
   
   <url>
     <loc>https://www.pawangaria.com/post/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -430,6 +465,13 @@
     <loc>https://www.pawangaria.com/page/privacy-policy/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.pawangaria.com/tags/programming/</loc>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -455,14 +497,14 @@
   
   <url>
     <loc>https://www.pawangaria.com/tags/selenium-webdriver/</loc>
-    <lastmod>2018-01-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/categories/selenium-webdriver/</loc>
-    <lastmod>2017-12-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -483,14 +525,14 @@
   
   <url>
     <loc>https://www.pawangaria.com/tags/test-automation/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.pawangaria.com/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -511,7 +553,7 @@
   
   <url>
     <loc>https://www.pawangaria.com/categories/tutorials/</loc>
-    <lastmod>2018-02-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

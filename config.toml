@@ -105,7 +105,7 @@ showRightSidebar = true
 highlight = "default"
 
 # Google Analytics.
-googleAnalytics = "UA-110208829-1"
+#googleAnalytics = "UA-110208829-1"
 googleads = true
 # Sidebar social links.
 name = "Pawan garia"
@@ -189,6 +189,11 @@ url = "page/training/"
         name = "Docker"
         url = "categories/docker/"
         weight = 5
+[[menu.main]]
+        parent = "category"
+        name = "Java"
+        url = "categories/java/"
+        weight = 6
 
         [[menu.footer]] # add  links to the bottom right corner.
         name = "Privacy-Policy"
