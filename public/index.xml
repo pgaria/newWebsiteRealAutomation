@@ -7,15 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Object Oriented Programming Principles and Concepts Explained</title>
+      <title>Git: Changing Last Commit Using --amend.</title>
+      <link>https://www.pawangaria.com/post/git/changing-last-commit-in-git/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/git/changing-last-commit-in-git/</guid>
+      <description>This tutorial will cover various methods of rewriting and altering Git history. Git uses a few different methods to record changes. If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don&amp;rsquo;t worry. It can easily be fixed using the git commit --amend.
+The git commit &amp;ndash;amend command is a convenient way to modify the most recent commit.</description>
+    </item>
+    
+    <item>
+      <title>Object Oriented Programming Principles and Concepts Explained!</title>
       <link>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</guid>
       <description>What is an object? Object-oriented languages follow a different programming pattern from structured programming languages like C and COBOL. The Java language is not completely an object-oriented. The structured-programming paradigm is highly data-oriented: You have data structures, and then program instructions act on that data. Object-oriented languages such as the Java language combine data and program instructions into objects.

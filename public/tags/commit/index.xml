@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Commit on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/tags/commit/</link>
+    <description>Recent content in Commit on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/tags/commit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git: Changing Last Commit Using --amend.</title>
+      <link>https://www.pawangaria.com/post/git/changing-last-commit-in-git/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/git/changing-last-commit-in-git/</guid>
+      <description>This tutorial will cover various methods of rewriting and altering Git history. Git uses a few different methods to record changes. If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don&amp;rsquo;t worry. It can easily be fixed using the git commit --amend.
+The git commit &amp;ndash;amend command is a convenient way to modify the most recent commit.</description>
+    </item>
+    
+  </channel>
+</rss>

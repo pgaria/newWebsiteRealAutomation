@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Git: Changing Last Commit Using --amend. </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to GitHub." />
+
+<meta name="keywords" content="git,commit,amend">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="Git: Changing Last Commit Using --amend. ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/git/changing-last-commit-in-git/" />
+<meta property="og:locale" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to GitHub."/>
+<meta property="og:article:published_time" content="2018-03-28T00:00:00Z" />
+<meta property="og:article:modified_time" content="2018-03-28T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="git,commit,amend">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Git: Changing Last Commit Using --amend." />
+<meta name="twitter:description" content="If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to GitHub." />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/git/changing-last-commit-in-git/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">{
+   "@context":"http://schema.org",
+   "@type":"Article",
+   "headline": "Git: Changing Last Commit Using --amend.",
+   "author":{
+      "@type":"Person",
+      "name":"Pawan Garia"
+   },
+   "image":{
+      "@type":"imageObject",
+      "url":"https://www.pawangaria.com/img/pawangaria.png",
+      "height":"400",
+      "width":"300"
+   },
+   "publisher":{
+      "@type":"Organization",
+      "name":"www.pawangaria.com",
+      "logo":{
+         "@type":"imageObject",
+         "url":"https://www.pawangaria.com/img/pawangaria.png"
+      }
+   },
+   "datePublished": "2018-03-28",
+   "dateModified": "2018-03-28",
+   "mainEntityOfPage":"true",
+   "description": "If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to GitHub.",
+   "wordCount": 394
+}
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/git/changing-last-commit-in-git/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.35" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blogs
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Git: Changing Last Commit Using --amend.
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2018-03-28">28 Mar, 2018</time>
+</small>
+
+
+  <small>
+    &middot; by Pawan Garia
+  
+  &middot; Read in about 2 min
+  &middot; (394 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Git%3a%20Changing%20Last%20Commit%20Using%20--amend.&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f&amp;title=Git%3a%20Changing%20Last%20Commit%20Using%20--amend." onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Git%3a%20Changing%20Last%20Commit%20Using%20--amend.&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/git" class="label label-primary">git</a>
+  
+  <a href="https://www.pawangaria.com/tags/commit" class="label label-primary">commit</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  
+
+<p>This tutorial will cover various methods of rewriting and altering Git history. Git uses a few different methods to record changes. If you ever find that you accidentally left something out of your last commit, be it a file or an extra change to a file that you just committed, don&rsquo;t worry. It can easily be fixed using the <code>git commit --amend</code>.</p>
+
+<p>The git commit &ndash;amend command is a convenient way to modify the most recent commit. It lets you combine staged changes with the previous commit instead of creating an entirely new commit. It can also be used to simply edit the previous commit message without changing its snapshot. But, amending does not just alter the most recent commit, it replaces it entirely, meaning the amended commit will be a new entity with its own ref. To Git, it will look like a brand new commit</p>
+
+<p>All you have to do is stage the extra changes like you would for a normal commit in git. So let&rsquo;s update the last commit in real time with the example:</p>
+
+<h3 id="step-1">Step 1:</h3>
+
+<p>You have the file edited and now we have to first add the file.</p>
+
+<pre><code>git add .
+</code></pre>
+
+<h3 id="step-2">Step 2:</h3>
+
+<p>And then just commit with the <code>--amend</code> argument.</p>
+
+<pre><code>git commit --amend
+</code></pre>
+
+<p>This will prompt you with the previous commit message as a default, where you can update the commit message or leave the previous commit message.
+<img src="https://www.pawangaria.com/img/git/git-amend-commit-edit-window.png" alt="git-amend-commit-edit-window" /></p>
+
+<p>When you&rsquo;re done you can check <code>git log --stat</code> to see your amended commit with the extra changes.</p>
+
+<h3 id="step-3">Step 3:</h3>
+
+<p>As we have already pushed the previous commit to GitHub, we have to force push our new amend commit changes. Use the <code>push --force</code> command to force push over the old commit.</p>
+
+<pre><code>git push --force origin master
+</code></pre>
+
+<p>I strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history.</p>
+
+<h3 id="step-4">Step 4:</h3>
+
+<p>It&rsquo;s time to see our new changes in the git log Again.</p>
+
+<pre><code>git log
+</code></pre>
+
+<p>You will be able to see the commit you added and changes in the logs and previous commit is gone.</p>
+
+<p>You can read more about the rewriting the history in more details in the <a href="https://www.atlassian.com/git/tutorials/rewriting-history">Git Tutorials</a>. You should understand the implications of rewriting history if you amend a commit that has already been published.</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Git%3a%20Changing%20Last%20Commit%20Using%20--amend.&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f&amp;title=Git%3a%20Changing%20Last%20Commit%20Using%20--amend." onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Git%3a%20Changing%20Last%20Commit%20Using%20--amend.&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fgit%2fchanging-last-commit-in-git%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/" title="Object Oriented Programming Principles and Concepts Explained!">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/git/changing-last-commit-in-git/">Git: Changing Last Commit Using --amend.</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/">Object Oriented Programming Principles and Concepts Explained!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/">Page Object Model- With Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/">Remove Retried Failed Test from TestNG Report!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/what-is-docker-container/">What is Docker Container ?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Selenium Grid setup using Docker-compose.yml</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">Setup Selenium WebDriver Grid with Docker</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/">Debugging Docker Container with RealVNC Viewer</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/">Getting Started - Docker with Selenium WebDriver</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (32)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (6)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (1)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (10)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (18)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/architecture">architecture</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/commit">commit</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/container">container</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/git">git</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/object-oriented">object-oriented</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/page-object-model">page-object-model</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/programming">programming</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/report">report</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        
+        <div>
+        
+        <link href="https://www.pawangaria.com/css/style.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+         
+        </style>
+        <div id="mc_embed_signup">
+        <form action="https://pawangaria.us17.list-manage.com/subscribe/post?u=ba2af3a020a67d858742b01be&amp;id=0d977b8600" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for More Interesting Articles</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba2af3a020a67d858742b01be_0d977b8600" tabindex="-1" value=""></div>
+          <div class="clear">    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+        </div>
+      </div>
+        
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           
+<div>
+<div class="pull-right">
+<div>
+  <div>© 2018 PawanGaria.com - All rights reserved|<a href="https://www.pawangaria.com/page/privacy-policy/">Privacy-Policy</a></div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE = ""; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
+

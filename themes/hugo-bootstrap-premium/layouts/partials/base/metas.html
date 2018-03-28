@@ -16,6 +16,7 @@
 <meta property="og:site_name" content="{{ .Site.Title }}"/>
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:locale" content="{{ .Site.LanguageCode }}">
+
 {{ if not .IsPage }}
 <meta property="og:type" content="website" />
 {{ else }}
@@ -42,19 +43,34 @@
 <meta name="twitter:domain" content="{{ .Site.BaseURL }}">
 {{ end }}
 {{ if ne .Site.Params.googleplus "" }}
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "headline": "{{ .Title }}",
-    "author": {
-      "@type": "Person",
-      "name": "http://profiles.google.com/+{{ .Site.Params.googleplus }}?rel=author"
-    },
-    "datePublished": "{{ .Date.Format "2006-01-02" }}",
-    "description": "{{ .Description }}",
-    "wordCount": {{ .WordCount }}
-  }
+<script type="application/ld+json">{
+   "@context":"http://schema.org",
+   "@type":"Article",
+   "headline": "{{ .Title }}",
+   "author":{
+      "@type":"Person",
+      "name":"{{ .Site.Author.name }}"
+   },
+   "image":{
+      "@type":"imageObject",
+      "url":"https://www.pawangaria.com/img/pawangaria.png",
+      "height":"400",
+      "width":"300"
+   },
+   "publisher":{
+      "@type":"Organization",
+      "name":"www.pawangaria.com",
+      "logo":{
+         "@type":"imageObject",
+         "url":"https://www.pawangaria.com/img/pawangaria.png"
+      }
+   },
+   "datePublished": "{{ .Date.Format "2006-01-02" }}",
+   "dateModified": "{{ .Date.Format "2006-01-02" }}",
+   "mainEntityOfPage":"true",
+   "description": "{{ .Description }}",
+   "wordCount": {{ .WordCount }}
+}
 </script>
 {{ end }}
 {{ end }}

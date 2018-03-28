@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/object-oriented/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Object Oriented Programming Principles and Concepts Explained</title>
+      <title>Object Oriented Programming Principles and Concepts Explained!</title>
       <link>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</link>
-      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</guid>
       <description>What is an object? Object-oriented languages follow a different programming pattern from structured programming languages like C and COBOL. The Java language is not completely an object-oriented. The structured-programming paradigm is highly data-oriented: You have data structures, and then program instructions act on that data. Object-oriented languages such as the Java language combine data and program instructions into objects.
