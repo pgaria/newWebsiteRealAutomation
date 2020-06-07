@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Testing, Automation, Programming and Latest Technology Articles</title>
@@ -17,8 +17,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/page/about/</guid>
-      <description>With nearly 8 years of Programming and Automation testing experience, I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java and Automation Testing. Throughout my career, I have the opportunity to learn many software development best practices and exposure to several version control systems.
-I use this website to document and share everything I learn. My goal is to create concise, easy-to-follow guides for beginner/intermediate automation testing professionals.</description>
+      <description>With more then 10+ years of experience in Programming and building the test automation architecture for complex products. I started out teaching myself programming while working. I have worked at several companies ranging from start-ups to large enterprises focusing on Java, C#, Docker and Automation Testing. Throughout my career, I focused on getting the opportunity to learn many software development best practices and exposure to new technologies.
+I developed this website using Hugo framework with lots of HTML and CSS and Hosting on Google FireBase.</description>
     </item>
     
     <item>

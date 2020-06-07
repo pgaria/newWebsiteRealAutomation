@@ -67,7 +67,7 @@
    "dateModified": "2018-02-01",
    "mainEntityOfPage":"true",
    "description": "Learn about Docker container, What exactly happens when container runs in you machine. ",
-   "wordCount": 975
+   "wordCount":  975 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,28 +231,17 @@
 </div>
 
       <div class="content">
-  
-
-<p>Containers allow you to package your application software and all its dependencies together into one process package. Containers can be managed by different versions which allows teams for easy replication of your same application instance across developers/testers or in your cluster.</p>
-
+  <p>Containers allow you to package your application software and all its dependencies together into one process package. Containers can be managed by different versions which allows teams for easy replication of your same application instance across developers/testers or in your cluster.</p>
 <p>A container image includes everything needed to run it: code, runtime, system tools, system libraries, settings etc. Containers are lightweight, can work stand-alone and available for both Linux and Windows based apps. The best thing about container running software is that it will always run the same, regardless of the environment because Docker containers isolate applications from one another and from the underlying infrastructure. for example containers help reduce conflicts between teams running same application but different environments like Development, Testing, Staging or Production environments.</p>
-
-<p><img src="https://www.pawangaria.com/img/docker/Runtime-Instance-process-container.png" alt="Runtime-Instance-process-container" /></p>
-
+<p><img src="https://www.pawangaria.com/img/docker/Runtime-Instance-process-container.png" alt="Runtime-Instance-process-container"></p>
 <p>Docker containers running on a single machine share that machine&rsquo;s operating system kernel; they start instantly and use less resources and RAM. Images are constructed from filesystem layers and share common files. This minimizes disk usage and image downloads are much faster. Docker containers are based on open standards and run on all major Linux distributions, Microsoft Windows.</p>
-
 <h3 id="containers-vs-virtual-machines">CONTAINERS Vs. VIRTUAL MACHINES</h3>
-
 <p><strong>Containers</strong> are an abstraction at the app layer that packages code and dependencies together. Multiple containers can run on the same machine and share the OS kernel with other containers, each running as isolated processes in user space. Containers take up less space than VMs (container images are typically tens of MBs in size), and start almost instantly.</p>
-
 <p><strong>Virtual machines (VMs)</strong> are an abstraction of physical hardware turning one server into many servers. The hypervisor allows multiple VMs to run on a single machine. Each VM includes a full copy of an operating system, one or more apps, necessary binaries and libraries - taking up tens of GBs. VMs can also be slow to boot.
-<img src="https://www.pawangaria.com/img/docker/docker-container-vs-virtual-machine.png" alt="docker-container-vs-virtual-machine" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-container-vs-virtual-machine.png" alt="docker-container-vs-virtual-machine"></p>
 <h3 id="docker-file">Docker File</h3>
-
 <p>Docker file contains a set of docker instructions, So Docker can build images automatically by reading the instructions from a Docker file. A Docker file is a simple text document that contains all the instructions and commands a user can call on the command line to create an image. <code>docker build</code> command creates an image from a Docker file. Docker File looks Like below Example:</p>
-
-<pre><code class="language-text"># our base image
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># our base image
 FROM alpine:3.5
 
 # Install python and pip
@@ -266,48 +255,30 @@ COPY templates/index.html /usr/src/app/templates/
 EXPOSE 5000
 
 # run the application
-CMD [&quot;python&quot;, &quot;/usr/src/app/app.py&quot;]
-</code></pre>
-
-<h3 id="docker-images">Docker Images</h3>
-
+CMD [&#34;python&#34;, &#34;/usr/src/app/app.py&#34;]
+</code></pre></div><h3 id="docker-images">Docker Images</h3>
 <p>An instance of an image is called a container. An image is really a template that can be turned into a container. To turn an image into a <a href="https://github.com/docker/labs/blob/master/beginner/chapters/alpine.md">running container</a>, the Docker engine takes your image, adds a read-write filesystem on top and initializes various settings including network ports, container name, ID and resource limits. If you start the image, you have a running container of this image. You can have many running containers of the same image and you can scale containers from image. If we try to understand in Java terms: <em>Images are like Java Class and containers are the instance/object of the Java Class, Like we can create any no of instance of a class we want by single line.</em></p>
-
 <p>Images are stored in a Docker registry such as <a href="https://hub.docker.com/">hub.docker.com</a>. Because they can become quite large, images are designed to be composed of layers of other images, allowing a minimal amount of data to be sent when transferring images over the network. <code>docker run</code> command is used to start a container from the Image with other command parameters.</p>
-
-<h3 id="docker-file-image-container">Docker File =&gt; Image =&gt; Container</h3>
-
+<h3 id="docker-file--image--container">Docker File =&gt; Image =&gt; Container</h3>
 <p>Below image describes the process and commands used for creating a running container from simple text file.
-<img src="https://www.pawangaria.com/img/docker/docker-file-image-container-flow.png" alt="docker-file-image-container-flow" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-file-image-container-flow.png" alt="docker-file-image-container-flow"></p>
 <h3 id="docker-engine">Docker Engine</h3>
-
 <p>Docker Engine is a client-server application which contains components like A server which is a type of long-running program called a daemon, REST API interface to talk to daemon and instruct it what to do and Client which is nothing but command line interface. The background service running on the host that manages building, running and distributing Docker containers.</p>
-
 <h3 id="docker-client">Docker Client</h3>
-
 <p>Docker client is a command line tool that allows the user to interact with the Docker daemon in client server manner using API&rsquo;s.</p>
-
-<h3 id="docker-registry-store">Docker Registry/Store</h3>
-
+<h3 id="docker-registrystore">Docker Registry/Store</h3>
 <p>Docker Registry or store is a place to store Docker images it can be Docker Hub and Docker Cloud or your private registry. You can think of the registry as a directory of all available Docker images.</p>
-
 <h3 id="how-containers-are-made">How Containers are made:</h3>
-
 <p>So there are many components are running in background to run a container. Docker uses a client-server architecture where the Docker client talks to the Docker daemon, which is the responsible person for downloading image, creating, running, and scaling your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over a network interface. Below in the images I have taken from Docker Website for showing the architecture:
-<img src="https://www.pawangaria.com/img/docker/docker-client-server-architecture.png" alt="docker-client-server-architecture" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-client-server-architecture.png" alt="docker-client-server-architecture"></p>
 <h3 id="behind-the-scenes-when-you-start-docker-container">Behind the scenes, When You Start Docker Container</h3>
-
 <p>There are lots of steps performed while creating container when you call <code>docker run</code> command.</p>
-
 <ol>
 <li>Docker client contacts to the Docker daemon process.</li>
 <li>The Docker daemon checks local store if the Docker Image of the application is available locally, and if not, downloads the image from Docker Hub. ( If you have pulled the image already, the download step will be skipped)</li>
 <li>The Docker daemon creates the container and then runs all commands in that container.</li>
 <li>The Docker daemon send back the output of the command to the Docker client for the user.</li>
 </ol>
-
 <p>So it&rsquo;s an overview of what are containers and how docker works inside and Build Container, you can read more about docker in depth in <a href="https://docs.docker.com/engine/docker-overview/#next-steps">official Documentation</a>.</p>
 
 </div>
@@ -709,7 +680,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

@@ -67,7 +67,7 @@
    "dateModified": "2018-01-04",
    "mainEntityOfPage":"true",
    "description": "Retry or ReRun failed Test cases multiple times by using IRetryAnalyzer Interface. The article explains ways to rerun the TestNG tests when they are failed.",
-   "wordCount": 648
+   "wordCount":  648 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -233,142 +233,108 @@
 </div>
 
       <div class="content">
-  
-
-<p>In automation Test Suits or running test cases in a bulk suite, we face unexpected Test failure or flaky test caused by network glitch, time-out or some other problem. There is a need for running the failed test cases so that we can get the proper result for the flaky TestCase.</p>
-
+  <p>In automation Test Suits or running test cases in a bulk suite, we face unexpected Test failure or flaky test caused by network glitch, time-out or some other problem. There is a need for running the failed test cases so that we can get the proper result for the flaky TestCase.</p>
 <blockquote>
 <p>TestNG provides <a href="http://static.javadoc.io/org.testng/testng/6.11/org/testng/IRetryAnalyzer.html">IRetryAnalyzer interface</a> which can be used to run and configure your retry related logic.</p>
 </blockquote>
-
 <h3 id="how-to-use-iretryanalyzer">How to use IRetryAnalyzer:</h3>
-
 <p>First of all, we should create a class which implements the <code>IRetryAnalyzer</code> interface which has one method <code>public boolean retry(ITestResult result);</code> which needs to be implemented. This method will return True if a test needs to be reRun or else False.</p>
-
-<h4 id="create-testretryanalyzer-class">Create TestRetryAnalyzer.class</h4>
-
+<h4 id="create-testretryanalyzerclass">Create TestRetryAnalyzer.class</h4>
 <p>Update method which decides how many times a test needs to be rerun. TestNG will call this method every time a test fails. So we can put some code in here to decide when to rerun the test.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.IRetryAnalyzer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestResult<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryAnalyzer</span> <span style="color:#66d9ef">implements</span> IRetryAnalyzer <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">int</span> counter <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> retryMaxLimit <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span>
 
-public class TestRetryAnalyzer implements IRetryAnalyzer {
-    int counter = 1;
-    int retryMaxLimit = 3;
-
-    public boolean retry(ITestResult result) {
-    if (counter &lt; retryMaxLimit) {
-            counter++;
-            return true;
-        }
-        return false;
-    }
-    }
-</code></pre>
-
-<p>There is variable which can be used for Number of time we want to reRun Our Testcase. <code>int retryMaxLimit</code> variable value is the max value for retry. Like Our Test will Run 3 times If you run this code. You can set the value of this variable as per your needs.</p>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">retry</span><span style="color:#f92672">(</span>ITestResult result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>counter <span style="color:#f92672">&lt;</span> retryMaxLimit<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            counter<span style="color:#f92672">++;</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>There is variable which can be used for Number of time we want to reRun Our Testcase. <code>int retryMaxLimit</code> variable value is the max value for retry. Like Our Test will Run 3 times If you run this code. You can set the value of this variable as per your needs.</p>
 <h3 id="use-testretryanalyzer-in-our-test">Use TestRetryAnalyzer in Our Test:</h3>
-
 <p>There can be multiple ways you can use the above class in our TestNg implementation but here we will describe 2 ways.</p>
-
-<h4 id="1-testretryanalyzer-class-as-attribute-in-test">1: TestRetryAnalyzer.class as attribute in @Test</h4>
-
+<h4 id="1-testretryanalyzerclass-as-attribute-in-test">1: TestRetryAnalyzer.class as attribute in @Test</h4>
 <p>We have to pass TestRetryAnalyzer.class as an attribute in all our @Test methods.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryTestCases</span> <span style="color:#f92672">{</span>
 
-public class TestRetryTestCases {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>retryAnalyzer<span style="color:#f92672">=</span>TestRetryAnalyzer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(retryAnalyzer=TestRetryAnalyzer.class)
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-        Assert.assertTrue(true);
-    }
-
-    @Test(retryAnalyzer=TestRetryAnalyzer.class)
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-    //This Test will fail with Assert here
-        Assert.assertTrue(false);
-    }
-}
-</code></pre>
-
-<h4 id="output">Output:</h4>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>retryAnalyzer<span style="color:#f92672">=</span>TestRetryAnalyzer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">//This Test will fail with Assert here
+</span><span style="color:#75715e"></span>        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output">Output:</h4>
 <p>In our output we can see the <code>secondTestMethod()</code> ran 3 times and finally failed.
-<img src="https://www.pawangaria.com/img/testng/testRetryAnalyzer-in-attribute-testng.png" alt="testRetryAnalyzer-in-attribute-testng" /></p>
-
-<h3 id="2-testretryanalyzer-class-as-listener-and-from-testng-xml">2: TestRetryAnalyzer.class as Listener and from testng.xml:</h3>
-
+<img src="https://www.pawangaria.com/img/testng/testRetryAnalyzer-in-attribute-testng.png" alt="testRetryAnalyzer-in-attribute-testng"></p>
+<h3 id="2-testretryanalyzerclass-as-listener-and-from-testngxml">2: TestRetryAnalyzer.class as Listener and from testng.xml:</h3>
 <p>TestNG Listeners are a very good way of implementing the retry logic on whole Suit level and need not put the TestRetryAnalyzer.class in all the @Test methods. I prefer using Listeners from the TestNG.xml file.</p>
-
-<h4 id="step-1-testretryanalyzerlistener-class">Step 1: TestRetryAnalyzerListener.class</h4>
-
+<h4 id="step-1-testretryanalyzerlistenerclass">Step 1: TestRetryAnalyzerListener.class</h4>
 <p>First, we need to create TestRetryAnalyzerListener class which is implementing the IAnnotationTransformer interface. We will use the <code>public void transform(ITestAnnotation annotation, Class testClass,Constructor testConstructor, Method testMethod)</code> method.This method will be invoked by TestNG to give you a chance to modify a TestNG annotation read from your test classes. Then the Listener is for calling the <em>TestRetryAnalyzer.class</em> (<em>Same Class We created above</em>) to reRun the Failed Test.</p>
-
 <blockquote>
 <p>TestNg needs this Listener to be known very early, So We will use this directly in TestNG.xml not in our test Class because Listeners can be used in TestClass.</p>
 </blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.lang.reflect.Constructor<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.IAnnotationTransformer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.ITestAnnotation<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import org.testng.IAnnotationTransformer;
-import org.testng.annotations.ITestAnnotation;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryAnalyzerListener</span> <span style="color:#66d9ef">implements</span> IAnnotationTransformer <span style="color:#f92672">{</span>
 
-public class TestRetryAnalyzerListener implements IAnnotationTransformer {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transform</span><span style="color:#f92672">(</span>ITestAnnotation annotation<span style="color:#f92672">,</span> Class testClass<span style="color:#f92672">,</span> Constructor testConstructor<span style="color:#f92672">,</span> Method testMethod<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        annotation<span style="color:#f92672">.</span><span style="color:#a6e22e">setRetryAnalyzer</span><span style="color:#f92672">(</span>TestRetryAnalyzer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="step-2-create-test-class">Step 2: Create Test Class:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
-        annotation.setRetryAnalyzer(TestRetryAnalyzer.class);
-    }
-}
-</code></pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryXmlTestCases</span> <span style="color:#f92672">{</span>
 
-<h4 id="step-2-create-test-class">Step 2: Create Test Class:</h4>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code class="language-Java">import org.testng.Assert;
-import org.testng.annotations.Test;
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="step-3-create-testng-xml-file-with-listener">Step 3: Create TestNG xml file With Listener:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;listeners&gt;</span>
+    <span style="color:#f92672">&lt;listener</span> <span style="color:#a6e22e">class-name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.retrytest.TestRetryAnalyzerListener&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;/listeners&gt;</span>
 
-public class TestRetryXmlTestCases {
-
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-        Assert.assertTrue(true);
-    }
-
-    @Test()
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-        Assert.assertTrue(false);
-    }
-}
-</code></pre>
-
-<h4 id="step-3-create-testng-xml-file-with-listener">Step 3: Create TestNG xml file With Listener:</h4>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.tutorial.testng.retrytest.TestRetryAnalyzerListener&quot; /&gt;
-  &lt;/listeners&gt;
-
-  &lt;test name=&quot;Test&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.retrytest.TestRetryXmlTestCases&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
-&lt;/suite&gt; &lt;!-- Suite --&gt;
-</code></pre>
-
-<p>Now we can run our test cases from the testng.xml file where we have mentioned our listener on the Suite level, So all the Test will inherit this listener and retry our failed Test. You can learn more about <a href="https://www.pawangaria.com/post/testng/what-is-testng-xml-file/">how to use testng.xml file and run testcases in other articles</a>.</p>
-
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.retrytest.TestRetryXmlTestCases&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span> <span style="color:#75715e">&lt;!-- Test --&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span> <span style="color:#75715e">&lt;!-- Suite --&gt;</span>
+</code></pre></div><p>Now we can run our test cases from the testng.xml file where we have mentioned our listener on the Suite level, So all the Test will inherit this listener and retry our failed Test. You can learn more about <a href="https://www.pawangaria.com/post/testng/what-is-testng-xml-file/">how to use testng.xml file and run testcases in other articles</a>.</p>
 <h3 id="output-1">Output:</h3>
-
-<pre><code class="language-Text">First test method
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">First test method
 Second test method
 Second test method
 Second test method
@@ -377,8 +343,7 @@ Second test method
 Suite
 Total tests run: 4, Failures: 1, Skips: 2
 ===============================================
-</code></pre>
-
+</code></pre></div>
 </div>
 
 
@@ -778,7 +743,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

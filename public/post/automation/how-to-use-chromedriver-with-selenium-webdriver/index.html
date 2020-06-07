@@ -67,7 +67,7 @@
    "dateModified": "2017-12-05",
    "mainEntityOfPage":"true",
    "description": "What is ChromeDriver and how to use ChromeDriver in our selenium WebDriver test scripts for automation testing in chrome browser.",
-   "wordCount": 577
+   "wordCount":  577 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,83 +229,57 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> is a separate executable which can be used by all the Client libraries to Automate and control Chrome Browser. ChromeDriver implements all the standard for the WebDriver which is <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSON WireProtocol</a> and communicates based on those protocols. It receives HTTP request and provides HTTP response to the Client. <a href="https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver">ChromeDriver</a> is not client dependent and separate from the clients like Java, Python, PHP etc. You can use the same ChromeDriver with any of the programming languages as the client. <a href="https://www.pawangaria.com/post/automation/what-is-selenium-webdriver/">Read</a> if you want to know more about the Selenium WebDriver.</p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/ChromeDriver-performing-actions.png" alt="ChromeDriver actions using WebDriver" /></p>
-
+  <p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> is a separate executable which can be used by all the Client libraries to Automate and control Chrome Browser. ChromeDriver implements all the standard for the WebDriver which is <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSON WireProtocol</a> and communicates based on those protocols. It receives HTTP request and provides HTTP response to the Client. <a href="https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver">ChromeDriver</a> is not client dependent and separate from the clients like Java, Python, PHP etc. You can use the same ChromeDriver with any of the programming languages as the client. <a href="https://www.pawangaria.com/post/automation/what-is-selenium-webdriver/">Read</a> if you want to know more about the Selenium WebDriver.</p>
+<p><img src="https://www.pawangaria.com/img/webdriver/ChromeDriver-performing-actions.png" alt="ChromeDriver actions using WebDriver"></p>
 <p>ChromeDriver is maintained by the Chrome Dev team in Google these days and all the improvements are coming directly from the Chrome Dev Team. It uses Chrome DevTools to control chrome browser. ChromeDriver requires Chrome Browser installed on the local system and uses the same chrome only for performing actions.</p>
-
 <h4 id="how-to-use-chromedriver-in-our-webdriver-test">How to Use ChromeDriver in Our WebDriver Test?</h4>
-
 <p>There are multiple ways to use the Chrome Driver in our WebDriver test cases. It depends on architecture and design you are planning for your test. Here I will try to explain few example of the common ways people are using <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/chrome/ChromeDriver.html">ChromeDriver class</a> and running Testcases on Chrome.</p>
-
-<p><strong>From where I can download ChromeDriver?</strong><br />
+<p><strong>From where I can download ChromeDriver?</strong><br>
 You can download the ChromeDriver executable from <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">GoogleChrome Download URL</a>. From the download page, you can download the driver as per your operating systems like mac or windows.</p>
-
-<p><strong>1. Run Driver From Test Script.</strong><br />
+<p><strong>1. Run Driver From Test Script.</strong><br>
 This is a basic example of the test where we are setting ChromeDriver Path in the property <em>webdriver.chrome.driver</em>. When you will Run this test the ChromeDriver will Start first in the same thread and then other Steps of @Test.</p>
-
-<p>You can see the Following line in your Console:<br />
-<code>
-Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 12302
-Only local connections are allowed.
-</code></p>
-
-<pre><code class="language-java">@Test
-public void searchGoogle() {
-  //Assign ChromeDriver Path to the Property.
-  System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);
-  //Create New ChromeDriver instance
-  WebDriver driver = new ChromeDriver();
-  //Open URL
-  driver.get(&quot;https://www.google.com&quot;);
-  //Find the search textbox WebElement and enter text
-  driver.findElement(By.name(&quot;q&quot;)).sendKeys(&quot;chrome&quot;);
-  //Then search button and click
-  driver.findElement(By.name(&quot;btnK&quot;)).submit();
-  //Quit Driver
-  driver.quit();
-}
-</code></pre>
-
-<p><strong>2. Run Driver On Local Machine.</strong><br />
+<p>You can see the Following line in your Console:<br>
+<code>Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 12302 Only local connections are allowed.</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">searchGoogle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">//Assign ChromeDriver Path to the Property.
+</span><span style="color:#75715e"></span>  System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/path/to/chromedriver&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#75715e">//Create New ChromeDriver instance
+</span><span style="color:#75715e"></span>  WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChromeDriver<span style="color:#f92672">();</span>
+  <span style="color:#75715e">//Open URL
+</span><span style="color:#75715e"></span>  driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#75715e">//Find the search textbox WebElement and enter text
+</span><span style="color:#75715e"></span>  driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;q&#34;</span><span style="color:#f92672">)).</span><span style="color:#a6e22e">sendKeys</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;chrome&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#75715e">//Then search button and click
+</span><span style="color:#75715e"></span>  driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;btnK&#34;</span><span style="color:#f92672">)).</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">();</span>
+  <span style="color:#75715e">//Quit Driver
+</span><span style="color:#75715e"></span>  driver<span style="color:#f92672">.</span><span style="color:#a6e22e">quit</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>2. Run Driver On Local Machine.</strong><br>
 Our second example is, If you want to run the chromeDriver separately in your machine and then running your test case on the same ChromeDriver Instance.</p>
-
 <p>So first go to the local directory where you have Downloaded the ChromeDriver executable and start the ChromeDriver like below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./chromedriver.sh  
 
-<pre><code class="language-shell">$ ./chromedriver.sh  
-
-Starting ChromeDriver 2.33.50616 (8a06c39c4c38a9173bfb1a2) on port 9515
+Starting ChromeDriver 2.33.50616 <span style="color:#f92672">(</span>8a06c39c4c38a9173bfb1a2<span style="color:#f92672">)</span> on port <span style="color:#ae81ff">9515</span>
 Only local connections are allowed.
-</code></pre>
-
-<p>Now after the ChromeDriver server started successfully on your local machine you can access the Driver from your Test.</p>
-
-<p><strong>How to access the chrome server running on local?</strong><br />
+</code></pre></div><p>Now after the ChromeDriver server started successfully on your local machine you can access the Driver from your Test.</p>
+<p><strong>How to access the chrome server running on local?</strong><br>
 If you look carefully above in the console messages there is a port no <strong>9515</strong> in which ChromeDriver is running. So we need to give this port no in our URL while creating WebDriver Instance.</p>
-
 <p>Let&rsquo;s rewrite the same test case again with already running ChromeDriver.</p>
-
-<pre><code class="language-java">@Test
- public void testOnPreRunningChromeDriver(){
-   //Create WebDriver Instance With URL
-   WebDriver driver = new RemoteWebDriver(new URL(&quot;http://127.0.0.1:9515&quot;), DesiredCapabilities.chrome());
-   driver.get(&quot;https://www.google.com/&quot;);
-   //Find Element and Enter Text
-   driver.findElement(By.name(&quot;q&quot;)).sendKeys(&quot;chrome&quot;);
-   //Then search button and click
-   driver.findElement(By.name(&quot;btnK&quot;)).submit();
-   //Quit Driver
-   driver.quit();
- }
-</code></pre>
-
-<p>As you can see there are many ways of using the chromeDriver for the same Test. It is a good practice to implement base on your testing infrastructure and design.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+ <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testOnPreRunningChromeDriver</span><span style="color:#f92672">(){</span>
+   <span style="color:#75715e">//Create WebDriver Instance With URL
+</span><span style="color:#75715e"></span>   WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://127.0.0.1:9515&#34;</span><span style="color:#f92672">),</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">());</span>
+   driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span><span style="color:#f92672">);</span>
+   <span style="color:#75715e">//Find Element and Enter Text
+</span><span style="color:#75715e"></span>   driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;q&#34;</span><span style="color:#f92672">)).</span><span style="color:#a6e22e">sendKeys</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;chrome&#34;</span><span style="color:#f92672">);</span>
+   <span style="color:#75715e">//Then search button and click
+</span><span style="color:#75715e"></span>   driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;btnK&#34;</span><span style="color:#f92672">)).</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">();</span>
+   <span style="color:#75715e">//Quit Driver
+</span><span style="color:#75715e"></span>   driver<span style="color:#f92672">.</span><span style="color:#a6e22e">quit</span><span style="color:#f92672">();</span>
+ <span style="color:#f92672">}</span>
+</code></pre></div><p>As you can see there are many ways of using the chromeDriver for the same Test. It is a good practice to implement base on your testing infrastructure and design.</p>
 <p>In my next article, I am planning to deep dive in to ChromeDriver and try to explain what exactly happens in ChromeDriver when you run your test and how it works.</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -707,7 +681,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

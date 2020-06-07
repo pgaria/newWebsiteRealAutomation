@@ -67,7 +67,7 @@
    "dateModified": "2018-01-11",
    "mainEntityOfPage":"true",
    "description": "What is Docker and how to use Docker with Selenium WebDriver for Running browsers Test within containers.",
-   "wordCount": 909
+   "wordCount":  907 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -188,7 +188,7 @@
 
   <small>
   &middot; Read in about 5 min
-  &middot; (909 words)
+  &middot; (907 words)
   &middot; 
 <span class="share-box">Share this on:
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fdocker%2fhow-to-use-docker-with-webdriver%2f" onclick="window.open(this.href, 'mywin',
@@ -231,150 +231,94 @@
 </div>
 
       <div class="content">
-  
-
-<p><img src="https://www.pawangaria.com/img/docker/docker.png" alt="docker" /></p>
-
+  <p><img src="https://www.pawangaria.com/img/docker/docker.png" alt="docker"></p>
 <h3 id="what-is-docker">What is Docker?</h3>
-
 <p><a href="https://www.docker.com/what-docker">Docker</a> containers allow you to package up an application with all the basic parts to run, such as libraries and other dependencies, and ship it out as one package.</p>
-
 <p>Developers use Docker to eliminate “works on my machine” problems when collaborating on code with co-workers. Companies use Docker to build agile software delivery pipelines to ship new features faster, more securely and with confidence for both Linux and Windows Server.</p>
-
 <h3 id="docker-terminology">Docker Terminology</h3>
-
 <h5 id="images">#Images:</h5>
-
 <p>An <a href="https://docs.docker.com/glossary/?term=image">Image</a> is an inert, immutable, file that&rsquo;s essentially a snapshot of a container.An image typically contains a union of layered filesystems stacked on top of each other. Images are created with the build command, and they&rsquo;ll produce a container when started with the run. Images are stored in a Docker registry such as registry.hub.docker.com</p>
-
 <h5 id="containers">#Containers:</h5>
-
 <p><a href="https://docs.docker.com/glossary/?term=container">Containers</a> are the instantiations or runtime instance of images. They are one form of the image. Compare it to object-oriented programming, then your class would be an image and instance of the class a container. Another comparison would be too real containers on the ship. They all look same from the outside but can look very different from the inside.</p>
-
 <p>There are many docker terms but the most imp is images and containers, you can have a look for all the terms in <a href="https://docs.docker.com/glossary/">Docker glossary</a>.</p>
-
 <p>In this article, we are going to learn how we can run our simple Selenium WebDriver Test cases on Docker.</p>
-
 <h1 id="downloading-and-installing-docker">Downloading and Installing Docker</h1>
-
 <p>There are Docker Community Edition and Docker Enterprise Edition, So we are going to use <a href="https://www.docker.com/community-edition#/download">Community edition</a> which is free of use.</p>
-
 <p><strong>Step 1:</strong> Download Docker from <a href="https://www.docker.com/community-edition#/download">https://www.docker.com/community-edition#/download</a>.</p>
-
 <p><strong>Step 2:</strong> Depending on the Operating System you are using <a href="https://docs.docker.com/engine/installation/">Install Docker</a>.</p>
-
 <p>After Successfully installing Docker you can see the Docker Running on top of your machine as service.</p>
-
 <h1 id="verify-docker">Verify Docker:</h1>
-
 <p>Now after successfully installing docker, open your Terminal or command line.</p>
-
 <p>On Command line we will run a simple command to check the version</p>
-
 <pre><code>docker --version
-</code></pre>
-
-<pre><code class="language-Text">Docker version 17.09.0-ce, build afdb6d4
-</code></pre>
-
-<h4 id="docker-ps">docker ps</h4>
-
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">Docker version 17.09.0-ce, build afdb6d4
+</code></pre></div><h4 id="docker-ps">docker ps</h4>
 <p>Let&rsquo;s see how many containers I have in my machine using command <code>docker ps</code> which will list down all the containers running.
-<img src="https://www.pawangaria.com/img/docker/docker-ps-command.png" alt="docker-ps-command" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-ps-command.png" alt="docker-ps-command"></p>
 <p>We don&rsquo;t have any container right now so nothing is displayed.</p>
-
 <h4 id="docker-images">docker images</h4>
-
 <p>Let&rsquo;s see if we have any images using command <code>docker images</code> which will also list nothing right now.
 We don&rsquo;t have any of the images in our machine, so nothing is displayed. But this command is for reference to list all the images on your machine.</p>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-image-command.png" alt="docker-image-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/docker/docker-image-command.png" alt="docker-image-command"></p>
 <h3 id="how-to-use-docker-with-webdriver">#How to use Docker with WebDriver:</h3>
-
 <p>Now as we have docker setup and running, we can start working on our Selenium WebDriver integration.
-<img src="https://www.pawangaria.com/img/docker/docker-webdriver-container-test-run.png" alt="docker-webdriver-container-test-run" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-webdriver-container-test-run.png" alt="docker-webdriver-container-test-run"></p>
 <h4 id="step-1-first-step-is-to-download-the-docker-image-for-selenium-with-chrome">Step 1: First step is to Download the Docker image for Selenium with Chrome</h4>
-
 <p><a href="https://hub.docker.com">hub.docker.com</a> is the Url where you will find all the docker-images of applications present for Docker. It&rsquo;s like a Docker repository of all the docker-images.</p>
-
 <p>To find all the images related to Selenium can be found here : <a href="https://hub.docker.com/u/selenium/">https://hub.docker.com/u/selenium/</a>
-<img src="https://www.pawangaria.com/img/docker/hub-docker-selenium-images-repo.png" alt="hub-docker-selenium-images-repo" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/hub-docker-selenium-images-repo.png" alt="hub-docker-selenium-images-repo"></p>
 <p>We have to download the <a href="https://hub.docker.com/r/selenium/standalone-chrome/">selenium/standalone-chrome</a> to Run our test on Chrome browser. To download you have to open Terminal and Run:</p>
-
-<pre><code class="language-Text">docker pull selenium/standalone-chrome
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-chrome-browser.png" alt="docker-pull-selenium-chrome-browser" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">docker pull selenium/standalone-chrome
+</code></pre></div><p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-chrome-browser.png" alt="docker-pull-selenium-chrome-browser"></p>
 <p><code>Docker pull</code> request is to download the images in docker, So above request will start downloading standalone-chrome image and we are ready to run the container.</p>
-
 <h4 id="step-2-start-container-with-selenium-standalone-chrome">Step 2: Start container with Selenium standalone-chrome</h4>
-
 <p>Now we have to start the container for the image using the command:</p>
-
-<pre><code class="language-Text">docker run -d -P selenium/standalone-chrome
-</code></pre>
-
-<pre><code>➜  docker git:(master) docker run -d -P selenium/standalone-chrome
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">docker run -d -P selenium/standalone-chrome
+</code></pre></div><pre><code>➜  docker git:(master) docker run -d -P selenium/standalone-chrome
 3df032f01a346bb0f0922746e92c7d63e65a262e10eb25dfe04452e7fe118c8f
 ➜  docker git:(master)
-</code></pre>
-
-<p><code>docker run</code> is to start the container and After running the container we can check If the container is started or not by listing all the running containers.</p>
-
-<pre><code class="language-Text">docker ps
-</code></pre>
-
-<p>You can check the container started running and see the <strong>CONTAINER ID, IMAGE, PORT No. on which container is listening and Name</strong> is given by docker randomly (U can set the name of your choice).
-<img src="https://www.pawangaria.com/img/docker/docker-ps-selenium-running.png" alt="docker-ps-selenium-running" /></p>
-
+</code></pre><p><code>docker run</code> is to start the container and After running the container we can check If the container is started or not by listing all the running containers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Text" data-lang="Text">docker ps
+</code></pre></div><p>You can check the container started running and see the <strong>CONTAINER ID, IMAGE, PORT No. on which container is listening and Name</strong> is given by docker randomly (U can set the name of your choice).
+<img src="https://www.pawangaria.com/img/docker/docker-ps-selenium-running.png" alt="docker-ps-selenium-running"></p>
 <h4 id="step-3-create-webdriver-test-class">Step 3: Create WebDriver Test Class:</h4>
+<p>Now we are going to create a simple Java file with TestNG as Test. I am doing following things in this example class:<br>
+<strong>1.</strong> For Docker we have to use the <strong>RemoteWebDriver Class</strong> not the normal ChromeDriver or FirefoxDriver.<br>
+<strong>2.</strong> The URL should be <strong>http://localhost:32771/wd/hub</strong> as my Docker in running in my machine. Port No. you should check in the container list and replace the correct port from machine.<br>
+<strong>3.</strong> Open <a href="http://www.Google.com">www.Google.com</a> and Get the Title.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.net.URL<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.DesiredCapabilities<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.RemoteWebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<p>Now we are going to create a simple Java file with TestNG as Test. I am doing following things in this example class:<br />
-<strong>1.</strong> For Docker we have to use the <strong>RemoteWebDriver Class</strong> not the normal ChromeDriver or FirefoxDriver.<br />
-<strong>2.</strong> The URL should be <strong><a href="http://localhost:32771/wd/hub">http://localhost:32771/wd/hub</a></strong> as my Docker in running in my machine. Port No. you should check in the container list and replace the correct port from machine.<br />
-<strong>3.</strong> Open www.Google.com and Get the Title.</p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunningTestOnDocker</span> <span style="color:#f92672">{</span>
 
-<pre><code class="language-Java">import java.net.URL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Test;
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestOnDocker</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        DesiredCapabilities dcap <span style="color:#f92672">=</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">();</span>
+        String driverPath <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user.dir&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/exe/chromedriver&#34;</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> driverPath<span style="color:#f92672">);</span>
 
-public class RunningTestOnDocker {
-
-    @Test
-    public void runTestOnDocker() throws Exception {
-        DesiredCapabilities dcap = DesiredCapabilities.chrome();
-        String driverPath = System.getProperty(&quot;user.dir&quot;) + &quot;/exe/chromedriver&quot;;
-        System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
-
-        // You should check the Port No here.
-        URL gamelan = new URL(&quot;http://localhost:32771/wd/hub&quot;);
-        WebDriver driver = new RemoteWebDriver(gamelan, dcap);
-        // Get URL
-        driver.get(&quot;https://www.google.com/&quot;);
-        // Print Title
-        System.out.println(driver.getTitle());
-    }
-}
-</code></pre>
-
-<h3 id="run-test-and-check-container-logs">Run Test and Check Container logs:</h3>
-
+        <span style="color:#75715e">// You should check the Port No here.
+</span><span style="color:#75715e"></span>        URL gamelan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://localhost:32771/wd/hub&#34;</span><span style="color:#f92672">);</span>
+        WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span>gamelan<span style="color:#f92672">,</span> dcap<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Get URL
+</span><span style="color:#75715e"></span>        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Print Title
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>driver<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="run-test-and-check-container-logs">Run Test and Check Container logs:</h3>
 <p>If you run the above Class with proper port number, you will see the Title as <strong>Google</strong> been printed on the Console.
-We can verify the whole Test by looking into the container logs also by using the command :<br />
- 1. Do <code>docker ps</code><br />
- 2. Take the Container ID and Do <code>docker logs &lt;container ID&gt;</code><br />
-<img src="https://www.pawangaria.com/img/docker/docker-container-logs.png" alt="docker-container-logs" /></p>
-
+We can verify the whole Test by looking into the container logs also by using the command :</p>
+<ol>
+<li>Do <code>docker ps</code></li>
+<li>Take the Container ID and Do <code>docker logs &lt;container ID&gt;</code><br>
+<img src="https://www.pawangaria.com/img/docker/docker-container-logs.png" alt="docker-container-logs"></li>
+</ol>
 <p>Container logs can be helpful in debugging, like if we check the logs for our @Test, You will find all the steps performed like <strong>Creating Session, opening URL and then get Title</strong>.
-<img src="https://www.pawangaria.com/img/docker/chrome-container-log-selenium-test.png" alt="chrome-container-log-selenium-test" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/chrome-container-log-selenium-test.png" alt="chrome-container-log-selenium-test"></p>
 <p><em>I am using Chrome browser for showing the example but you can find Firefox and other browsers also in the <a href="hub.docker.com">hub.docker.com</a> and try to Run Test on Different Browsers.</em></p>
 
 </div>
@@ -776,7 +720,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

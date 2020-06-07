@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Selenium Webdriver on Testing, Automation, Programming and Latest Technology Articles</title>
+    <title>Selenium WebDriver on Testing, Automation, Programming and Latest Technology Articles</title>
     <link>https://www.pawangaria.com/categories/selenium-webdriver/</link>
-    <description>Recent content in Selenium Webdriver on Testing, Automation, Programming and Latest Technology Articles</description>
+    <description>Recent content in Selenium WebDriver on Testing, Automation, Programming and Latest Technology Articles</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
@@ -19,7 +19,8 @@
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/automation/page-object-model-with-selenium/</guid>
       <description>This post will elaborate more about the simple idea behind page abstraction while using page object model in test automation frameworks.
-Abstraction is a technique used in software design that aims to simplify logical entities code representation and allows the software developer to “hide” complex implementations. The goal is to create an abstract (simple) layers which will only expose the most relevant properties and capabilities for the specific entity.</description>
+Abstraction is a technique used in software design that aims to simplify logical entities code representation and allows the software developer to “hide” complex implementations. The goal is to create an abstract (simple) layers which will only expose the most relevant properties and capabilities for the specific entity.
+The Abstraction technique comes handy also when writing a test automation project; We can use it to hide complexity and establish desired actions on top of the page we are working on.</description>
     </item>
     
     <item>
@@ -67,7 +68,7 @@ Chromium dev teams are now responsible for the maintenance of the ChromeDriver c
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/</guid>
       <description>What is RemoteWebDriver? RemoteWebDriver in Selenium Webdriver implements each of the JSONWireProtocol commands and maps them into an action that can be performed on a remote machine.
-RemoteWebDriver is a Class in the package org.openqa.selenium.remote inside the Client Project of WebDiver. RemoteWebDriver.class implements multiple interface like WebDriver(Yes WebDriver is an Interface not a Class as I have seen many people confused about this information), FindsById, FindsByClassName, FindsByLinkText etc.
+RemoteWebDriver is a Class in the package org.openqa.selenium.remote inside the Client Project of WebDiver. RemoteWebDriver.class  implements multiple interface like WebDriver(Yes WebDriver is an Interface not a Class as I have seen many people confused about this information), FindsById, FindsByClassName, FindsByLinkText etc.
 package org.</description>
     </item>
     

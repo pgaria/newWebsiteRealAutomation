@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Testing, Automation, Programming and Latest Technology Articles</title>
@@ -7,26 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sat, 24 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Automation Testing</title>
-      <link>https://www.pawangaria.com/categories/automation-testing/</link>
-      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Tutorials</title>
+      <link>https://www.pawangaria.com/categories/tutorials/</link>
+      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/categories/automation-testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://www.pawangaria.com/categories/docker/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/categories/docker/</guid>
+      <guid>https://www.pawangaria.com/categories/tutorials/</guid>
       <description></description>
     </item>
     
@@ -40,16 +31,16 @@
     </item>
     
     <item>
-      <title>Resources and Guides</title>
-      <link>https://www.pawangaria.com/categories/resources-and-guides/</link>
-      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      <title>Automation Testing</title>
+      <link>https://www.pawangaria.com/categories/automation-testing/</link>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/categories/resources-and-guides/</guid>
+      <guid>https://www.pawangaria.com/categories/automation-testing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Selenium Webdriver</title>
+      <title>Selenium WebDriver</title>
       <link>https://www.pawangaria.com/categories/selenium-webdriver/</link>
       <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
@@ -58,11 +49,20 @@
     </item>
     
     <item>
-      <title>Tutorials</title>
-      <link>https://www.pawangaria.com/categories/tutorials/</link>
-      <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
+      <title>Docker</title>
+      <link>https://www.pawangaria.com/categories/docker/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/categories/tutorials/</guid>
+      <guid>https://www.pawangaria.com/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resources And Guides</title>
+      <link>https://www.pawangaria.com/categories/resources-and-guides/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/categories/resources-and-guides/</guid>
       <description></description>
     </item>
     

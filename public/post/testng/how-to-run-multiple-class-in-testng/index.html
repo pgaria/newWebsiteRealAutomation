@@ -67,7 +67,7 @@
    "dateModified": "2017-12-23",
    "mainEntityOfPage":"true",
    "description": "How to run multiple TestNG test classes together as a suite.",
-   "wordCount": 274
+   "wordCount":  274 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,96 +229,77 @@
 </div>
 
       <div class="content">
-  
-
-<p>In TestNG, we can divide our test cases into multiple classes. Every class can have multiple @test methods.Sometimes Class represents a particular feature and all the test cases are inside the class. So in this article, we are going to learn how we can run multiple tests having multiple classes in TestNG.</p>
-
+  <p>In TestNG, we can divide our test cases into multiple classes. Every class can have multiple @test methods.Sometimes Class represents a particular feature and all the test cases are inside the class. So in this article, we are going to learn how we can run multiple tests having multiple classes in TestNG.</p>
 <h3 id="lets-make-few-example-test-classes">Lets make few example test Classes:</h3>
-
 <p>We will first make few Test Class with multiple @Test. To run all the Classes we should create a testng.xml file.</p>
-
 <h3 id="1st-test-class">1st Test Class</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.suitetest<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.suitetest;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClassOne</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method from class 1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class TestClassOne {
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method from class 1&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method from class 1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="2nd-test-class">2nd Test Class</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.suitetest<span style="color:#f92672">;</span>
 
-    @Test()
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method from class 1&quot;);
-    }
-}
-</code></pre>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<h3 id="2nd-test-class">2nd Test Class</h3>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClassTwo</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method from class 2&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.suitetest;
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method from class 2&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="3rd-test-class">3rd Test Class</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.suitetest<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-public class TestClassTwo {
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method from class 2&quot;);
-    }
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClassThree</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method from class 3&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method from class 2&quot;);
-    }
-}
-</code></pre>
-
-<h3 id="3rd-test-class">3rd Test Class</h3>
-
-<pre><code class="language-Java">package com.tutorial.testng.suitetest;
-
-import org.testng.annotations.Test;
-
-public class TestClassThree {
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method from class 3&quot;);
-    }
-
-    @Test()
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method from class 3&quot;);
-    }
-}
-</code></pre>
-
-<h3 id="testng-xml-file">TestNg.xml file:</h3>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method from class 3&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="testngxml-file">TestNg.xml file:</h3>
 <p>Lets create a testng.xml file which has two test tags and contains multiple test classes.</p>
-
-<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;First Test&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassOne&quot;/&gt;
-      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassTwo&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-  &lt;test name=&quot;Second Test&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.suitetest.TestClassThree&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="when-you-run-the-testng-xml-file">When you Run the testng.xml file:</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;First Test&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.suitetest.TestClassOne&#34;</span><span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.suitetest.TestClassTwo&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Second Test&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.suitetest.TestClassThree&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="when-you-run-the-testngxml-file">When you Run the testng.xml file:</h3>
 <p>When You run the above testng.xml and you can see two Test Run with multiple test in a Suite. If you are new and want to read more about testng xml files check our <a href="https://www.pawangaria.com/post/testng/what-is-testng-xml-file/">previous articles</a>.
-<img src="https://www.pawangaria.com/img/testng/multiple-test-run-testng-result.png" alt="multiple-test-run-testng-result" /></p>
+<img src="https://www.pawangaria.com/img/testng/multiple-test-run-testng-result.png" alt="multiple-test-run-testng-result"></p>
 
 </div>
 
@@ -719,7 +700,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

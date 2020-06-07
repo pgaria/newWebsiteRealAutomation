@@ -71,7 +71,7 @@
    "dateModified": "2018-02-24",
    "mainEntityOfPage":"true",
    "description": "Page Object Model and Abstraction techniques can be combined to hide the complexity of logic and establish desired actions on top of the page we are trying to Test.",
-   "wordCount": 866
+   "wordCount":  866 
 }
 </script>
 
@@ -85,7 +85,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -237,128 +237,99 @@
 </div>
 
       <div class="content">
-  
-
-<p>This post will elaborate more about the simple idea behind page abstraction while using page object model in test automation frameworks.</p>
-
+  <p>This post will elaborate more about the simple idea behind page abstraction while using page object model in test automation frameworks.</p>
 <p><a href="https://www.tutorialspoint.com/java/java_abstraction.htm">Abstraction</a> is a technique used in software design that aims to simplify logical entities code representation and allows the software developer to “hide” complex implementations. The goal is to create an abstract (simple) layers which will only expose the most relevant properties and capabilities for the specific entity.</p>
-
 <p>The Abstraction technique comes handy also when writing a test automation project; We can use it to hide complexity and establish desired actions on top of the page we are working on. In a matter of fact, we can define the project as a multilayer structure, this structure will help to implement the logic of functional testing with minimum effort and exposure to the complexity of the infrastructure.</p>
-
 <h3 id="page-object-model-in-selenium">Page Object Model in Selenium</h3>
-
 <p>Page Object model is an object design pattern in User Interface Testing, It can be Website, M-Site or Mobile Apps, where web pages are represented as simple classes, and the various elements on the page are defined as variables and used in methods as a single entity. Selenium WebDrive or Appium is best example which is utilizing the page object model in automation industry and All possible user actions and interactions can then be implemented as methods on the class:</p>
-
 <pre><code>setUserName(String username);
 setPassword(String password);
 clickForgotPassword();
-</code></pre>
-
-<p>We can see from the example above the well-named methods in classes are very easy to read, this works as an elegant way to implement test routines that are both readable and easier to maintain or update in the future. Anyone can open the class and update methods mean our class is the so-called document for our Test.</p>
-
+</code></pre><p>We can see from the example above the well-named methods in classes are very easy to read, this works as an elegant way to implement test routines that are both readable and easier to maintain or update in the future. Anyone can open the class and update methods mean our class is the so-called document for our Test.</p>
 <p>A page object simply models these as objects within the test code. For each web page of your application, you can create the corresponding class which encapsulates the mechanics required to perform some action on that page.</p>
-
 <p>So every web page representing a class or Page Objects containing all the web elements need to be initialized before the web elements can be used in our Test Class. This can be done simply through the use of the new keyword in Java.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">LoginPage page <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LoginPage<span style="color:#f92672">(</span>WebDriverInstance<span style="color:#f92672">);</span>
+</code></pre></div><p>Assume that in our application we have a login page which offers regular log in functionality. We can create a page object for login page that will represent all login methods as actions, Web page looks like below where the constructor is accepting the WebDriver instance.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">LoginPage page = new LoginPage(WebDriverInstance);
-</code></pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginPage</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> WebDriver driver<span style="color:#f92672">;</span>
 
-<p>Assume that in our application we have a login page which offers regular log in functionality. We can create a page object for login page that will represent all login methods as actions, Web page looks like below where the constructor is accepting the WebDriver instance.</p>
-
-<pre><code class="language-Java">import org.openqa.selenium.WebDriver;
-
-public class LoginPage {
-    private WebDriver driver;
-
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-}
-</code></pre>
-
-<p>Now after making our basic Page model for login and initializing the constructor which is accepting the WebDriver instance and we can start adding our methods which will serve as functionalities our login page offers. Our login page contains a login method which returns us the Home Page after login.
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LoginPage</span><span style="color:#f92672">(</span>WebDriver driver<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span> <span style="color:#f92672">=</span> driver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now after making our basic Page model for login and initializing the constructor which is accepting the WebDriver instance and we can start adding our methods which will serve as functionalities our login page offers. Our login page contains a login method which returns us the Home Page after login.
 ###LoginPage</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.openqa.selenium.By<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginPage</span> <span style="color:#f92672">{</span>
 
-public class LoginPage {
+    <span style="color:#66d9ef">private</span> WebDriver driver<span style="color:#f92672">;</span>
 
-    private WebDriver driver;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String LOGIN_PAGE_URL <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://www.facebook.com/&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> By USERNAME_INPUT <span style="color:#f92672">=</span> By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> By PASSWORD_INPUT <span style="color:#f92672">=</span> By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;pass&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> By LOG_IN_BUTTON <span style="color:#f92672">=</span> By<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;loginbutton&#34;</span><span style="color:#f92672">);</span>
 
-    private static final String LOGIN_PAGE_URL = &quot;https://www.facebook.com/&quot;;
-    private static final By USERNAME_INPUT = By.name(&quot;email&quot;);
-    private static final By PASSWORD_INPUT = By.name(&quot;pass&quot;);
-    private static final By LOG_IN_BUTTON = By.id(&quot;loginbutton&quot;);
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LoginPage</span><span style="color:#f92672">(</span>WebDriver driver<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span> <span style="color:#f92672">=</span> driver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
+    <span style="color:#66d9ef">public</span> LoginPage <span style="color:#a6e22e">open</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>LOGIN_PAGE_URL<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 
-    public LoginPage open() {
-        driver.get(LOGIN_PAGE_URL);
-        return this;
-    }
+    <span style="color:#66d9ef">public</span> HomePage <span style="color:#a6e22e">loginAs</span><span style="color:#f92672">(</span>String username<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>USERNAME_INPUT<span style="color:#f92672">).</span><span style="color:#a6e22e">sendKeys</span><span style="color:#f92672">(</span>username<span style="color:#f92672">);</span>
+        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>PASSWORD_INPUT<span style="color:#f92672">).</span><span style="color:#a6e22e">sendKeys</span><span style="color:#f92672">(</span>password<span style="color:#f92672">);</span>
+        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>LOG_IN_BUTTON<span style="color:#f92672">).</span><span style="color:#a6e22e">click</span><span style="color:#f92672">();</span>
 
-    public HomePage loginAs(String username, String password) {
-        driver.findElement(USERNAME_INPUT).sendKeys(username);
-        driver.findElement(PASSWORD_INPUT).sendKeys(password);
-        driver.findElement(LOG_IN_BUTTON).click();
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> HomePage<span style="color:#f92672">(</span>driver<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>###HomePage</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
 
-        return new HomePage(driver);
-    }
-}
-</code></pre>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomePage</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> WebDriver driver<span style="color:#f92672">;</span>
 
-<p>###HomePage</p>
-
-<pre><code class="language-Java">import org.openqa.selenium.WebDriver;
-
-public class HomePage {
-    private WebDriver driver;
-
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-    }
-}
-</code></pre>
-
-<h3 id="why-should-we-use-page-objects">Why should we use page objects?</h3>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HomePage</span><span style="color:#f92672">(</span>WebDriver driver<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">driver</span> <span style="color:#f92672">=</span> driver<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="why-should-we-use-page-objects">Why should we use page objects?</h3>
 <p>They reduce the amount of duplicated code. If there is some change in the website or mobile User interface, in the perfect situation we need to apply the fix in only one place. Page objects increase code readable because they make the test easier to understand. They hide the details of the UI structure from the tests so we can clearly see the logic and the intention of the test. So, The public methods represent the services that the page offers
 and Page objects shouldn’t expose the internals of the page.</p>
-
 <h3 id="how-to-use-page-object-class-in-test">How to Use Page Object Class in Test</h3>
-
 <p>With Page Object our test are able to log in without worrying how the steps and functionality is implemented because it shouldn’t matter to the test. So lets create a simple implementation of our Login Page in our Test.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.util.concurrent.TimeUnit<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.chrome.ChromeDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.BeforeClass<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginTest</span> <span style="color:#f92672">{</span>
 
-public class LoginTest {
+    <span style="color:#66d9ef">private</span> WebDriver driver<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> HomePage homePage<span style="color:#f92672">;</span>
 
-    private WebDriver driver;
-    private HomePage homePage;
+    <span style="color:#a6e22e">@BeforeClass</span><span style="color:#f92672">(</span>alwaysRun <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChromeDriver<span style="color:#f92672">();</span>
+        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">manage</span><span style="color:#f92672">().</span><span style="color:#a6e22e">timeouts</span><span style="color:#f92672">().</span><span style="color:#a6e22e">implicitlyWait</span><span style="color:#f92672">(</span>10<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeClass(alwaysRun = true)
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Open Facebook Page and Login with username and password&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loginFacebookTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-    @Test(description = &quot;Open Facebook Page and Login with username and password&quot;)
-    public void loginFacebookTest() {
-
-        LoginPage loginPage = new LoginPage(driver);
-        homePage = loginPage.open().loginAs(&quot;username&quot;, &quot;password&quot;);
-    }
-}
-</code></pre>
-
-<p>This is a very simple example for understanding the concept of the Page object and data abstraction concept in our Test Automation. You can follow the approach used in this post and start extending the page objects and create more Classes.That’s all in this part. I hope that I gave you a brief idea of what Page Object Pattern is. You have learned what page objects are and what benefits they bring to your tests. You have seen how to use page objects on a real example.</p>
+        LoginPage loginPage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LoginPage<span style="color:#f92672">(</span>driver<span style="color:#f92672">);</span>
+        homePage <span style="color:#f92672">=</span> loginPage<span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">().</span><span style="color:#a6e22e">loginAs</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This is a very simple example for understanding the concept of the Page object and data abstraction concept in our Test Automation. You can follow the approach used in this post and start extending the page objects and create more Classes.That’s all in this part. I hope that I gave you a brief idea of what Page Object Pattern is. You have learned what page objects are and what benefits they bring to your tests. You have seen how to use page objects on a real example.</p>
 
 </div>
 
@@ -759,7 +730,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

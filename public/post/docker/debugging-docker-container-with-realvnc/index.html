@@ -66,8 +66,8 @@
    "datePublished": "2018-01-15",
    "dateModified": "2018-01-15",
    "mainEntityOfPage":"true",
-   "description": "You can set up your VNC connection and then run your tests on the Docker container all viewed through the selenium container’s Chrome/Firefox web browser.",
-   "wordCount": 466
+   "description": "You can set up your VNC connection and then run your tests on the Docker container all viewed through the selenium container’s Chrome\/Firefox web browser.",
+   "wordCount":  466 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,88 +231,59 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/">In our last article</a>, we talked about basics of running automation Test on Docker. Now, this article is more about debugging the Test running on the containers. It&rsquo;s helpful when you want to see what is happening inside the docker container.
+  <p><a href="https://www.pawangaria.com/post/docker/how-to-use-docker-with-webdriver/">In our last article</a>, we talked about basics of running automation Test on Docker. Now, this article is more about debugging the Test running on the containers. It&rsquo;s helpful when you want to see what is happening inside the docker container.
 In the event you wish to visually see what the browser is doing you will want to run the debug variant of the node or standalone images. A VNC server will run on particular port inside the container with <a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a>.</p>
-
 <h3 id="download-realvnc-viewer">Download RealVNC viewer:</h3>
-
 <p>You can download the <a href="https://www.realvnc.com/en/connect/download/viewer/macos/">real-vnc</a>.
- and Install as per your operating system.</p>
-
+and Install as per your operating system.</p>
 <h3 id="pull-selenium-chrome-debug-image">Pull Selenium Chrome-Debug Image:</h3>
-
 <p>Step:1 For the Debugging we should require the Docker Selenium WebDriver Image with VNC server.So First Step is to download the Docker Image with Debugging.</p>
-
 <pre><code>docker pull selenium/standalone-chrome-debug
-</code></pre>
-
-<p>Docker pull will start downloading the image if it&rsquo;s not already downloaded.</p>
-
+</code></pre><p>Docker pull will start downloading the image if it&rsquo;s not already downloaded.</p>
 <p>Step 2: After downloading the proper debugging image, we need to start the docker container for the image:</p>
-
 <pre><code>docker run -d -P selenium/standalone-chrome-debug
-</code></pre>
-
-<p>Step 3: After running the Docker container we should verify the Container Process and Port Details.</p>
-
+</code></pre><p>Step 3: After running the Docker container we should verify the Container Process and Port Details.</p>
 <pre><code>docker ps
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-ps-debug-port.png" alt="docker-ps-command-debug-port" />
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-ps-debug-port.png" alt="docker-ps-command-debug-port">
 You can acquire the port by looking at the container details Like from the Image above we can see the
 VNC server is listening on the Port No: 32771</p>
-
 <h3 id="start-vnc-and-create-vnc">Start VNC and Create VNC:</h3>
-
 <p>Step 1: Open real VNC viewer downloaded in the previous Steps.</p>
-
 <p>Step 2: From File Menu select: Create New Connection</p>
-
-<p>Step 3: Enter Value of VNC Server as <strong>localhost:<port No></strong>
-<img src="https://www.pawangaria.com/img/docker/create-new-vnc-connection-docker.png" alt="create-new-vnc-connection-docker" />
+<p>Step 3: Enter Value of VNC Server as <strong>localhost:<!-- raw HTML omitted --></strong>
+<img src="https://www.pawangaria.com/img/docker/create-new-vnc-connection-docker.png" alt="create-new-vnc-connection-docker">
 Step 4: Now You will be able to see the VNC server created and Open the Connection.</p>
-
 <p>Step 5: When you are prompted for the password it is <code>secret</code>
-<img src="https://www.pawangaria.com/img/docker/vnc-connection-password-window.png" alt="vnc-connection-password-window" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/vnc-connection-password-window.png" alt="vnc-connection-password-window"></p>
 <p>Now Our Selenium WebDriver container is Running and VNC server is Running. We can now run our Test and we will be able to see the Browser driving the Test cases on VNC server.</p>
-
 <h3 id="create-webdriver-test-and-run-test">Create WebDriver Test and Run Test:</h3>
-
 <p>Create a simple Java test which is opening the Google.com in the container and Post Number should be edited from the container details.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.net.URL<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.DesiredCapabilities<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.RemoteWebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import java.net.URL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunningTestOnDocker</span> <span style="color:#f92672">{</span>
 
-public class RunningTestOnDocker {
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestOnDocker</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        DesiredCapabilities dcap <span style="color:#f92672">=</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">();</span>
+        String driverPath <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user.dir&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/exe/chromedriver&#34;</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> driverPath<span style="color:#f92672">);</span>
 
-    @Test
-    public void runTestOnDocker() throws Exception {
-        DesiredCapabilities dcap = DesiredCapabilities.chrome();
-        String driverPath = System.getProperty(&quot;user.dir&quot;) + &quot;/exe/chromedriver&quot;;
-        System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
-
-        // You should check the Port No here.
-        URL gamelan = new URL(&quot;http://localhost:32772/wd/hub&quot;);
-        WebDriver driver = new RemoteWebDriver(gamelan, dcap);
-        // Get URL
-        driver.get(&quot;https://www.google.com/&quot;);
-        // Print Title
-        System.out.println(driver.getTitle());
-    }
-}
-</code></pre>
-
-<p><strong>Running Our Test on the correct Port number will Open the Google in our Container and We can see the Browser running in our VNC Server.</strong>
-<img src="https://www.pawangaria.com/img/docker/vnc-view-browser-open-docker.png" alt="vnc-view-browser-open-docker" /></p>
-
+        <span style="color:#75715e">// You should check the Port No here.
+</span><span style="color:#75715e"></span>        URL gamelan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://localhost:32772/wd/hub&#34;</span><span style="color:#f92672">);</span>
+        WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span>gamelan<span style="color:#f92672">,</span> dcap<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Get URL
+</span><span style="color:#75715e"></span>        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Print Title
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>driver<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Running Our Test on the correct Port number will Open the Google in our Container and We can see the Browser running in our VNC Server.</strong>
+<img src="https://www.pawangaria.com/img/docker/vnc-view-browser-open-docker.png" alt="vnc-view-browser-open-docker"></p>
 <h4 id="benefits-of-using-vnc-and-debug">Benefits of using VNC and Debug:</h4>
-
 <p>Using the VNC server are helpful in debugging and seeing what is happening in the Test while running inside the container. There are many Selenium WebDriver Images providing the test to be recorded as video.</p>
 
 </div>
@@ -714,7 +685,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

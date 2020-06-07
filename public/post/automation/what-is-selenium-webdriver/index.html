@@ -71,7 +71,7 @@
    "dateModified": "2017-11-28",
    "mainEntityOfPage":"true",
    "description": "What is Selenium WebDriver and how it works in background.",
-   "wordCount": 358
+   "wordCount":  358 
 }
 </script>
 
@@ -85,7 +85,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -235,40 +235,26 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> is an open source application for driving browsers for automation testing. Using WebDriver libraries you can drive the browser and perform actions like Click, Open URL, Enter Text, Clear Text, Take Screenshot of browser and many more actions.
+  <p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> is an open source application for driving browsers for automation testing. Using WebDriver libraries you can drive the browser and perform actions like Click, Open URL, Enter Text, Clear Text, Take Screenshot of browser and many more actions.
 WebDriver works on a very simple principle of <a href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">Client Server architecture</a>. The communication between the server and client is through <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a> request and response.</p>
-
 <p>WebDriver uses <a href="https://www.json.org/">JSON</a> wire protocol works on <a href="https://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html">RESTful Web Services</a> over HTTP. In simple terms, WebDriver uses JSON wire protocol for communication between client libraries like Java, PHP, C#, and servers which are different drivers like ChromeDriver, FirefoxDriver etc. WebDriver is nothing but sending request and response.</p>
-
 <h3 id="what-is-json-wire-protocol">What is JSON Wire protocol?</h3>
-
 <p>JSON (JavaScript Object Notation) is a lightweight format for data exchange between client and server. Applications use JSON objects to send and receive data between each other in the web world. JSON data structure is industry standard and can be used for sending and receiving data as <a href="https://developers.squarespace.com/what-is-json/">Key &amp; Value pair</a>. Some people say its a very nice alternative for <a href="https://www.w3schools.com/xml/">XML</a>.  We can save JSON files as .json extension.</p>
-
 <h3 id="how-json-looks-like">How JSON looks like?</h3>
-
 <p>A simple json file looks like below and there are many <a href="http://www.jsoneditoronline.org/">online editors</a> which can be used to edit and verify JSON structure.</p>
-
-<pre><code class="language-json">{
- &quot;Student&quot;:{
-   &quot;FirstName&quot;:&quot;Pawan&quot;,
-   &quot;LastName&quot;:&quot;Garia&quot;,
-   &quot;IdNumber&quot;:&quot;12345&quot;,
-   &quot;City&quot; : &quot;New Delhi&quot;,
-   &quot;EmailID&quot; : &quot;email@gmail.com&quot; }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+ <span style="color:#f92672">&#34;Student&#34;</span>:{
+   <span style="color:#f92672">&#34;FirstName&#34;</span>:<span style="color:#e6db74">&#34;Pawan&#34;</span>,
+   <span style="color:#f92672">&#34;LastName&#34;</span>:<span style="color:#e6db74">&#34;Garia&#34;</span>,
+   <span style="color:#f92672">&#34;IdNumber&#34;</span>:<span style="color:#e6db74">&#34;12345&#34;</span>,
+   <span style="color:#f92672">&#34;City&#34;</span> : <span style="color:#e6db74">&#34;New Delhi&#34;</span>,
+   <span style="color:#f92672">&#34;EmailID&#34;</span> : <span style="color:#e6db74">&#34;email@gmail.com&#34;</span> }
 }
-</code></pre>
-
-<h3 id="how-webdriver-interacts-with-browsers">How WebDriver interacts with Browsers?</h3>
-
+</code></pre></div><h3 id="how-webdriver-interacts-with-browsers">How WebDriver interacts with Browsers?</h3>
 <p>WebDriver does not directly interact with the browser. WebDriver creates a request and send the request to the proxy driver server which is running in between the Client and Browser. For example, to run WebDriver script on Chrome Browser we need to first start the ChromeDriver server and then driver launches the Chrome Browser and starts listening on a particular PORT like localhost:12570. Listening on the <a href="https://www.lifewire.com/port-numbers-on-computer-networks-817939">PORT</a> is nothing but accepting the HTTP request methods which can be GET, POST, DELETE etc. which are HTTP standard methods.
-<img src="https://www.pawangaria.com/img/webdriver/ClientserverWebdriver.png" alt="Client server WebDriver" /></p>
-
+<img src="https://www.pawangaria.com/img/webdriver/ClientserverWebdriver.png" alt="Client server WebDriver"></p>
 <h3 id="what-is-next">What is next?</h3>
-
 <p>In the next articles, I will be covering interaction between the Client, Driver and Browser with examples and depth. I am going to explain how a particular action get performed on browser using <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a>.</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -670,7 +656,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

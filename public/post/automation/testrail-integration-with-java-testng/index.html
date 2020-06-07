@@ -44,7 +44,7 @@
 <script type="application/ld+json">{
    "@context":"http://schema.org",
    "@type":"Article",
-   "headline": "Integrate Gurock TestRail with Automated TestCases in Java&#43;TestNG",
+   "headline": "Integrate Gurock TestRail with Automated TestCases in Java\u002bTestNG",
    "author":{
       "@type":"Person",
       "name":"Pawan Garia"
@@ -66,8 +66,8 @@
    "datePublished": "2017-11-23",
    "dateModified": "2017-11-23",
    "mainEntityOfPage":"true",
-   "description": "Integrating your Automated Usecases in java with Gurock Test Rail API&#39;s and pushing test results to Testrail UI.",
-   "wordCount": 467
+   "description": "Integrating your Automated Usecases in java with Gurock Test Rail API\u0027s and pushing test results to Testrail UI.",
+   "wordCount":  467 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -233,87 +233,59 @@
 </div>
 
       <div class="content">
-  
-
-<h4 id="what-is-testrail">What is TestRail?</h4>
-
+  <h4 id="what-is-testrail">What is TestRail?</h4>
 <p><a href="http://www.gurock.com/testrail/">Gurock TestRail</a> is a modern and very nice tool for the Test Case Management by Quality Assurance and Development Team.
 TestManagement tools are very helpful for managing the test cases and TestRail is pack with very useful features like web-based application, Rest API integration etc.</p>
-
-<p><img src="https://www.pawangaria.com/img/testRail/TestRail-report-test-management.png" alt="TestRail-test-management-report-web" /></p>
-
+<p><img src="https://www.pawangaria.com/img/testRail/TestRail-report-test-management.png" alt="TestRail-test-management-report-web"></p>
 <h4 id="why-to-use-testmanagement-tool-with-automation">Why to use TestManagement Tool with Automation?</h4>
-
 <p>While making Regression or any kind of Test Automation suit there is a need of maintaining Use cases and maintain the repository which anyone can access and see what use cases are been automated and what is left. It is very helpful for the continues Integration Pipeline that we can generate and see the reports in one place for Automated Test results.</p>
-
-<p><img src="https://www.pawangaria.com/img/testRail/TestRail-testcase-result-status-update.png" alt="TestRail-testcase-result-status-update" /></p>
-
+<p><img src="https://www.pawangaria.com/img/testRail/TestRail-testcase-result-status-update.png" alt="TestRail-testcase-result-status-update"></p>
 <p>There is a need for Integrating Test Management Tool like TestRail with the Java and TestNG based Automated Test Framework to mark every test run results in the common web-based platform.
 In this blog, I am going to use TestRail as Test Management tool and will explain the steps to integrate your framework using Rest API&rsquo;s.</p>
-
 <h4 id="how-to-integrate-automated-test-with-testrail">How to integrate Automated Test with TestRail?</h4>
-
 <p>I am explaining the steps to write your logic in Java and you can also follow the steps to make integration work for your framework</p>
-
 <p>STEP 1: First create one new <em>Annotation Class</em></p>
-
-<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface UseAsTestRailId
-{
-int testRailId() default 0;
-String[] tags() default &quot;&quot;;
-}
-</code></pre>
-
-<p>STEP 2: Use the above annotation in TestNg class file with other test.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">(</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> UseAsTestRailId
+<span style="color:#f92672">{</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">testRailId</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> 0<span style="color:#f92672">;</span>
+String<span style="color:#f92672">[]</span> <span style="color:#a6e22e">tags</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>STEP 2: Use the above annotation in TestNg class file with other test.</p>
 <p>Every <em>@Test</em> here is mapped with the use case in TestRail, So we got the TestRail unique Id for every test.</p>
-
-<pre><code class="language-java">@Test
-@UseAsTestRailId(testRailId=&lt;TestRail Id for this Usecase&gt;)
-public void yourTestNumberSomething()
-{
-  // Do your testing steps here which are mapped to TestRail usecase.
-}
-</code></pre>
-
-<p>STEP 3: You can use TestNG for every test, so that you can execute the TestRail API after the test execution.</p>
-
-<pre><code class="language-java">@Listeners(com.gurock.testrail.Listener.class)
-public class TestClass {
-    // All the Test will be here ...
-}
-</code></pre>
-
-<p>STEP 4: You need to call the TestRail from Listener Class. Like I am calling the API in the <em>onTestSuccess</em> Method.</p>
-
-<pre><code class="language-java">public void onTestSuccess(ITestResult result) {
-String TestID=null;
-IClass obj = result.getTestClass();
-Class newobj = obj.getRealClass();
-Method testMethod = newobj.getMethod(result.getName());
-if (testMethod.isAnnotationPresent(UseAsTestRailId.class))
-{
-UseAsTestRailId useAsTestName = testMethod.getAnnotation(UseAsTestRailId.class);
-// Get the TestCase ID for TestRail
-TestID = Integer.toString(useAsTestName.testRailId());
-System.out.println(&quot;Test Rail ID = &quot; + TestID);
-}
-// Now you can call the TestRail post API call to update the result in TestRail database based on the TestRun Id and TestCase Id.
-
-JSONObject r = (JSONObject) client.sendPost(&quot;add_result_for_case/TestCaseID/TestRunID&quot;, data);
-}
-</code></pre>
-
-<h4 id="final-result-and-reporting">Final Result and Reporting</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#a6e22e">@UseAsTestRailId</span><span style="color:#f92672">(</span>testRailId<span style="color:#f92672">=&lt;</span>TestRail Id <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">this</span> Usecase<span style="color:#f92672">&gt;)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">yourTestNumberSomething</span><span style="color:#f92672">()</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#75715e">// Do your testing steps here which are mapped to TestRail usecase.
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>STEP 3: You can use TestNG for every test, so that you can execute the TestRail API after the test execution.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Listeners</span><span style="color:#f92672">(</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">gurock</span><span style="color:#f92672">.</span><span style="color:#a6e22e">testrail</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Listener</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClass</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// All the Test will be here ...
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>STEP 4: You need to call the TestRail from Listener Class. Like I am calling the API in the <em>onTestSuccess</em> Method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestSuccess</span><span style="color:#f92672">(</span>ITestResult result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+String TestID<span style="color:#f92672">=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+IClass obj <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">getTestClass</span><span style="color:#f92672">();</span>
+Class newobj <span style="color:#f92672">=</span> obj<span style="color:#f92672">.</span><span style="color:#a6e22e">getRealClass</span><span style="color:#f92672">();</span>
+Method testMethod <span style="color:#f92672">=</span> newobj<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">(</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>testMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">isAnnotationPresent</span><span style="color:#f92672">(</span>UseAsTestRailId<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))</span>
+<span style="color:#f92672">{</span>
+UseAsTestRailId useAsTestName <span style="color:#f92672">=</span> testMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>UseAsTestRailId<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">// Get the TestCase ID for TestRail
+</span><span style="color:#75715e"></span>TestID <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>useAsTestName<span style="color:#f92672">.</span><span style="color:#a6e22e">testRailId</span><span style="color:#f92672">());</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test Rail ID = &#34;</span> <span style="color:#f92672">+</span> TestID<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+<span style="color:#75715e">// Now you can call the TestRail post API call to update the result in TestRail database based on the TestRun Id and TestCase Id.
+</span><span style="color:#75715e"></span>
+JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>JSONObject<span style="color:#f92672">)</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">sendPost</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;add_result_for_case/TestCaseID/TestRunID&#34;</span><span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="final-result-and-reporting">Final Result and Reporting</h4>
 <p>Now integrating TestRail UseCases Id with automated test, We will have the test run result history for the particular UseCases.</p>
-
-<p><img src="https://www.pawangaria.com/img/testRail/TestRail-usecase-report-automation.png" alt="testRail-usecase-updated-back-in-automation" /></p>
-
+<p><img src="https://www.pawangaria.com/img/testRail/TestRail-usecase-report-automation.png" alt="testRail-usecase-updated-back-in-automation"></p>
 <p>You can change and improve the code and logic based on your requirements and send me feedback about your experience with the integration.</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -709,7 +681,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

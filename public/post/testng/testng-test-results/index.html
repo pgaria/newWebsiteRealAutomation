@@ -67,7 +67,7 @@
    "dateModified": "2017-12-18",
    "mainEntityOfPage":"true",
    "description": "How TestNG decides what test are failures and what tests are the success. How to use Assert and what are asserts in TestNG.",
-   "wordCount": 407
+   "wordCount":  407 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,59 +231,46 @@
 </div>
 
       <div class="content">
-  
-
-<p>In testing Test is considered successful if it completed without throwing an exception or test successfully validated expected results. Sometimes @test threw an exception that was expected and we mark test as success. TestNG can not just decide what should be the results of the Test by himself, So we need to provide the expected data and expected conditions.</p>
-
+  <p>In testing Test is considered successful if it completed without throwing an exception or test successfully validated expected results. Sometimes @test threw an exception that was expected and we mark test as success. TestNG can not just decide what should be the results of the Test by himself, So we need to provide the expected data and expected conditions.</p>
 <p>TestNG use the concept of <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html">Assert</a> from Java and can be used for adding validation and conditions in your test cases. Each assertion contains a boolean expression that you believe will be true when the assertion executes. If it is not true, the system will throw an error.</p>
-
 <p>Assert statements are made of conditions and expressions where it validates the expressions given in the method. Mostly Asserts have two forms</p>
-
 <pre><code> 1. An expression that has two value to compare.
     Assert Expression1 : Expression2;
 
  2. An expression as a boolean expression.
     Assert Expression1;
 </code></pre>
-
 <h3 id="how-to-use-assert-in-testng">How to use Assert in TestNG:</h3>
-
 <p>Below is the class which has 3 test methods Showing Success, Failure, and Failure by Exception.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AssertsInTestng</span> <span style="color:#f92672">{</span>
 
-public class AssertsInTestng {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertSuccessTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// Comparing two same Strings.
+</span><span style="color:#75715e"></span>        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertEquals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void assertSuccessTest() {
-        // Comparing two same Strings.
-        Assert.assertEquals(&quot;testng&quot;, &quot;testng&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertFailureTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// Comparing two different Strings
+</span><span style="color:#75715e"></span>        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertEquals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;java&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void assertFailureTest() {
-        // Comparing two different Strings
-        Assert.assertEquals(&quot;testng&quot;, &quot;java&quot;);
-    }
-
-    @Test()
-    public void exceptionFailureTest() {
-        String ptr = null;
-        // This line of code throws NullPointerException
-        ptr.equals(&quot;testng&quot;);
-    }
-}
-</code></pre>
-
-<p>Results if you run this Java Class and check Success and Failures.</p>
-
-<p><img src="https://www.pawangaria.com/img/testng/result-testng-assert-in-eclipse.png" alt="result-testng-assert-in-eclipse" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">exceptionFailureTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        String ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// This line of code throws NullPointerException
+</span><span style="color:#75715e"></span>        ptr<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Results if you run this Java Class and check Success and Failures.</p>
+<p><img src="https://www.pawangaria.com/img/testng/result-testng-assert-in-eclipse.png" alt="result-testng-assert-in-eclipse"></p>
 <p>There are multiple methods in the <code>org.testng.Assert</code> Class. I have used a very basic method of comparing two Strings here. You can check the <a href="https://jitpack.io/com/github/cbeust/testng/master-6.13.1-gf634d0a-4/javadoc/org/testng/Assert.html">Assert Class in Java Docs</a> for more methods you can use for expressions in your test. Some example:</p>
-
 <ul>
 <li>assertNotEquals</li>
 <li>assertNull</li>
@@ -291,30 +278,20 @@ public class AssertsInTestng {
 <li>assertSame</li>
 <li>assertTrue</li>
 </ul>
-
 <h3 id="assert-failures">Assert failures:</h3>
-
 <p>Whenever there is an assert failure in your @test, Assert Class throws an Exception of Exception class <code>java.lang.AssertionError</code> with a proper error message which is describing the test failure. Like :</p>
-
 <pre><code>java.lang.AssertionError: expected [testn] but found [testng]
-</code></pre>
-
-<p>Error messages are always helpful in understanding the Error in Test. You can also customize and provide your own error messages while creating Assert in your Test Class. <em>Assertion error message has always been used when the assert condition fail.</em></p>
-
-<pre><code class="language-java">@Test()
-public void assertFailureTest() {
-// Comparing two Strings with assertion error message
-Assert.assertEquals(&quot;testng&quot;, &quot;java&quot;,&quot;String objects are not equal,So Assert Failure&quot;);
-}
-</code></pre>
-
-<p>Now the test failure message:</p>
-
+</code></pre><p>Error messages are always helpful in understanding the Error in Test. You can also customize and provide your own error messages while creating Assert in your Test Class. <em>Assertion error message has always been used when the assert condition fail.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertFailureTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<span style="color:#75715e">// Comparing two Strings with assertion error message
+</span><span style="color:#75715e"></span>Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertEquals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;java&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;String objects are not equal,So Assert Failure&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now the test failure message:</p>
 <pre><code>java.lang.AssertionError: String objects are not equal, So Assert Failure.
 expected [java] but found [testng]
 
 </code></pre>
-
 </div>
 
 
@@ -714,7 +691,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

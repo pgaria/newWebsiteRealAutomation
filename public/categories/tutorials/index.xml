@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on Testing, Automation, Programming and Latest Technology Articles</title>
@@ -29,7 +29,7 @@ The git commit &amp;ndash;amend command is a convenient way to modify the most r
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</guid>
       <description>What is an object? Object-oriented languages follow a different programming pattern from structured programming languages like C and COBOL. The Java language is not completely an object-oriented. The structured-programming paradigm is highly data-oriented: You have data structures, and then program instructions act on that data. Object-oriented languages such as the Java language combine data and program instructions into objects.
-An object is a self-contained entity that contains attributes and behavior.</description>
+An object is a self-contained entity that contains attributes and behavior. Instead of having a data structure with fields (attributes) and passing that structure around to all the program logic that acts on it (behavior), in an object-oriented language, data and program logic are combined.</description>
     </item>
     
     <item>
@@ -78,8 +78,8 @@ Running TestNG from Java program: This example creates a TestNG object and runs 
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/testng/executing-parallel-tests-in-testng/</guid>
-      <description>TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.TestNG use the concept of multi-threading from Java. In the configuration file, the parallel attribute on the  tag us been used for the parallel execution using the testng.xml file. Example:
-&amp;lt;suite name=&amp;quot;Suite&amp;quot; parallel=&amp;quot;methods&amp;quot; thread-count=&amp;quot;2&amp;quot; configfailurepolicy=&amp;quot;continue&amp;quot;&amp;gt;  Parallel attribute take multiple values, Below are the valid values:
+      <description>TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.TestNG use the concept of multi-threading from Java. In the configuration file, the parallel attribute on the tag us been used for the parallel execution using the testng.xml file. Example:
+&amp;lt;suite name=&amp;#34;Suite&amp;#34; parallel=&amp;#34;methods&amp;#34; thread-count=&amp;#34;2&amp;#34; configfailurepolicy=&amp;#34;continue&amp;#34;&amp;gt; Parallel attribute take multiple values, Below are the valid values:
  parallel= methods : Run all your test methods in separate threads.</description>
     </item>
     

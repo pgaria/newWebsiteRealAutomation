@@ -67,7 +67,7 @@
    "dateModified": "2017-12-28",
    "mainEntityOfPage":"true",
    "description": "How to pass multiple parameters into a @Test method using DataProvider in TestNG. DataProvider can be helpful in verifying a multiple set of Data against functionality.",
-   "wordCount": 555
+   "wordCount":  555 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,171 +231,137 @@
 </div>
 
       <div class="content">
-  
-
-<p>There are multiple cases, when we have to validate our use-cases where the logic should be same but the test data is different and we must validate our logic for multiple parameters.
+  <p>There are multiple cases, when we have to validate our use-cases where the logic should be same but the test data is different and we must validate our logic for multiple parameters.
 TestNG provides a very easy way of passing parameters using the <strong>DataProvider</strong>. In this article we are going to learn how to use DataProvider with @Test.</p>
-
 <blockquote>
 <p>A Data Provider is a method on your class that returns an array of array of objects.</p>
 </blockquote>
-
 <h3 id="how-to-pass-string-parameter-in-dataprovider">How to pass String parameter in DataProvider:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.parameters<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.parameters;
+<span style="color:#f92672">import</span> org.testng.annotations.DataProvider<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataProviderInTest</span> <span style="color:#f92672">{</span>
 
-public class DataProviderInTest {
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testUserDetails</span><span style="color:#f92672">(</span>String user<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test User: &#34;</span> <span style="color:#f92672">+</span> user <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Password: &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-	@Test(dataProvider = &quot;userDetails&quot;)
-	public void testUserDetails(String user, String password) {
-		System.out.println(&quot;Test User: &quot; + user + &quot; Password: &quot; + password);
-	}
+	<span style="color:#a6e22e">@DataProvider</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> Object<span style="color:#f92672">[][]</span> <span style="color:#a6e22e">userDetails</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-	@DataProvider(name = &quot;userDetails&quot;)
-	public Object[][] userDetails() {
-
-		return new Object[][] {
-			{ &quot;user1&quot;, &quot;password1&quot; },
-			{ &quot;user2&quot;, &quot;password2&quot; },
-			{ &quot;user3&quot;, &quot;password3&quot; } };
-	}
-}
-</code></pre>
-
-<h4 id="output">Output:</h4>
-
-<pre><code class="language-text">Test User: user1 Passsword: password1
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[][]</span> <span style="color:#f92672">{</span>
+			<span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password1&#34;</span> <span style="color:#f92672">},</span>
+			<span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user2&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password2&#34;</span> <span style="color:#f92672">},</span>
+			<span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user3&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password3&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">};</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output">Output:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Test User: user1 Passsword: password1
 Test User: user2 Passsword: password2
 Test User: user3 Passsword: password3
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/dataprovider-testng-result.png" alt="dataprovider-testng-result" /></p>
-
+</code></pre></div><p><img src="https://www.pawangaria.com/img/testng/dataprovider-testng-result.png" alt="dataprovider-testng-result"></p>
 <p>I have used String here in this example but you can pass other <a href="http://cs.fit.edu/~ryan/java/language/java-data.html">data types</a> also using the data provider.</p>
-
 <h3 id="how-to-pass-class-object-in-dataprovider">How to pass Class Object in DataProvider:</h3>
-
 <p>Using DataProvider you can pass Class object parameters.So we need to create multiple objects of a particular Class and passed as DataProvider to our @Test method.</p>
-
 <p><strong>Step 1:</strong> Create a User Class <a href="https://www.quora.com/What-is-POJO-in-Java">POJO</a> which has User and Password Value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.parameters<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.parameters;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">{</span>
 
-public class User {
+	<span style="color:#66d9ef">private</span> String user<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> String password<span style="color:#f92672">;</span>
 
-	private String user;
-	private String password;
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> user<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	public String getUser() {
-		return user;
-	}
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getPassword</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> password<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	public String getPassword() {
-		return password;
-	}
+	<span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span>String user<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> user<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 
-	public User setUser(String user) {
-		this.user = user;
-		return this;
-	}
+	<span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> password<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Step 2:</strong> Now create a Test Class with DataProvider and pass multiple <strong>User.java</strong> object and print the user details in our TestCase.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.parameters<span style="color:#f92672">;</span>
 
-	public User setPassword(String password) {
-		this.password = password;
-		return this;
-	}
-}
-</code></pre>
+<span style="color:#f92672">import</span> org.testng.annotations.DataProvider<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<p><strong>Step 2:</strong> Now create a Test Class with DataProvider and pass multiple <strong>User.java</strong> object and print the user details in our TestCase.</p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataProviderWithObjectTest</span> <span style="color:#f92672">{</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.parameters;
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testUserDetails</span><span style="color:#f92672">(</span>User users<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test User: &#34;</span> <span style="color:#f92672">+</span> users<span style="color:#f92672">.</span><span style="color:#a6e22e">getUser</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Password: &#34;</span> <span style="color:#f92672">+</span> users<span style="color:#f92672">.</span><span style="color:#a6e22e">getPassword</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
 
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+	<span style="color:#a6e22e">@DataProvider</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> Object<span style="color:#f92672">[][]</span> <span style="color:#a6e22e">userDetails</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-public class DataProviderWithObjectTest {
-
-	@Test(dataProvider = &quot;userDetails&quot;)
-	public void testUserDetails(User users) {
-		System.out.println(&quot;Test User: &quot; + users.getUser() + &quot; Password: &quot; + users.getPassword());
-	}
-
-	@DataProvider(name = &quot;userDetails&quot;)
-	public Object[][] userDetails() {
-
-		return new Object[][] {
-			{ new User().setUser(&quot;user1&quot;).setPassword(&quot;password1&quot;) },
-			{ new User().setUser(&quot;user2&quot;).setPassword(&quot;password2&quot;) },
-			{ new User().setUser(&quot;user3&quot;).setPassword(&quot;password3&quot;) }, };
-	}
-}
-</code></pre>
-
-<h4 id="output-1">Output:</h4>
-
-<pre><code class="language-text">Test User: user1 Password: password1
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[][]</span> <span style="color:#f92672">{</span>
+			<span style="color:#f92672">{</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">().</span><span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user1&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password1&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">},</span>
+			<span style="color:#f92672">{</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">().</span><span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user2&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password2&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">},</span>
+			<span style="color:#f92672">{</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">().</span><span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user3&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password3&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">},</span> <span style="color:#f92672">};</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-1">Output:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Test User: user1 Password: password1
 Test User: user2 Password: password2
 Test User: user3 Password: password3
 PASSED: testUserDetails(com.tutorial.testng.parameters.User@2f686d1f)
 PASSED: testUserDetails(com.tutorial.testng.parameters.User@69ea3742)
 PASSED: testUserDetails(com.tutorial.testng.parameters.User@3159c4b8)
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/dataprovider-object-testng-results.png" alt="dataprovider-object-testng-results" /></p>
-
+</code></pre></div><p><img src="https://www.pawangaria.com/img/testng/dataprovider-object-testng-results.png" alt="dataprovider-object-testng-results"></p>
 <h3 id="what-if-you-pass-wrong-no-of-arguments-in-dataprovider">What If you pass wrong No of arguments in DataProvider:</h3>
-
 <p>DataProvider expectes you to pass and receive the same set of arguments, If there is a mismatch in the arguments, It will thrown an exception and TestCases will not Run.</p>
-
 <p>There is <a href="http://static.javadoc.io/org.testng/testng/6.11/org/testng/internal/reflect/DataProviderMethodMatcher.html"><code>org.testng.internal.reflect.DataProviderMethodMatcher</code></a> class in testNG used for verification, using a method <code>getConformingArguments()</code> for verifying the no of arguments.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#a6e22e">@Override</span>
+<span style="color:#66d9ef">public</span> Object<span style="color:#f92672">[]</span> <span style="color:#a6e22e">getConformingArguments</span><span style="color:#f92672">(){</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ThreeStateBoolean<span style="color:#f92672">.</span><span style="color:#a6e22e">NONE</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>getConforms<span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+    conforms<span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>matchingMatcher <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> matchingMatcher<span style="color:#f92672">.</span><span style="color:#a6e22e">getConformingArguments</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> MethodMatcherException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Data provider mismatch&#34;</span><span style="color:#f92672">,</span> getContext<span style="color:#f92672">().</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">(),</span> getContext<span style="color:#f92672">().</span><span style="color:#a6e22e">getArguments</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>In this Example below we will pass an extra Argument from the DataProvider but will not accept that argument in our @Test method and Test will fail with exception.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.parameters<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">@Override
-public Object[] getConformingArguments(){
-  if (ThreeStateBoolean.NONE.equals(getConforms())) {
-    conforms();
-  }
-  if (matchingMatcher != null) {
-    return matchingMatcher.getConformingArguments();
-  }
-  throw new MethodMatcherException(&quot;Data provider mismatch&quot;, getContext().getMethod(), getContext().getArguments());
-}
-}
-</code></pre>
+<span style="color:#f92672">import</span> org.testng.annotations.DataProvider<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<p><strong>In this Example below we will pass an extra Argument from the DataProvider but will not accept that argument in our @Test method and Test will fail with exception.</strong></p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DataProviderFailure</span> <span style="color:#f92672">{</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.parameters;
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testUserDetails</span><span style="color:#f92672">(</span>String user<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test User: &#34;</span> <span style="color:#f92672">+</span> user <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; Password: &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
-public class DataProviderFailure {
-
-	@Test(dataProvider = &quot;userDetails&quot;)
-	public void testUserDetails(String user, String password) {
-		System.out.println(&quot;Test User: &quot; + user + &quot; Password: &quot; + password);
-	}
-
-	@DataProvider(name = &quot;userDetails&quot;)
-	public Object[][] userDetails() {
-		return new Object[][] { { &quot;user1&quot;,&quot;password1&quot;,&quot;extraValue&quot; },
-			                { &quot;user2&quot;,&quot;password2&quot;,&quot;extraValue&quot; },
-			                { &quot;user3&quot;,&quot;password3&quot;,&quot;extraValue&quot; } };
-	}
-}
-</code></pre>
-
-<h4 id="output-exception">Output Exception:</h4>
-
-<pre><code class="language-text">org.testng.internal.reflect.MethodMatcherException:
+	<span style="color:#a6e22e">@DataProvider</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;userDetails&#34;</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> Object<span style="color:#f92672">[][]</span> <span style="color:#a6e22e">userDetails</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[][]</span> <span style="color:#f92672">{</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;password1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;extraValue&#34;</span> <span style="color:#f92672">},</span>
+			                <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user2&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;password2&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;extraValue&#34;</span> <span style="color:#f92672">},</span>
+			                <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;user3&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;password3&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;extraValue&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">};</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-exception">Output Exception:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">org.testng.internal.reflect.MethodMatcherException:
 Data provider mismatch
 Method: testUserDetails([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}])
 Arguments: [(java.lang.String)user1,(java.lang.String)password1,(java.lang.String)application]
-</code></pre>
-
+</code></pre></div>
 </div>
 
 
@@ -795,7 +761,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

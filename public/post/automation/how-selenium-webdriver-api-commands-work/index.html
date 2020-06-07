@@ -67,7 +67,7 @@
    "dateModified": "2017-12-03",
    "mainEntityOfPage":"true",
    "description": "How Selenium WebDriver API commands work in background and understanding what happens on code level when we run our test.",
-   "wordCount": 410
+   "wordCount":  410 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,77 +229,51 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> provides cool interface API&rsquo;s to perform many actions on the browser and simulate the user behaviors like the click or enter Text in the TextBoxes. There are many good articles about the WebDriver on the internet but the purpose of this article is to understand what happens in the background when we use actions like <strong><a href="https://saucelabs.com/resources/articles/the-selenium-click-command">click</a>, finding an element or getting title</strong> etc. I will be using <a href="https://java.com/en/download/">Java</a> as a programming language in this article.</p>
-
+  <p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> provides cool interface API&rsquo;s to perform many actions on the browser and simulate the user behaviors like the click or enter Text in the TextBoxes. There are many good articles about the WebDriver on the internet but the purpose of this article is to understand what happens in the background when we use actions like <strong><a href="https://saucelabs.com/resources/articles/the-selenium-click-command">click</a>, finding an element or getting title</strong> etc. I will be using <a href="https://java.com/en/download/">Java</a> as a programming language in this article.</p>
 <p>Let&rsquo;s have a look at one of the <a href="http://junit.sourceforge.net/javadoc/org/junit/Test.html">@Test</a> code which is performing steps like Opening <a href="https://www.google.com">Google.com</a>, Finding Search Button, Click SearchButton, Get Page Title and then Quit Driver instance.</p>
-
-<pre><code class="language-java">  @Test
-  public void clickGoogleSearchAndGetTitle() throws Exception{
-    System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);
-    // Create new ChromeDriver
-    WebDriver driver = new ChromeDriver();
-    // Get Google Home Page
-    driver.get(&quot;https://www.google.de/&quot;);
-    // Find Search Button webElement
-    WebElement element = driver.findElement(By.name(&quot;btnK&quot;));
-    // Click on the webElement
-    element.click();
-    // Get Title of the Page
-    driver.getTitle();
-    // Quit Driver
-    driver.quit();
-  }
-</code></pre>
-
-<p>So how WebDriver managed to perform all the user actions on browser in above @Test ? Answer is by using proper <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSON Wire Protocol used in background</a>.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">clickGoogleSearchAndGetTitle</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/path/to/chromedriver&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// Create new ChromeDriver
+</span><span style="color:#75715e"></span>    WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChromeDriver<span style="color:#f92672">();</span>
+    <span style="color:#75715e">// Get Google Home Page
+</span><span style="color:#75715e"></span>    driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.de/&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#75715e">// Find Search Button webElement
+</span><span style="color:#75715e"></span>    WebElement element <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span><span style="color:#a6e22e">findElement</span><span style="color:#f92672">(</span>By<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;btnK&#34;</span><span style="color:#f92672">));</span>
+    <span style="color:#75715e">// Click on the webElement
+</span><span style="color:#75715e"></span>    element<span style="color:#f92672">.</span><span style="color:#a6e22e">click</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// Get Title of the Page
+</span><span style="color:#75715e"></span>    driver<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">();</span>
+    <span style="color:#75715e">// Quit Driver
+</span><span style="color:#75715e"></span>    driver<span style="color:#f92672">.</span><span style="color:#a6e22e">quit</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div><p>So how WebDriver managed to perform all the user actions on browser in above @Test ? Answer is by using proper <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSON Wire Protocol used in background</a>.</p>
 <p>To understand the exact behavior of commands we must take each step separately from the example @test and I will try to describe each step at Request &amp; Response level.</p>
-
 <h4 id="create-session">Create Session</h4>
-
-<p>The first step is to create a session with the respective driver like <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> or <a href="https://github.com/mozilla/geckodriver/">FirefoxDriver</a> and use the same session Id to communicate between client and server.<br />
+<p>The first step is to create a session with the respective driver like <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> or <a href="https://github.com/mozilla/geckodriver/">FirefoxDriver</a> and use the same session Id to communicate between client and server.<br>
 <code>WebDriver driver = new ChromeDriver();</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/create-session-webdriver-command.png" alt="create-session-webdriver-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/create-session-webdriver-command.png" alt="create-session-webdriver-command"></p>
 <p>Session command above created <em>SessionID:92cda1072b127d44da8d5651e570664d</em> with Server and now every request must pass the same sessionId in all the next requests.</p>
-
 <h4 id="opening-the-test-url">Opening the Test URL</h4>
-
 <p>Now after creating a successful session with the driver, next step is to open URL
 <code>driver.get(&quot;https://www.google.de/&quot;);</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/open-url-webdriver-command.png" alt="open-url-webdriver-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/open-url-webdriver-command.png" alt="open-url-webdriver-command"></p>
 <h4 id="find-element">Find Element</h4>
-
 <p>Now the Test URL is opened in the browser, next step is to find the Element on webpage
 <code>WebElement element = driver.findElement(By.name(&quot;btnK&quot;));</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/findElement-webdriver-command.png" alt="findElement-webdriver-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/findElement-webdriver-command.png" alt="findElement-webdriver-command"></p>
 <h4 id="click-element">Click Element</h4>
-
-<p>Now we have found the Element and received the ID assigned by the server in the response. Now we will send the click command with the same ElementID. Click request contains the session and Element Id.<br />
+<p>Now we have found the Element and received the ID assigned by the server in the response. Now we will send the click command with the same ElementID. Click request contains the session and Element Id.<br>
 <code>element.click();</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/click-element-webdriver-command.png" alt="click-element-webdriver-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/click-element-webdriver-command.png" alt="click-element-webdriver-command"></p>
 <h4 id="get-page-title">Get Page Title</h4>
-
-<p>Our Next Step in Test code is to Get the Title from the WebPage and WebDriver use the getTitle command without any of the request Body.<br />
+<p>Our Next Step in Test code is to Get the Title from the WebPage and WebDriver use the getTitle command without any of the request Body.<br>
 <code>driver.getTitle();</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/getPage-title-webdriver-command.png" alt="getPage-title-webdriver-command" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/getPage-title-webdriver-command.png" alt="getPage-title-webdriver-command"></p>
 <h4 id="quit-driver">Quit Driver</h4>
-
-<p>After every Test finished you should quit the driver, Quit call close the browser and clean the session. WebDriver use the quit command now<br />
+<p>After every Test finished you should quit the driver, Quit call close the browser and clean the session. WebDriver use the quit command now<br>
 <code>driver.quit();</code></p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/quit-webdriver-command.png" alt="quit-webdriver-command" /></p>
+<p><img src="https://www.pawangaria.com/img/webdriver/quit-webdriver-command.png" alt="quit-webdriver-command"></p>
 
 </div>
 
@@ -700,7 +674,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

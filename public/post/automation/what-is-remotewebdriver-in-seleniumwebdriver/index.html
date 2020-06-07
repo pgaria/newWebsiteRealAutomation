@@ -67,7 +67,7 @@
    "dateModified": "2017-12-04",
    "mainEntityOfPage":"true",
    "description": "What is RemoteWebDriver in Selenium WebDriver and when where and how to use RemoteWebDriver in our test design?",
-   "wordCount": 503
+   "wordCount":  503 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,77 +229,45 @@
 </div>
 
       <div class="content">
-  
-
-<h4 id="what-is-remotewebdriver">What is RemoteWebDriver?</h4>
-
+  <h4 id="what-is-remotewebdriver">What is RemoteWebDriver?</h4>
 <p><a href="https://github.com/SeleniumHQ/selenium/wiki/RemoteWebDriver">RemoteWebDriver</a> in <a href="http://www.seleniumhq.org/projects/webdriver/">Selenium Webdriver</a> implements each of the <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">JSONWireProtocol commands</a> and maps them into an action that can be performed on a remote machine.</p>
-
 <p>RemoteWebDriver is a <a href="http://guyhaas.com/bfoit/itp/JavaClass.html">Class</a> in the <code>package org.openqa.selenium.remote</code> inside the Client Project of WebDiver.
- <code>RemoteWebDriver.class</code> implements multiple interface like WebDriver(<em>Yes WebDriver is an Interface not a Class as I have seen many people confused about this information</em>), FindsById, FindsByClassName, FindsByLinkText etc.</p>
-
-<pre><code class="language-java">package org.openqa.selenium.remote;
-public class RemoteWebDriver implements WebDriver, JavascriptExecutor,
-      FindsById, FindsByClassName, FindsByLinkText, FindsByName,
-      FindsByCssSelector, FindsByTagName, FindsByXPath,
-      HasInputDevices, HasCapabilities, Interactive, TakesScreenshot
-</code></pre>
-
-<p><a href="https://en.wikipedia.org/wiki/Javadoc">JavaDoc</a> for the RemoteWebdriver explains all the details about the Class and its Methods,SubClasses and Interface implement in <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html">gitHub Url</a>.</p>
-
+<code>RemoteWebDriver.class </code> implements multiple interface like WebDriver(<em>Yes WebDriver is an Interface not a Class as I have seen many people confused about this information</em>), FindsById, FindsByClassName, FindsByLinkText etc.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> org.openqa.selenium.remote<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RemoteWebDriver</span> <span style="color:#66d9ef">implements</span> WebDriver<span style="color:#f92672">,</span> JavascriptExecutor<span style="color:#f92672">,</span>
+      FindsById<span style="color:#f92672">,</span> FindsByClassName<span style="color:#f92672">,</span> FindsByLinkText<span style="color:#f92672">,</span> FindsByName<span style="color:#f92672">,</span>
+      FindsByCssSelector<span style="color:#f92672">,</span> FindsByTagName<span style="color:#f92672">,</span> FindsByXPath<span style="color:#f92672">,</span>
+      HasInputDevices<span style="color:#f92672">,</span> HasCapabilities<span style="color:#f92672">,</span> Interactive<span style="color:#f92672">,</span> TakesScreenshot
+</code></pre></div><p><a href="https://en.wikipedia.org/wiki/Javadoc">JavaDoc</a> for the RemoteWebdriver explains all the details about the Class and its Methods,SubClasses and Interface implement in <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html">gitHub Url</a>.</p>
 <p><strong>Now the question is who use this RemoteWebdriver.class?</strong></p>
-
 <p>All the Browser Driver Class are the child class of RemoteDriver means they are extending the RemoteWebDriver.Class. Few examples of the drivers are below..</p>
-
-<pre><code class="language-java">public class ChromeDriver extends RemoteWebDriver
-    implements LocationContext, WebStorage, HasTouchScreen, NetworkConnection {
-</code></pre>
-
-<pre><code class="language-java">public class FirefoxDriver extends RemoteWebDriver {
-</code></pre>
-
-<pre><code class="language-java">public class InternetExplorerDriver extends RemoteWebDriver {
-</code></pre>
-
-<p>So whenever in our test class we create a Driver instance by using the line
-  <code>WebDriver driver = new ChromeDriver();</code> we are always creating an instance of the RemoteDriver Class automatically.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ChromeDriver</span> <span style="color:#66d9ef">extends</span> RemoteWebDriver
+    <span style="color:#66d9ef">implements</span> LocationContext<span style="color:#f92672">,</span> WebStorage<span style="color:#f92672">,</span> HasTouchScreen<span style="color:#f92672">,</span> NetworkConnection <span style="color:#f92672">{</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirefoxDriver</span> <span style="color:#66d9ef">extends</span> RemoteWebDriver <span style="color:#f92672">{</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InternetExplorerDriver</span> <span style="color:#66d9ef">extends</span> RemoteWebDriver <span style="color:#f92672">{</span>
+</code></pre></div><p>So whenever in our test class we create a Driver instance by using the line
+<code>WebDriver driver = new ChromeDriver();</code> we are always creating an instance of the RemoteDriver Class automatically.</p>
 <h4 id="can-we-use-the-remotewebdriver-class-directly-in-our-test">Can we use the RemoteWebDriver class directly in our Test?</h4>
-
 <p>Yes we can directly create an instance of the RemoteWebDriver Class as well because drivers are local  implementation that controls a browser running on the local machine, If we want to Run our Test Cases not only in our local browsers but on the distributed systems like cloud application <a href="https://saucelabs.com/enterprise#automated-testing-platform">Sauce Lab</a> or <a href="https://www.browserstack.com/automate">BrowserStack</a> or <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a>. We must use RemoteWebDriver class instance and pass the proper DesiredCapabilities like:</p>
-
-<pre><code class="language-java">public void createChromeDriverForRemote(){
- WebDriver driver = new RemoteWebDriver(remoteUrl,
-          DesiredCapabilities.chrome());
-    }
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/remote-webdriver-in-cloud.png" alt="remote-webdriver-in-cloud" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createChromeDriverForRemote</span><span style="color:#f92672">(){</span>
+ WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span>remoteUrl<span style="color:#f92672">,</span>
+          DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://www.pawangaria.com/img/webdriver/remote-webdriver-in-cloud.png" alt="remote-webdriver-in-cloud"></p>
 <h4 id="how-remotewebdriver-works">How RemoteWebDriver Works?</h4>
-
 <p>Let&rsquo;s understand what are the methods involved and class RemoteWebDriver use to perform any action from our test programme.  I am going to use <a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> here for the explanation and will be trying to explain step by step.</p>
-
-<pre><code class="language-java">System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;/path/to/chromedriver&quot;);
-DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
-WebDriver driver = new RemoteWebDriver(new URL(url), desiredCapabilities);
-driver.get(&quot;http://www.google.com&quot;);
-</code></pre>
-
-<p>When we create an instance of the RemoteWebDriver by passing the URL and <a href="https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities">DesiredCapabilities</a> object using the following line<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;/path/to/chromedriver&#34;</span><span style="color:#f92672">);</span>
+DesiredCapabilities desiredCapabilities <span style="color:#f92672">=</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">();</span>
+WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span>url<span style="color:#f92672">),</span> desiredCapabilities<span style="color:#f92672">);</span>
+driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://www.google.com&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>When we create an instance of the RemoteWebDriver by passing the URL and <a href="https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities">DesiredCapabilities</a> object using the following line<br>
 <code>WebDriver driver = new RemoteWebDriver(new URL(url), desiredCapabilities);</code></p>
-
 <p>Constructor method of RemoteWebDriver class is invoked and create a session for your test scripts. There are multiple methods call inside and you receive the sessionId for you Test. RemoteWebDriver Class use two another important class: <code>DriverCommandExecutor.class</code> and <code>HttpCommandExecutor.class</code></p>
-
 <p>HttpCommandExecutor.class has a very important method as <em>execute</em> which is used to execute all the WebDriver commands and initializing the <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/HttpClient.html">HttpClient</a> which is used to send and receive the HTTP requests between server and client.</p>
-
-<pre><code class="language-java">public Response execute(Command command) throws IOException {
-    ...........
-}
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/execute-command-in-HttpCommandExecuter.png" alt="execute-command-in-HttpCommandExecuter" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Response <span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>Command command<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...........</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://www.pawangaria.com/img/webdriver/execute-command-in-HttpCommandExecuter.png" alt="execute-command-in-HttpCommandExecuter"></p>
 <p>So every command like Get or findElement goes through this execute method and send to the server and return the Response Class object. All the details about the methods and class details are explained in the <a href="https://seleniumhq.github.io/selenium/docs/api/java/overview-summary.html">selenium API javaDocs</a>. I recommend everyone to <a href="https://github.com/SeleniumHQ/selenium/wiki/Building-WebDriver">build webdriver</a> on there local machines and try to look into the classes and methods.</p>
 
 </div>
@@ -701,7 +669,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

@@ -67,7 +67,7 @@
    "dateModified": "2018-01-06",
    "mainEntityOfPage":"true",
    "description": "In this article, we explain how TestNG works in the background and what is TestNG architecture. We will see examples creating the TestNG object and run the test class from code, It also adds a TestListener.",
-   "wordCount": 809
+   "wordCount":  809 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,123 +231,93 @@
 </div>
 
       <div class="content">
-  
-
-<p>TestNG is widely used Test Management Framework these days mostly used with Selenium WebDriver and Unit Testing. This article will try to Run the testNG from simple Java program and try to figure out the architecture of TestNG. We will see what happens in the background when you run your Test.</p>
-
+  <p>TestNG is widely used Test Management Framework these days mostly used with Selenium WebDriver and Unit Testing. This article will try to Run the testNG from simple Java program and try to figure out the architecture of TestNG. We will see what happens in the background when you run your Test.</p>
 <h3 id="running-testng-from-java-program">Running TestNG from Java program:</h3>
-
 <p>This example creates a TestNG object and runs the @test class TestClass then we will try to add some TestListener int he same Java code.</p>
-
 <blockquote>
 <p>TestNG.class is the main entry point for running tests in the TestNG framework. Users can create their own TestNG object and invoke it in many different ways.</p>
 </blockquote>
-
 <p>Please see the <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/package-summary.html">JavaDocs</a> for the TestNG API.</p>
-
 <h3 id="create-test-class">Create Test Class:</h3>
-
 <p>First Step is to create a Simple Test Class which contains @test method. This Test Class would be invoked by our TestNG examples.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.annotations.Test;
-
-public class TestClass {
-    @Test
-    public void runTestFromProgramme() {
-        System.out.println(&quot;@TestMethod: Running @Test Method&quot;);
-    }
-}
-</code></pre>
-
-<h3 id="testng-object-class">TestNG object Class:</h3>
-
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClass</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestFromProgramme</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@TestMethod: Running @Test Method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="testng-object-class">TestNG object Class:</h3>
 <p>Now lets create a Simple Java class Which would invoke our Test class and @test Method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.TestNG<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.TestNG;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngMainClass</span> <span style="color:#f92672">{</span>
 
-public class TestngMainClass {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestUsingTestngClass</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        TestNG testng <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestNG<span style="color:#f92672">();</span>
+        testng<span style="color:#f92672">.</span><span style="color:#a6e22e">setTestClasses</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Class<span style="color:#f92672">[]</span> <span style="color:#f92672">{</span> TestClass<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">});</span>
+        testng<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    public void runTestUsingTestngClass()
-    {
-        TestNG testng = new TestNG();
-        testng.setTestClasses(new Class[] { TestClass.class });
-        testng.run();
-    }
-
-    public static void main(String args[])
-    {
-        TestngMainClass obj1 = new TestngMainClass();
-        obj1.runTestUsingTestngClass();
-    }
-}
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span>
+    <span style="color:#f92672">{</span>
+        TestngMainClass obj1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestngMainClass<span style="color:#f92672">();</span>
+        obj1<span style="color:#f92672">.</span><span style="color:#a6e22e">runTestUsingTestngClass</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output">Output:</h3>
 <p>If you run the above Class, It will invoke @test method and printed the Message in output. By Default all the Suite Names are <strong>Command line suite</strong> in TestNG.</p>
-
-<pre><code class="language-text">@TestMethod: Running @Test Method
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@TestMethod: Running @Test Method
 
 ===============================================
 Command line suite
 Total tests run: 1, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<h3 id="add-testng-listener-to-our-class">#Add TestNG Listener to Our Class:</h3>
-
+</code></pre></div><h3 id="add-testng-listener-to-our-class">#Add TestNG Listener to Our Class:</h3>
 <p>Now let create Listener: <code>ISuiteListener</code> and add our Listener to the same program. Adding ISuiteListener should be invoked before and after the TestNG Test Suite. You can read about  Listener in my <a href="https://www.pawangaria.com/post/testng/how-to-use-testng-listeners/">TestNG article</a>.</p>
-
 <h3 id="create-listener-class">Create Listener Class:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.ISuite<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ISuiteListener<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.ISuite;
-import org.testng.ISuiteListener;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestNgListenersTest</span> <span style="color:#66d9ef">implements</span> ISuiteListener <span style="color:#f92672">{</span>
 
-public class TestNgListenersTest implements ISuiteListener {
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStart</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;On Before Suite Start&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Override
-    public void onStart(ISuite suite) {
-         System.out.println(&quot;On Before Suite Start&quot;);
-    }
-
-    @Override
-    public void onFinish(ISuite suite) {
-         System.out.println(&quot;On After Suite Finish&quot;);
-    }
-}
-</code></pre>
-
-<h3 id="add-listener-in-our-test-class">Add Listener in our Test Class:</h3>
-
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinish</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;On After Suite Finish&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="add-listener-in-our-test-class">Add Listener in our Test Class:</h3>
 <p>Now Let&rsquo;s update our main Class with TestNgListenersTest.class</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.ITestNGListener<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.TestNG<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.ITestNGListener;
-import org.testng.TestNG;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngMainClass</span> <span style="color:#f92672">{</span>
 
-public class TestngMainClass {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestWithListenerClass</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">{</span>
+        ITestNGListener iTestListener<span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestNgListenersTest<span style="color:#f92672">();</span>
+        TestNG testng <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestNG<span style="color:#f92672">();</span>
+        testng<span style="color:#f92672">.</span><span style="color:#a6e22e">setTestClasses</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Class<span style="color:#f92672">[]</span> <span style="color:#f92672">{</span> TestClass<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">});</span>
+        testng<span style="color:#f92672">.</span><span style="color:#a6e22e">addListener</span><span style="color:#f92672">(</span>iTestListener<span style="color:#f92672">);</span>
+        testng<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
 
-    public void runTestWithListenerClass()
-    {
-        ITestNGListener iTestListener= new TestNgListenersTest();
-        TestNG testng = new TestNG();
-        testng.setTestClasses(new Class[] { TestClass.class });
-        testng.addListener(iTestListener);
-        testng.run();
-    }
-
-    public static void main(String args[])
-    {
-        TestngMainClass obj1 = new TestngMainClass();
-        obj1.runTestWithListenerClass();
-    }
-}
-</code></pre>
-
-<h3 id="output-1">Output:</h3>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span>
+    <span style="color:#f92672">{</span>
+        TestngMainClass obj1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestngMainClass<span style="color:#f92672">();</span>
+        obj1<span style="color:#f92672">.</span><span style="color:#a6e22e">runTestWithListenerClass</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output-1">Output:</h3>
 <p>If we run the above class It will invoke our Listener before Suite method and then the @Test and then After Suite Method from our implemented Listener class.</p>
-
-<pre><code class="language-text">Listeners:On Before Suite Start
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Listeners:On Before Suite Start
 @TestMethod: Running @Test Method
 Listeners:On After Suite Finish
 
@@ -355,45 +325,28 @@ Listeners:On After Suite Finish
 Command line suite
 Total tests run: 1, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<p>So far we have now learned about using TestNG main class and how to use TestNG to run @test from Java programs. Now let&rsquo;s try to dig deep and see what happens inside when you run simple Test.</p>
-
+</code></pre></div><p>So far we have now learned about using TestNG main class and how to use TestNG to run @test from Java programs. Now let&rsquo;s try to dig deep and see what happens inside when you run simple Test.</p>
 <h3 id="how-testng-works-in-the-background">#How TestNG works in the Background:</h3>
-
 <p>As from our examples, we can see the most important file is <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/TestNG.html">TestNg.java</a>.This class is the main entry point for running tests in the TestNG framework. It doesn&rsquo;t matter where you are invoking testng in many different ways like testng.xml or command line or from Java.
 You can also define which groups to include or exclude, assign parameters, etc&hellip;</p>
-
 <p>Let&rsquo;s try to understand step by step what methods are important and what happens when you run simple Test method.</p>
-
-<h4 id="testng-testng-new-testng"><code>TestNG testng = new TestNG();</code></h4>
-
+<h4 id="testng-testng--new-testng"><code>TestNG testng = new TestNG();</code></h4>
 <p>TestNG first creates an object of this TestNG.Class like above line is creating an Instance and invoke the default constructor which initialize configurations.
-<img src="https://www.pawangaria.com/img/testng/testng-constructor-init-method.png" alt="testng-java-constructor-init-methods" /></p>
-
-<h4 id="testng-settestclasses-new-class-testclass-class"><code>testng.setTestClasses(new Class[] { TestClass.class });</code></h4>
-
+<img src="https://www.pawangaria.com/img/testng/testng-constructor-init-method.png" alt="testng-java-constructor-init-methods"></p>
+<h4 id="testngsettestclassesnew-class--testclassclass-"><code>testng.setTestClasses(new Class[] { TestClass.class });</code></h4>
 <p>Set the test classes to be run by this TestNG object. This method will create a dummy suite that will wrap these classes called <strong>Command Line Test</strong>.
 If used together with threadCount, parallel, groups, excludedGroups than this one must be set first.
-<img src="https://www.pawangaria.com/img/testng/testng-setTestClasses-method.png" alt="testng-setTestClasses-method" /></p>
-
+<img src="https://www.pawangaria.com/img/testng/testng-setTestClasses-method.png" alt="testng-setTestClasses-method"></p>
 <h4 id="itestnglistener-itestlistener-new-testnglistenerstest"><code>ITestNGListener iTestListener= new TestNgListenersTest();</code></h4>
-
-<h4 id="testng-addlistener-itestlistener"><code>testng.addListener(iTestListener);</code></h4>
-
+<h4 id="testngaddlisteneritestlistener"><code>testng.addListener(iTestListener);</code></h4>
 <p>If we are adding Listener in our test the method above is used by TestNG which is nothing but an method accepting ITestNGListener interface variable. This method checks which instance is passed in your ITestNGListener variable and based on that decide what to implement in Test.
-<img src="https://www.pawangaria.com/img/testng/addListener-ITestNGListener-method.png" alt="addListener-ITestNGListener-method" /></p>
-
-<h4 id="testng-run"><code>testng.run();</code></h4>
-
+<img src="https://www.pawangaria.com/img/testng/addListener-ITestNGListener-method.png" alt="addListener-ITestNGListener-method"></p>
+<h4 id="testngrun"><code>testng.run();</code></h4>
 <p>Final call to run the Testcases and Test Suite is performed by the run() method. TestNG call the method in which there are multiple calls to other method like <code>sanityCheck()</code>,<code>runExecutionListeners()</code>,<code>List&lt;ISuite&gt; suiteRunners = runSuites();</code> etc..
-<img src="https://www.pawangaria.com/img/testng/testng-run-method.png" alt="testng-run-method" /></p>
-
-<h4 id="private-void-generatereports-list-isuite-suiterunners"><code>private void generateReports(List&lt;ISuite&gt; suiteRunners)</code></h4>
-
+<img src="https://www.pawangaria.com/img/testng/testng-run-method.png" alt="testng-run-method"></p>
+<h4 id="private-void-generatereportslistisuite-suiterunners"><code>private void generateReports(List&lt;ISuite&gt; suiteRunners)</code></h4>
 <p>generateReports() method is also very important method call from the run() method and I want to highlight this as this method receives a List of ISuite Interface which is used to Generate report at the end of the Suite run.
-<img src="https://www.pawangaria.com/img/testng/test-output-run-report-testng.png" alt="test-output-run-report-testng" /></p>
-
+<img src="https://www.pawangaria.com/img/testng/test-output-run-report-testng.png" alt="test-output-run-report-testng"></p>
 <p>I have mentioned and tried to explain few method and class as TestNG as a project contains many components, So I will suggest to please see the <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/TestNG.html">JavaDocs</a> for the entire TestNG API.</p>
 
 </div>
@@ -795,7 +748,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

@@ -67,7 +67,7 @@
    "dateModified": "2018-01-18",
    "mainEntityOfPage":"true",
    "description": "Learn about Selenium WebDriver Grid using Docker.This article is about setting up the  local Grid using Docker for running test on chrome and firefox, no need for different virtual machines to run the parallel test.",
-   "wordCount": 688
+   "wordCount":  688 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,134 +231,77 @@
 </div>
 
       <div class="content">
-  
-
-<p>Integration tests are an integral part of any modern web application, you&rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&rsquo;re stuck with two options like SaaS provider like SauceLabs and BrowserStack etc. or running your own <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> on multiple machines and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</p>
-
+  <p>Integration tests are an integral part of any modern web application, you&rsquo;ll likely be running selenium tests. While Selenium tests are easy to write and execute on your local workstation. Now you&rsquo;re stuck with two options like SaaS provider like SauceLabs and BrowserStack etc. or running your own <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> on multiple machines and managing a multitude of machines and browser versions. This is going to make you CI process with slow builds.</p>
 <p>In this article, you&rsquo;ll see how easy it is to set up a <a href="(http://www.seleniumhq.org/docs/07_selenium_grid.jsp)">Selenium Grid</a> with <a href="https://www.docker.com/">Docker</a>, how easy it is to maintain, and how to extend and grow your Selenium grid to satisfy your team&rsquo;s needs.</p>
-
-<h3 id="challenges">Challenges :</h3>
-
+<h3 id="challenges-">Challenges :</h3>
 <p>If you use Selenium Grid for running you test, You must have to install so many configurations and tools on each machine which your test depends on like Java, Selenium WebDriver, Test Browsers, VNC etc. Maintaining machines in grid are sometimes costly and time consuming to maintain.</p>
-
-<h3 id="why-docker">Why Docker :</h3>
-
+<h3 id="why-docker-">Why Docker :</h3>
 <p>With containerized test executors, the test suites can be executed on any platforms without library dependencies. Selenium Grid is distributed system of nodes for running tests. Instead of running your grid across multiple virtual machines, using Docker we can run them all Test&rsquo;s parallel and fast on a single large machine using Docker.</p>
-
-<h3 id="selenium-grid-hub-and-nodes-in-docker">Selenium Grid Hub and Nodes in Docker :</h3>
-
+<h3 id="selenium-grid-hub-and-nodes-in-docker-">Selenium Grid Hub and Nodes in Docker :</h3>
 <p>To set up Selenium WebDriver Grid we need to download a couple of Selenium Images step by step:</p>
-
-<h4 id="step-1-download-selenium-hub">#Step 1: Download Selenium/hub</h4>
-
+<h4 id="step-1-download-seleniumhub">#Step 1: Download Selenium/hub</h4>
 <p>Use docker pull command to download the Selenium/hub</p>
-
 <pre><code>docker pull selenium/hub
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-hub.png" alt="docker-pull-selenium-hub" /></p>
-
-<h4 id="step-2-download-selenium-node-chrome">#Step 2: Download Selenium/node-chrome</h4>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-hub.png" alt="docker-pull-selenium-hub"></p>
+<h4 id="step-2-download-seleniumnode-chrome">#Step 2: Download Selenium/node-chrome</h4>
 <p>Use docker pull command to download the Selenium/node-chrome, Chrome browser image.</p>
-
 <pre><code>docker pull selenium/node-chrome
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-chrome-node.png" alt="docker-pull-selenium-chrome-node" /></p>
-
-<h4 id="step-3-download-selenium-node-firefox">#Step 3: Download Selenium/node-firefox</h4>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-pull-selenium-chrome-node.png" alt="docker-pull-selenium-chrome-node"></p>
+<h4 id="step-3-download-seleniumnode-firefox">#Step 3: Download Selenium/node-firefox</h4>
 <p>Same like above use docker pull command to download the Selenium/node-firefox, Firefox browser image.</p>
-
 <pre><code>docker pull selenium/node-firefox
-</code></pre>
-
-<h4 id="step-4-check-docker-image-after-download">#Step 4: Check Docker Image after Download</h4>
-
+</code></pre><h4 id="step-4-check-docker-image-after-download">#Step 4: Check Docker Image after Download</h4>
 <p>After downloading the images we can check the downloaded Images using the docker command and see all the images on the list.</p>
-
 <pre><code>docker images
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-images-command-list-selenium.png" alt="docker-images-command-list-selenium" /></p>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-images-command-list-selenium.png" alt="docker-images-command-list-selenium"></p>
 <h4 id="step-5-start-selenium-hub">#Step 5: Start Selenium Hub</h4>
-
 <p>As we have downloaded the images and we can now start the Selenium Hub. So the process is generally starting Hub first and then joining other nodes to the Hub.</p>
-
 <pre><code>docker run -d -p 4444:4444 -P --name selenium-hub selenium/hub
-</code></pre>
-
-<p>Run <code>docker ps</code> to check the container details
-<img src="https://www.pawangaria.com/img/docker/dcoker-ps-selenium-hub-start.png" alt="dcoker-ps-selenium-hub-start" /></p>
-
-<p>After that we can verify that selenium grid is running or not by navigating to the URL:<br />
+</code></pre><p>Run <code>docker ps</code> to check the container details
+<img src="https://www.pawangaria.com/img/docker/dcoker-ps-selenium-hub-start.png" alt="dcoker-ps-selenium-hub-start"></p>
+<p>After that we can verify that selenium grid is running or not by navigating to the URL:<br>
 <code>http://localhost:4444/grid/console</code></p>
-
-<p><img src="https://www.pawangaria.com/img/docker/grid-console-browser-selenium-hub.png" alt="grid-console-browser-selenium-hub" /></p>
-
+<p><img src="https://www.pawangaria.com/img/docker/grid-console-browser-selenium-hub.png" alt="grid-console-browser-selenium-hub"></p>
 <h4 id="step-5-start-selenium-node">#Step 5: Start Selenium Node</h4>
-
 <p>As the Hub is started and listening on <code>Port No:4444</code> we are ready to start nodes and connect with Selenium Hub.</p>
-
 <h6 id="run-chrome-node-and-link-it-to-hub">Run Chrome Node and Link it to Hub:</h6>
-
 <pre><code>docker run -d --link selenium-hub:hub -P --name chrome selenium/node-chrome
-</code></pre>
-
-<h6 id="run-firefox-node-and-link-it-to-hub">Run Firefox Node and Link it to Hub:</h6>
-
+</code></pre><h6 id="run-firefox-node-and-link-it-to-hub">Run Firefox Node and Link it to Hub:</h6>
 <pre><code>docker run -d --link selenium-hub:hub -P --name firefox selenium/node-firefox
-</code></pre>
-
-<h6 id="verify-nodes-in-browser-console">Verify Nodes in Browser Console:</h6>
-
+</code></pre><h6 id="verify-nodes-in-browser-console">Verify Nodes in Browser Console:</h6>
 <p><code>http://localhost:4444/grid/console</code>
-<img src="https://www.pawangaria.com/img/docker/docker-node-selenium-console-browser.png" alt="docker-node-selenium-console-browser" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-node-selenium-console-browser.png" alt="docker-node-selenium-console-browser"></p>
 <h4 id="step-6-run-test-on-chrome">#Step 6: Run Test on Chrome:</h4>
-
 <p>All our Test should be pointing to the URL: <code>http://localhost:4444/wd/hub</code></p>
-
 <p>As the Hub is running on <strong>port:4444</strong>, so we will direct all the test on this port and Hub will work as load balancing and redirecting the request to proper browser and node.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.net.URL<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.DesiredCapabilities<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.RemoteWebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-java">import java.net.URL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunningTestOnDocker</span> <span style="color:#f92672">{</span>
 
-public class RunningTestOnDocker {
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestOnDocker</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        DesiredCapabilities dcap <span style="color:#f92672">=</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">();</span>
+        String driverPath <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user.dir&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/exe/chromedriver&#34;</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> driverPath<span style="color:#f92672">);</span>
 
-    @Test
-    public void runTestOnDocker() throws Exception {
-        DesiredCapabilities dcap = DesiredCapabilities.chrome();
-        String driverPath = System.getProperty(&quot;user.dir&quot;) + &quot;/exe/chromedriver&quot;;
-        System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
-
-        // Hub Port at 4444
-        URL gamelan = new URL(&quot;http://localhost:4444/wd/hub&quot;);
-        WebDriver driver = new RemoteWebDriver(gamelan, dcap);
-        // Get URL
-        driver.get(&quot;https://www.google.com/&quot;);
-        // Print Title
-        System.out.println(driver.getTitle());
-    }
-}
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
+        <span style="color:#75715e">// Hub Port at 4444
+</span><span style="color:#75715e"></span>        URL gamelan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://localhost:4444/wd/hub&#34;</span><span style="color:#f92672">);</span>
+        WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span>gamelan<span style="color:#f92672">,</span> dcap<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Get URL
+</span><span style="color:#75715e"></span>        driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Print Title
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>driver<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output">Output:</h3>
 <pre><code>Google
-</code></pre>
-
-<p>As we are using the Chrome Browser and running a simple Test which is to open Google.com and print the website title. You can also create a simple Test in Firefox and run the both Test parallel.</p>
-
+</code></pre><p>As we are using the Chrome Browser and running a simple Test which is to open Google.com and print the website title. You can also create a simple Test in Firefox and run the both Test parallel.</p>
 <p>You can use the <strong>selenium/node-chrome-debug</strong> as a debug image because It is bundled with realVNC and you can see the Browser and test at run time. <a href="https://www.pawangaria.com/post/docker/debugging-docker-container-with-realvnc/">You can read articles about debugging container Images with realVNC here</a>.</p>
-
 <h3 id="what-next">What Next:</h3>
-
 <p>In coming articles I will try to explain the use of <a href="https://docs.docker.com/compose/overview/">docker-compose.yml</a> file  which is a docker configuration file and How to scale our docker Selenium Hub by simple one command. <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Next: How to Setup Selenium grid using docker-compose file.</a></p>
 
 </div>
@@ -760,7 +703,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

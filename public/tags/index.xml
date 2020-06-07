@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Testing, Automation, Programming and Latest Technology Articles</title>
@@ -7,49 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sat, 16 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Annotations</title>
-      <link>https://www.pawangaria.com/tags/annotations/</link>
-      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/annotations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Architecture</title>
-      <link>https://www.pawangaria.com/tags/architecture/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Assert</title>
-      <link>https://www.pawangaria.com/tags/assert/</link>
-      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/assert/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chrome</title>
-      <link>https://www.pawangaria.com/tags/chrome/</link>
-      <pubDate>Fri, 24 Nov 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/chrome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Commit</title>
+      <title>commit</title>
       <link>https://www.pawangaria.com/tags/commit/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
@@ -58,101 +22,11 @@
     </item>
     
     <item>
-      <title>Container</title>
-      <link>https://www.pawangaria.com/tags/container/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/container/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dataprovider</title>
-      <link>https://www.pawangaria.com/tags/dataprovider/</link>
-      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/dataprovider/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dependencies</title>
-      <link>https://www.pawangaria.com/tags/dependencies/</link>
-      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/dependencies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://www.pawangaria.com/tags/docker/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker Compose</title>
-      <link>https://www.pawangaria.com/tags/docker-compose/</link>
-      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/docker-compose/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Enabled</title>
-      <link>https://www.pawangaria.com/tags/enabled/</link>
-      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/enabled/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Expectedexception</title>
-      <link>https://www.pawangaria.com/tags/expectedexception/</link>
-      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/expectedexception/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gas Mask</title>
-      <link>https://www.pawangaria.com/tags/gas-mask/</link>
-      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/gas-mask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
+      <title>git</title>
       <link>https://www.pawangaria.com/tags/git/</link>
       <pubDate>Wed, 28 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google Firebase</title>
-      <link>https://www.pawangaria.com/tags/google-firebase/</link>
-      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/google-firebase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hostfile</title>
-      <link>https://www.pawangaria.com/tags/hostfile/</link>
-      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/hostfile/</guid>
       <description></description>
     </item>
     
@@ -166,25 +40,7 @@
     </item>
     
     <item>
-      <title>Json Wire Protocol</title>
-      <link>https://www.pawangaria.com/tags/json-wire-protocol/</link>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/json-wire-protocol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Listeners</title>
-      <link>https://www.pawangaria.com/tags/listeners/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/listeners/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Object Oriented</title>
+      <title>object-oriented</title>
       <link>https://www.pawangaria.com/tags/object-oriented/</link>
       <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
@@ -193,34 +49,7 @@
     </item>
     
     <item>
-      <title>Page Object Model</title>
-      <link>https://www.pawangaria.com/tags/page-object-model/</link>
-      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/page-object-model/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Parallelexecution</title>
-      <link>https://www.pawangaria.com/tags/parallelexecution/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/parallelexecution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Parameters</title>
-      <link>https://www.pawangaria.com/tags/parameters/</link>
-      <pubDate>Wed, 03 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/parameters/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
+      <title>programming</title>
       <link>https://www.pawangaria.com/tags/programming/</link>
       <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
@@ -229,38 +58,20 @@
     </item>
     
     <item>
-      <title>Report</title>
-      <link>https://www.pawangaria.com/tags/report/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <title>Page Object model</title>
+      <link>https://www.pawangaria.com/tags/page-object-model/</link>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/report/</guid>
+      <guid>https://www.pawangaria.com/tags/page-object-model/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Retry Test</title>
-      <link>https://www.pawangaria.com/tags/retry-test/</link>
-      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/retry-test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Selenium Webdriver</title>
+      <title>Selenium WebDriver</title>
       <link>https://www.pawangaria.com/tags/selenium-webdriver/</link>
       <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Selenoid</title>
-      <link>https://www.pawangaria.com/tags/selenoid/</link>
-      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/selenoid/</guid>
       <description></description>
     </item>
     
@@ -274,7 +85,25 @@
     </item>
     
     <item>
-      <title>Testng</title>
+      <title>report</title>
+      <link>https://www.pawangaria.com/tags/report/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>retry-test</title>
+      <link>https://www.pawangaria.com/tags/retry-test/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/retry-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testNG</title>
       <link>https://www.pawangaria.com/tags/testng/</link>
       <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
@@ -283,11 +112,146 @@
     </item>
     
     <item>
-      <title>Testrail</title>
-      <link>https://www.pawangaria.com/tags/testrail/</link>
-      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <title>Container</title>
+      <link>https://www.pawangaria.com/tags/container/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/testrail/</guid>
+      <guid>https://www.pawangaria.com/tags/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://www.pawangaria.com/tags/docker/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Selenoid</title>
+      <link>https://www.pawangaria.com/tags/selenoid/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/selenoid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker-compose</title>
+      <link>https://www.pawangaria.com/tags/docker-compose/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>https://www.pawangaria.com/tags/architecture/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Listeners</title>
+      <link>https://www.pawangaria.com/tags/listeners/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/listeners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>parameters</title>
+      <link>https://www.pawangaria.com/tags/parameters/</link>
+      <pubDate>Wed, 03 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/parameters/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ParallelExecution</title>
+      <link>https://www.pawangaria.com/tags/parallelexecution/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/parallelexecution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DataProvider</title>
+      <link>https://www.pawangaria.com/tags/dataprovider/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/dataprovider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dependencies</title>
+      <link>https://www.pawangaria.com/tags/dependencies/</link>
+      <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/dependencies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>enabled</title>
+      <link>https://www.pawangaria.com/tags/enabled/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/enabled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>expectedException</title>
+      <link>https://www.pawangaria.com/tags/expectedexception/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/expectedexception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Assert</title>
+      <link>https://www.pawangaria.com/tags/assert/</link>
+      <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/assert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Annotations</title>
+      <link>https://www.pawangaria.com/tags/annotations/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/annotations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JSON Wire Protocol</title>
+      <link>https://www.pawangaria.com/tags/json-wire-protocol/</link>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/json-wire-protocol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Firebase</title>
+      <link>https://www.pawangaria.com/tags/google-firebase/</link>
+      <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/google-firebase/</guid>
       <description></description>
     </item>
     
@@ -297,6 +261,42 @@
       <pubDate>Tue, 28 Nov 2017 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/web-hosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gas Mask</title>
+      <link>https://www.pawangaria.com/tags/gas-mask/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/gas-mask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HostFile</title>
+      <link>https://www.pawangaria.com/tags/hostfile/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/hostfile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chrome</title>
+      <link>https://www.pawangaria.com/tags/chrome/</link>
+      <pubDate>Fri, 24 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TestRail</title>
+      <link>https://www.pawangaria.com/tags/testrail/</link>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/testrail/</guid>
       <description></description>
     </item>
     

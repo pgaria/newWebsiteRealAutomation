@@ -67,7 +67,7 @@
    "dateModified": "2017-12-17",
    "mainEntityOfPage":"true",
    "description": "What is the TestNG.xml and how to generate testng.xml file using eclipse. We will run multiple @test methods using testng.xml file in this article.",
-   "wordCount": 393
+   "wordCount":  393 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,86 +229,64 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="http://testng.org/doc/documentation-main.html#testng-xml">TestNG.xml</a> file is an XML file which contains all the Test configuration and this XML file can be used to run and organize our test. TestNG eclipse plugin can be used to automatically generate testng.xml file so no need to write from scratch. In this article, we are going to learn about what is testng.xml and how to use testng.xml file to run our test.</p>
-
+  <p><a href="http://testng.org/doc/documentation-main.html#testng-xml">TestNG.xml</a> file is an XML file which contains all the Test configuration and this XML file can be used to run and organize our test. TestNG eclipse plugin can be used to automatically generate testng.xml file so no need to write from scratch. In this article, we are going to learn about what is testng.xml and how to use testng.xml file to run our test.</p>
 <h3 id="create-class-with-multiple-test-methods">Create Class with multiple @test methods:</h3>
-
 <p>First, we need to create a simple class which contains multiple @test methods.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunMultipleTestCasesfromXml</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running @Test - testMethod1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class RunMultipleTestCasesfromXml {
-    @Test()
-    public void testMethod1() {
-        System.out.println(&quot;Running @Test - testMethod1&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod2</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running @Test - testMethod2&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void testMethod2() {
-        System.out.println(&quot;Running @Test - testMethod2&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod3</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running @Test - testMethod3&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void testMethod3() {
-        System.out.println(&quot;Running @Test - testMethod3&quot;);
-    }
-
-    @Test()
-    public void testMethod4() {
-        System.out.println(&quot;Running @Test - testMethod4&quot;);
-    }
-}
-</code></pre>
-
-<p>We can run this test class directly by Right click and Run As testNg option from the Eclipse but we are goign to create an xml file here.</p>
-
-<h3 id="create-testng-xml-file">Create TestNg.xml file:</h3>
-
-<h4 id="step-1">Step:1</h4>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod4</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running @Test - testMethod4&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can run this test class directly by Right click and Run As testNg option from the Eclipse but we are goign to create an xml file here.</p>
+<h3 id="create-testngxml-file">Create TestNg.xml file:</h3>
+<h4 id="step1">Step:1</h4>
 <p>Right click on the Test Class and then select TestNG &ndash;&gt; Convert to TestNG.
-<img src="https://www.pawangaria.com/img/testng/right-click-convert-to-testng.png" alt="right-click-convert-to-testng" /></p>
-
-<h4 id="step-2">Step:2</h4>
-
+<img src="https://www.pawangaria.com/img/testng/right-click-convert-to-testng.png" alt="right-click-convert-to-testng"></p>
+<h4 id="step2">Step:2</h4>
 <p>After the first step, you will see a window where we can select the location where testng.xml file should be generated.<strong>You can set any name for your xml file, by default name is testng.xml</strong>.
 <em>You should be able to edit the preview section and update the XML file here.</em>
-<img src="https://www.pawangaria.com/img/testng/generate-testng-file-browse.png" alt="generate-testng-file-browse" /></p>
-
-<h4 id="step-3">Step:3</h4>
-
+<img src="https://www.pawangaria.com/img/testng/generate-testng-file-browse.png" alt="generate-testng-file-browse"></p>
+<h4 id="step3">Step:3</h4>
 <p>Next window will show you the changes you can do in yours JAVA files.<em>You can ignore this step as we have already updated Java class, So just ignore and click finish button.</em>
-<img src="https://www.pawangaria.com/img/testng/changes-in-java-files.png" alt="changes-in-java-files" /></p>
-
-<h4 id="step-4">Step:4</h4>
-
-<p>After the last and final Step you will be able to see a <strong>testng.xml</strong> file generated in the base directory of your project.If you open the .xml file you can notice our Test Class is present in the <strong>classes</strong> tag which is under the <strong>test name=&laquo;Test&raquo;</strong> Tag. <em>It means our Class would be considered as Test Class by TestNG.</em>
-<img src="https://www.pawangaria.com/img/testng/generated-testng-file-in-eclipse.png" alt="generated-testng-file-in-eclipse" /></p>
-
-<h4 id="testng-xml-file-sample">TestNG.xml file sample:</h4>
-
-<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;Test&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.RunMultipleTestCasesfromXml&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="run-testng-xml-file">Run TestNG.xml file:</h3>
-
+<img src="https://www.pawangaria.com/img/testng/changes-in-java-files.png" alt="changes-in-java-files"></p>
+<h4 id="step4">Step:4</h4>
+<p>After the last and final Step you will be able to see a <strong>testng.xml</strong> file generated in the base directory of your project.If you open the .xml file you can notice our Test Class is present in the <strong>classes</strong> tag which is under the <strong>test name=&quot;Test&rdquo;</strong> Tag. <em>It means our Class would be considered as Test Class by TestNG.</em>
+<img src="https://www.pawangaria.com/img/testng/generated-testng-file-in-eclipse.png" alt="generated-testng-file-in-eclipse"></p>
+<h4 id="testngxml-file-sample">TestNG.xml file sample:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.RunMultipleTestCasesfromXml&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="run-testngxml-file">Run TestNG.xml file:</h3>
 <p><strong>Right Click</strong> on the testng.xml file and the select <strong>Run As &ndash;&gt; TestNG Suite</strong>
-<img src="https://www.pawangaria.com/img/testng/right-click-run-as-testng-suit.png" alt="right-click-run-as-testng-suit" /></p>
-
+<img src="https://www.pawangaria.com/img/testng/right-click-run-as-testng-suit.png" alt="right-click-run-as-testng-suit"></p>
 <p>When you run your <strong>testng.xml</strong> file, it will start running your <em>@test</em> methods from the class mentioned in the XML and generate the report. You can see our all the <em>@test</em> methods ran successfully.
-<img src="https://www.pawangaria.com/img/testng/testng-multiple-test-report.png" alt="testng-multiple-test-report" /></p>
+<img src="https://www.pawangaria.com/img/testng/testng-multiple-test-report.png" alt="testng-multiple-test-report"></p>
 
 </div>
 
@@ -709,7 +687,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

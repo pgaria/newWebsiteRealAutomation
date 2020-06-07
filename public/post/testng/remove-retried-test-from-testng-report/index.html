@@ -66,8 +66,8 @@
    "datePublished": "2018-02-12",
    "dateModified": "2018-02-12",
    "mainEntityOfPage":"true",
-   "description": "Retrying the Failed/Skipped Test again creates the problem of having duplicate entries for the test in TestNG reports, so this article explains the way of removing the duplicate retried Skipped Test.",
-   "wordCount": 529
+   "description": "Retrying the Failed\/Skipped Test again creates the problem of having duplicate entries for the test in TestNG reports, so this article explains the way of removing the duplicate retried Skipped Test.",
+   "wordCount":  529 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -233,97 +233,77 @@
 </div>
 
       <div class="content">
-  
-
-<p>Sometimes back I wrote an article about running the failed test again using <a href="http://javadox.com/org.testng/testng/6.9.4/org/testng/IRetryAnalyzer.html">IRetryAnalyzer</a> in TestNG. You can read about <a href="https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/">How to Retry failed tests in TestNG ?</a>.
+  <p>Sometimes back I wrote an article about running the failed test again using <a href="http://javadox.com/org.testng/testng/6.9.4/org/testng/IRetryAnalyzer.html">IRetryAnalyzer</a> in TestNG. You can read about <a href="https://www.pawangaria.com/post/testng/retry-failed-test-in-testng/">How to Retry failed tests in TestNG ?</a>.
 Retrying the failed Test again creates the problem of having duplicate entries for retried tests in TestNG reports. So when a failed test is being retired and is ends as successful or failed after multiple retry, there are multiple entries in the report with all the retried @Test&rsquo;s considered as Skipped Test and then the final result will looks like the below report.
-<img src="https://www.pawangaria.com/img/testng/retry-count-3-failed-test-report.png" alt="retry-count-3-failed-test-report" /></p>
-
+<img src="https://www.pawangaria.com/img/testng/retry-count-3-failed-test-report.png" alt="retry-count-3-failed-test-report"></p>
 <p>So I decided to write this article to solve the problem and try to remove the retried(Skipped) marked Tests from the final TestNG report file. We will try to make results to be overridden. Such tests should then be only marked as Failed or Successful in Final Report.</p>
-
 <h3 id="how-to-remove-the-retried-skipped-tests">How to Remove the Retried Skipped Tests:</h3>
-
 <p>We will create multiple classes here to create the scenario and then removing those Test Failures. We will be mainly changing the default behavior of the TestListenerAdapter class in TestNG.</p>
-
-<h3 id="mytestlisteneradapter-class">MyTestListenerAdapter.class</h3>
-
+<h3 id="mytestlisteneradapterclass">MyTestListenerAdapter.class</h3>
 <p>Create a class that extends the <code>TestListenerAdapter.Class</code> from TestNG, which stores all the tests
 that were ran and you can retrieve these results using methods like getPassedTests(), getFailedTests() etc. We are going to override the <code>onFinish(ITestContext context)</code> method in our class and then check for the Skipped test and remove those from the context before TestNg generates the Report.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.util.Iterator<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestNGMethod<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestResult<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.TestListenerAdapter<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import java.util.Iterator;
-import org.testng.ITestContext;
-import org.testng.ITestNGMethod;
-import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTestListenerAdapter</span> <span style="color:#66d9ef">extends</span> TestListenerAdapter <span style="color:#f92672">{</span>
 
-public class MyTestListenerAdapter extends TestListenerAdapter {
-
-    @Override
-    public void onFinish(ITestContext context) {
-        Iterator&lt;ITestResult&gt; skippedTestCases = context.getSkippedTests().getAllResults().iterator();
-        while (skippedTestCases.hasNext()) {
-            ITestResult skippedTestCase = skippedTestCases.next();
-            ITestNGMethod method = skippedTestCase.getMethod();
-            if (context.getSkippedTests().getResults(method).size() &gt; 0) {
-                System.out.println(&quot;Removing:&quot; + skippedTestCase.getTestClass().toString());
-                skippedTestCases.remove();
-            }
-        }
-    }
-}
-</code></pre>
-
-<h3 id="testretryanalyzer-class">TestRetryAnalyzer.class</h3>
-
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinish</span><span style="color:#f92672">(</span>ITestContext context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Iterator<span style="color:#f92672">&lt;</span>ITestResult<span style="color:#f92672">&gt;</span> skippedTestCases <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getSkippedTests</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getAllResults</span><span style="color:#f92672">().</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>skippedTestCases<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            ITestResult skippedTestCase <span style="color:#f92672">=</span> skippedTestCases<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+            ITestNGMethod method <span style="color:#f92672">=</span> skippedTestCase<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>context<span style="color:#f92672">.</span><span style="color:#a6e22e">getSkippedTests</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getResults</span><span style="color:#f92672">(</span>method<span style="color:#f92672">).</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Removing:&#34;</span> <span style="color:#f92672">+</span> skippedTestCase<span style="color:#f92672">.</span><span style="color:#a6e22e">getTestClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+                skippedTestCases<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="testretryanalyzerclass">TestRetryAnalyzer.class</h3>
 <p>Create a Class that extends the IRetryAnalyzer and have implemented a simple retry logic overriding the following method: <code>public boolean retry(ITestResult result)</code>. This class retries tests that failed until they pass or report final failures.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.IRetryAnalyzer<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestResult<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryAnalyzer</span> <span style="color:#66d9ef">implements</span> IRetryAnalyzer <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">int</span> counter <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> retryMaxLimit <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span>
 
-public class TestRetryAnalyzer implements IRetryAnalyzer {
-    int counter = 1;
-    int retryMaxLimit = 3;
-
-    public boolean retry(ITestResult result) {
-        if (counter &lt; retryMaxLimit) {
-            counter++;
-            return true;
-        }
-        return false;
-    }
-}
-</code></pre>
-
-<h3 id="testretrytestcases-class">TestRetryTestCases.class</h3>
-
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">retry</span><span style="color:#f92672">(</span>ITestResult result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>counter <span style="color:#f92672">&lt;</span> retryMaxLimit<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            counter<span style="color:#f92672">++;</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="testretrytestcasesclass">TestRetryTestCases.class</h3>
 <p>Create a TestNG Class which has <code>MyTestListenerAdapter.class</code> as Listener and <code>TestRetryAnalyzer.class</code> as method level retry argument. So here you can try to run the Test Class With and Without the <code>@Listeners(MyTestListenerAdapter.class)</code> and see the difference in the Report Generation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Listeners<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.Assert;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+<span style="color:#a6e22e">@Listeners</span><span style="color:#f92672">(</span>MyTestListenerAdapter<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestRetryTestCases</span> <span style="color:#f92672">{</span>
 
-@Listeners(MyTestListenerAdapter.class)
-public class TestRetryTestCases {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>retryAnalyzer <span style="color:#f92672">=</span> TestRetryAnalyzer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(retryAnalyzer = TestRetryAnalyzer.class)
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-        Assert.assertTrue(true);
-    }
-
-    @Test(retryAnalyzer = TestRetryAnalyzer.class)
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-        Assert.assertTrue(false);
-    }
-}
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>retryAnalyzer <span style="color:#f92672">=</span> TestRetryAnalyzer<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output">Output:</h3>
 <p>Open <code>index.html</code> file from the test-output directory of the testNG and verify the results. We can see the difference from the previous report screenshot at the starting of this article.</p>
-
-<pre><code class="language-output">===============================================
+<pre><code class="language-output" data-lang="output">===============================================
     Default test
     Tests run: 4, Failures: 1, Skips: 2
 ===============================================
@@ -332,12 +312,8 @@ public class TestRetryTestCases {
 Default suite
 Total tests run: 2, Failures: 1, Skips: 0
 ===============================================
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/skipped-test-method-removed-in-testng-report.png" alt="skipped-test-method-removed-in-testng-report" /></p>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/testng/skipped-test-method-removed-in-testng-report.png" alt="skipped-test-method-removed-in-testng-report"></p>
 <h4 id="note">Note:</h4>
-
 <p>If you are running the Test Class in Eclipse or IDE, you will see all the skipped Test in the plugin report as plugins work on Runtime and generate the report. This solution is for the TestNG HTML report only.</p>
 
 </div>
@@ -739,7 +715,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

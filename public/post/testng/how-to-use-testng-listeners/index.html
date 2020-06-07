@@ -67,7 +67,7 @@
    "dateModified": "2017-12-30",
    "mainEntityOfPage":"true",
    "description": "TestNG Listeners listen to the event defined in the TestCase scripts and take action accordingly.",
-   "wordCount": 722
+   "wordCount":  722 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,62 +231,43 @@
 </div>
 
       <div class="content">
-  
-
-<p>Listeners listen to the event defined in the Test Scripts and behave accordingly. The main purpose of using listeners is to create logs for debugging but we can also manage Listeners for Test Framework Design.</p>
-
+  <p>Listeners listen to the event defined in the Test Scripts and behave accordingly. The main purpose of using listeners is to create logs for debugging but we can also manage Listeners for Test Framework Design.</p>
 <h3 id="what-are-testng-listeners">What are TestNG Listeners?</h3>
-
 <p>In Simple words, they are basically Java classes, which implement some TestNG Interfaces. So that when TestNG raises certain events like Test starting, Test Failure etc. TestNG will look for all Classes which are basically looking for such events and call the respective event handlers.</p>
-
 <p>Let&rsquo;s understand the Listener concept using the <strong>ISuiteListener Interface</strong> for test suites.</p>
-
 <p>Create a Class <code>TestNgListenersTest</code> which implements ISuiteListener and add unimplemented methods.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.ISuite<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ISuiteListener<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.ISuite;
-import org.testng.ISuiteListener;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestNgListenersTest</span> <span style="color:#66d9ef">implements</span> ISuiteListener <span style="color:#f92672">{</span>
 
-public class TestNgListenersTest implements ISuiteListener {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStart</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;on Before Suite Start&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    public void onStart(ISuite suite) {
-        System.out.println(&quot;on Before Suite Start&quot;);
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinish</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;on After Suite Finish&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we will use the above <code>TestNgListenersTest</code> class as a Listener in out Test Class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.annotations.Listeners<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-    public void onFinish(ISuite suite) {
-        System.out.println(&quot;on After Suite Finish&quot;);
-    }
-}
-</code></pre>
-
-<p>Now we will use the above <code>TestNgListenersTest</code> class as a Listener in out Test Class.</p>
-
-<pre><code class="language-Java">import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-
-@Listeners(TestNgListenersTest.class)
-public class ListenerTestExample {
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-    }
-}
-</code></pre>
-
-<p>If you Run the above Test Class you can see the Listener class methods invoked indirectly.</p>
-
-<pre><code class="language-text">on Before Suite Start
+<span style="color:#a6e22e">@Listeners</span><span style="color:#f92672">(</span>TestNgListenersTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListenerTestExample</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>If you Run the above Test Class you can see the Listener class methods invoked indirectly.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">on Before Suite Start
 First test method
 on After Suite Finish
-</code></pre>
-
-<h3 id="lets-understand-our-listener-example">Lets Understand Our Listener Example:</h3>
-
+</code></pre></div><h3 id="lets-understand-our-listener-example">Lets Understand Our Listener Example:</h3>
 <p>Whenever a Test Class implements the Listener, TestNG guarantees in execution that it will invoke the methods onStart() and onFinish() before and after running a TestNG Suite. So before TestNG picks up your Test Suite for execution, it first makes a call to <code>onStart()</code> method and runs the Steps mentioned in the method and then Execute the @Test method. In a similar way, it again makes a call to <code>onFinish()</code> method after a Test Suite has been finished running.</p>
-
 <h3 id="what-listeners-are-available-in-testng">What Listeners are available in TestNG:</h3>
-
 <p>TestNG provides following listener types:</p>
-
 <ul>
 <li>IExecutionListener</li>
 <li>IAnnotationTransformer</li>
@@ -298,118 +279,104 @@ on After Suite Finish
 <li>IHookable</li>
 <li>IReporter</li>
 </ul>
-
 <h3 id="ways-of-using-listeners-in-testng">Ways of Using Listeners in TestNG:</h3>
-
 <p>We will focus on most common ways listeners been used in our Test Suite and defined in our Test. Example uses the <code>TestNgListenersTest.class</code> Listener in both the ways.</p>
-
 <h4 id="1-listeners-testng-as-annotation-in-class">1. @Listeners TestNG as annotation in Class</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.annotations.Listeners<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+<span style="color:#a6e22e">@Listeners</span><span style="color:#f92672">(</span>TestNgListenersTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListenerTestExample</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="2-listeners-tag-in-your-testngxml">2. Listeners Tag in your TestNG.xml</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;listeners&gt;</span>
+    <span style="color:#f92672">&lt;listener</span> <span style="color:#a6e22e">class-name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.listeners.TestNgListenersTest&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;/listeners&gt;</span>
 
-@Listeners(TestNgListenersTest.class)
-public class ListenerTestExample {
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="2-listeners-tag-in-your-testng-xml">2. Listeners Tag in your TestNG.xml</h4>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.tutorial.testng.listeners.TestNgListenersTest&quot; /&gt;
-  &lt;/listeners&gt;
-
-  &lt;test name=&quot;Test&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.listeners.ListenerTestExample&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="example-with-multiple-listeners">Example with Multiple Listeners:</h3>
-
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.listeners.ListenerTestExample&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="example-with-multiple-listeners">Example with Multiple Listeners:</h3>
 <p>In this example we will implement major Listeners like ISuiteListener, ITestListener and IInvokedMethodListener in this class. This example can handle multiple events like test start, pass,finish,fail,skips or passes etc.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.IInvokedMethod<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.IInvokedMethodListener<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ISuite<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ISuiteListener<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestListener<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestResult<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import org.testng.IInvokedMethod;
-import org.testng.IInvokedMethodListener;
-import org.testng.ISuite;
-import org.testng.ISuiteListener;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestNGListener</span> <span style="color:#66d9ef">implements</span> ITestListener<span style="color:#f92672">,</span> ISuiteListener<span style="color:#f92672">,</span> IInvokedMethodListener <span style="color:#f92672">{</span>
 
-public class TestNGListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
+    <span style="color:#75715e">// ISuiteListener and will execute before the Suite start
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStart</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Begin executing Suite:&#34;</span> <span style="color:#f92672">+</span> suite<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ISuiteListener and will execute before the Suite start
-    public void onStart(ISuite suite) {
-        System.out.println(&quot;Begin executing Suite:&quot; + suite.getName());
-    }
+    <span style="color:#75715e">// ISuiteListener and will execute, once the Suite is finished
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinish</span><span style="color:#f92672">(</span>ISuite suite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;After executing Suite:&#34;</span> <span style="color:#f92672">+</span> suite<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ISuiteListener and will execute, once the Suite is finished
-    public void onFinish(ISuite suite) {
-        System.out.println(&quot;After executing Suite:&quot; + suite.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute before starting of Test set
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onStart</span><span style="color:#f92672">(</span>ITestContext arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Begin executing Test:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute before starting of Test set
-    public void onStart(ITestContext arg0) {
-        System.out.println(&quot;Begin executing Test:&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute, once the Test set is finished
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFinish</span><span style="color:#f92672">(</span>ITestContext arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Completed executing test:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute, once the Test set is finished
-    public void onFinish(ITestContext arg0) {
-        System.out.println(&quot;Completed executing test:&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute only when the test is pass
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestSuccess</span><span style="color:#f92672">(</span>ITestResult arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Completed executing test:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute only when the test is pass
-    public void onTestSuccess(ITestResult arg0) {
-        System.out.println(&quot;Completed executing test:&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute only on the event of fail test
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestFailure</span><span style="color:#f92672">(</span>ITestResult arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test Status::&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute only on the event of fail test
-    public void onTestFailure(ITestResult arg0) {
-        System.out.println(&quot;Test Status::&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute before the main test start (@Test)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestStart</span><span style="color:#f92672">(</span>ITestResult arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test Status:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute before the main test start (@Test)
-    public void onTestStart(ITestResult arg0) {
-        System.out.println(&quot;Test Status:&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// ITestListener and will execute only if any of the main test(@Test) get skipped
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestSkipped</span><span style="color:#f92672">(</span>ITestResult arg0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Test Status::&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // ITestListener and will execute only if any of the main test(@Test) get skipped
-    public void onTestSkipped(ITestResult arg0) {
-        System.out.println(&quot;Test Status::&quot; + arg0.getName());
-    }
+    <span style="color:#75715e">// IInvokedMethodListener and will execute before every method including
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// @Before @After @Test
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeInvocation</span><span style="color:#f92672">(</span>IInvokedMethod arg0<span style="color:#f92672">,</span> ITestResult arg1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Before Invocation of method:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getTestMethod</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getMethodName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // IInvokedMethodListener and will execute before every method including
-    // @Before @After @Test
-    public void beforeInvocation(IInvokedMethod arg0, ITestResult arg1) {
-        System.out.println(&quot;Before Invocation of method:&quot; + arg0.getTestMethod().getMethodName());
-    }
+    <span style="color:#75715e">// IInvokedMethodListener and will execute after every method including
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// @Before @After @Test
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterInvocation</span><span style="color:#f92672">(</span>IInvokedMethod arg0<span style="color:#f92672">,</span> ITestResult arg1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;After Invocation of method:&#34;</span> <span style="color:#f92672">+</span> arg0<span style="color:#f92672">.</span><span style="color:#a6e22e">getTestMethod</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getMethodName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
 
-    // IInvokedMethodListener and will execute after every method including
-    // @Before @After @Test
-    public void afterInvocation(IInvokedMethod arg0, ITestResult arg1) {
-        System.out.println(&quot;After Invocation of method:&quot; + arg0.getTestMethod().getMethodName());
-    }
-
-    // ITestListener method and Success Percentage
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        System.out.println(&quot;onTestFailedButWithinSuccessPercentage:&quot; + result.getTestName());
-    }
-}
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
-<pre><code class="language-text">Begin executing Suite:Default suite
+    <span style="color:#75715e">// ITestListener method and Success Percentage
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onTestFailedButWithinSuccessPercentage</span><span style="color:#f92672">(</span>ITestResult result<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;onTestFailedButWithinSuccessPercentage:&#34;</span> <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">getTestName</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output">Output:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Begin executing Suite:Default suite
 Begin executing Test:Default test
 Test Status:testMethod
 Before Invocation of method:testMethod
@@ -418,8 +385,7 @@ After Invocation of method:testMethod
 Completed executing test:testMethod
 Completed executing test:Default test
 After executing Suite:Default suite
-</code></pre>
-
+</code></pre></div>
 </div>
 
 
@@ -819,7 +785,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

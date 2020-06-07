@@ -67,7 +67,7 @@
    "dateModified": "2017-12-19",
    "mainEntityOfPage":"true",
    "description": "How do you verify unexpected conditions in your code and verify exceptions as expected. How to use an expectedException attribute in TestNG?",
-   "wordCount": 212
+   "wordCount":  212 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,58 +231,44 @@
 </div>
 
       <div class="content">
-  
-
-<p>All exceptions are not bad in our product, means we have to test and verify the exceptions in our product. The <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/annotations/ExpectedExceptions.html">ExpectedException</a> is a way of verifying that your code throws a specific exception.</p>
-
+  <p>All exceptions are not bad in our product, means we have to test and verify the exceptions in our product. The <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/annotations/ExpectedExceptions.html">ExpectedException</a> is a way of verifying that your code throws a specific exception.</p>
 <blockquote>
 <p>Verifying that code completes normally is important, but making sure the logic behaves as expected in failure and unexpected situations are also important.</p>
 </blockquote>
-
 <p>In <a href="http://testng.org/doc/documentation-main.html">TestNG</a>, we have an attribute as <strong>expectedExceptions</strong> which needs to be added to our test where we have to verify the Exception as expected. This doesn&rsquo;t affect your existing tests steps as it&rsquo;s in the attribute.</p>
-
 <h3 id="how-to-test-exceptions">How to Test exceptions:</h3>
-
 <p>Below example throw <code>java.lang.NullPointerException</code> Exception and It&rsquo;s an expected exception but our test is marked as failures means we are not handling the exception as expected.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpectedExceptionTest</span> <span style="color:#f92672">{</span>
 
-public class ExpectedExceptionTest {
-
-    @Test()
-    public void expectedExceptionTest() {
-        String ptr = null;
-        // This line of code throws NullPointerException
-        ptr.equals(&quot;testng&quot;);
-    }
-}
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/exception-throwing-in-testng.png" alt="exception-throwing-in-testng" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">expectedExceptionTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        String ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// This line of code throws NullPointerException
+</span><span style="color:#75715e"></span>        ptr<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://www.pawangaria.com/img/testng/exception-throwing-in-testng.png" alt="exception-throwing-in-testng"></p>
 <h3 id="with-expectedexceptions-attribute">With ExpectedExceptions attribute:</h3>
-
-<p>Now let&rsquo;s fix our above test and mark our test as pass by handling an expected exception. We will add the new attribute to our test<br />
+<p>Now let&rsquo;s fix our above test and mark our test as pass by handling an expected exception. We will add the new attribute to our test<br>
 <code>@Test(expectedExceptions = java.lang.NullPointerException.class)</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExpectedExceptionTest</span> <span style="color:#f92672">{</span>
 
-public class ExpectedExceptionTest {
-
-    @Test(expectedExceptions = java.lang.NullPointerException.class)
-    public void expectedExceptionTest() {
-        String ptr = null;
-        // This line of code throws NullPointerException
-        ptr.equals(&quot;testng&quot;);
-    }
-}
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/expected-exception-test-in-testng.png" alt="expected-exception-test-in-testng" /></p>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>expectedExceptions <span style="color:#f92672">=</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">NullPointerException</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">expectedExceptionTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        String ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// This line of code throws NullPointerException
+</span><span style="color:#75715e"></span>        ptr<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testng&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="https://www.pawangaria.com/img/testng/expected-exception-test-in-testng.png" alt="expected-exception-test-in-testng"></p>
 
 </div>
 
@@ -683,7 +669,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

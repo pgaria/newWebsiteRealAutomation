@@ -67,7 +67,7 @@
    "dateModified": "2017-11-30",
    "mainEntityOfPage":"true",
    "description": "Understanding the Architecture of Selenium WebDriver and what is  JSON Wire Protocol.",
-   "wordCount": 746
+   "wordCount":  746 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,58 +231,35 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> provides a programming interface for driving the browser for automation testing. You can find the introduction of WebDriver in my other <a href="https://www.pawangaria.com/post/automation/what-is-selenium-webdriver/">article</a>. This article is more about the architecture and understanding how selenium WebDriver uses JSON Wire Protocol.</p>
-
+  <p><a href="http://www.seleniumhq.org/projects/webdriver/">Selenium WebDriver</a> provides a programming interface for driving the browser for automation testing. You can find the introduction of WebDriver in my other <a href="https://www.pawangaria.com/post/automation/what-is-selenium-webdriver/">article</a>. This article is more about the architecture and understanding how selenium WebDriver uses JSON Wire Protocol.</p>
 <p><a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol">JSON Wire Protocol</a> is an abstract specification of how automation behavior like clicking or typing or whatever you actually want to do with your automation script is mapped to selenium or appium or HTTP requests and response.</p>
-
 <h3 id="why-json-wire-protocol-used-in-first-place">Why JSON Wire Protocol used in first place?</h3>
-
 <p>To implement a client-server architecture which can give us the following benefits.</p>
-
 <ul>
 <li>You write test in any programming language.</li>
 <li>You can perform or run test on cloud services like <a href="https://saucelabs.com/">SauceLabs</a>, <a href="https://www.browserstack.com/">BrowserStack</a> or <a href="http://www.seleniumhq.org/projects/grid/">Selenium Grid</a> setup.</li>
 <li>You are not bound to run test only on the local machine.</li>
 <li>Different Drivers(FirefoxDriver, ChromeDriver) can be crated for browsers and separate implementation by using the same standards.</li>
 </ul>
-
 <p>So client-server implementation requires a standard set of the specification beforehand so that Server and Client should be in sync with each other in term of what is coming and going on request and response. It&rsquo;s something like a language of communication with each other. So we need some common specification to solve this kind of requirement and the solution is HTTP.</p>
-
 <h3 id="why-http-is-the-solution">Why HTTP is the solution?</h3>
-
 <p>HTTP is a standard for web and can be a good base for the specification. Every <a href="https://en.wikipedia.org/wiki/Programming_language">programming language</a> has a good HTTP libraries which can be used for creating client and server for request and response calls.</p>
-
 <h3 id="how-json-wire-protocol-works-with-http">How JSON Wire protocol works with HTTP?</h3>
-
 <p>HTTP request and response are generally made of <strong>verbs, route, body and response code</strong> which I am explaining here in details:</p>
-
 <p><strong>HTTP Verbs:</strong></p>
-
 <p>GET: Retrieve some information from server for example: <em>getText, getTitle</em></p>
-
 <p>POST: Make something happen for example: <em>startSession, findElement, Click</em></p>
-
 <p>DELETE: Delete some resource for example: <em>deleteSession</em></p>
-
 <p><strong>HTTP Route:</strong></p>
-
 <p>There are many routes in JSON Wire Protocol used by WebDriver which you can check out <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#command-summary">here</a>. Few examples:</p>
-
 <pre><code>GET   /status
 
 POST  /session
 
 GET   /Session
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/client-server-request-response-webdriver.png" alt="client server request response in webdriver" /></p>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/webdriver/client-server-request-response-webdriver.png" alt="client server request response in webdriver"></p>
 <p><strong>HTTP Response Code:</strong></p>
-
 <p>HTTP status codes are not specific enough for all the kind of things might happen in Selenium WebDriver testing session. So for a specific case like <em>NoSuchElement</em> or Errors, we have a status code so that client can give a particular and useful information back to the user. There are many response codes defined in WebDriver which you can find <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#response-status-codes">here</a> in details but here are some examples:</p>
-
 <pre><code>0:   Success
 7:   NoSuchElement
 11:  ElementNotVisible
@@ -290,44 +267,24 @@ GET   /Session
 500: Something is wrong
 404: Resource not there
 501: Valid request but action not done by the server
-</code></pre>
-
-<p><strong>HTTP Request and Response Body:</strong></p>
-
+</code></pre><p><strong>HTTP Request and Response Body:</strong></p>
 <p>Everything is JSON in request and response body. JSON is used for data transfer between client and server.</p>
-
 <p><em>JSON Wire Protocol Request</em> has route and body described in JSON like:</p>
-
 <pre><code>POST /session
 {&quot;desiredCapabilities&quot; : {&quot;browserName&quot; : &quot;chrome&quot;}}
-</code></pre>
-
-<p><em>JSON Wire Protocol Response</em> has status code and value in body like a successfull findElement request will give you the following response:</p>
-
+</code></pre><p><em>JSON Wire Protocol Response</em> has status code and value in body like a successfull findElement request will give you the following response:</p>
 <pre><code>{&quot;status&quot; : 0, &quot;value&quot; : {&quot;element&quot; : &quot;123422&quot;}}
-</code></pre>
-
-<h3 id="how-test-work-with-http-and-json-wire-protocol">How Test work with HTTP and JSON Wire Protocol?</h3>
-
+</code></pre><h3 id="how-test-work-with-http-and-json-wire-protocol">How Test work with HTTP and JSON Wire Protocol?</h3>
 <p>HTTP is a <a href="https://stackoverflow.com/questions/13200152/why-say-that-http-is-a-stateless-protocol">stateless protocol</a> which means multiple requests are not associated with each other and server is not required to track the state of a particular client&rsquo;s previous request. Your test might be getting an Element in one request and clicking on the same Element in some another request, So Client and Server should share <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/server/Session.html">session</a>, element, frame etc. with each other in subsequent requests.
 So the server assigns a unique ID to these Items like session and Element and then shares them with Client. The client can decide in the request like what needs to be done on the particular ID like click on an element.</p>
-
 <p>Client makes a <a href="https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/remote/server/handler/FindElement.html">findElement</a> call to server and gets the response:</p>
-
-<pre><code>  Request:  POST  /session/::sessionId/element
-  Response: {“status”:0, “value”:{“element&quot;:”elementID”}}
-</code></pre>
-
-<p>Now client knows the elementID from the previous request&rsquo;s response and sends a click request with elementID.</p>
-
-<pre><code>   Request:  POST  /session/::sessionId/element/::elementID/click
-   Response: {“status” : 0}
-</code></pre>
-
-<h3 id="what-webdriver-is-doing-in-json-wire-protocol">What WebDriver is doing in JSON Wire protocol ?</h3>
-
+<pre><code>Request:  POST  /session/::sessionId/element
+Response: {“status”:0, “value”:{“element&quot;:”elementID”}}
+</code></pre><p>Now client knows the elementID from the previous request&rsquo;s response and sends a click request with elementID.</p>
+<pre><code>Request:  POST  /session/::sessionId/element/::elementID/click
+Response: {“status” : 0}
+</code></pre><h3 id="what-webdriver-is-doing-in-json-wire-protocol-">What WebDriver is doing in JSON Wire protocol ?</h3>
 <p>Selenium WebDriver is a client which is giving an interface to write test in programming languages like Java or Python or many other languages in the market. Server doesn&rsquo;t care or know about what language you are using for writing your tests because it only cares about the correct protocol which is <strong>JSON Wire protocol</strong>. So you can also make your own Selenium Webdriver in your choice of programming language. :)</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -729,7 +686,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

@@ -67,7 +67,7 @@
    "dateModified": "2017-12-16",
    "mainEntityOfPage":"true",
    "description": "What are the TestNG annotations and in which sequence the TestNG configuration Annotations are executed in test class explained in this article.",
-   "wordCount": 620
+   "wordCount":  620 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,212 +231,183 @@
 </div>
 
       <div class="content">
-  
-
-<p>Before talking about <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html">annotations</a> we should talk a little bit about why TestNG is required and what is the need for using any test management frameworks in our test.</p>
-
+  <p>Before talking about <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html">annotations</a> we should talk a little bit about why TestNG is required and what is the need for using any test management frameworks in our test.</p>
 <p>All the tests are designed to allow you to quickly verify your application using a very large and diverse set of different data inputs. So test management tools are responsible for managing our test and provide many functionalities or you can say methods we can directly use in Test and no need to write the logic again like comparing two objects, pre-setup for Test, passing a different set of data and many more.</p>
-
 <p>TestNG use annotations for configuration in the test like creating data, pass data, setUp, cleanup and many more. Annotation is a Java feature and you can <a href="https://en.wikipedia.org/wiki/Java_annotation">read more about annotation</a>. So let&rsquo;s see what annotations are there in TestNG.</p>
-
 <blockquote>
 <p>Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.</p>
 </blockquote>
-
 <h2 id="testng-annotations-and-execution-order">TestNG Annotations and Execution order:</h2>
-
 <h3 id="beforetest-and-aftertest">@BeforeTest and @AfterTest</h3>
+<p>@BeforeTest - Run before any test method in the class inside the <!-- raw HTML omitted --> tag is run.<br>
+@AfterTest - Run after all the test methods in the class inside the <!-- raw HTML omitted --> tag have run.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<p>@BeforeTest - Run before any test method in the class inside the <test> tag is run.<br />
-@AfterTest - Run after all the test methods in the class inside the <test> tag have run.</p>
+<span style="color:#f92672">import</span> org.testng.annotations.*<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngAnnotations</span> <span style="color:#f92672">{</span>
 
-import org.testng.annotations.*;
+    <span style="color:#a6e22e">@BeforeTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class TestngAnnotations {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @Test - testMethod1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeTest
-    public void beforeTest() {
-        System.out.println(&quot;In @BeforeTest&quot;);
-    }
-
-    @Test()
-    public void testMethod1() {
-        System.out.println(&quot;In @Test - testMethod1&quot;);
-    }
-
-    @AfterTest
-    public void afterTest() {
-        System.out.println(&quot;In @AfterTest&quot;);
-    }
-}
-</code></pre>
-
-<pre><code>In @BeforeTest
+    <span style="color:#a6e22e">@AfterTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code>In @BeforeTest
 In @Test - testMethod1
 In @AfterTest
-</code></pre>
-
-<h3 id="beforemethod-and-aftermethod">@BeforeMethod and @AfterMethod</h3>
-
-<p>@BeforeMethod - Run before each @test method.<br />
+</code></pre><h3 id="beforemethod-and-aftermethod">@BeforeMethod and @AfterMethod</h3>
+<p>@BeforeMethod - Run before each @test method.<br>
 @AfterMethod - Run after each @test method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.*<span style="color:#f92672">;</span>
 
-import org.testng.annotations.*;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngAnnotations</span> <span style="color:#f92672">{</span>
 
-public class TestngAnnotations {
+    <span style="color:#a6e22e">@BeforeTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeTest
-    public void beforeTest() {
-        System.out.println(&quot;In @BeforeTest&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println(&quot;In @BeforeMethod&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @Test - testMethod1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void testMethod1() {
-        System.out.println(&quot;In @Test - testMethod1&quot;);
-    }
+    <span style="color:#a6e22e">@AfterMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterMethod
-    public void afterMethod() {
-        System.out.println(&quot;In @AfterMethod&quot;);
-    }
-
-    @AfterTest
-    public void afterTest() {
-        System.out.println(&quot;In @AfterTest&quot;);
-    }
-}
-</code></pre>
-
-<pre><code>In @BeforeTest
+    <span style="color:#a6e22e">@AfterTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code>In @BeforeTest
 In @BeforeMethod
 In @Test - testMethod1
 In @AfterMethod
 In @AfterTest
-</code></pre>
-
-<h3 id="beforeclass-and-afterclass">@BeforeClass and @AfterClass</h3>
-
-<p>@BeforeClass - Run before the first @test method in the current class.<br />
+</code></pre><h3 id="beforeclass-and-afterclass">@BeforeClass and @AfterClass</h3>
+<p>@BeforeClass - Run before the first @test method in the current class.<br>
 @AfterClass - Run after all the @test methods in the current class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.*<span style="color:#f92672">;</span>
 
-import org.testng.annotations.*;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngAnnotations</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@BeforeClass</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeClass</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeClass&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class TestngAnnotations {
-    @BeforeClass
-    public void beforeClass() {
-        System.out.println(&quot;In @BeforeClass&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeTest
-    public void beforeTest() {
-        System.out.println(&quot;In @BeforeTest&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println(&quot;In @BeforeMethod&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @Test - testMethod1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void testMethod1() {
-        System.out.println(&quot;In @Test - testMethod1&quot;);
-    }
+    <span style="color:#a6e22e">@AfterMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterMethod
-    public void afterMethod() {
-        System.out.println(&quot;In @AfterMethod&quot;);
-    }
+    <span style="color:#a6e22e">@AfterTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterTest
-    public void afterTest() {
-        System.out.println(&quot;In @AfterTest&quot;);
-    }
-
-    @AfterClass
-    public void afterClass() {
-        System.out.println(&quot;In @AfterClass&quot;);
-    }
-}
-</code></pre>
-
-<pre><code>In @BeforeTest
+    <span style="color:#a6e22e">@AfterClass</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterClass</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterClass&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code>In @BeforeTest
 In @BeforeClass
 In @BeforeMethod
 In @Test - testMethod1
 In @AfterMethod
 In @AfterClass
 In @AfterTest
-</code></pre>
-
-<h3 id="beforesuite-and-aftersuite">@BeforeSuite and @AfterSuite</h3>
-
+</code></pre><h3 id="beforesuite-and-aftersuite">@BeforeSuite and @AfterSuite</h3>
 <p>@BeforeSuite - Run before all @tests in the current suite.
 @AfterSuite -  Run after all @tests in the current suite.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.annotations.*<span style="color:#f92672">;</span>
 
-import org.testng.annotations.*;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngAnnotations</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@BeforeSuite</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeSuite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeSuite&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class TestngAnnotations {
-    @BeforeSuite()
-    public void beforeSuite() {
-        System.out.println(&quot;In @BeforeSuite&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeClass</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeClass</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeClass&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeClass
-    public void beforeClass() {
-        System.out.println(&quot;In @BeforeClass&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeTest
-    public void beforeTest() {
-        System.out.println(&quot;In @BeforeTest&quot;);
-    }
+    <span style="color:#a6e22e">@BeforeMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @BeforeMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println(&quot;In @BeforeMethod&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @Test - testMethod1&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void testMethod1() {
-        System.out.println(&quot;In @Test - testMethod1&quot;);
-    }
+    <span style="color:#a6e22e">@AfterMethod</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterMethod&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterMethod
-    public void afterMethod() {
-        System.out.println(&quot;In @AfterMethod&quot;);
-    }
+    <span style="color:#a6e22e">@AfterTest</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterTest&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterTest
-    public void afterTest() {
-        System.out.println(&quot;In @AfterTest&quot;);
-    }
+    <span style="color:#a6e22e">@AfterClass</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterClass</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterClass&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @AfterClass
-    public void afterClass() {
-        System.out.println(&quot;In @AfterClass&quot;);
-    }
-
-    @AfterSuite
-    public void afterSuite() {
-        System.out.println(&quot;In @AfterSuite&quot;);
-    }
-}
-</code></pre>
-
-<pre><code>In @BeforeSuite
+    <span style="color:#a6e22e">@AfterSuite</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterSuite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In @AfterSuite&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><pre><code>In @BeforeSuite
 In @BeforeTest
 In @BeforeClass
 In @BeforeMethod
@@ -457,9 +428,7 @@ In @AfterSuite
 Default suite
 Total tests run: 1, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<p>TestNG has many other annotation like @BeforeGroups, @AfterGroups, @DataProvider etc. I will try to cover other annotations in the coming articles.<br />
+</code></pre><p>TestNG has many other annotation like @BeforeGroups, @AfterGroups, @DataProvider etc. I will try to cover other annotations in the coming articles.<br>
 <strong>References:</strong> <a href="http://testng.org/doc/documentation-main.html">TestNG Official Docs</a></p>
 
 </div>
@@ -861,7 +830,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

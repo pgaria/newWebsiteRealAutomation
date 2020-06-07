@@ -67,7 +67,7 @@
    "dateModified": "2017-12-08",
    "mainEntityOfPage":"true",
    "description": "How to use ChromeDriver without Selenium WebDriver Client and How can we perform actions on chrome browser using PostMan for API calls?",
-   "wordCount": 623
+   "wordCount":  623 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,166 +231,105 @@
 </div>
 
       <div class="content">
-  
-
-<p>If you are using WebDriver or learning how to use Selenium for test automation, you must be using some programming language like Java or PHP, etc. for automation and performing actions on browsers like Chrome. But in this article we are not going to use WebDriver Client Like Java or PHP, etc. and we will perform actions like open URL, Click Button or Enter Text using ChromeDriver and PostMan tool.</p>
-
+  <p>If you are using WebDriver or learning how to use Selenium for test automation, you must be using some programming language like Java or PHP, etc. for automation and performing actions on browsers like Chrome. But in this article we are not going to use WebDriver Client Like Java or PHP, etc. and we will perform actions like open URL, Click Button or Enter Text using ChromeDriver and PostMan tool.</p>
 <p>I am going to use <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol">JSON Wire Protocol</a> for driving chrome driver. You can read more in details about <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">what is JSON Wire Protocol in my old posts.</a></p>
-
 <h4 id="download-chromedriver-and-postman">Download ChromeDriver and PostMan</h4>
-
 <p>The first step is to download the ChromeDrive executable from Google ChromeDriver Page.
 If you already have ChromeDriver downloaded, you can use the same executable. I am going to use the ChromeDrive for MAC OS here in this article. Windows users can also download the .exe file and perform all the steps.</p>
-
 <p>We also need to download <a href="https://www.getpostman.com/">Postman</a>. PostMan is a super cool tool for API development. You can send and receive API request from PostMan. you can read more about <a href="https://www.getpostman.com/postman">Postman Download Page</a>.</p>
-
 <h4 id="start-chromedriver-on-terminal">Start ChromeDriver on Terminal:</h4>
-
 <p>After downloading ChromeDriver we need to first start the ChromeDriver executable on the local machine.</p>
-
 <pre><code>$ Downloads ./chromedriver
 
 Starting ChromeDriver 2.33.506 (8a06c39c9173bfb1a2) on port 9515
 Only local connections are allowed.
-</code></pre>
-
-<p>Now we have a successfully running ChromeDriver. Please pay attention to the port no in the Starting message of ChromeDriver. It always starts on 9515 by default and start listening on the same port.</p>
-
+</code></pre><p>Now we have a successfully running ChromeDriver. Please pay attention to the port no in the Starting message of ChromeDriver. It always starts on 9515 by default and start listening on the same port.</p>
 <h4 id="open-google-chrome-browser">Open Google Chrome Browser:</h4>
-
 <p>Now open Postman which is installed on your machine and you should make a POST call to ChromeDriver.
-<img src="https://www.pawangaria.com/img/webdriver/create-session-request-postman.png" alt="create-webdriver-session-from-postman" /></p>
-
+<img src="https://www.pawangaria.com/img/webdriver/create-session-request-postman.png" alt="create-webdriver-session-from-postman"></p>
 <p><strong>POST:</strong> <code>http://localhost:9515/session</code></p>
-
 <p><strong>Request Body:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;desiredCapabilities&quot;: {
-        &quot;caps&quot;: {
-            &quot;nativeEvents&quot;: false,
-            &quot;browserName&quot;: &quot;chrome&quot;,
-            &quot;version&quot;: &quot;&quot;,
-            &quot;platform&quot;: &quot;ANY&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;desiredCapabilities&#34;</span>: {
+        <span style="color:#f92672">&#34;caps&#34;</span>: {
+            <span style="color:#f92672">&#34;nativeEvents&#34;</span>: <span style="color:#66d9ef">false</span>,
+            <span style="color:#f92672">&#34;browserName&#34;</span>: <span style="color:#e6db74">&#34;chrome&#34;</span>,
+            <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+            <span style="color:#f92672">&#34;platform&#34;</span>: <span style="color:#e6db74">&#34;ANY&#34;</span>
         }
     }
 }
-</code></pre>
-
-<p><strong>Response:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;sessionId&quot;: &quot;05567e0fc54f5859a7418632a8988cc7&quot;,
-    &quot;status&quot;: 0,
-    &quot;value&quot;: {
-        &quot;acceptSslCerts&quot;: true,
-        &quot;browserName&quot;: &quot;chrome&quot;,
-        &quot;chrome&quot;: {
-            &quot;chromedriverVersion&quot;: &quot;2.33.506 (8a06c39c9173bfb1a2)&quot;,
-            &quot;userDataDir&quot;: &quot;/var/folders/v2/5jldd5952fng_t6cbl3064csc8p6dn/T/.org.chromium.Chromium.0ETZRP&quot;
+</code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;05567e0fc54f5859a7418632a8988cc7&#34;</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: {
+        <span style="color:#f92672">&#34;acceptSslCerts&#34;</span>: <span style="color:#66d9ef">true</span>,
+        <span style="color:#f92672">&#34;browserName&#34;</span>: <span style="color:#e6db74">&#34;chrome&#34;</span>,
+        <span style="color:#f92672">&#34;chrome&#34;</span>: {
+            <span style="color:#f92672">&#34;chromedriverVersion&#34;</span>: <span style="color:#e6db74">&#34;2.33.506 (8a06c39c9173bfb1a2)&#34;</span>,
+            <span style="color:#f92672">&#34;userDataDir&#34;</span>: <span style="color:#e6db74">&#34;/var/folders/v2/5jldd5952fng_t6cbl3064csc8p6dn/T/.org.chromium.Chromium.0ETZRP&#34;</span>
         },
-        &quot;cssSelectorsEnabled&quot;: true,
-        &quot;pageLoadStrategy&quot;: &quot;normal&quot;,
-        &quot;platform&quot;: &quot;Mac OS X&quot;,
-        &quot;version&quot;: &quot;62.0.3202.94&quot;,
+        <span style="color:#f92672">&#34;cssSelectorsEnabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+        <span style="color:#f92672">&#34;pageLoadStrategy&#34;</span>: <span style="color:#e6db74">&#34;normal&#34;</span>,
+        <span style="color:#f92672">&#34;platform&#34;</span>: <span style="color:#e6db74">&#34;Mac OS X&#34;</span>,
+        <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;62.0.3202.94&#34;</span>,
     }
 }
-</code></pre>
-
-<p><em>You should save the SessionID from the Response you received as we are going to need SessionID for further communication.</em></p>
-
-<h4 id="now-let-s-redirect-to-the-url">Now let&rsquo;s redirect to the URL:</h4>
-
+</code></pre></div><p><em>You should save the SessionID from the Response you received as we are going to need SessionID for further communication.</em></p>
+<h4 id="now-lets-redirect-to-the-url">Now let&rsquo;s redirect to the URL:</h4>
 <p>Now As you can see the ChromeBrowser is open and ready to open any URL.
 We need to do POST call again with the session ID which we saved from our last API response.You can replace the sessionID which I have used within the request.</p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/get-url-post-request-postman.png" alt="get-url-post-request-from-postman" /></p>
-
+<p><img src="https://www.pawangaria.com/img/webdriver/get-url-post-request-postman.png" alt="get-url-post-request-from-postman"></p>
 <p><strong>Example:</strong> <code>http://localhost:9515/session/:SessionID/url</code></p>
-
 <p><strong>Post:</strong> <code>http://localhost:9515/session/05567e0fc54f5859a7418632a8988cc7/url</code></p>
-
 <p><strong>Request Body:</strong></p>
-
-<pre><code class="language-json">{&quot;url&quot;:&quot;https://www.google.com&quot;}
-</code></pre>
-
-<p><strong>Response:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;sessionId&quot;: &quot;05567e0fc54f5859a7418632a8988cc7&quot;,
-    &quot;status&quot;: 0,
-    &quot;value&quot;: null
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;https://www.google.com&#34;</span>}
+</code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;05567e0fc54f5859a7418632a8988cc7&#34;</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#66d9ef">null</span>
 }
-</code></pre>
-
-<h4 id="now-let-s-find-an-element-on-the-page">Now let&rsquo;s find an Element on the page:</h4>
-
+</code></pre></div><h4 id="now-lets-find-an-element-on-the-page">Now let&rsquo;s find an Element on the page:</h4>
 <p>Now we have the URL opened in our chrome browser and lets find the search textBox from the page in our next request.
-<img src="https://www.pawangaria.com/img/webdriver/post-request-find-searchButton-postman.png" alt="post-request-find-searchButton-postman" /></p>
-
+<img src="https://www.pawangaria.com/img/webdriver/post-request-find-searchButton-postman.png" alt="post-request-find-searchButton-postman"></p>
 <p><strong>Post:</strong> <code>http://localhost:9515/session/05567e0fc54f5859a7418632a8988cc7/element</code></p>
-
 <p><strong>Request Body:</strong></p>
-
-<pre><code class="language-json">{&quot;using&quot;:&quot;name&quot;,&quot;value&quot;:&quot;q&quot;}
-</code></pre>
-
-<p><strong>Response:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;sessionId&quot;: &quot;05567e0fc54f5859a7418632a8988cc7&quot;,
-    &quot;status&quot;: 0,
-    &quot;value&quot;: {
-        &quot;ELEMENT&quot;: &quot;0.1450256429796304-1&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;using&#34;</span>:<span style="color:#e6db74">&#34;name&#34;</span>,<span style="color:#f92672">&#34;value&#34;</span>:<span style="color:#e6db74">&#34;q&#34;</span>}
+</code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;05567e0fc54f5859a7418632a8988cc7&#34;</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: {
+        <span style="color:#f92672">&#34;ELEMENT&#34;</span>: <span style="color:#e6db74">&#34;0.1450256429796304-1&#34;</span>
     }
 }
-</code></pre>
-
-<p><em>You should save the ELEMENT value from the response as this is the Element ID and we need to pass this in next request</em></p>
-
-<h4 id="now-let-s-send-the-value-chrome-to-this-search-element-textbox">Now let&rsquo;s send the value &laquo;Chrome&raquo; to this search Element textBox:</h4>
-
+</code></pre></div><p><em>You should save the ELEMENT value from the response as this is the Element ID and we need to pass this in next request</em></p>
+<h4 id="now-lets-send-the-value-chrome-to-this-search-element-textbox">Now let&rsquo;s send the value &ldquo;Chrome&rdquo; to this search Element textBox:</h4>
 <p>Now we have received the elementID of the SearchTextBox and now we can send any Text to this TextBox using the POST call.</p>
-
-<p><img src="https://www.pawangaria.com/img/webdriver/enter-text-in-chrome-request-postman.png" alt="enter-text-in-chrome-request-postman" />
+<p><img src="https://www.pawangaria.com/img/webdriver/enter-text-in-chrome-request-postman.png" alt="enter-text-in-chrome-request-postman">
 <strong>Example:</strong> <code>http://localhost:9515/session/:sessionID/element/:elementID/value</code></p>
-
 <p><strong>Post:</strong> <code>http://localhost:9515/session/05567e0fc54f5859a7418632a8988cc7/element/0.1450256429796304-1/value</code></p>
-
 <p><strong>Request Body:</strong></p>
-
-<pre><code class="language-json">{&quot;value&quot;:[&quot;chrome&quot;]}
-</code></pre>
-
-<p><strong>Response:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;sessionId&quot;: &quot;05567e0fc54f5859a7418632a8988cc7&quot;,
-    &quot;status&quot;: 0,
-    &quot;value&quot;: null
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;value&#34;</span>:[<span style="color:#e6db74">&#34;chrome&#34;</span>]}
+</code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;05567e0fc54f5859a7418632a8988cc7&#34;</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#66d9ef">null</span>
 }
-</code></pre>
-
-<h4 id="now-quit-driver-instance">Now Quit Driver instance:</h4>
-
+</code></pre></div><h4 id="now-quit-driver-instance">Now Quit Driver instance:</h4>
 <p>Now to Quit Driver session and close the Chrome Browser, we should send the DELETE request with the session ID.</p>
-
 <p><strong>DELETE:</strong> <code>http://localhost:9515/session/05567e0fc54f5859a7418632a8988cc7</code></p>
-
 <p><strong>Response:</strong></p>
-
-<pre><code class="language-json">{
-    &quot;sessionId&quot;: &quot;05567e0fc54f5859a7418632a8988cc7&quot;,
-    &quot;status&quot;: 0,
-    &quot;value&quot;: null
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;sessionId&#34;</span>: <span style="color:#e6db74">&#34;05567e0fc54f5859a7418632a8988cc7&#34;</span>,
+    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#66d9ef">null</span>
 }
-</code></pre>
-
-<p>I have used <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#command-reference">JsonWireProtocol</a> standards about requests to perform few actions on the browser. You can try to perform more actions using the PostMan tool.</p>
-
+</code></pre></div><p>I have used <a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#command-reference">JsonWireProtocol</a> standards about requests to perform few actions on the browser. You can try to perform more actions using the PostMan tool.</p>
 <p>If you don&rsquo;t want to use PostMan tool for API requests and you can use Java as programming language with any HTTPClient available.</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -792,7 +731,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

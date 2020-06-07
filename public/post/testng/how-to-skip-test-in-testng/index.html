@@ -67,7 +67,7 @@
    "dateModified": "2017-12-20",
    "mainEntityOfPage":"true",
    "description": "How to skip a Test in TestNG and marking a test as Skip should be present in Test Report as Skiped testcase.",
-   "wordCount": 174
+   "wordCount":  174 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,54 +229,42 @@
 </div>
 
       <div class="content">
-  
-
-<p>Skipping test is also an important concept in <a href="http://testng.org/doc/">TestNG</a>. You can skip the test from running as you don&rsquo;t want to Run the @test and mark the @test as Skip in reports.</p>
-
+  <p>Skipping test is also an important concept in <a href="http://testng.org/doc/">TestNG</a>. You can skip the test from running as you don&rsquo;t want to Run the @test and mark the @test as Skip in reports.</p>
 <p>To Skip the test we need to use <code>org.testng.SkipException</code> an <a href="https://jitpack.io/com/github/cbeust/testng/master/javadoc/org/testng/SkipException.html">Exception Class from TestNG</a>. We have to throw an exception to the first line and code will come out from the test. You can have a look at Java document to read more about <a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html">exception throwing</a>.</p>
-
 <h3 id="how-to-skip-test">How to Skip @Test:</h3>
-
 <p>We are going to throw SkipException in the following example Class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.SkipException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.SkipException;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SkipTestInTestng</span> <span style="color:#f92672">{</span>
+	<span style="color:#75715e">// Skip Test
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">skipTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> SkipException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Skipped Test&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-public class SkipTestInTestng {
-	// Skip Test
-	@Test()
-	public void skipTestMethod() {
-		throw new SkipException(&quot;Skipped Test&quot;);
-	}
+	<span style="color:#75715e">// Pass Test
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">passTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
 
-	// Pass Test
-	@Test()
-	public void passTestMethod() {
-		Assert.assertTrue(true);
-	}
-
-	// Fail Test
-	@Test()
-	public void failTestMethod() {
-		Assert.assertTrue(false);
-	}
-}
-</code></pre>
-
-<h3 id="when-you-run-the-class">When You Run the Class:</h3>
-
+	<span style="color:#75715e">// Fail Test
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">failTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="when-you-run-the-class">When You Run the Class:</h3>
 <p>When we ran the above example class TestNG report has one Test Failure and one Test marked as Skipped.</p>
-
-<pre><code class="language-Console">===============================================
+<pre><code class="language-Console" data-lang="Console">===============================================
     Default test
     Tests run: 3, Failures: 1, Skips: 1
 ===============================================
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/skip-test-in-testng-results.png" alt="skip-test-in-testng-results" /></p>
+</code></pre><p><img src="https://www.pawangaria.com/img/testng/skip-test-in-testng-results.png" alt="skip-test-in-testng-results"></p>
 
 </div>
 
@@ -677,7 +665,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

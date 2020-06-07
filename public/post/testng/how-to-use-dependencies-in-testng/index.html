@@ -67,7 +67,7 @@
    "dateModified": "2017-12-27",
    "mainEntityOfPage":"true",
    "description": "How to use the dependsOnMethods and dependsOnGroups attributes @Test annotation for the dependencies and how to use alwaysRun attribute with dependencies.",
-   "wordCount": 517
+   "wordCount":  517 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,168 +231,134 @@
 </div>
 
       <div class="content">
-  
-
-<p>Sometimes we have steps or tests which are depended on each other and can not be performed alone. For example: To update Facebook account details, User should be logged in already.I personally do not recommend making test cases dependent upon each other and should be independent.<br />
+  <p>Sometimes we have steps or tests which are depended on each other and can not be performed alone. For example: To update Facebook account details, User should be logged in already.I personally do not recommend making test cases dependent upon each other and should be independent.<br>
 To make dependencies between test, TestNG provides <em>dependsOnMethods</em> or <em>dependsOnGroups</em> attributes which can be used in the @Test.
 As per the TestNg documentation, there are two types of dependencies:</p>
-
 <ul>
-<li><strong>Hard dependencies:</strong> If a dependent method failed, all the test methods will be skipped (not failed)<br /></li>
-<li><strong>Soft dependencies:</strong> Run all the methods even if the dependent methods failed. To make soft dependencies in our test we have to use <strong>&laquo;alwaysRun=true&raquo;</strong> in your @Test.</li>
+<li><strong>Hard dependencies:</strong> If a dependent method failed, all the test methods will be skipped (not failed)</li>
+<li><strong>Soft dependencies:</strong> Run all the methods even if the dependent methods failed. To make soft dependencies in our test we have to use <strong>&ldquo;alwaysRun=true&rdquo;</strong> in your @Test.</li>
 </ul>
-
 <p>Let&rsquo;s see some working examples to understand the concept:</p>
-
 <h3 id="dependsonmethods">#dependsOnMethods</h3>
-
 <p>Let&rsquo;s make two @test methods where the second method depends on the first method.</p>
-
 <blockquote>
 <p>secondTestMethod() is declared as independent on method firstTestMethod(), which guarantees that firstTestMethod() will always be invoked first.</p>
 </blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.dependencies<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.dependencies;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DependsOnMethodsTest</span> <span style="color:#f92672">{</span>
 
-public class DependsOnMethodsTest {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-    }
-
-    @Test(dependsOnMethods = { &quot;firstTestMethod&quot; })
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="output">Output:</h4>
-
-<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethods-testng-result.png" alt="dependsOnMethods-testng-result" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dependsOnMethods <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;firstTestMethod&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output">Output:</h4>
+<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethods-testng-result.png" alt="dependsOnMethods-testng-result"></p>
 <p>Let&rsquo;s change our test class and make the dependent method firstTestMethod() failed. Now in results dependent method <strong>firstTestMethod()</strong> should be FAILED but our method <strong>secondTestMethod()</strong> should be SKIPPED.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.dependencies<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.dependencies;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DependsOnMethodsTest</span> <span style="color:#f92672">{</span>
 
-public class DependsOnMethodsTest {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-        Assert.assertTrue(false);
-    }
-
-    @Test(dependsOnMethods = { &quot;firstTestMethod&quot; })
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="output-1">Output:</h4>
-
-<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethods-failure-testng-result.png" alt="dependsOnMethods-failure-testng-result" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dependsOnMethods <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;firstTestMethod&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-1">Output:</h4>
+<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethods-failure-testng-result.png" alt="dependsOnMethods-failure-testng-result"></p>
 <h3 id="how-to-use-alwaysrun-and-make-soft-dependencies">How to use &lsquo;alwaysRun&rsquo; and make Soft dependencies:</h3>
-
 <p>Let&rsquo;s change our test class again and add <em>alwaysRun = true</em> in the second method. Now in results dependent method <strong>firstTestMethod()</strong> should be FAILED but our method <strong>secondTestMethod()</strong> should be Running and PASSED.</p>
-
 <blockquote>
 <p>alwaysRun attribute is a boolean type, so only accepted values are true and false.</p>
 </blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.dependencies<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.dependencies;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DependsOnMethodsTest</span> <span style="color:#f92672">{</span>
 
-public class DependsOnMethodsTest {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test()
-    public void firstTestMethod() {
-        System.out.println(&quot;First test method&quot;);
-        Assert.assertTrue(false);
-    }
-
-    @Test(dependsOnMethods = { &quot;firstTestMethod&quot; }, alwaysRun = true)
-    public void secondTestMethod() {
-        System.out.println(&quot;Second test method&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="output-2">Output:</h4>
-
-<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethod-with-alwaysRun-testng.png" alt="dependsOnMethod-with-alwaysRun-testng" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dependsOnMethods <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;firstTestMethod&#34;</span> <span style="color:#f92672">},</span> alwaysRun <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-2">Output:</h4>
+<p><img src="https://www.pawangaria.com/img/testng/dependsOnMethod-with-alwaysRun-testng.png" alt="dependsOnMethod-with-alwaysRun-testng"></p>
 <h3 id="dependsongroups">#dependsOnGroups</h3>
-
 <p>We have two test methods which are part of a Group and <strong>TestMethodDependOnGroup()</strong> is dependent on the group <strong>testGroup</strong> itself. So If any of the tests failed from the group, all the @test dependent on the group would be SKIPPED.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.dependencies<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.dependencies;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DependsOnGroupsTest</span> <span style="color:#f92672">{</span>
 
-public class DependsOnGroupsTest {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>groups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstGroupMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First Group method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(groups = { &quot;testGroup&quot; })
-    public void firstGroupMethod() {
-        System.out.println(&quot;First Group method&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>groups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondGroupMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second Group method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(groups = { &quot;testGroup&quot; })
-    public void secondGroupMethod() {
-        System.out.println(&quot;Second Group method&quot;);
-    }
-
-    @Test(dependsOnGroups = { &quot;testGroup&quot; })
-    public void TestMethodDependOnGroup() {
-        System.out.println(&quot;test method depending on group&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="output-3">Output:</h4>
-
-<p><img src="https://www.pawangaria.com/img/testng/dependsOnGroup-testng-result.png" alt="dependsOnGroup-testng-result" /></p>
-
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dependsOnGroups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">TestMethodDependOnGroup</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test method depending on group&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-3">Output:</h4>
+<p><img src="https://www.pawangaria.com/img/testng/dependsOnGroup-testng-result.png" alt="dependsOnGroup-testng-result"></p>
 <p>Let&rsquo;s change above class and mark one test method from the group as Failed and our dependent method <strong>TestMethodDependOnGroup()</strong> should be marked as SKIPPED.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng.dependencies<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng.dependencies;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DependsOnGroupsTest</span> <span style="color:#f92672">{</span>
 
-public class DependsOnGroupsTest {
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>groups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstGroupMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First Group method&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(groups = { &quot;testGroup&quot; })
-    public void firstGroupMethod() {
-        System.out.println(&quot;First Group method&quot;);
-    }
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>groups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondGroupMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First Group method&#34;</span><span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertTrue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    @Test(groups = { &quot;testGroup&quot; })
-    public void secondGroupMethod() {
-        System.out.println(&quot;First Group method&quot;);
-        Assert.assertTrue(false);
-    }
-
-    @Test(dependsOnGroups = { &quot;testGroup&quot; })
-    public void TestMethodDependOnGroup() {
-        System.out.println(&quot;test method depending on group&quot;);
-    }
-}
-</code></pre>
-
-<h4 id="output-4">Output:</h4>
-
-<p><img src="https://www.pawangaria.com/img/testng/dependsOnGroup-failed-test-result.png" alt="dependsOnGroup-failed-test-result" /></p>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dependsOnGroups <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;testGroup&#34;</span> <span style="color:#f92672">})</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">TestMethodDependOnGroup</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test method depending on group&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="output-4">Output:</h4>
+<p><img src="https://www.pawangaria.com/img/testng/dependsOnGroup-failed-test-result.png" alt="dependsOnGroup-failed-test-result"></p>
 
 </div>
 
@@ -793,7 +759,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

@@ -67,7 +67,7 @@
    "dateModified": "2018-01-23",
    "mainEntityOfPage":"true",
    "description": "Setting up Selenium WebDriver Grid can be easy using docker-compose.yml file. In this Article, we are going to talk about docker-compose and how to use it in our Grid SetUp.",
-   "wordCount": 525
+   "wordCount":  525 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -233,87 +233,58 @@
 </div>
 
       <div class="content">
-  
-
-<p>In our last Article, we learned steps to create Selenium Grid using Docker. In our article, we used all the steps from the command line. Now there is a better way to setup Grid using docker-compose file. Using the Docker compose file It&rsquo;s very easy to up and down and scale our grid by just running the File.</p>
-
+  <p>In our last Article, we learned steps to create Selenium Grid using Docker. In our article, we used all the steps from the command line. Now there is a better way to setup Grid using docker-compose file. Using the Docker compose file It&rsquo;s very easy to up and down and scale our grid by just running the File.</p>
 <h3 id="what-is-docker-compose-file">#What is Docker-Compose File?</h3>
-
 <p><a href="https://github.com/docker/compose">Compose</a> is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application&rsquo;s services. Then, using a single command, you create and start and stop all the services from your configuration.
 Compose tool in docker can be used using a simple Compose file which is a YAML file defining services, networks, and volumes.</p>
-
 <h3 id="create-a-docker-compose-file-for-selenium-grid">#Create a Docker-Compose File For Selenium Grid:</h3>
-
 <p>Below is the docker-compose.yml file which is used for the Selenium Grid. If you look into the file we can see the selenium-hub running at <code>4444</code> port and then selenium-chrome and selenium-firefox images. <em>We are not providing any names for the node and Docker will give a random name to all the nodes.</em></p>
-
 <p><strong>Create docker-compose.yml file</strong></p>
-
-<pre><code class="language-yaml">selenium-hub:
-  restart: always
-  image: selenium/hub:latest
-  ports:
-    - &quot;4444:4444&quot;
-#selenium-chrome
-selenium-chrome:
-  restart: always
-  image: selenium/node-chrome-debug
-  stdin_open: true
-  links:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">selenium-hub</span>:
+  <span style="color:#66d9ef">restart</span>: always
+  <span style="color:#66d9ef">image</span>: selenium/hub:latest
+  <span style="color:#66d9ef">ports</span>:
+    - <span style="color:#e6db74">&#34;4444:4444&#34;</span>
+<span style="color:#75715e">#selenium-chrome</span>
+<span style="color:#66d9ef">selenium-chrome</span>:
+  <span style="color:#66d9ef">restart</span>: always
+  <span style="color:#66d9ef">image</span>: selenium/node-chrome-debug
+  <span style="color:#66d9ef">stdin_open</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">links</span>:
     - selenium-hub:hub
-#selenium-firefox
-selenium-firefox:
-  restart: always
-  image: selenium/node-firefox-debug
-  links:
+<span style="color:#75715e">#selenium-firefox</span>
+<span style="color:#66d9ef">selenium-firefox</span>:
+  <span style="color:#66d9ef">restart</span>: always
+  <span style="color:#66d9ef">image</span>: selenium/node-firefox-debug
+  <span style="color:#66d9ef">links</span>:
     - selenium-hub:hub
-</code></pre>
-
-<p><strong>Start up Selenium Grid:</strong><br />
+</code></pre></div><p><strong>Start up Selenium Grid:</strong><br>
 To Start up Selenium Grid, Go to the directory where docker-compose.yml file is placed and Run following command:</p>
-
 <pre><code>docker-compose up -d
-</code></pre>
-
-<pre><code>~ docker-compose up -d
+</code></pre><pre><code>~ docker-compose up -d
 Creating pawangaria_selenium-hub_1 ...
 Creating pawangaria_selenium-hub_1 ... done
 Creating pawangaria_selenium-firefox_1 ...
 Creating pawangaria_selenium-chrome_1 ...
 Creating pawangaria_selenium-firefox_1
 Creating pawangaria_selenium-chrome_1 ... done
-</code></pre>
-
-<p><strong>Check Containers:</strong><br />
+</code></pre><p><strong>Check Containers:</strong><br>
 After running the docker compose file we should check the containers and selenium grid is up and running using below command:</p>
-
 <pre><code>docker ps
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-ps-selenium-grid-start.png" alt="docker-ps-selenium-grid-start" /></p>
-
-<p><strong>Check Console:</strong><br />
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-ps-selenium-grid-start.png" alt="docker-ps-selenium-grid-start"></p>
+<p><strong>Check Console:</strong><br>
 Open the browser and open the URL <code>http://localhost:4444/grid/console</code> which will open the Selenium Grid Console. We can verify hub with chrome and firefox browser nodes. <em>You can check the Browser Version also in the console.</em>
-<img src="https://www.pawangaria.com/img/docker/docker-selenium-grid-console-web.png" alt="docker-selenium-grid-console-web" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-selenium-grid-console-web.png" alt="docker-selenium-grid-console-web"></p>
 <h3 id="scale-up-docker-selenium-grid-instance">#Scale up Docker Selenium Grid Instance:</h3>
-
 <p>Now we have docker-compose file with all the configurations and It&rsquo;s very easy to <a href="https://docs.docker.com/compose/reference/scale/">scale</a> your containers by just one command. We can create <strong>3 chrome and 3 firefox</strong> browser instance in below command:</p>
-
 <pre><code>docker-compose scale selenium-chrome=3 selenium-firefox=3
-</code></pre>
-
-<p><strong>Check console after Node scale:</strong><br />
+</code></pre><p><strong>Check console after Node scale:</strong><br>
 Check the hub URL <code>http://localhost:4444/grid/console</code> again on your browser, You can see all the <strong>3 chrome and 3 firefox</strong> nodes up and running.
-<img src="https://www.pawangaria.com/img/docker/docker-scale-selenium-grid-up.png" alt="docker-scale-selenium-grid-up" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/docker-scale-selenium-grid-up.png" alt="docker-scale-selenium-grid-up"></p>
 <h3 id="how-to-stop-selenium-grid">#How to Stop Selenium Grid:</h3>
-
 <p>It&rsquo;s easy to stop Selenium Grid using a simple command with docker-compose file:</p>
-
 <pre><code>docker-compose down
-</code></pre>
-
-<pre><code>➜  ~ docker-compose down
+</code></pre><pre><code>➜  ~ docker-compose down
 Stopping pawangaria_selenium-firefox_3 ... done
 Stopping pawangaria_selenium-firefox_2 ... done
 Stopping pawangaria_selenium-chrome_3  ... done
@@ -329,10 +300,7 @@ Removing pawangaria_selenium-firefox_1 ... done
 Removing pawangaria_selenium-chrome_1  ... done
 Removing pawangaria_selenium-hub_1     ... done
 ➜  ~
-</code></pre>
-
-<h3 id="what-s-next">What&rsquo;s Next:</h3>
-
+</code></pre><h3 id="whats-next">What&rsquo;s Next:</h3>
 <p>As Scaling Selenium Grid in docker is pretty easy and simple, Now you can try to Run test parallel on the Grid and multi browser Test cases. In next article we will try to enhance our grid setup and Alternatives for Selenium docker images.</p>
 
 </div>
@@ -734,7 +702,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

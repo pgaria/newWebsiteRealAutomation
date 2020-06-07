@@ -67,7 +67,7 @@
    "dateModified": "2018-01-01",
    "mainEntityOfPage":"true",
    "description": "TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.",
-   "wordCount": 725
+   "wordCount":  725 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,129 +231,99 @@
 </div>
 
       <div class="content">
-  
-
-<p>TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.TestNG use the concept of <a href="https://www.tutorialspoint.com/java/java_multithreading.htm">multi-threading</a> from Java.
-In the configuration file, the parallel attribute on the <suite> tag us been used for the parallel execution using the testng.xml file.
+  <p>TestNG allows the tests to run in parallel or multi-threaded mode. Parallel test are helpfull for reduction in test execution time.TestNG use the concept of <a href="https://www.tutorialspoint.com/java/java_multithreading.htm">multi-threading</a> from Java.
+In the configuration file, the parallel attribute on the <!-- raw HTML omitted --> tag us been used for the parallel execution using the testng.xml file.
 <strong>Example:</strong></p>
-
-<pre><code class="language-xml">&lt;suite name=&quot;Suite&quot; parallel=&quot;methods&quot; thread-count=&quot;2&quot; configfailurepolicy=&quot;continue&quot;&gt;
-</code></pre>
-
-<p>Parallel attribute take multiple values, Below are the valid values:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span> <span style="color:#a6e22e">parallel=</span><span style="color:#e6db74">&#34;methods&#34;</span> <span style="color:#a6e22e">thread-count=</span><span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#a6e22e">configfailurepolicy=</span><span style="color:#e6db74">&#34;continue&#34;</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>Parallel attribute take multiple values, Below are the valid values:</p>
 <ul>
 <li><strong>parallel= methods</strong> : Run all your test methods in separate threads.</li>
-<li><strong>parallel= tests</strong> : Run all the methods in the same <test> tag in the same thread, but each   <test> tag will be in a separate thread.</li>
+<li><strong>parallel= tests</strong> : Run all the methods in the same <!-- raw HTML omitted --> tag in the same thread, but each   <!-- raw HTML omitted --> tag will be in a separate thread.</li>
 <li><strong>parallel= classes</strong> : Run each class in a separate thread but all the methods in the same class in the same thread.</li>
 <li><strong>parallel= instances</strong> : Run all the methods in the same instance in the same thread.</li>
 </ul>
-
 <p><strong>thread-count</strong> attribute value allows you to specify how many threads should be allocated for the execution.</p>
-
 <p><strong>configfailurepolicy</strong> attribute value as <strong>continue</strong> allows Test to continue running after Failures.</p>
-
 <p>Lets create an Example for all the values for parallel attribute type.</p>
-
 <h3 id="1-test-methods-in-parallel">1. Test methods in parallel:</h3>
-
 <p>To Run Test methods parallel each test method will run in a separate single thread, So we will print the Thread ID for the particular Test and which should be different.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.tutorial.testng.parallel<span style="color:#f92672">;</span>
 
-<pre><code class="language-java">package com.tutorial.testng.parallel;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodInParallel</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
 
-public class MethodInParallel {
-	@Test()
-	public void firstTestMethod() {
-		System.out.println(&quot;First test method, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-
-	@Test()
-	public void secondTestMethod() {
-		System.out.println(&quot;Second test method, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-}
-</code></pre>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; parallel=&quot;methods&quot; thread-count=&quot;2&quot; &gt;
-  &lt;test name=&quot;Test&quot; group-by-instances=&quot;true&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.parallel.MethodInParallel&quot; /&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span> <span style="color:#a6e22e">parallel=</span><span style="color:#e6db74">&#34;methods&#34;</span> <span style="color:#a6e22e">thread-count=</span><span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span> <span style="color:#a6e22e">group-by-instances=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.parallel.MethodInParallel&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="output">Output:</h3>
 <p>After running the testng.xml file we can see the output with both the test methods in different ThreadID as 11 and 10, which means both test ran in parallel Thread.</p>
-
-<pre><code class="language-text">Second test method, ThreadID:11
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Second test method, ThreadID:11
 First test method, ThreadID:10
 ===============================================
 Suite
 Total tests run: 2, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<h3 id="2-test-class-in-parallel">2. Test Class in parallel:</h3>
-
+</code></pre></div><h3 id="2-test-class-in-parallel">2. Test Class in parallel:</h3>
 <p>To Run Test Class parallel meaning each Class will be executed in a different Thread and the same thread is used for Test method Execution. For this Example We need to Create 2 Class which will Run in Parallel.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.tutorial.testng.parallel<span style="color:#f92672">;</span>
 
-<pre><code class="language-java">package com.tutorial.testng.parallel;
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassInParallelOne</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method from Class One, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
 
-public class ClassInParallelOne {
-	@Test()
-	public void firstTestMethod() {
-	System.out.println(&quot;First test method from Class One, ThreadID:&quot; + Thread.currentThread().getId());
-	}
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method from Class One, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.tutorial.testng.parallel<span style="color:#f92672">;</span>
 
-	@Test()
-	public void secondTestMethod() {
-	System.out.println(&quot;Second test method from Class One, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-}
-</code></pre>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-java">package com.tutorial.testng.parallel;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassInParallelTwo</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method from Class Two, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
 
-import org.testng.annotations.Test;
-
-public class ClassInParallelTwo {
-	@Test()
-	public void firstTestMethod() {
-	System.out.println(&quot;First test method from Class Two, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-
-	@Test()
-	public void secondTestMethod() {
-	System.out.println(&quot;Second test method from Class Two, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-}
-</code></pre>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; parallel=&quot;classes&quot; thread-count=&quot;2&quot; &gt;
-  &lt;test name=&quot;Test&quot; group-by-instances=&quot;true&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.parallel.ClassInParallelOne&quot; /&gt;
-       &lt;class name=&quot;com.tutorial.testng.parallel.ClassInParallelTwo&quot; /&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="output-1">Output:</h3>
-
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method from Class Two, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span> <span style="color:#a6e22e">parallel=</span><span style="color:#e6db74">&#34;classes&#34;</span> <span style="color:#a6e22e">thread-count=</span><span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span> <span style="color:#a6e22e">group-by-instances=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.parallel.ClassInParallelOne&#34;</span> <span style="color:#f92672">/&gt;</span>
+       <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.parallel.ClassInParallelTwo&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="output-1">Output:</h3>
 <p>After running the testng.xml file we can see the output as Class One is using ThreadID:10 and Class Two is using ThreadID:11. Both the Test methods from Class Ran in the Same Thread.</p>
-
-<pre><code class="language-text">First test method from Class One, ThreadID:10
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">First test method from Class One, ThreadID:10
 Second test method from Class One, ThreadID:10
 
 First test method from Class Two, ThreadID:11
@@ -363,50 +333,40 @@ Second test method from Class Two, ThreadID:11
 Suite
 Total tests run: 4, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
+</code></pre></div><h3 id="3-tests-tag-inside-suite-in-parallel">3. Tests Tag Inside Suite in parallel:</h3>
+<p>Run all the methods in the same <!-- raw HTML omitted --> tag in the same thread, but each <!-- raw HTML omitted --> tag will be in a separate thread. In this Example we will see executing each test inside a suite in parallel, each test that is part of the test suite execution will be executed in its own separate respective thread.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.tutorial.testng.parallel<span style="color:#f92672">;</span>
 
-<h3 id="3-tests-tag-inside-suite-in-parallel">3. Tests Tag Inside Suite in parallel:</h3>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<p>Run all the methods in the same <test> tag in the same thread, but each <test> tag will be in a separate thread. In this Example we will see executing each test inside a suite in parallel, each test that is part of the test suite execution will be executed in its own separate respective thread.</p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestTagInParallel</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;First test method, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
 
-<pre><code class="language-java">package com.tutorial.testng.parallel;
-
-import org.testng.annotations.Test;
-
-public class TestTagInParallel {
-	@Test()
-	public void firstTestMethod() {
-		System.out.println(&quot;First test method, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-
-	@Test()
-	public void secondTestMethod() {
-		System.out.println(&quot;Second test method, ThreadID:&quot; + Thread.currentThread().getId());
-	}
-}
-</code></pre>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; parallel=&quot;tests&quot; thread-count=&quot;2&quot; &gt;
-  &lt;test name=&quot;Test-One&quot; group-by-instances=&quot;true&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.parallel.TestTagInParallel&quot; /&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-  &lt;test name=&quot;Test-Two&quot; group-by-instances=&quot;true&quot;&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.parallel.TestTagInParallel&quot; /&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="output-2">Output:</h3>
-
-<p>After running the testng.xml file we can see the output as Test <Tag> Test-One is using ThreadID:10 and Test <Tag> Test-Two is using ThreadID:11. All the Class Inside the Test Tag will Run under same Thread.</p>
-
-<pre><code class="language-text">First test method, ThreadID:11
+	<span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">secondTestMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Second test method, ThreadID:&#34;</span> <span style="color:#f92672">+</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span> <span style="color:#a6e22e">parallel=</span><span style="color:#e6db74">&#34;tests&#34;</span> <span style="color:#a6e22e">thread-count=</span><span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test-One&#34;</span> <span style="color:#a6e22e">group-by-instances=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.parallel.TestTagInParallel&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test-Two&#34;</span> <span style="color:#a6e22e">group-by-instances=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.parallel.TestTagInParallel&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="output-2">Output:</h3>
+<p>After running the testng.xml file we can see the output as Test <!-- raw HTML omitted --> Test-One is using ThreadID:10 and Test <!-- raw HTML omitted --> Test-Two is using ThreadID:11. All the Class Inside the Test Tag will Run under same Thread.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">First test method, ThreadID:11
 Second test method, ThreadID:11
 First test method, ThreadID:10
 Second test method, ThreadID:10
@@ -414,9 +374,7 @@ Second test method, ThreadID:10
 Suite
 Total tests run: 4, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/testng/test-tag-parallel-run-result-testng.png" alt="test-tag-parallel-run-result-testng" /></p>
+</code></pre></div><p><img src="https://www.pawangaria.com/img/testng/test-tag-parallel-run-result-testng.png" alt="test-tag-parallel-run-result-testng"></p>
 
 </div>
 
@@ -817,7 +775,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

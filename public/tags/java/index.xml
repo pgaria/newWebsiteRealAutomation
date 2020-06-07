@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Testing, Automation, Programming and Latest Technology Articles</title>
@@ -19,7 +19,7 @@
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/post/java/object-oriented-programming-concepts/</guid>
       <description>What is an object? Object-oriented languages follow a different programming pattern from structured programming languages like C and COBOL. The Java language is not completely an object-oriented. The structured-programming paradigm is highly data-oriented: You have data structures, and then program instructions act on that data. Object-oriented languages such as the Java language combine data and program instructions into objects.
-An object is a self-contained entity that contains attributes and behavior.</description>
+An object is a self-contained entity that contains attributes and behavior. Instead of having a data structure with fields (attributes) and passing that structure around to all the program logic that acts on it (behavior), in an object-oriented language, data and program logic are combined.</description>
     </item>
     
     <item>

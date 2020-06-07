@@ -67,7 +67,7 @@
    "dateModified": "2018-01-03",
    "mainEntityOfPage":"true",
    "description": "TestNG lets you pass parameters directly to your test methods from the testng.xml file. You can also mark some parameters as optional.",
-   "wordCount": 447
+   "wordCount":  447 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,59 +231,45 @@
 </div>
 
       <div class="content">
-  
-
-<p>TestNG lets you pass parameters directly to your test methods from the testng.xml file. Passing parameters from the XML file is important when you want to pass configurations like browser name, version,test-URL etc. directly into your Test. Passing these configurations is important because the values are changing and should be always dynamic.</p>
-
+  <p>TestNG lets you pass parameters directly to your test methods from the testng.xml file. Passing parameters from the XML file is important when you want to pass configurations like browser name, version,test-URL etc. directly into your Test. Passing these configurations is important because the values are changing and should be always dynamic.</p>
 <blockquote>
 <p>Passing Dynamic configuration values from testng.xml is important when you want to change parameters like browser or version or operatingSystem etc.</p>
 </blockquote>
-
 <p>Let&rsquo;s create an example where we define the simple parameters in the testng.xml file and then use those parameters in the Java files.</p>
-
 <h3 id="create-test-class-with-parameters">Create Test Class with parameters:</h3>
-
-<p>Create a Test Class in which we will use annotation <strong>@Parameters(&laquo;parameter&raquo;)</strong> in the Test method. Here we will accept 3 parameters like <strong>browser, version and operatingSystem</strong>. We will print the values passed from the XML file.</p>
-
+<p>Create a Test Class in which we will use annotation <strong>@Parameters(&ldquo;parameter&rdquo;)</strong> in the Test method. Here we will accept 3 parameters like <strong>browser, version and operatingSystem</strong>. We will print the values passed from the XML file.</p>
 <blockquote>
 <p>Parameters can be used in @BeforeClass, @BeforeTest, @BeforeMethod, @Test and other TestNG annotations.</p>
 </blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.testng.annotations.Parameters<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-java">import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PassParametersFromxml</span> <span style="color:#f92672">{</span>
 
-public class PassParametersFromxml {
+    <span style="color:#a6e22e">@Parameters</span><span style="color:#f92672">({</span><span style="color:#e6db74">&#34;browser&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;operatingSystem&#34;</span><span style="color:#f92672">})</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">(</span>String browser<span style="color:#f92672">,</span>String version<span style="color:#f92672">,</span>String operatingSystem<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-    @Parameters({&quot;browser&quot;,&quot;version&quot;,&quot;operatingSystem&quot;})
-    @Test()
-    public void firstTestMethod(String browser,String version,String operatingSystem) {
-
-        System.out.println(&quot;Parameter browser:&quot;+browser);
-        System.out.println(&quot;Parameter version:&quot;+version);
-        System.out.println(&quot;Parameter operatingSystem:&quot;+operatingSystem);
-    }
-}
-</code></pre>
-
-<h3 id="create-testng-xml-file-and-pass-parameters">Create testng.xml file and pass parameters:</h3>
-
-<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;Test&quot;&gt;
-  &lt;parameter name = &quot;browser&quot; value=&quot;Firefox&quot;/&gt;
-  &lt;parameter name = &quot;version&quot; value=&quot;61.12&quot;/&gt;
-  &lt;parameter name = &quot;operatingSystem&quot; value=&quot;Windows&quot;/&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.testngfileparameters.PassParametersFromxml&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="output">Output:</h3>
-
-<pre><code class="language-text">Parameter browser: Firefox
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter browser:&#34;</span><span style="color:#f92672">+</span>browser<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter version:&#34;</span><span style="color:#f92672">+</span>version<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter operatingSystem:&#34;</span><span style="color:#f92672">+</span>operatingSystem<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="create-testngxml-file-and-pass-parameters">Create testng.xml file and pass parameters:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name =</span> <span style="color:#e6db74">&#34;browser&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Firefox&#34;</span><span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name =</span> <span style="color:#e6db74">&#34;version&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;61.12&#34;</span><span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name =</span> <span style="color:#e6db74">&#34;operatingSystem&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Windows&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.testngfileparameters.PassParametersFromxml&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="output">Output:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Parameter browser: Firefox
 Parameter version: 61.12
 Parameter operatingSystem: Windows
 
@@ -291,55 +277,42 @@ Parameter operatingSystem: Windows
 Suite
 Total tests run: 1, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
-<blockquote>
+</code></pre></div><blockquote>
 <p>It is important to pass all the values which are expected as parameters in @Test or else you will get the Exception : org.testng.TestNGException: Parameter &lsquo;operatingSystem&rsquo; is required by @Test on method and your Testcases will not Run.</p>
 </blockquote>
-
 <h3 id="how-to-use-optional-parameters">How to use @optional Parameters:</h3>
-
 <p>Now If we want all the parameters to be present in the @Test but don&rsquo;t want to pass from the testng.xml file, we can mark those variable as <strong>@optional</strong> and TestNG will not throw the Exception regarding parameters missing.</p>
-
 <p>Below example shows us how to use our same class @test with optional Parameters.</p>
+<p><strong>Marking the &ldquo;operatingSystem&rdquo; parameter as @optional in this example Class</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.testng.annotations.Optional<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Parameters<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<p><strong>Marking the &laquo;operatingSystem&raquo; parameter as @optional in this example Class</strong></p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PassParametersFromxmlOptional</span> <span style="color:#f92672">{</span>
 
-<pre><code class="language-java">import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+    <span style="color:#a6e22e">@Parameters</span><span style="color:#f92672">({</span><span style="color:#e6db74">&#34;browser&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;version&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;operatingSystem&#34;</span><span style="color:#f92672">})</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">firstTestMethod</span><span style="color:#f92672">(</span>String browser<span style="color:#f92672">,</span>String version<span style="color:#f92672">,</span><span style="color:#a6e22e">@Optional</span> String operatingSystem<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-public class PassParametersFromxmlOptional {
-
-    @Parameters({&quot;browser&quot;,&quot;version&quot;,&quot;operatingSystem&quot;})
-    @Test()
-    public void firstTestMethod(String browser,String version,@Optional String operatingSystem) {
-
-        System.out.println(&quot;Parameter browser:&quot;+browser);
-        System.out.println(&quot;Parameter version:&quot;+version);
-        System.out.println(&quot;Parameter operatingSystem:&quot;+operatingSystem);
-    }
-}
-</code></pre>
-
-<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;Test&quot;&gt;
-  &lt;parameter name = &quot;browser&quot; value=&quot;Firefox&quot;/&gt;
-  &lt;parameter name = &quot;version&quot; value=&quot;61.12&quot;/&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;com.tutorial.testng.testngfileparameters.PassParametersFromxmlOptional&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt;
-&lt;/suite&gt;
-</code></pre>
-
-<h3 id="output-1">Output:</h3>
-
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter browser:&#34;</span><span style="color:#f92672">+</span>browser<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter version:&#34;</span><span style="color:#f92672">+</span>version<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Parameter operatingSystem:&#34;</span><span style="color:#f92672">+</span>operatingSystem<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;suite</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Suite&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;test</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Test&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name =</span> <span style="color:#e6db74">&#34;browser&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Firefox&#34;</span><span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;parameter</span> <span style="color:#a6e22e">name =</span> <span style="color:#e6db74">&#34;version&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;61.12&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;classes&gt;</span>
+      <span style="color:#f92672">&lt;class</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;com.tutorial.testng.testngfileparameters.PassParametersFromxmlOptional&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/classes&gt;</span>
+  <span style="color:#f92672">&lt;/test&gt;</span>
+<span style="color:#f92672">&lt;/suite&gt;</span>
+</code></pre></div><h3 id="output-1">Output:</h3>
 <p>If we run the testng.xml file now with out the value of operatingSystem, TestNG will consider that value as optional and continue with other parameters and print the value as NULL.</p>
-
-<pre><code class="language-text">Parameter browser: Firefox
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Parameter browser: Firefox
 Parameter version: 61.12
 Parameter operatingSystem: null
 
@@ -347,8 +320,7 @@ Parameter operatingSystem: null
 Suite
 Total tests run: 1, Failures: 0, Skips: 0
 ===============================================
-</code></pre>
-
+</code></pre></div>
 </div>
 
 
@@ -748,7 +720,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

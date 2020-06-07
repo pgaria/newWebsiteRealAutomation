@@ -67,7 +67,7 @@
    "dateModified": "2017-12-15",
    "mainEntityOfPage":"true",
    "description": "TestNG is a testing framework inspired by JUnit and NUnit but introducing some new functionalities that make it more powerful and easier to use.",
-   "wordCount": 425
+   "wordCount":  425 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,94 +229,67 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="http://testng.org/doc/">TestNG</a> is a test management framework inspired from <a href="http://junit.org/junit5/">JUnit</a> and <a href="http://nunit.org/">NUnit</a> frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust <em>NG</em> stands for <em>next generation</em>.</p>
-
+  <p><a href="http://testng.org/doc/">TestNG</a> is a test management framework inspired from <a href="http://junit.org/junit5/">JUnit</a> and <a href="http://nunit.org/">NUnit</a> frameworks. TestNG provided and introduced new functionalities and features which make TestNg very powerful and mostly used test management framework in Java programming language. As per the creator of TestNG Mr. Cédric Beust <em>NG</em> stands for <em>next generation</em>.</p>
 <p>TestNG can be used in all the phases of testing like Unit testing, integration testing or system testing. TestNG provides better support compare to Junit and other frameworks as the new release and bug fixes are very frequent compared to Junit. TestNG is supported by a variety of tools and plug-ins like (Eclipse, IntelliJ IDEA, Maven, Ant etc.</p>
-
 <h3 id="how-to-use-testng">How to use TestNG?</h3>
-
 <p>TestNG can be used as the <a href="https://maven.apache.org/">maven</a> dependency in our project or TestNg can be placed in the build path as the jar file.In this article, we will be using maven as dependency management tool.</p>
-
 <p><strong>Tools we will use:</strong></p>
-
 <ul>
 <li>TestNG</li>
 <li>Maven</li>
 <li>Eclipse</li>
 </ul>
-
 <h3 id="testng-maven-dependency">TestNG maven Dependency</h3>
-
 <p>We need to add TestNG dependency in to our <a href="https://maven.apache.org/guides/introduction/introduction-to-the-pom.html">Pom.xml</a> file.
 Pom is an XML file that contains information about the project and configuration details used by Maven to build the project.</p>
-
-<pre><code class="language-xml">&lt;dependency&gt;
-  &lt;groupId&gt;org.testng&lt;/groupId&gt;
-  &lt;artifactId&gt;testng&lt;/artifactId&gt;
-  &lt;version&gt;6.11&lt;/version&gt;
-  &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-</code></pre>
-
-<p>You can get the latest version and dependency detail from the <a href="https://mvnrepository.com/artifact/org.testng/testng">maven central repository</a>.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;dependency&gt;</span>
+  <span style="color:#f92672">&lt;groupId&gt;</span>org.testng<span style="color:#f92672">&lt;/groupId&gt;</span>
+  <span style="color:#f92672">&lt;artifactId&gt;</span>testng<span style="color:#f92672">&lt;/artifactId&gt;</span>
+  <span style="color:#f92672">&lt;version&gt;</span>6.11<span style="color:#f92672">&lt;/version&gt;</span>
+  <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+<span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><p>You can get the latest version and dependency detail from the <a href="https://mvnrepository.com/artifact/org.testng/testng">maven central repository</a>.</p>
 <h3 id="how-to-use-testng-in-my-test-class">How to use TestNG in My Test Class?</h3>
-
 <p><strong>Create an Addition class for adding two integer values:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Addition</span> <span style="color:#f92672">{</span>
 
-public class Addition {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">addValues</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Now we are going to create Test Class:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-    public int addValues(int a, int b) {
-        return a + b;
-    }
-}
-</code></pre>
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.tutorial.testng.Addition<span style="color:#f92672">;</span>
 
-<p><strong>Now we are going to create Test Class:</strong></p>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestngIntroductionTest</span> <span style="color:#f92672">{</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">verifyAdditionOfIntegers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import com.tutorial.testng.Addition;
+        Addition obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Addition<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">int</span> additionResult <span style="color:#f92672">=</span> obj<span style="color:#f92672">.</span><span style="color:#a6e22e">addValues</span><span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> 4<span style="color:#f92672">);</span>
 
-public class TestngIntroductionTest {
-
-    @Test
-    public void verifyAdditionOfIntegers() {
-
-        Addition obj = new Addition();
-        int additionResult = obj.addValues(5, 4);
-
-        Assert.assertNotNull(additionResult);
-        Assert.assertEquals(additionResult, 9);
-    }
-}
-</code></pre>
-
-<p>This is a simple class where <em>@Test</em> is defined as Test method. So every method annoted by <em>@Test</em> in our class will be considered as Test method or test case sometime.</p>
-
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertNotNull</span><span style="color:#f92672">(</span>additionResult<span style="color:#f92672">);</span>
+        Assert<span style="color:#f92672">.</span><span style="color:#a6e22e">assertEquals</span><span style="color:#f92672">(</span>additionResult<span style="color:#f92672">,</span> 9<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This is a simple class where <em>@Test</em> is defined as Test method. So every method annoted by <em>@Test</em> in our class will be considered as Test method or test case sometime.</p>
 <h3 id="how-to-run-my-test-class">How to run my Test Class?</h3>
-
 <p>Now the next step is running our Test and for that, we will use Eclipse TestNG plugin which is an IDE.</p>
-
-<p><strong>Install TestNG Eclipse plugin:</strong><br />
+<p><strong>Install TestNG Eclipse plugin:</strong><br>
 To run and use TestNg in eclipse IDE we need to install the TestNG plugin in our Eclipse application. If you don&rsquo;t have TestNG installed already, you can follow the steps mentioned in the <a href="http://testng.org/doc/download.html">TestNg official download</a> or <a href="http://testng.org/doc/eclipse.html">eclipse guide</a>.</p>
-
 <p>Now to Run our test <em>Right Click</em> on the Test Class and click <em>Run As -&gt; TestNG Test</em>.</p>
-
-<p><img src="https://www.pawangaria.com/img/testng/right-click-on-test-class-testng-run.png" alt="testng-eclipse-test-run" /></p>
-
-<p>After successfully running the Test, You will see the test results in two places:<br />
+<p><img src="https://www.pawangaria.com/img/testng/right-click-on-test-class-testng-run.png" alt="testng-eclipse-test-run"></p>
+<p>After successfully running the Test, You will see the test results in two places:<br>
 <strong>Eclipse TestNG plugin View:</strong>
-<img src="https://www.pawangaria.com/img/testng/testng-plugin-test-result.png" alt="testng-plugin-test-result" /></p>
-
+<img src="https://www.pawangaria.com/img/testng/testng-plugin-test-result.png" alt="testng-plugin-test-result"></p>
 <p><strong>Eclipse Console View:</strong>
-<img src="https://www.pawangaria.com/img/testng/console-test-result.png" alt="console-test-result" /></p>
+<img src="https://www.pawangaria.com/img/testng/console-test-result.png" alt="console-test-result"></p>
 
 </div>
 
@@ -717,7 +690,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

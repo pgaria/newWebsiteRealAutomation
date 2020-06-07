@@ -67,7 +67,7 @@
    "dateModified": "2017-11-26",
    "mainEntityOfPage":"true",
    "description": "Deploying and hosting your website on Google Firebase service is easy and free of cost.",
-   "wordCount": 400
+   "wordCount":  400 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -229,85 +229,44 @@
 </div>
 
       <div class="content">
-  
-
-<p>After finishing the first draft of my <a href="https://www.pawangaria.com">new website</a> I wanted to host my website on <a href="https://firebase.google.com/">firebase</a> because I found Firebaseas hosting server very useful, easy to use and free of cost for limited hosting.</p>
-
+  <p>After finishing the first draft of my <a href="https://www.pawangaria.com">new website</a> I wanted to host my website on <a href="https://firebase.google.com/">firebase</a> because I found Firebaseas hosting server very useful, easy to use and free of cost for limited hosting.</p>
 <p>So I decided to write down my knowdledge and experience of hosting website with firebase here and if you are also looking for hosting your website in firebase please follow thesteps below.</p>
-
 <h3 id="create-account-or-login-on-firebase-console">Create account or Login on Firebase Console</h3>
-
 <p>To deploy your website on firebase first you need to create an account on <a href="https://console.firebase.google.com/">Google Firebase</a>. For Account, you can use your normal Gmail user or create new Gmail account. After successful login to Firebase console, you can easily create a new project.
-<img src="https://www.pawangaria.com/img/firebasehosting/add-new-project-in-google-firebase.png" alt="google-firebase-addProject-page" /></p>
-
+<img src="https://www.pawangaria.com/img/firebasehosting/add-new-project-in-google-firebase.png" alt="google-firebase-addProject-page"></p>
 <h3 id="setup-of-firebase-cli">Setup of Firebase CLI</h3>
-
 <p>Firebase hosting and deployments are done by the use of Firebase CLI (command line tool). CLI depends on <a href="https://nodejs.org/en/">node.js</a> and npn so before installing Firebasewe need to install node.js and npm in your local machine.<a href="https://changelog.com/posts/install-node-js-with-homebrew-on-os-x">Reference</a></p>
-
 <h4 id="on-mac">on Mac</h4>
-
 <pre><code>brew install node
-</code></pre>
-
-<h4 id="on-windows">on Windows</h4>
-
+</code></pre><h4 id="on-windows">on Windows</h4>
 <p>Download from <a href="https://nodejs.org/en/download/">nodejs download</a> and follow installation instructions.</p>
-
 <p>After installing node and npm you can verify the installation and check the version</p>
-
 <pre><code>node -v
 
 npm -v
 
-</code></pre>
-
-<p>You will see the version installed after running the above commands.</p>
-
+</code></pre><p>You will see the version installed after running the above commands.</p>
 <h3 id="install-firebase-cli">Install Firebase CLI</h3>
-
 <p>Now after node.js and npm installed properly we can install the Firebase CLI using the below command</p>
-
 <pre><code>npm install -g firebase-tools
-</code></pre>
-
-<h3 id="initialise-website-setup-with-firebase">Initialise website setup with firebase</h3>
-
+</code></pre><h3 id="initialise-website-setup-with-firebase">Initialise website setup with firebase</h3>
 <p>Go to the base directory of your website project in the command line and run the command</p>
-
 <pre><code>firebase init
-</code></pre>
-
-<p>and then follow the instructions on the terminal</p>
-
-<p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-init-command.png" alt="google-fireBase-init-website-command" /></p>
-
+</code></pre><p>and then follow the instructions on the terminal</p>
+<p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-init-command.png" alt="google-fireBase-init-website-command"></p>
 <p>After firebase init you can see one firebase.json file generated in your website directory. This JSON file is a  basic configuration file for the Firebase deployment. You can find more details about <a href="https://firebase.google.com/docs/hosting/deploying#section-firebase-json">firebase.json</a>.</p>
-
 <h3 id="deploy-your-website-to-firebase">Deploy your website to Firebase</h3>
-
 <p>Now your website is ready to depoy on the firebase server.Run the following command from the base directory of your website</p>
-
 <pre><code>firebase deploy
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-deploy-command.png" alt="google-fireBase-deploy-command" /></p>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-deploy-command.png" alt="google-fireBase-deploy-command"></p>
 <h3 id="access-your-website">Access your website</h3>
-
 <p>After successfull deployement of your website you can get your website url from firebase account and generally URL&rsquo;s looks like this</p>
-
 <p><strong>yourProjectName-ID.firebaseapp.com</strong></p>
-
-<p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-web-hosting-url.png" alt="google-fireBase-hosting-page-and-website-url" /></p>
-
+<p><img src="https://www.pawangaria.com/img/firebasehosting/google-firebase-web-hosting-url.png" alt="google-fireBase-hosting-page-and-website-url"></p>
 <p>Now you can view and open your website in any of the browsers using the above URL.</p>
-
 <p>I took the installation reference from <a href="https://firebase.google.com/docs/hosting/deploying#section-hosting-setup">firebase docs</a>.</p>
-
 <h3 id="what-is-next-step">What is Next Step?</h3>
-
 <p>Now the next step is to connect your hosted website on Firebase with Real Domain. I will cover this as separate topic in the <a href="https://www.pawangaria.com/post/mapcustomdomainwithgodaddyandfirebase/">next articles</a>.</p>
-
 <p>Thanks for reading!</p>
 
 </div>
@@ -709,7 +668,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

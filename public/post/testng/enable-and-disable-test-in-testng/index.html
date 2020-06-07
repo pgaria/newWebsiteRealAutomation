@@ -67,7 +67,7 @@
    "dateModified": "2017-12-22",
    "mainEntityOfPage":"true",
    "description": "How to Enable and Disable particular Test in our TestNG Test Class. TestNG can decide which Test should be included in the run or ignored.",
-   "wordCount": 169
+   "wordCount":  169 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -231,48 +231,39 @@
 </div>
 
       <div class="content">
-  
-
-<p>TestNG provides an attribute for enabling and disable our @Test. There are many times when you don&rsquo;t want to run particular @Test and it&rsquo;s not a better way to remove the whole Test method from the class and then add again if you want to run the @Test again.</p>
-
+  <p>TestNG provides an attribute for enabling and disable our @Test. There are many times when you don&rsquo;t want to run particular @Test and it&rsquo;s not a better way to remove the whole Test method from the class and then add again if you want to run the @Test again.</p>
 <blockquote>
 <p>By default all the TestNG @Test methods are Enabled</p>
 </blockquote>
-
 <h3 id="how-to-enable-and-disable-test">How to Enable and Disable @Test:</h3>
-
 <p>To enable and disable @test, There is an attribute <strong>enabled</strong> which accepts Boolean type value as True or False.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">package</span> com.tutorial.testng<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">package com.tutorial.testng;
+<span style="color:#f92672">import</span> org.testng.Assert<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EnabledTestMethod</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">// By Default test as True
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">byDefaultTrue</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running: default as true&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-public class EnabledTestMethod {
-    // By Default test as True
-    @Test
-    public void byDefaultTrue() {
-        System.out.println(&quot;Running: default as true&quot;);
-    }
+    <span style="color:#75715e">// Enabled Test
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">enabledTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running: enabled = true&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 
-    // Enabled Test
-    @Test(enabled = true)
-    public void enabledTest() {
-        System.out.println(&quot;Running: enabled = true&quot;);
-    }
-
-    // Disabled Test
-    @Test(enabled = false)
-    public void disabledTest() {
-        System.out.println(&quot;Running: enabled = false&quot;);
-    }
-}
-</code></pre>
-
-<h3 id="when-you-run-the-class">When You Run the Class:</h3>
-
+    <span style="color:#75715e">// Disabled Test
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">disabledTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running: enabled = false&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="when-you-run-the-class">When You Run the Class:</h3>
 <p>When You run the above Class and you can see only Two @test case ran and the 3rd @test method <code>public void disabledTest()</code> ignored.
-<img src="https://www.pawangaria.com/img/testng/enable-disable-test-testng-result.png" alt="enable-disable-test-testng-result" /></p>
+<img src="https://www.pawangaria.com/img/testng/enable-disable-test-testng-result.png" alt="enable-disable-test-testng-result"></p>
 
 </div>
 
@@ -673,7 +664,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 

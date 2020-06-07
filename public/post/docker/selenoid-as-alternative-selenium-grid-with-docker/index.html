@@ -67,7 +67,7 @@
    "dateModified": "2018-01-27",
    "mainEntityOfPage":"true",
    "description": "This article is about using Selenoid with Docker as an alternative for the Selenium Grid. Selenoid is a powerful implementation of Selenium hub using Docker containers to launch browsers.",
-   "wordCount": 935
+   "wordCount":  935 
 }
 </script>
 
@@ -81,7 +81,7 @@
     google_ad_client: "ca-pub-3402213976589395",
     enable_page_level_ads: true
   });
-</script><meta name="generator" content="Hugo 0.35" />
+</script><meta name="generator" content="Hugo 0.72.0" />
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -233,41 +233,24 @@
 </div>
 
       <div class="content">
-  
-
-<p><a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">In past articles</a>, we learned about a simple approach to building scalable <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> cluster using Docker and selenium images in the virtual machines. But this article is more about building an improved and very easy scalable selenium Grid using an open source project named <a href="http://aerokube.com/selenoid/latest/">Selenoid</a> with Docker.</p>
-
+  <p><a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">In past articles</a>, we learned about a simple approach to building scalable <a href="http://www.seleniumhq.org/docs/07_selenium_grid.jsp">Selenium Grid</a> cluster using Docker and selenium images in the virtual machines. But this article is more about building an improved and very easy scalable selenium Grid using an open source project named <a href="http://aerokube.com/selenoid/latest/">Selenoid</a> with Docker.</p>
 <h3 id="how-selenoid-is-different-from-selenium-grid">How Selenoid is different from Selenium Grid:</h3>
-
 <p>The main idea behind Selenoid is to start short-lived container for each Selenium session with a requested browser and stop it immediately when the session is closed from the Test. Such approach automatically resolves all issues related to session caches and sharing browser settings among sessions. Using Selenoid we don&rsquo;t need to maintain the nodes running and taking the machine resources.</p>
-
 <p>The theory behind <a href="https://github.com/aerokube/selenoid">Selenoid</a> is one Hub running and managing requests for every container consists of specific browser version requested from the test. Using this approach we can save a lot of resources and the containers provide enough level of isolation between browser processes and Tests. This allows you to use an unlimited number of different browser versions in parallel.</p>
-
-<p><img src="https://www.pawangaria.com/img/docker/test-selenoid-docker-selenium-flow.png" alt="test-selenoid-docker-selenium-flow" /></p>
-
+<p><img src="https://www.pawangaria.com/img/docker/test-selenoid-docker-selenium-flow.png" alt="test-selenoid-docker-selenium-flow"></p>
 <h3 id="how-to-use-selenoid-grid">How to use Selenoid Grid</h3>
-
 <p>Selenoid should be used with two components:</p>
-
 <ul>
 <li><a href="https://github.com/aerokube/selenoid">Selenoid</a> : Selenium Hub successor running browsers within containers. scalable, immutable, self hosted Selenium-Grid on any platform with single binary.</li>
 <li><a href="https://github.com/aerokube/selenoid-ui">Selenoid-ui</a> : Graphical user interface for Selenoid project and check run time browsers and logs.</li>
 </ul>
-
 <p>Now let&rsquo;s create a simple Grid by using Selenoid Images with Docker on the local machine and you can run Test cases.</p>
-
 <h4 id="prerequisite">Prerequisite:</h4>
-
 <p>Docker should be installed on your machine where you want to run this Selenium Grid.</p>
-
 <h4 id="create-a-dockercompose-file">Create a DockerCompose File.</h4>
-
 <p>docker-compose file is a configuration file for docker, By using the compose files its easy to create and stop Containers. We are creating 2 services Selenoid and Selenoid-ui in docker-compose.yml file, which will run as 2 containers.You can read <a href="https://docs.docker.com/compose/overview/#compose-documentation">official documentation of docker compose file</a>.</p>
-
 <p>Let&rsquo;s create a docker-compose.yml file in you local system.(You can copy paste.)</p>
-
-<h3 id="docker-compose-yml">docker-compose.yml</h3>
-
+<h3 id="docker-composeyml">docker-compose.yml</h3>
 <pre><code>version: '1'
 services:
   selenoid:
@@ -287,14 +270,9 @@ services:
     ports:
       - &quot;8080:8080&quot;
     command: [&quot;--selenoid-uri&quot;, &quot;http://selenoid:4444&quot;]
-</code></pre>
-
-<h3 id="browsers-json">browsers.json</h3>
-
+</code></pre><h3 id="browsersjson">browsers.json</h3>
 <p>Using the docker-compose file we have to pass the browsers using a Json file. browsers.json file contains all the browsers and their version we want to run in the Selenoid grid. In our JSON file we are defining Chrome Version as 61.0 and we are going to use chrome browser in the Selenoid instance.</p>
-
 <p>Let&rsquo;s create a browsers.json file in the current directory where docker-compose.yml file is present.</p>
-
 <pre><code>{
 &quot;firefox&quot;: {
 &quot;default&quot;: &quot;latest&quot;,
@@ -319,85 +297,62 @@ services:
 	}
 }
 
-</code></pre>
-
-<h3 id="what-is-selenoid-ui">What is Selenoid UI :</h3>
-
+</code></pre><h3 id="what-is-selenoid-ui-">What is Selenoid UI :</h3>
 <p><a href="http://aerokube.com/selenoid-ui/latest/">Selenoid UI</a> is also a very cool feature in the Selenoid project where We can see the Live Test Running on multiple containers. If you look closely in to the composer file above the selenoid-ui service is running on port No : 8080 and linked with the selenoid service.</p>
-
 <p>So if we run the docker compose file above the docker container will start both the service by default. We can access the UI using the URL: <code>localhost:8080</code>
-<img src="https://www.pawangaria.com/img/docker/selenoid-ui-url-status.png" alt="selenoid-ui-url-status" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/selenoid-ui-url-status.png" alt="selenoid-ui-url-status"></p>
 <h3 id="start-the-selenoid-grid">Start the Selenoid Grid:</h3>
-
 <p>Starting the Selenoid Grid is very easy and simple by using the docker-compose file we have made in above steps. Let&rsquo;s run the following command from where our docker-compose.yml file is present:</p>
-
 <pre><code>docker-compose up -d
-</code></pre>
-
-<p><img src="https://www.pawangaria.com/img/docker/docker-compose-up-status.png" alt="docker-compose-up-status" /></p>
-
+</code></pre><p><img src="https://www.pawangaria.com/img/docker/docker-compose-up-status.png" alt="docker-compose-up-status"></p>
 <p>After running the docker compose command, Docker will automatically download the proper images of selenoid before starting the container. We can see the 2 containers running using command: <code>docker ps</code>
 . Please check the Port Numbers and IMAGES to understand more about what containers are running.</p>
-
 <blockquote>
 <p>Selenoid resolves the problem of creating containers with the proper browser and browser versions. As Selenoid Hub which is running on 4444 port will receive the request and create a container with the browser asked from Test script and will kill the container after the Test.</p>
 </blockquote>
-
 <h3 id="vnc-and-logs">VNC and LOGS:</h3>
-
 <p>To see and initialize the VNC and display the Running browsers from the container, We need to set the browser capability in our Test with <strong>enableVNC=true</strong> capability. After Implementing this we will be able to see the Browsers and logs in the VNC Url. Below is the Example Class which can run Test on Chrome Browser with enableVNC.</p>
-
 <h3 id="example-java-code-to-run-test">Example Java Code to Run Test</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> java.net.URL<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.WebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.chrome.ChromeOptions<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.DesiredCapabilities<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.openqa.selenium.remote.RemoteWebDriver<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
 
-<pre><code class="language-Java">import java.net.URL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.Test;
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunningTestOnSelenoidGrid</span> <span style="color:#f92672">{</span>
 
-public class RunningTestOnSelenoidGrid {
+	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">runTestOnDocker</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+		DesiredCapabilities dcap <span style="color:#f92672">=</span> DesiredCapabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">chrome</span><span style="color:#f92672">();</span>
+		ChromeOptions options <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChromeOptions<span style="color:#f92672">();</span>
+		dcap<span style="color:#f92672">.</span><span style="color:#a6e22e">setCapability</span><span style="color:#f92672">(</span>ChromeOptions<span style="color:#f92672">.</span><span style="color:#a6e22e">CAPABILITY</span><span style="color:#f92672">,</span> options<span style="color:#f92672">);</span>
+		dcap<span style="color:#f92672">.</span><span style="color:#a6e22e">setCapability</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;enableVNC&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+		dcap<span style="color:#f92672">.</span><span style="color:#a6e22e">setBrowserName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;chrome&#34;</span><span style="color:#f92672">);</span>
+		dcap<span style="color:#f92672">.</span><span style="color:#a6e22e">setVersion</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;61.0&#34;</span><span style="color:#f92672">);</span>
 
-	@Test
-	public void runTestOnDocker() throws Exception {
-		DesiredCapabilities dcap = DesiredCapabilities.chrome();
-		ChromeOptions options = new ChromeOptions();
-		dcap.setCapability(ChromeOptions.CAPABILITY, options);
-		dcap.setCapability(&quot;enableVNC&quot;, true);
-		dcap.setBrowserName(&quot;chrome&quot;);
-		dcap.setVersion(&quot;61.0&quot;);
+		String driverPath <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span>chromedriver path on your machine<span style="color:#f92672">&gt;;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;webdriver.chrome.driver&#34;</span><span style="color:#f92672">,</span> driverPath<span style="color:#f92672">);</span>
 
-		String driverPath = &lt;chromedriver path on your machine&gt;;
-		System.setProperty(&quot;webdriver.chrome.driver&quot;, driverPath);
+		URL url <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> URL<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://localhost:4444/wd/hub&#34;</span><span style="color:#f92672">);</span>
+		WebDriver driver <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RemoteWebDriver<span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> dcap<span style="color:#f92672">);</span>
 
-		URL url = new URL(&quot;http://localhost:4444/wd/hub&quot;);
-		WebDriver driver = new RemoteWebDriver(url, dcap);
-
-		// Get URL
-		driver.get(&quot;https://www.google.com/&quot;);
-		// Print Title
-		System.out.println(driver.getTitle());
-	}
-}
-</code></pre>
-
-<h4 id="stats">Stats:</h4>
-
+		<span style="color:#75715e">// Get URL
+</span><span style="color:#75715e"></span>		driver<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#75715e">// Print Title
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>driver<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">());</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="stats">Stats:</h4>
 <p>Statistics about the Test cases at run time like what browsers are running. You can open the VNC Url by opening : <code>http://localhost:8080</code> as our selenoid-ui is running at port no : 8080(You can configure port in docker-compose file.)
-<img src="https://www.pawangaria.com/img/docker/stats-url-selenoid-test-run.png" alt="stats-url-selenoid-test-run" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/stats-url-selenoid-test-run.png" alt="stats-url-selenoid-test-run"></p>
 <h4 id="session-list">Session List:</h4>
-
 <p>List of all the Sessions where you can open any of the session from the list to see the browser running live our Test case.
-<img src="https://www.pawangaria.com/img/docker/session-selenoid-list-test.png" alt="session-selenoid-list-test" /></p>
-
+<img src="https://www.pawangaria.com/img/docker/session-selenoid-list-test.png" alt="session-selenoid-list-test"></p>
 <h4 id="session">Session:</h4>
-
 <p>VNC allows to see and interact with browser at real time and you can check the logs from the container which is showing all the actions:
-<img src="https://www.pawangaria.com/img/docker/session-test-selenoid.png" alt="session-test-selenoid" /></p>
-
-<p>Please feel free to Write me and give suggestions about Selenoid in the comments.<br />
+<img src="https://www.pawangaria.com/img/docker/session-test-selenoid.png" alt="session-test-selenoid"></p>
+<p>Please feel free to Write me and give suggestions about Selenoid in the comments.<br>
 Thanks for reading!</p>
 
 </div>
@@ -799,7 +754,7 @@ SUCCESS_MESSAGE = "Thanks for your subscription!",
 ERROR_MESSAGE = "Submitting form failed!",
 OPTIN =  true ,
 COOKIE_NAME = "mycookie1",
-CONTENTLANGUAGE = ""; 
+CONTENTLANGUAGE =  null ; 
 </script>
 
 
