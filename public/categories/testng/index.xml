@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TestNG on Testing, Automation, Programming and Latest Technology Articles</title>
+    <link>https://www.pawangaria.com/categories/testng/</link>
+    <description>Recent content in TestNG on Testing, Automation, Programming and Latest Technology Articles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
+    <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.pawangaria.com/categories/testng/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Integrate Automated TestNG @Test with @DataProvider Results in TestRail</title>
+      <link>https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/</guid>
+      <description>I saw multiple people are struggling to integrate the TestNG Tests with the TestRail and it becomes even more complex when we start using the @DataProvides in TestNG and then update the Results in the TestRail. So I decided to write and create a step by step complete guide with an example of how we can use @DataProvider and normal @Test and update the results using the TestNG Listeners. As we all know the TestRail is a web-based test case management software to store, manage, track &amp;amp; run test cases.</description>
+    </item>
+    
+  </channel>
+</rss>
