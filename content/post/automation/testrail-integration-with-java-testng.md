@@ -76,7 +76,7 @@ System.out.println("Test Rail ID = " + TestID);
 }
 // Now you can call the TestRail post API call to update the result in TestRail database based on the TestRun Id and TestCase Id.
 
-JSONObject r = (JSONObject) client.sendPost("add_result_for_case/TestCaseID/TestRunID", data);
+JSONObject r = (JSONObject) client.sendPost("add_result/<TestCaseID>/<TestRunID>", data);
 }
 ```
 #### Final Result and Reporting
