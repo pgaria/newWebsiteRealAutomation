@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Retrying unreliable logic in java using Retry4j Library </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="How to use the Lightweight Java library for retrying unreliable logic, handle unexpected exceptions, set conditions for retry and much more can be done using Retry4j" />
+
+<meta name="keywords" content="Retry4j,retry,java-library">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="Retrying unreliable logic in java using Retry4j Library ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/" />
+<meta property="og:locale" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="How to use the Lightweight Java library for retrying unreliable logic, handle unexpected exceptions, set conditions for retry and much more can be done using Retry4j"/>
+<meta property="og:article:published_time" content="2020-07-22T00:00:00Z" />
+<meta property="og:article:modified_time" content="2020-07-22T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="Retry4j,retry,java-library">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Retrying unreliable logic in java using Retry4j Library" />
+<meta name="twitter:description" content="How to use the Lightweight Java library for retrying unreliable logic, handle unexpected exceptions, set conditions for retry and much more can be done using Retry4j" />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">{
+   "@context":"http://schema.org",
+   "@type":"Article",
+   "headline": "Retrying unreliable logic in java using Retry4j Library",
+   "author":{
+      "@type":"Person",
+      "name":"Pawan Garia"
+   },
+   "image":{
+      "@type":"imageObject",
+      "url":"https://www.pawangaria.com/img/pawangaria.png",
+      "height":"400",
+      "width":"300"
+   },
+   "publisher":{
+      "@type":"Organization",
+      "name":"www.pawangaria.com",
+      "logo":{
+         "@type":"imageObject",
+         "url":"https://www.pawangaria.com/img/pawangaria.png"
+      }
+   },
+   "datePublished": "2020-07-22",
+   "dateModified": "2020-07-22",
+   "mainEntityOfPage":"true",
+   "description": "How to use the Lightweight Java library for retrying unreliable logic, handle unexpected exceptions, set conditions for retry and much more can be done using Retry4j",
+   "wordCount":  640 
+}
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.72.0" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blogs
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Retrying unreliable logic in java using Retry4j Library
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2020-07-22">22 Jul, 2020</time>
+</small>
+
+
+  <small>
+    &middot; by Pawan Garia
+  
+  &middot; Read in about 4 min
+  &middot; (640 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f&amp;title=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/java" class="label label-primary">Java</a>
+  
+  <a href="https://www.pawangaria.com/tags/retry4j" class="label label-primary">Retry4j</a>
+  
+  <a href="https://www.pawangaria.com/tags/java-library" class="label label-primary">java-library</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  <p>While implementing specific requirements in java, we often need to deal with unreliable codes, timeout, Unexpected exceptions, and need to retry-operations because of the asynchronous process and functionalities in the application. Like while working on one of the projects which were not very new and service-oriented application we figured out that multiple factors can make the automation test and framework unreliable resulting in the wrong results and values. So we must find a way to Retry the logic in java which can be light and highly configurable.</p>
+<p>So we decided to use nice open source library <a href="https://github.com/elennick/retry4j">Retry4j</a> which is easy and simple to implement our retry logic. In this tutorial, I would like to show you how to handle those unexpected exceptions and conditions using the Retry4j library.</p>
+<h2 id="retry4j">Retry4j</h2>
+<p><a href="https://github.com/elennick/retry4j">Retry4j</a> is a simple Java library to assist with retrying transient failure situations or unreliable code. Retry4j aims to be readable, well documented, and streamlined.</p>
+<h4 id="dependencies">Dependencies:</h4>
+<p>Can be added in both Gradle and Maven projects. Here is an example of Gradle.</p>
+<h4 id="gradle">Gradle:</h4>
+<pre><code>compile group: 'com.evanlennick', name: 'retry4j', version: '0.15.0'
+</code></pre><h2 id="example-for-handling-the-exceptions">Example for handling the Exceptions</h2>
+<p>To demonstrate the example of handling the exception and extracting a return value from a method that throws a Run time exception every time until a specific limit is reached within the method. In the end, the method should be returning the String &lsquo;Retry&rsquo; instead of throwing a Run time exception.</p>
+<h4 id="retryconfig">RetryConfig:</h4>
+<p>First Step is define retry Configuration using the <code>RetryConfig.class</code> like below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">RetryConfig retryConfig <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RetryConfigBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">withMaxNumberOfTries</span><span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">withFixedBackoff</span><span style="color:#f92672">().</span><span style="color:#a6e22e">withDelayBetweenTries</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> SECONDS<span style="color:#f92672">)</span>
+                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">retryOnSpecificExceptions</span><span style="color:#f92672">(</span>RuntimeException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</code></pre></div><p>You can see I have used the <code>Maximum Retries as 5</code> and included the <code>delay of 2 seconds</code> and in the end we have defined which exception we should be handling here like <code>RuntimeException.class</code>.</p>
+<h4 id="callable">Callable:</h4>
+<p>After the Configuration is set we need to create a Callable statement</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">Callable<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> callable <span style="color:#f92672">=</span> <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//code that you want to retry until success OR retries are exhausted OR an unexpected exception is thrown
+</span><span style="color:#75715e"></span><span style="color:#f92672">};</span>
+</code></pre></div><h4 id="callexecutorbuilder">CallExecutorBuilder</h4>
+<p>Now the final step is to execute the callable statement we have created using the Retry Configuration like the below Example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">Status<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CallExecutorBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">config</span><span style="color:#f92672">(</span>config<span style="color:#f92672">).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">().</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>callable<span style="color:#f92672">);</span>
+</code></pre></div><p>Remember the callable can have any of the return types So we can create a simple variable and define which return type result we want to store in the Status variable.</p>
+<h3 id="example">Example:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RetryLogicExample</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> counter <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getRetryString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;In method trying for : &#34;</span> <span style="color:#f92672">+</span> counter<span style="color:#f92672">);</span>
+        counter<span style="color:#f92672">++;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>counter <span style="color:#f92672">&lt;</span> 4<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Throw the Exception&#34;</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Retry&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        RetryLogicExample retry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RetryLogicExample<span style="color:#f92672">();</span>
+        RetryConfig retryConfig <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RetryConfigBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">withMaxNumberOfTries</span><span style="color:#f92672">(</span>5<span style="color:#f92672">)</span>
+                                         <span style="color:#f92672">.</span><span style="color:#a6e22e">withFixedBackoff</span><span style="color:#f92672">().</span><span style="color:#a6e22e">withDelayBetweenTries</span><span style="color:#f92672">(</span>2<span style="color:#f92672">,</span> SECONDS<span style="color:#f92672">)</span>
+                                         <span style="color:#f92672">.</span><span style="color:#a6e22e">retryOnSpecificExceptions</span><span style="color:#f92672">(</span>RuntimeException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+        Callable<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> callable <span style="color:#f92672">=</span> <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> retry<span style="color:#f92672">.</span><span style="color:#a6e22e">getRetryString</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">};</span>
+        Status<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CallExecutorBuilder<span style="color:#f92672">().</span><span style="color:#a6e22e">config</span><span style="color:#f92672">(</span>retryConfig<span style="color:#f92672">).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">().</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>callable<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Retry string at the End: &#34;</span> <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span><span style="color:#a6e22e">getResult</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="output">Output:</h3>
+<p>Running the above code produces the result like below where the method failing for <code>3</code> times(String with 0) but succeeding at last and We print the result from the method.</p>
+<pre><code>In method trying for : 0
+Throw the Exception
+In method trying for : 1
+Throw the Exception
+In method trying for : 2
+Throw the Exception
+In method trying for : 3
+Retry string at the End: Retry
+</code></pre><p>Retry4j provides lots of options and configurations you can set for the condition you need to handle like for example if we need to run the code again on a specific value it returns can be done through the simple config changes.</p>
+<h4 id="value-handling-config">Value Handling Config</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">RetryConfig config <span style="color:#f92672">=</span> retryConfigBuilder
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">retryOnReturnValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;retry on this value!&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</code></pre></div><h4 id="value-and-exception-handling-config">Value and Exception Handling Config</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">RetryConfig config <span style="color:#f92672">=</span> retryConfigBuilder
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">retryOnSpecificExceptions</span><span style="color:#f92672">(</span>FileNotFoundException<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">retryOnReturnValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;retry on this value!&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>  
+</code></pre></div><p>I would suggest you to check and read the <a href="https://github.com/elennick/retry4j">documenation</a> and try to implement the examples from the Retry4j Git Hub Page. You can also find the same Java example as well in the <a href="https://github.com/pgaria/Retry4JExample">GitHub Location.</a></p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f&amp;title=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Retrying%20unreliable%20logic%20in%20java%20using%20Retry4j%20Library&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2fjava%2fretrying-logic-in-java-using-retry4j-library%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/" title="Integrate Automated TestNG @Test with @DataProvider Results in TestRail">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+      <li class="next">
+        <a href="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/" title="Limit certain Test Iterations in TestNG @DataProvider">
+            Next <span aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/">Limit certain Test Iterations in TestNG @DataProvider</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/">Retrying unreliable logic in java using Retry4j Library</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/">Integrate Automated TestNG @Test with @DataProvider Results in TestRail</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/api/write-restassured-request-and-response-to-log-file/">Write REST Assured request and response to the log file</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/git/changing-last-commit-in-git/">Git: Changing Last Commit Using --amend.</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/">Object Oriented Programming Principles and Concepts Explained!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/">Page Object Model- With Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/">Remove Retried Failed Test from TestNG Report!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/what-is-docker-container/">What is Docker Container ?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (34)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (6)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (2)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (10)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/testng">testng</a><strong> (1)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (20)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/api">api</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/architecture">architecture</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/commit">commit</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/container">container</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/git">git</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java-library">java-library</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/logs">logs</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/object-oriented">object-oriented</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/page-object-model">page-object-model</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/programming">programming</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/report">report</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/rest-assured">rest-assured</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry4j">retry4j</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        
+        <div>
+        
+        <link href="https://www.pawangaria.com/css/style.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+         
+        </style>
+        <div id="mc_embed_signup">
+        <form action="https://pawangaria.us17.list-manage.com/subscribe/post?u=ba2af3a020a67d858742b01be&amp;id=0d977b8600" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for More Interesting Articles</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba2af3a020a67d858742b01be_0d977b8600" tabindex="-1" value=""></div>
+          <div class="clear">    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+        </div>
+      </div>
+        
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           
+<div>
+<div class="pull-right">
+<div>
+  <div>© 2018 PawanGaria.com - All rights reserved|<a href="https://www.pawangaria.com/page/privacy-policy/">Privacy-Policy</a></div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE =  null ; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
+

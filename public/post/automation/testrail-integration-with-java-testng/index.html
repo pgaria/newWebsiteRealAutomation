@@ -280,7 +280,7 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 <span style="color:#f92672">}</span>
 <span style="color:#75715e">// Now you can call the TestRail post API call to update the result in TestRail database based on the TestRun Id and TestCase Id.
 </span><span style="color:#75715e"></span>
-JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>JSONObject<span style="color:#f92672">)</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">sendPost</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;add_result_for_case/TestCaseID/TestRunID&#34;</span><span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>JSONObject<span style="color:#f92672">)</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">sendPost</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;add_result/&lt;TestCaseID&gt;/&lt;TestRunID&gt;&#34;</span><span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><h4 id="final-result-and-reporting">Final Result and Reporting</h4>
 <p>Now integrating TestRail UseCases Id with automated test, We will have the test run result history for the particular UseCases.</p>
@@ -393,6 +393,14 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
             <ul>
             
               <li>
+              <a href="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/">Limit certain Test Iterations in TestNG @DataProvider</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/">Retrying unreliable logic in java using Retry4j Library</a>
+              </li>
+            
+              <li>
               <a href="https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/">Integrate Automated TestNG @Test with @DataProvider Results in TestRail</a>
               </li>
             
@@ -424,14 +432,6 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
               <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
               </li>
             
-              <li>
-              <a href="https://www.pawangaria.com/post/docker/docker-compose-in-selenium-grid/">Selenium Grid setup using Docker-compose.yml</a>
-              </li>
-            
-              <li>
-              <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">Setup Selenium WebDriver Grid with Docker</a>
-              </li>
-            
             </ul>
           </div>
         </div>
@@ -444,11 +444,11 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
       <div class="content">
       <ul>
       
-        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (33)</strong></li>
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (34)</strong></li>
       
         <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (6)</strong></li>
       
-        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (1)</strong></li>
+        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (2)</strong></li>
       
         <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
       
@@ -456,7 +456,7 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
       
         <li><a href="https://www.pawangaria.com/categories/testng">testng</a><strong> (1)</strong></li>
       
-        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (19)</strong></li>
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (20)</strong></li>
       
       </ul>
       </div>
@@ -542,6 +542,10 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
 
       
 
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java-library">java-library</a>
+
+      
+
           <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
 
       
@@ -583,6 +587,10 @@ JSONObject r <span style="color:#f92672">=</span> <span style="color:#f92672">(<
       
 
           <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry4j">retry4j</a>
 
       
 

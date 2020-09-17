@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Sat, 24 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/test-automation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Limit certain Test Iterations in TestNG @DataProvider</title>
+      <link>https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/</guid>
+      <description>Recently while working on one of the projects we were required to limit the number of data set provided from the TestNG DataProvider and Run for example only the first 10 Testcases and skip all others to quick run the @Test. As we are using the TestNG @DataProvider to send the Test Data and the count of the Test Data set provided from the Data Provider is generally more than 100.</description>
+    </item>
     
     <item>
       <title>Page Object Model- With Selenium WebDriver</title>

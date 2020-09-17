@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Limit certain Test Iterations in TestNG @DataProvider </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="How to Limit or Skip the certain test data set from the TestNG @DataProvider. For example, if you want to run/limit only the first 10 datasets from the complete set of a dataset in @DataProvider" />
+
+<meta name="keywords" content="TestNG,Java,parameters,DataProvider,test">
+
+<meta name="author" content="Pawan Garia"/>
+<meta property="og:title" content="Limit certain Test Iterations in TestNG @DataProvider ">
+<meta property="og:site_name" content="Testing, Automation, Programming and Latest Technology Articles"/>
+<meta property="og:url" content="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/" />
+<meta property="og:locale" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="How to Limit or Skip the certain test data set from the TestNG @DataProvider. For example, if you want to run/limit only the first 10 datasets from the complete set of a dataset in @DataProvider"/>
+<meta property="og:article:published_time" content="2020-09-17T00:00:00Z" />
+<meta property="og:article:modified_time" content="2020-09-17T00:00:00Z" />
+
+
+<meta property="og:article:tag" content="TestNG,Java,parameters,DataProvider,test">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@" />
+<meta name="twitter:title" content="Limit certain Test Iterations in TestNG @DataProvider" />
+<meta name="twitter:description" content="How to Limit or Skip the certain test data set from the TestNG @DataProvider. For example, if you want to run/limit only the first 10 datasets from the complete set of a dataset in @DataProvider" />
+<meta name="twitter:url" content="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/" />
+<meta name="twitter:domain" content="https://www.pawangaria.com/">
+
+
+<script type="application/ld+json">{
+   "@context":"http://schema.org",
+   "@type":"Article",
+   "headline": "Limit certain Test Iterations in TestNG @DataProvider",
+   "author":{
+      "@type":"Person",
+      "name":"Pawan Garia"
+   },
+   "image":{
+      "@type":"imageObject",
+      "url":"https://www.pawangaria.com/img/pawangaria.png",
+      "height":"400",
+      "width":"300"
+   },
+   "publisher":{
+      "@type":"Organization",
+      "name":"www.pawangaria.com",
+      "logo":{
+         "@type":"imageObject",
+         "url":"https://www.pawangaria.com/img/pawangaria.png"
+      }
+   },
+   "datePublished": "2020-09-17",
+   "dateModified": "2020-09-17",
+   "mainEntityOfPage":"true",
+   "description": "How to Limit or Skip the certain test data set from the TestNG @DataProvider. For example, if you want to run\/limit only the first 10 datasets from the complete set of a dataset in @DataProvider",
+   "wordCount":  837 
+}
+</script>
+
+
+
+<link rel="canonical" href="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.pawangaria.com/touch-icon-144-precomposed.png">
+<link rel="icon" href="https://www.pawangaria.com/favicon.png"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3402213976589395",
+    enable_page_level_ads: true
+  });
+</script><meta name="generator" content="Hugo 0.72.0" />
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <link rel="stylesheet" href="https://www.pawangaria.com/css/bootswatch/paper/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style.css">
+
+
+<link rel="stylesheet" href="https://www.pawangaria.com/css/style_custom.css">
+
+
+
+  <link rel="stylesheet" href="https://www.pawangaria.com/css/highlight/default.css">
+
+
+</head>
+<body class="map[name:paper]" data-ng-app="myapp" data-ng-controller="MyController" data-ng-mouseleave="MouseLeave($event)">
+<header id="main-header">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+          
+          <a class="navbar-brand-img" href="https://www.pawangaria.com/">
+            <img alt="PawanGaria.com" src="https://www.pawangaria.com/img/pawangaria.png">
+            
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/post/" >
+                
+                Blogs
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/training/" >
+                
+                Training
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/categories/" >
+                
+                Categories
+              </a>
+            </li>
+            
+            <li class="">
+
+              <a href="https://www.pawangaria.com/page/about/" >
+                
+                About
+              </a>
+            </li>
+            
+
+            
+            
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+  </header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="text-center">
+
+    <h1>Limit certain Test Iterations in TestNG @DataProvider
+</h1>
+
+    <div class="metas">
+<small>
+  <i class="fa fa-calendar"></i>
+  <time datetime="2020-09-17">17 Sep, 2020</time>
+</small>
+
+
+  <small>
+    &middot; by Pawan Garia
+  
+  &middot; Read in about 4 min
+  &middot; (837 words)
+  &middot; 
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f&amp;title=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  </small>
+
+<div class="margin-10">
+  <i class="fa fa-tags"></i>
+  
+  <a href="https://www.pawangaria.com/tags/test-automation" class="label label-primary">Test Automation</a>
+  
+  <a href="https://www.pawangaria.com/tags/testng" class="label label-primary">TestNG</a>
+  
+  <a href="https://www.pawangaria.com/tags/dataprovider" class="label label-primary">DataProvider</a>
+  
+
+
+</div>
+
+<br>
+</div>
+
+  </div>
+</div>
+
+      <div class="content">
+  <p>Recently while working on one of the projects we were required to limit the number of data set provided from the TestNG DataProvider and Run for example only the first 10 Testcases and skip all others to quick run the @Test. As we are using the TestNG @DataProvider to send the Test Data and the count of the Test Data set provided from the Data Provider is generally more than 100.</p>
+<p>So I decided to write down the solution I have created to Limit the Test Data Set passed from the @DataProvider without changing much in the current TestCase and implementation. This solution can be utilized and customized for any of the cases and it&rsquo;s more of the logic to limit the DataProvider array.</p>
+<h3 id="what-we-know-from-testng-about-the-dataproviders">What we know from TestNG about the @DataProviders?</h3>
+<ul>
+<li>The number of tests is the number of rows returned by the @DataProvider method.</li>
+<li>@DataProvider method is returning a 2-dimensional array.</li>
+<li>The solution is then to return the correct number of test cases from the method annotated by @DataProvider.</li>
+<li>Number of test cases should be passed from the @Test Method.</li>
+</ul>
+<h2 id="how-to-pass-the-expected-no-of-test-count-from-test">How to pass the expected No of Test count from @Test</h2>
+<p>So the first question is like how can we pass the count of Testcases or how can the Test method inform the DataProvider like how many Testcases it should return dynamically or return all the test cases.</p>
+<p>We can achieve this case using the custom Java Annotation which can be used in the @Test and Pass the Start Index and End Index.</p>
+<h3 id="custom-annotation">Custom annotation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.annotation.Retention<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.annotation.RetentionPolicy<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> IndexAnnotation <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">startIndex</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> 0<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">endIndex</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> 0<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="dataprovider">DataProvider</h3>
+<p>Now the next step is to show how to read the Annotation which we have just created above in the Data Provider and create the Array based on the values provided from the Test or If the annotation is not present in the Test just pass the complete DataProvider object.</p>
+<p>So the Data Provider method would look like below which reads the @Annotation and then creates the Object Array at run time for the @test and Return.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.testng.ITestContext<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.ITestNGMethod<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.testng.annotations.DataProvider<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.lang.reflect.Method<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReadAutoData</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@DataProvider</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getData&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> Object<span style="color:#f92672">[][]</span> <span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span>Method currentTestMethod<span style="color:#f92672">,</span> ITestContext context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Object<span style="color:#f92672">[][]</span> arrayObject <span style="color:#f92672">=</span> getTestData<span style="color:#f92672">();</span>
+        ITestNGMethod<span style="color:#f92672">[]</span> iTestNGMethods <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllTestMethods</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ITestNGMethod iTestNGMethod <span style="color:#f92672">:</span> iTestNGMethods<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Method method <span style="color:#f92672">=</span> iTestNGMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">getConstructorOrMethod</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>method<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>currentTestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>method<span style="color:#f92672">.</span><span style="color:#a6e22e">isAnnotationPresent</span><span style="color:#f92672">(</span>IndexAnnotation<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                    IndexAnnotation indexes <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>IndexAnnotation<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Creating the DataProvider between Start Index: &#34;</span> <span style="color:#f92672">+</span> indexes<span style="color:#f92672">.</span><span style="color:#a6e22e">startIndex</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; End Index: &#34;</span> <span style="color:#f92672">+</span> indexes<span style="color:#f92672">.</span><span style="color:#a6e22e">endIndex</span><span style="color:#f92672">());</span>
+                    <span style="color:#66d9ef">return</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">util</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Arrays</span><span style="color:#f92672">.</span><span style="color:#a6e22e">copyOfRange</span><span style="color:#f92672">(</span>arrayObject<span style="color:#f92672">,</span> indexes<span style="color:#f92672">.</span><span style="color:#a6e22e">startIndex</span><span style="color:#f92672">(),</span> indexes<span style="color:#f92672">.</span><span style="color:#a6e22e">endIndex</span><span style="color:#f92672">());</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> arrayObject<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * Get the By Default Data for the Data Provider.
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> Object<span style="color:#f92672">[][]</span> <span style="color:#a6e22e">getTestData</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[][]{</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password1&#34;</span><span style="color:#f92672">},</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user2&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password2&#34;</span><span style="color:#f92672">},</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user3&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password3&#34;</span><span style="color:#f92672">},</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user4&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password4&#34;</span><span style="color:#f92672">},</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user5&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password5&#34;</span><span style="color:#f92672">},</span>
+                <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;user6&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;password6&#34;</span><span style="color:#f92672">}};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="test">Test</h3>
+<p>So the Last thing is how we can create the Test and how we can fir everything we have created above in the Test class. Following is an example of the Tests where we are using different Start and End Indexes and One Test which use all the Testcases passed from the Data provider.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#f92672">import</span> org.testng.annotations.Test<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestDataProvider</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getData&#34;</span><span style="color:#f92672">,</span> dataProviderClass <span style="color:#f92672">=</span> ReadAutoData<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">normalTest</span><span style="color:#f92672">(</span>String userName<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running Normal Test for &#34;</span> <span style="color:#f92672">+</span> userName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@IndexAnnotation</span><span style="color:#f92672">(</span>startIndex <span style="color:#f92672">=</span> 0<span style="color:#f92672">,</span> endIndex <span style="color:#f92672">=</span> 4<span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getData&#34;</span><span style="color:#f92672">,</span> dataProviderClass <span style="color:#f92672">=</span> ReadAutoData<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withCustomIndex</span><span style="color:#f92672">(</span>String userName<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running Custom Test [0 -&gt; 4 ] for &#34;</span> <span style="color:#f92672">+</span> userName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@IndexAnnotation</span><span style="color:#f92672">(</span>startIndex <span style="color:#f92672">=</span> 0<span style="color:#f92672">,</span> endIndex <span style="color:#f92672">=</span> 2<span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span>dataProvider <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getData&#34;</span><span style="color:#f92672">,</span> dataProviderClass <span style="color:#f92672">=</span> ReadAutoData<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withCustomIndex2</span><span style="color:#f92672">(</span>String userName<span style="color:#f92672">,</span> String password<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running Custom Test [0 -&gt; 2 ] for &#34;</span> <span style="color:#f92672">+</span> userName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; and &#34;</span> <span style="color:#f92672">+</span> password<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="result">Result</h3>
+<p>If you run the above Test class you will see the output like below which shows that the @Test is running for only the limited Test Data passed from the Test using the Start and End Index and One Test ran for all the TestData provided from the @DataProvider.</p>
+<pre><code>Running Normal Test for user1 and password1
+
+Running Normal Test for user2 and password2
+
+Running Normal Test for user3 and password3
+
+Running Normal Test for user4 and password4
+
+Running Normal Test for user5 and password5
+
+Running Normal Test for user6 and password6
+
+Creating the DataProvider between Start Index: 0 End Index: 4
+
+Running Custom Test [0 -&gt; 4 ] for user1 and password1
+
+Running Custom Test [0 -&gt; 4 ] for user2 and password2
+
+Running Custom Test [0 -&gt; 4 ] for user3 and password3
+
+Running Custom Test [0 -&gt; 4 ] for user4 and password4
+
+Creating the DataProvider between Start Index: 0 End Index: 2
+
+Running Custom Test [0 -&gt; 2 ] for user1 and password1
+
+Running Custom Test [0 -&gt; 2 ] for user2 and password2
+
+===============================================
+Default Suite
+Total tests run: 12, Passes: 12, Failures: 0, Skips: 0
+===============================================
+</code></pre><p>You can find the complete solution as a Gradle Java Project in the following GitHub Location <a href="https://github.com/pgaria/CustomDataProviderExample">here</a>.</p>
+
+</div>
+
+
+      <footer>
+  
+<span class="share-box">Share this on:
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook-official "></i></a>
+
+    <a href="https://twitter.com/intent/tweet?text=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
+
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-google-plus"></i></a>
+
+    <a href="http://www.reddit.com/submit?url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-reddit"></i></a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f&amp;title=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin"></i></a>
+
+    <a href="mailto:?subject=Limit%20certain%20Test%20Iterations%20in%20TestNG%20%40DataProvider&amp;body=Check out this site https%3a%2f%2fwww.pawangaria.com%2fpost%2ftestng%2flimit-certain-test-iterations-in-testng-dataprovider%2f" data-proofer-ignore=""><i class="fa fa-envelope"></i></a>
+  </span>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+<div class="content">
+ <h3>Must Read Right Now:</h3>
+<ul>
+ <li>
+  <a href="https://www.pawangaria.com/post/automation/selenium-webdriver-architecture-using-json-wire-protocol/">
+  Understanding the Architecture of Selenium WebDriver</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-selenium-webdriver-api-commands-work/">
+  How Selenium-WebDriver API commands work?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/what-is-remotewebdriver-in-seleniumwebdriver/">
+  What is RemoteWebDriver in Selenium WebDriver?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/automation/how-chromedriver-works-in-background/">
+  How ChromeDriver works in the background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/testng/how-testng-works-in-background/">
+  How TestNG works in the Background?</a></li>
+  <li>
+  <a href="https://www.pawangaria.com/post/docker/selenium-webdriver-grid-with-docker/">
+  Setup Selenium WebDriver Grid with Docker</a></li>
+ </ul>
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      
+  
+    <nav><ul class="pager">
+    
+        <li class="previous">
+          <a href="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/" title="Retrying unreliable logic in java using Retry4j Library">
+            <span aria-hidden="true">&larr;</span>Previous
+          </a>
+        </li>
+    
+
+    
+    </ul> </nav>
+  
+
+
+</div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost")
+      return;
+
+    var dsq = document.createElement('script'); dsq.async = true; dsq.type = 'text/javascript';
+    dsq.src = '//www-pawangaria-com.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</div>
+
+</footer>
+
+    </div>
+    
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div>
+  
+
+    <div class="section">
+          <header><div class="title"><i class="fa fa-th-list" aria-hidden="true"></i> <b>Latest Posts</b></div></header>
+          <div class="content">
+            <ul>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/limit-certain-test-iterations-in-testng-dataprovider/">Limit certain Test Iterations in TestNG @DataProvider</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/">Retrying unreliable logic in java using Retry4j Library</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/integrate-automated-testng-test-with-dataprovider-results-in-testrail/">Integrate Automated TestNG @Test with @DataProvider Results in TestRail</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/api/write-restassured-request-and-response-to-log-file/">Write REST Assured request and response to the log file</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/git/changing-last-commit-in-git/">Git: Changing Last Commit Using --amend.</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/java/object-oriented-programming-concepts/">Object Oriented Programming Principles and Concepts Explained!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/automation/page-object-model-with-selenium/">Page Object Model- With Selenium WebDriver</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/testng/remove-retried-test-from-testng-report/">Remove Retried Failed Test from TestNG Report!</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/what-is-docker-container/">What is Docker Container ?</a>
+              </li>
+            
+              <li>
+              <a href="https://www.pawangaria.com/post/docker/selenoid-as-alternative-selenium-grid-with-docker/">Scalable Selenoid Grid as an alternative for Selenium Grid</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-folder" aria-hidden="true"></i> <b>Categories</b></div></header>
+      <div class="content">
+      <ul>
+      
+        <li><a href="https://www.pawangaria.com/categories/automation-testing">automation-testing</a><strong> (34)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/docker">docker</a><strong> (6)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/java">java</a><strong> (2)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/resources-and-guides">resources-and-guides</a><strong> (4)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/selenium-webdriver">selenium-webdriver</a><strong> (10)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/testng">testng</a><strong> (1)</strong></li>
+      
+        <li><a href="https://www.pawangaria.com/categories/tutorials">tutorials</a><strong> (20)</strong></li>
+      
+      </ul>
+      </div>
+    </div>
+
+    <div class="section taxonomies">
+      
+      
+      <header><div class="title"><i class="fa fa-tags" aria-hidden="true"></i> <b>Tags</b></div></header>
+      <div class="content">
+      <ul>
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/annotations">annotations</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/api">api</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/architecture">architecture</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/assert">assert</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/chrome">chrome</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/commit">commit</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/container">container</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dataprovider">dataprovider</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/dependencies">dependencies</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker">docker</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/docker-compose">docker-compose</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/enabled">enabled</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/expectedexception">expectedexception</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/gas-mask">gas-mask</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/git">git</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/google-firebase">google-firebase</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/hostfile">hostfile</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java">java</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/java-library">java-library</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/json-wire-protocol">json-wire-protocol</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/listeners">listeners</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/logs">logs</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/object-oriented">object-oriented</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/page-object-model">page-object-model</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parallelexecution">parallelexecution</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/parameters">parameters</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/programming">programming</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/report">report</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/rest-assured">rest-assured</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry-test">retry-test</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/retry4j">retry4j</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenium-webdriver">selenium-webdriver</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/selenoid">selenoid</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/test-automation">test-automation</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testng">testng</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/testrail">testrail</a>
+
+      
+
+          <a class="label label-primary" href="https://www.pawangaria.com/tags/web-hosting">web-hosting</a>
+
+      
+    </ul>
+    </div>
+    </div>
+
+</div>
+
+      </div>
+    
+  </div>
+</div>
+    
+<footer class="footer hidden-print">
+  <div class="container">
+    <div class="row">
+        
+        <div>
+        
+        <link href="https://www.pawangaria.com/css/style.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+         
+        </style>
+        <div id="mc_embed_signup">
+        <form action="https://pawangaria.us17.list-manage.com/subscribe/post?u=ba2af3a020a67d858742b01be&amp;id=0d977b8600" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for More Interesting Articles</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_ba2af3a020a67d858742b01be_0d977b8600" tabindex="-1" value=""></div>
+          <div class="clear">    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+        </div>
+      </div>
+        
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           
+<div>
+<div class="pull-right">
+<div>
+  <div>© 2018 PawanGaria.com - All rights reserved|<a href="https://www.pawangaria.com/page/privacy-policy/">Privacy-Policy</a></div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+<script src="https://www.pawangaria.com/js/jquery.min.js"></script>
+<script src="https://www.pawangaria.com/js/bootstrap.min.js"></script>
+
+
+<script src="https://www.pawangaria.com/js/highlight.pack.js"></script>
+<script src="https://www.pawangaria.com/js/site.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+  var _gaq=[['_setAccount','UA-110208829-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+<script>
+var ENABLE_POPOVER =  false , 
+EXPIRE_COOKIE =  5 , 
+SHOW_MODAL_TIMEOUT =  10000 , 
+MOUSE_LEAVE =  true , 
+MODAL_SIZE = "", 
+POST_URL = "https://zapier.com/hooks/catch/1227563/", 
+SIGNUP_HEADER = "Join Our Newsletter",
+HEADER_IMAGE = "//placehold.it/1000x600",
+IMG_DESCRIPTION = "Placeholder image for this popover modal optin form",
+SIGNUP_TEXT = "Signup today for free and be the first to get notified on new updates.",
+INPUT_PLACEHOLDER = "Enter your email",
+SUBMIT_BUTTON = "Subscribe",
+SUCCESS_MESSAGE = "Thanks for your subscription!",
+ERROR_MESSAGE = "Submitting form failed!",
+OPTIN =  true ,
+COOKIE_NAME = "mycookie1",
+CONTENTLANGUAGE =  null ; 
+</script>
+
+
+
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/config/TeX-AMS-MML_HTMLorMML.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    for(var all in MathJax.Hub.getAllJax()) {
+        all.SourceElement().parentNode.className += ' has-jax';
+
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
+

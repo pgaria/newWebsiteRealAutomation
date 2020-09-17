@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Retrying unreliable logic in java using Retry4j Library</title>
+      <link>https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/post/java/retrying-logic-in-java-using-retry4j-library/</guid>
+      <description>While implementing specific requirements in java, we often need to deal with unreliable codes, timeout, Unexpected exceptions, and need to retry-operations because of the asynchronous process and functionalities in the application. Like while working on one of the projects which were not very new and service-oriented application we figured out that multiple factors can make the automation test and framework unreliable resulting in the wrong results and values. So we must find a way to Retry the logic in java which can be light and highly configurable.</description>
+    </item>
     
     <item>
       <title>Integrate Automated TestNG @Test with @DataProvider Results in TestRail</title>

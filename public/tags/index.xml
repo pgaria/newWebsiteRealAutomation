@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>pawangaria@gmail.com (Pawan Garia)</managingEditor>
     <webMaster>pawangaria@gmail.com (Pawan Garia)</webMaster>
-    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.pawangaria.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,27 +15,54 @@
     <item>
       <title>DataProvider</title>
       <link>https://www.pawangaria.com/tags/dataprovider/</link>
-      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/dataprovider/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Java</title>
-      <link>https://www.pawangaria.com/tags/java/</link>
-      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Test Automation</title>
+      <link>https://www.pawangaria.com/tags/test-automation/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/java/</guid>
+      <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>testNG</title>
       <link>https://www.pawangaria.com/tags/testng/</link>
-      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/testng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://www.pawangaria.com/tags/java/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java-library</title>
+      <link>https://www.pawangaria.com/tags/java-library/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/java-library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Retry4j</title>
+      <link>https://www.pawangaria.com/tags/retry4j/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      <author>pawangaria@gmail.com (Pawan Garia)</author>
+      <guid>https://www.pawangaria.com/tags/retry4j/</guid>
       <description></description>
     </item>
     
@@ -126,15 +153,6 @@
       <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
       <author>pawangaria@gmail.com (Pawan Garia)</author>
       <guid>https://www.pawangaria.com/tags/selenium-webdriver/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test Automation</title>
-      <link>https://www.pawangaria.com/tags/test-automation/</link>
-      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
-      <author>pawangaria@gmail.com (Pawan Garia)</author>
-      <guid>https://www.pawangaria.com/tags/test-automation/</guid>
       <description></description>
     </item>
     
